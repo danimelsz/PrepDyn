@@ -9,17 +9,32 @@ Copyright (C) Daniel Y. M. Nakamura 2025
 ## Installation
 
 The two dependencies that should be installed beforehand by the user are:
-- Python v. 3.10.9 (including *argparse*, *ast*, *csv*, *importlib*, *re*, *StringIO*, *subprocess*, *sys*, *tempfile*, and *time*, which are usually part of recent versions of Python).
-- MAFFT v. 7.5.2 (or later), installed in $PATH as 'mafft'.
+- Python v. 3.10.9 (or newer), including *argparse*, *ast*, *csv*, *importlib*, *re*, *StringIO*, *subprocess*, *sys*, *tempfile*, and *time*, which are usually part of recent versions of Python).
+- MAFFT v. 7.5.2 (or newer), installed in $PATH as 'mafft'.
 
 Other dependencies are the following Python modules that will be automatically installed by prepDyn (if already installed, they will only be loaded):
-- Bio (including *AlignIO*, *Entrez*, *SeqIO*, *Align*)
+- Bio (including *AlignIO*, *Entrez*, *SeqIO*, *Align*, *Seq*, and *SeqRecord*)
 - matplotlib
 - numpy
 - termolor
 
+## Introduction
+
+
+
 ## Usage
 
-If you have questions, send a message using **GitHub issues**.
+prepDyn is organized in three Python files:
+- prepDyn_auxiliary.py: script containing all auxiliary Python functions required by the other scripts.
+- GB2MSA.py: script to download sequences from GenBank and identify internal missing data.
+- prepDyn.py: script integrating the pipeline.
+
+The following examples are designed for users with little experience on Unix. If you have questions, send a message using **GitHub issues**.
+
+### Example 1: A single alignment
+
+### Example 2: Multiple alignments
+
+### Example 3: Appending new sequences
 
 ## Citation
