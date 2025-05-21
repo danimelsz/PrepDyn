@@ -58,8 +58,10 @@ python GB2MSA.py --input_file input.csv --output_prefix output --delimiter , --w
 
 ### Example 3: Multiple alignments
 
+Suppose you have a phylogenomic dataset with hundreds of gene alignmens.
+
 ### Example 4: Appending new sequences
 
-Suppose you have newly generated sequences unavailable in GenBank. 
+Suppose you have newly generated sequences (unavailable in GenBank). 
 
 ## Citation
