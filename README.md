@@ -1,11 +1,25 @@
-# prepDyn
+# prepDyn: Preprocessing sequences for dynamic homology
 
 A collection of Python scripts to facilitate the preprocessing of input sequences to dynamic homology. 
 
-In dynamic homology, data are typically preprocessed to distinguish differences in sequence length resulting from missing data or insertion-deletion events. However, previous empirical studies using POY/PhyG manually preprocessed missing data with varying approaches. Here we demonstrate that coding missing data with dashes (–) or IUPAC Ns increase tree costs and are biologically inappropriate. Although inserting pound signs (#) around blocks of missing data has been a common solution, it reduces the severity of homology tests and precludes the discovery of the optimal tree. Therefore, missing data should be coded with question marks (?) to minimize tree costs, whereas pound signs should be inserted only on highly conserved regions. To balance time complexity and severity of homology test, we propose a heuristic to successively partition data. All procedures are implemented in a collection of Python scripts to facilitate the preprocessing of input sequences to POY/PhyG. 
+In dynamic homology, data should be preprocessed to distinguish differences in sequence length resulting from missing data or insertion-deletion events to avoid grouping from artifacts. However, previous empirical studies using POY/PhyG manually preprocessed data with varying approaches. Here we present **prepDyn**, a collection of Python scripts to facilitate the preprocessing of input sequences to POY/PhyG. The four steps are (1) data collection from GenBank, (2) trimming, (3) identification of missing data, and (4) successive partitioning.
+
+Copyright (C) Daniel Y. M. Nakamura 2025
 
 ## Installation
 
+The two dependencies that should be installed beforehand by the user are:
+- Python v. 3.10.9 (including *argparse*, *ast*, *csv*, *importlib*, *re*, *StringIO*, *subprocess*, *sys*, *tempfile*, and *time*, which are usually part of recent versions of Python).
+- MAFFT v. 7.5.2 (or later), installed in $PATH as 'mafft'.
+
+Other dependencies are the following Python modules that will be automatically installed by prepDyn (if already installed, they will only be loaded):
+- Bio (including *AlignIO*, *Entrez*, *SeqIO*, *Align*)
+- matplotlib
+- numpy
+- termolor
+
 ## Usage
+
+If you have questions, send a message using **GitHub issues**.
 
 ## Citation
