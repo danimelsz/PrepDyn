@@ -1,0 +1,31 @@
+Goal: compare tree cost and topology of data 
+(1) not preprocessed
+(2) preprocessed using pound signs flanking blocks of missing data
+(3) preprocessed using prepDyn
+
+1_notPreprocessed
+- Description: GB2MSA only, with ? replaced with - manually using bash.
+- Results:
+
+2_max
+- Description: prepDyn specifying partitioning_round="max", in which
+all blocks of missing data are flanked with #. 
+- Results:
+
+3_prepDyn0
+- Description: prepDyn with no #.
+- Results: Running...
+
+3_prepDyn1
+- Description: prepDyn with # in the 1-largest invariant contig(s)
+- Results: cost = 4748
+
+3_prepDyn2
+- Description: prepDyn with # in the 2-largest invariant contig(s)
+- Results:
+
+3_prepDyn3
+- Description: prepDyn with # in the 3-largest invariant contig(s)
+- Results:
+
+

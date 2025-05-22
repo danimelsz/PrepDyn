@@ -1,0 +1,18 @@
+--Input data
+set(seed:73412305) 
+set(outgroup:"Rhinoderma_darwinii_IZUA3504") 
+read("*fasta",tcm:(1,1))
+
+--Search
+search(hours:10, instances:3, thompson:2, linear)
+
+select(best)
+select(unique)
+
+--Output files
+report("example1.tre", newick, graphs, nohtulabels, overwrite)
+report("example1.cons", newick, graphs, nohtulabels, reconcile, method:strict, overwrite)
+transform(staticApprox)
+report("example1_ia.ss", ia, concatenate, overwrite)
+report("example1_ia.tnt", tnt, concatenate, overwrite)
+report("example1_ia.events", concatenate, overwrite)

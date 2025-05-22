@@ -1,0 +1,365 @@
+[0;92m[0;32m
+
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Phylogenetic Graph (PhyG) Version 1.2 [063862d] (3037 commits) on 2025-01-02 @ 20:15:21 UTC      │
+│                                                                                                  │
+│ © 2015 Ward Wheeler and The American Museum of Natural History                                   │
+│ The program 'phyg-linux-x86' comes with ABSOLUTELY NO WARRANTY;                                  │
+│ This is free software, and may be redistributed under the BSD 3-Clause License.                  │
+│                                                                                                  │
+│ Performs heuristic search of phylogenetic graph space via scoring abstract input data.           │
+│ For more information, see: https://github.com/AMNH/PhyG#readme                                   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘[0;0m[0;97m
+[0;37m
+Command script file: 'search.pg'
+[0;0m[0;97m[0;37mInitial random seed set to 1813611213
+[0;0m[0;96m
+[0;36m
+Checking command file syntax
+[0;0m[0;96m[0;36m	Commands appear to be properly specified--file availability and contents not checked.
+[0;0m[0;97m
+[0;37mReading 1,1 with option tcm
+[0;0m[0;97m[0;37mReading Atopophrynus_CYTB_preprocessed_questions.fasta with no options
+[0;0m[0;97m[0;37mFile Atopophrynus_CYTB_preprocessed_questions.fasta is nucleotide data.
+[0;0m[0;97m[0;37mProcessing TCM data for file : Atopophrynus_CYTB_preprocessed_questions.fasta
+[0;0m[0;97m[0;37m	Trying to parse Atopophrynus_CYTB_preprocessed_questions.fasta as fasta
+[0;0m[0;97m[0;37mEntered 1 data file(s) and 0 input graphs
+[0;0m[0;97m[0;37mRandom Seed set to 73412305
+[0;0m[0;97m[0;37mNo terminals to be renamed
+[0;0m[0;97m[0;37mData were input for 65 terminals
+[0;0m[0;97m[0;37mRecoding input block: Atopophrynus_CYTB_preprocessed_questions.fasta#0
+[0;0m[0;97m[0;37mAll taxa contain data
+[0;0m[0;97m[0;37mCharacter Blocks as input files
+[0;0m[0;97m[0;37mCharacter Blocks as input files
+[0;0m[0;97m[0;37mOutgroup set to Rhinoderma_darwinii_IZUA3504
+[0;0m[0;97m[0;37mRandom Seed set to 73412305
+[0;0m[0;97m[0;37mRandomized search for 36060 seconds with 3 instances keeping at most 10 graphs
+[0;0m[0;97m[0;37m	Generating pairwise distances for 1 character blocks
+[0;0m[0;97m[0;37m	Building 1000 Wagner tree(s)
+[0;0m[0;97m[0;37m	Building Distance Tree
+[0;0m[0;96m
+[0;36m	Distance build yielded 10 trees at cost range (4411.0,4570.0)
+
+[0;0m[0;97m
+[0;37m	Returning 10 graphs at cost range (4411.0, 4570.0)
+[0;0m[0;97m[0;37mChanging multiTraverse to False:4411.0 -> 4415.0
+[0;0m[0;97m[0;37mChanging multiTraverse to False:4411.0 -> 4415.0
+[0;0m[0;97m[0;37mChanging multiTraverse to False:4411.0 -> 4415.0
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4411.0 -> 4411.0
+[0;0m[0;97m[0;37mDrifting (Swapping) 1 rounds with 20 maximum changes per round on 1 input graph(s) at minimum cost 4411.0 keeping maximum of 1 graphs
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4411.0 -> 4411.0
+[0;0m[0;97m[0;37mDrifting (Swapping) 1 rounds with 5 maximum changes per round on 1 input graph(s) at minimum cost 4411.0 keeping maximum of 1 graphs
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4411.0 -> 4411.0
+[0;0m[0;97m[0;37mFusing 10 input graph(s) with minimum cost 4411.0 
+[0;0m[0;97m[0;37m	Fusing 10 randomized graph pairs without swapping at minimum cost 4411.0
+[0;0m[0;97m[0;37m	-> 4400.0[0;0m[0;97m[0;37m	-> 4411.0[0;0m[0;97m[0;37m	-> 4410.0[0;0m[0;97m[0;37m	-> 4423.0[0;0m[0;97m[0;37m	-> 4407.0[0;0m[0;97m[0;37m	-> 4383.0[0;0m[0;97m[0;37m	-> 4427.0[0;0m[0;97m[0;37m	-> 4404.0[0;0m[0;96m
+[0;36m	After fusing: 1 resulting graphs with minimum cost 4411.0  after fuse rounds (total):  1 
+[0;0m[0;97m
+[0;37m	-> 4400.0[0;0m[0;97m[0;37mTransforming data to dynamic: 4411.0 -> 4411.0
+[0;0m[0;93m[WARN] [0;33mThread 3 is OK 10h01min -> 36060000000
+[0;0m[0;97m[0;37m[0;0m[0;97m[0;37m[0;0m[0;96m
+[0;36mThread   	3
+Alloted  	10h01min
+Ellapsed 	2m58sec
+Remaining	9h58min
+
+
+[0;0m[0;97m
+[0;37mChanging multiTraverse to False:4411.0 -> 4415.0
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4411.0 -> 4411.0
+[0;0m[0;97m[0;37mFusing 10 input graph(s) with minimum cost 4415.0 
+[0;0m[0;97m[0;37m	Fusing 20 randomized graph pairs with SPR swapping at minimum cost 4415.0
+[0;0m[0;97m[0;37m	-> 4404.0[0;0m[0;97m[0;37m	-> 4408.0[0;0m[0;97m[0;37m	-> 4399.0[0;0m[0;97m[0;37m	-> 4401.0[0;0m[0;97m[0;37m	-> 4376.0[0;0m[0;97m[0;37m	-> 4412.0[0;0m[0;97m[0;37m	-> 4399.0[0;0m[0;97m[0;37m	-> 4373.0[0;0m[0;97m[0;37m	-> 4410.0[0;0m[0;97m[0;37m	-> 4344.0[0;0m[0;97m[0;37m	-> 4401.0[0;0m[0;97m[0;37m	-> 4408.0[0;0m[0;97m[0;37m	-> 4408.0[0;0m[0;97m[0;37m	-> 4388.0[0;0m[0;97m[0;37m	-> 4408.0[0;0m[0;97m[0;37m	-> 4337.0[0;0m[0;97m[0;37m	-> 4325.0[0;0m[0;97m[0;37m	-> 4321.0[0;0m[0;97m[0;37m	-> 4408.0[0;0m[0;97m[0;37m
+[0;0m[0;97m[0;37m	Fusing 20 randomized graph pairs with SPR swapping at minimum cost 4399.0
+[0;0m[0;97m[0;37m	-> 4307.0[0;0m[0;97m[0;37m	-> 4306.0[0;0m[0;97m[0;37m	-> 4393.0[0;0m[0;97m[0;37m	-> 4398.0[0;0m[0;97m[0;37m	-> 4389.0[0;0m[0;97m[0;37m	-> 4397.0[0;0m[0;97m[0;37m	-> 4388.0[0;0m[0;97m[0;37m	-> 4386.0[0;0m[0;97m[0;37m	-> 4393.0[0;0m[0;97m[0;37m	-> 4393.0[0;0m[0;97m[0;37m	-> 4395.0[0;0m[0;97m[0;37m	-> 4397.0[0;0m[0;97m[0;37m	-> 4395.0[0;0m[0;97m[0;37m	-> 4385.0[0;0m[0;97m[0;37m	-> 4398.0[0;0m[0;97m[0;37m	-> 4395.0[0;0m[0;97m[0;37m	-> 4398.0[0;0m[0;97m[0;37m	-> 4389.0[0;0m[0;97m[0;37m	-> 4390.0[0;0m[0;97m[0;37m	-> 4398.0[0;0m[0;97m[0;37m	-> 4391.0[0;0m[0;97m[0;37m	-> 4397.0[0;0m[0;97m[0;37m	-> 4389.0[0;0m[0;97m[0;37m	-> 4387.0[0;0m[0;97m[0;37m	-> 4380.0[0;0m[0;97m[0;37m	-> 4398.0[0;0m[0;97m[0;37m	-> 4394.0[0;0m[0;97m[0;37m	-> 4396.0[0;0m[0;97m[0;37m	-> 4397.0[0;0m[0;97m[0;37m	-> 4388.0[0;0m[0;97m[0;37m	-> 4392.0[0;0m[0;97m[0;37m	-> 4389.0[0;0m[0;97m[0;37m	-> 4395.0[0;0m[0;97m[0;37m	-> 4303.0[0;0m[0;97m[0;37m	-> 4297.0[0;0m[0;97m[0;37m	-> 4401.0[0;0m[0;97m[0;37m	-> 4394.0[0;0m[0;97m[0;37m
+[0;0m[0;97m[0;37m	Fusing 20 randomized graph pairs with SPR swapping at minimum cost 4380.0
+[0;0m[0;97m[0;37m	-> 4373.0[0;0m[0;97m[0;37m	-> 4375.0[0;0m[0;97m[0;37m	-> 4372.0[0;0m[0;97m[0;37m	-> 4377.0[0;0m[0;97m[0;37m	-> 4379.0[0;0m[0;97m[0;37m	-> 4367.0[0;0m[0;97m[0;37m	-> 4379.0[0;0m[0;97m[0;37m	-> 4375.0[0;0m[0;97m[0;37m	-> 4376.0[0;0m[0;97m[0;37m	-> 4375.0[0;0m[0;97m[0;37m	-> 4366.0[0;0m[0;97m[0;37m	-> 4372.0[0;0m[0;97m[0;37m	-> 4368.0[0;0m[0;97m[0;37m	-> 4375.0[0;0m[0;97m[0;37m	-> 4374.0[0;0m[0;97m[0;37m	-> 4378.0[0;0m[0;97m[0;37m	-> 4376.0[0;0m[0;97m[0;37m	-> 4379.0[0;0m[0;97m[0;37m	-> 4296.0[0;0m[0;97m[0;37m	-> 4377.0[0;0m[0;97m[0;37m	-> 4371.0[0;0m[0;97m[0;37m	-> 4375.0[0;0m[0;97m[0;37m	-> 4379.0[0;0m[0;97m[0;37m	-> 4375.0[0;0m[0;97m[0;37m	-> 4367.0[0;0m[0;97m[0;37m	-> 4375.0[0;0m[0;97m[0;37m	-> 4368.0[0;0m[0;97m[0;37m	-> 4379.0[0;0m[0;97m[0;37m	-> 4372.0[0;0m[0;97m[0;37m	-> 4376.0[0;0m[0;97m[0;37m	-> 4366.0[0;0m[0;97m[0;37m	-> 4375.0[0;0m[0;97m[0;37m	-> 4372.0[0;0m[0;97m[0;37m
+[0;0m[0;97m[0;37m	Fusing 20 randomized graph pairs with SPR swapping at minimum cost 4366.0
+[0;0m[0;97m[0;37m	-> 4410.0[0;0m[0;97m[0;37m	-> 4360.0[0;0m[0;97m[0;37m	-> 4360.0[0;0m[0;97m[0;37m	-> 4364.0[0;0m[0;97m[0;37m	-> 4357.0[0;0m[0;97m[0;37m	-> 4361.0[0;0m[0;97m[0;37m	-> 4365.0[0;0m[0;97m[0;37m	-> 4360.0[0;0m[0;97m[0;37m	-> 4354.0[0;0m[0;97m[0;37m	-> 4356.0[0;0m[0;97m[0;37m	-> 4355.0[0;0m[0;97m[0;37m	-> 4364.0[0;0m[0;97m[0;37m	-> 4408.0[0;0m[0;97m[0;37m	-> 4287.0[0;0m[0;97m[0;37m
+[0;0m[0;97m[0;37m	Fusing 20 randomized graph pairs with SPR swapping at minimum cost 4354.0
+[0;0m[0;97m[0;37m	-> 4286.0[0;0m[0;97m[0;37m	-> 4402.0[0;0m[0;97m[0;37m	-> 4284.0[0;0m[0;97m[0;37m	-> 4278.0[0;0m[0;97m[0;37m	-> 4390.0[0;0m[0;97m[0;37m	-> 4268.0[0;0m[0;97m[0;37m	-> 4344.0[0;0m[0;97m[0;37m	-> 4346.0[0;0m[0;97m[0;37m	-> 4353.0[0;0m[0;97m[0;37m	-> 4345.0[0;0m[0;97m[0;37m	-> 4350.0[0;0m[0;97m[0;37m	-> 4353.0[0;0m[0;97m[0;37m	-> 4346.0[0;0m[0;97m[0;37m	-> 4350.0[0;0m[0;97m[0;37m	-> 4348.0[0;0m[0;97m[0;37m	-> 4344.0[0;0m[0;97m[0;37m	-> 4352.0[0;0m[0;97m[0;37m	-> 4345.0[0;0m[0;97m[0;37m	-> 4266.0[0;0m[0;97m[0;37m
+[0;0m[0;97m[0;37m	Fusing 20 randomized graph pairs with SPR swapping at minimum cost 4344.0
+[0;0m[0;97m[0;37m	-> 4404.0[0;0m[0;97m[0;37m	-> 4262.0[0;0m[0;97m[0;37m	-> 4260.0[0;0m[0;97m[0;37m	-> 4256.0[0;0m[0;96m
+[0;36m	After fusing: 1 resulting graphs with minimum cost 4344.0  after fuse rounds (total):  6 
+[0;0m[0;97m
+[0;37mChanging multiTraverse to True:4344.0 -> 4334.0
+[0;0m[0;97m[0;37mTransforming data to dynamic: 4344.0 -> 4344.0
+[0;0m[0;93m
+[WARN] [0;33mThread 3 is OK 9h58min -> 35882000000
+[0;0m[0;97m[0;37m[0;0m[0;97m[0;37m[0;0m[0;96m
+[0;36mThread   	3
+Alloted  	9h58min
+Ellapsed 	22m50sec
+Remaining	9h35min
+
+
+[0;0m[0;97m
+[0;37mChanging multiTraverse to False:4334.0 -> 4344.0
+[0;0m[0;97m[0;37m	-> 4252.0[0;0m[0;97m[0;37mTransforming data to staticApprox: 4334.0 -> 4334.0
+[0;0m[0;97m[0;37mFusing 10 input graph(s) with minimum cost 4344.0 
+[0;0m[0;97m[0;37m	Fusing 10 randomized graph pairs with SPR swapping at minimum cost 4344.0
+[0;0m[0;97m[0;37m	-> 4406.0[0;0m[0;97m[0;37m	-> 4245.0[0;0m[0;96m
+[0;36m	After fusing: 1 resulting graphs with minimum cost 4344.0  after fuse rounds (total):  1 
+[0;0m[0;97m
+[0;37mChanging multiTraverse to True:4344.0 -> 4334.0
+[0;0m[0;97m[0;37mTransforming data to dynamic: 4344.0 -> 4344.0
+[0;0m[0;93m
+[WARN] [0;33mThread 3 is OK 9h35min -> 34512000000
+[0;0m[0;97m[0;37m[0;0m[0;97m[0;37m[0;0m[0;96m
+[0;36mThread   	3
+Alloted  	9h35min
+Ellapsed 	2m02sec
+Remaining	9h33min
+
+
+[0;0m[0;97m
+[0;37mChanging multiTraverse to False:4334.0 -> 4344.0
+[0;0m[0;97m[0;37m	-> 4244.0[0;0m[0;97m[0;37mTransforming data to staticApprox: 4334.0 -> 4334.0
+[0;0m[0;97m[0;37mFusing 10 input graph(s) with minimum cost 4344.0 
+[0;0m[0;97m[0;37m	Fusing 5 randomized graph pairs with SPR swapping at minimum cost 4344.0
+[0;0m[0;97m[0;37m	-> 4230.0[0;0m[0;96m
+[0;36m	After fusing: 1 resulting graphs with minimum cost 4344.0  after fuse rounds (total):  1 
+[0;0m[0;97m
+[0;37mChanging multiTraverse to True:4344.0 -> 4334.0
+[0;0m[0;97m[0;37mTransforming data to dynamic: 4344.0 -> 4344.0
+[0;0m[0;93m
+[WARN] [0;33mThread 3 is OK 9h33min -> 34390000000
+[0;0m[0;97m[0;37m[0;0m[0;97m[0;37m[0;0m[0;96m
+[0;36mThread   	3
+Alloted  	9h33min
+Ellapsed 	1m18sec
+Remaining	9h31min
+
+
+[0;0m[0;97m
+[0;37mChanging multiTraverse to False:4334.0 -> 4344.0
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4334.0 -> 4334.0
+[0;0m[0;97m[0;37mDrifting (Swapping) 1 rounds with 20 maximum changes per round on 1 input graph(s) at minimum cost 4334.0 keeping maximum of 1 graphs
+[0;0m[0;97m[0;37m	-> 4224.0[0;0m[0;97m[0;37m	-> 4409.0[0;0m[0;97m[0;37m	-> 4399.0[0;0m[0;97m[0;37m	-> 4222.0[0;0m[0;97m[0;37m	-> 4220.0[0;0m[0;97m[0;37m	-> 4332.0[0;0m[0;97m[0;37m	-> 4210.0[0;0m[0;97m[0;37m	-> 4209.0[0;0m[0;97m[0;37m	-> 4406.0[0;0m[0;97m[0;37m	-> 4404.0[0;0m[0;97m[0;37m	-> 4408.0[0;0m[0;97m[0;37m	-> 4406.0[0;0m[0;97m[0;37m	-> 4208.0[0;0m[0;97m[0;37m	-> 4344.0[0;0m[0;97m[0;37m	-> 4387.0[0;0m[0;97m[0;37m	-> 4374.0[0;0m[0;97m[0;37m	-> 4331.0[0;0m[0;97m[0;37m	-> 4373.0[0;0m[0;97m[0;37m	-> 4199.0[0;0m[0;97m[0;37m	-> 4363.0[0;0m[0;97m[0;37m	-> 4356.0[0;0m[0;97m[0;37m	-> 4198.0[0;0m[0;97m[0;37m	-> 4331.0[0;0m[0;97m[0;37m	-> 4338.0[0;0m[0;97m[0;37m	-> 4355.0[0;0m[0;97m[0;37m	-> 4324.0[0;0m[0;97m[0;37m	-> 4340.0[0;0m[0;97m[0;37m	-> 4363.0[0;0m[0;97m[0;37m	-> 4343.0[0;0m[0;97m[0;37m	-> 4336.0[0;0m[0;97m[0;37m	-> 4334.0[0;0m[0;97m[0;37m	-> 4328.0[0;0m[0;97m[0;37m	-> 4326.0[0;0m[0;97m[0;37m	-> 4324.0[0;0m[0;97m[0;37m	-> 4197.0[0;0m[0;97m[0;37m	-> 4316.0[0;0m[0;97m[0;37m	-> 4312.0[0;0m[0;97m[0;37m	-> 4196.0[0;0m[0;97m[0;37m	-> 4305.0[0;0m[0;97m[0;37m	-> 4332.0[0;0m[0;97m[0;37m	-> 4297.0[0;0m[0;97m[0;37m	-> 4290.0[0;0m[0;97m[0;37m	-> 4331.0[0;0m[0;97m[0;37m	-> 4288.0[0;0m[0;97m[0;37m	-> 4286.0[0;0m[0;97m[0;37m	-> 4188.0[0;0m[0;97m[0;37m	-> 4350.0[0;0m[0;97m[0;37m	-> 4279.0[0;0m[0;97m[0;37m	-> 4185.0[0;0m[0;97m[0;37m	-> 4327.0[0;0m[0;97m[0;37m	-> 4262.0[0;0m[0;97m[0;37m	-> 4240.0[0;0m[0;97m[0;37m	-> 4175.0[0;0m[0;97m[0;37m	-> 4336.0[0;0m[0;97m[0;37m	-> 4330.0[0;0m[0;97m[0;37m	-> 4238.0[0;0m[0;97m[0;37m	-> 4329.0[0;0m[0;97m[0;37m	-> 4172.0[0;0m[0;97m[0;37m	-> 4237.0[0;0m[0;97m[0;37m	-> 4332.0[0;0m[0;97m[0;37m	-> 4163.0[0;0m[0;97m[0;37m	-> 4229.0[0;0m[0;97m[0;37m	-> 4226.0[0;0m[0;97m[0;37m	-> 4157.0[0;0m[0;97m[0;37m	-> 4225.0[0;0m[0;97m[0;37m	-> 4223.0[0;0m[0;97m[0;37m	-> 4355.0[0;0m[0;97m[0;37m	-> 4222.0[0;0m[0;97m[0;37m	-> 4154.0[0;0m[0;97m[0;37m	-> 4326.0[0;0m[0;97m[0;37m	-> 4152.0[0;0m[0;97m[0;37m	-> 4217.0[0;0m[0;97m[0;37m	-> 4340.0[0;0m[0;97m[0;37m	-> 4332.0[0;0m[0;97m[0;37m	-> 4148.0[0;0m[0;97m[0;37m	-> 4331.0[0;0m[0;97m[0;37m	-> 4328.0[0;0m[0;97m[0;37m	-> 4146.0[0;0m[0;97m[0;37m	-> 4321.0[0;0m[0;97m[0;37m	-> 4316.0[0;0m[0;97m[0;37m	-> 4216.0[0;0m[0;97m[0;37m	-> 4314.0[0;0m[0;97m[0;37m	-> 4144.0[0;0m[0;97m[0;37m	-> 4142.0[0;0m[0;97m[0;37m	-> 4307.0[0;0m[0;97m[0;37m	-> 4299.0[0;0m[0;97m[0;37m	-> 4295.0[0;0m[0;97m[0;37m	-> 4141.0[0;0m[0;97m[0;37m	-> 4140.0[0;0m[0;97m[0;37m	-> 4209.0[0;0m[0;97m[0;37m	-> 4133.0[0;0m[0;97m[0;37m	-> 4287.0[0;0m[0;97m[0;37m	-> 4129.0[0;0m[0;97m[0;37m	-> 4286.0[0;0m[0;97m[0;37m	-> 4283.0[0;0m[0;97m[0;37m	-> 4128.0[0;0m[0;97m[0;37m	-> 4279.0[0;0m[0;97m[0;37m	-> 4123.0[0;0m[0;97m[0;37m	-> 4276.0[0;0m[0;97m[0;37m	-> 4272.0[0;0m[0;97m[0;37m	-> 4270.0[0;0m[0;97m[0;37m	-> 4268.0[0;0m[0;97m[0;37m	-> 4204.0[0;0m[0;97m[0;37m	-> 4201.0[0;0m[0;97m[0;37m	-> 4266.0[0;0m[0;97m[0;37m	-> 4121.0[0;0m[0;97m[0;37m	-> 4265.0[0;0m[0;97m[0;37m	-> 4262.0[0;0m[0;97m[0;37m	-> 4258.0[0;0m[0;97m[0;37m	-> 4199.0[0;0m[0;97m[0;37m	-> 4253.0[0;0m[0;97m[0;37m	-> 4194.0[0;0m[0;97m[0;37m	-> 4252.0[0;0m[0;97m[0;37m	-> 4192.0[0;0m[0;97m[0;37m	-> 4191.0[0;0m[0;97m[0;37m	-> 4247.0[0;0m[0;97m[0;37m	-> 4244.0[0;0m[0;97m[0;37m	-> 4190.0[0;0m[0;97m[0;37m	-> 4189.0[0;0m[0;97m[0;37m	-> 4112.0[0;0m[0;97m[0;37m	-> 4241.0[0;0m[0;97m[0;37m	-> 4188.0[0;0m[0;97m[0;37m	-> 4239.0[0;0m[0;97m[0;37m	-> 4231.0[0;0m[0;97m[0;37m	-> 4186.0[0;0m[0;97m[0;37m	-> 4230.0[0;0m[0;97m[0;37m	-> 4184.0[0;0m[0;97m[0;37m	-> 4181.0[0;0m[0;97m[0;37m	-> 4108.0[0;0m[0;97m[0;37m	-> 4180.0[0;0m[0;97m[0;37m	-> 4221.0[0;0m[0;97m[0;37m	-> 4220.0[0;0m[0;97m[0;37m	-> 4218.0[0;0m[0;97m[0;37m	-> 4216.0[0;0m[0;97m[0;37m	-> 4214.0[0;0m[0;97m[0;37m	-> 4179.0[0;0m[0;97m[0;37m	-> 4213.0[0;0m[0;97m[0;37m	-> 4178.0[0;0m[0;97m[0;37m	-> 4107.0[0;0m[0;97m[0;37m	-> 4196.0[0;0m[0;97m[0;37m	-> 4195.0[0;0m[0;97m[0;37m	-> 4192.0[0;0m[0;97m[0;37m	-> 4175.0[0;0m[0;97m[0;37m	-> 4187.0[0;0m[0;97m[0;37m	-> 4182.0[0;0m[0;97m[0;37m	-> 4174.0[0;0m[0;97m[0;37m	-> 4172.0[0;0m[0;97m[0;37m	-> 4170.0[0;0m[0;97m[0;37m	-> 4105.0[0;0m[0;97m[0;37m	-> 4169.0[0;0m[0;97m[0;37m	-> 4168.0[0;0m[0;97m[0;37m	-> 4167.0[0;0m[0;97m[0;37m	-> 4163.0[0;0m[0;97m[0;37m	-> 4160.0[0;0m[0;97m[0;37m	-> 4100.0[0;0m[0;97m[0;37m	-> 4171.0[0;0m[0;97m[0;37m	-> 4155.0[0;0m[0;97m[0;37m	-> 4153.0[0;0m[0;97m[0;37m	-> 4149.0[0;0m[0;97m[0;37m	-> 4148.0[0;0m[0;97m[0;37m	-> 4147.0[0;0m[0;97m[0;37m	-> 4099.0[0;0m[0;97m[0;37m	-> 4145.0[0;0m[0;97m[0;37m	-> 4144.0[0;0m[0;97m[0;37m	-> 4143.0[0;0m[0;97m[0;37m	-> 4167.0[0;0m[0;97m[0;37m	-> 4139.0[0;0m[0;97m[0;37m	-> 4137.0[0;0m[0;97m[0;37m	-> 4133.0[0;0m[0;97m[0;37m	-> 4097.0[0;0m[0;97m[0;37m	-> 4132.0[0;0m[0;97m[0;37m	-> 4128.0[0;0m[0;97m[0;37m	-> 4124.0[0;0m[0;97m[0;37m	-> 4123.0[0;0m[0;97m[0;37m	-> 4096.0[0;0m[0;97m[0;37m	-> 4122.0[0;0m[0;97m[0;37m	-> 4117.0[0;0m[0;97m[0;37m	-> 4109.0[0;0m[0;97m[0;37m	-> 4105.0[0;0m[0;97m[0;37m	-> 4104.0[0;0m[0;97m[0;37m	-> 4095.0[0;0m[0;97m[0;37m	-> 4084.0[0;0m[0;97m[0;37m	-> 4102.0[0;0m[0;97m[0;37m	-> 4101.0[0;0m[0;97m[0;37m
+	After Drifting: 1 resulting graphs with minimum cost 4167.0 with swap rounds (total): 52 Alternate
+	Warning--Swap returned as many minimum cost graphs as the 'keep' number.  
+	This may have limited the effectiveness of the swap. 
+	Consider increasing the 'keep' value or adding an additional swap.
+[0;0m[0;97m[0;37mTransforming data to dynamic: 4167.0 -> 4167.0
+[0;0m[0;93m
+[WARN] [0;33mThread 1 is OK 10h01min -> 36060000000
+[0;0m[0;97m[0;37m[0;0m[0;97m[0;37m[0;0m[0;96m
+[0;36mThread   	1
+Alloted  	10h01min
+Ellapsed 	4h34min
+Remaining	5h26min
+
+
+[0;0m[0;97m
+[0;37mChanging multiTraverse to False:4167.0 -> 4181.0
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4167.0 -> 4167.0
+[0;0m[0;97m[0;37mDrifting (Swapping) 1 rounds with 5 maximum changes per round on 1 input graph(s) at minimum cost 4167.0 keeping maximum of 1 graphs
+[0;0m[0;97m[0;37m	-> 4083.0[0;0m[0;97m[0;37m	-> 4168.0[0;0m[0;97m[0;37m	-> 4098.0[0;0m[0;97m[0;37m	-> 4096.0[0;0m[0;97m[0;37m	-> 4167.0[0;0m[0;97m[0;37m	-> 4081.0[0;0m[0;97m[0;37m	-> 4095.0[0;0m[0;97m[0;37m	-> 4167.0[0;0m[0;97m[0;37m	-> 4167.0[0;0m[0;97m[0;37m
+	After Drifting: 1 resulting graphs with minimum cost 4081.0 with swap rounds (total): 68 Alternate
+	Warning--Swap returned as many minimum cost graphs as the 'keep' number.  
+	This may have limited the effectiveness of the swap. 
+	Consider increasing the 'keep' value or adding an additional swap.
+[0;0m[0;97m[0;37mTransforming data to dynamic: 4081.0 -> 4081.0
+[0;0m[0;93m
+[WARN] [0;33mThread 2 is OK 10h01min -> 36060000000
+[0;0m[0;97m[0;37m[0;0m[0;97m[0;37m[0;0m[0;96m
+[0;36mThread   	2
+Alloted  	10h01min
+Ellapsed 	6h02min
+Remaining	3h58min
+
+
+[0;0m[0;97m
+[0;37mChanging multiTraverse to False:4081.0 -> 4087.0
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4081.0 -> 4081.0
+[0;0m[0;97m[0;37mDrifting (Swapping) 1 rounds with 20 maximum changes per round on 1 input graph(s) at minimum cost 4081.0 keeping maximum of 4 graphs
+[0;0m[0;97m[0;37m	-> 4081.0[0;0m[0;97m[0;37m
+	After Drifting: 1 resulting graphs with minimum cost 4095.0 with swap rounds (total): 74 Alternate
+	Warning--Swap returned as many minimum cost graphs as the 'keep' number.  
+	This may have limited the effectiveness of the swap. 
+	Consider increasing the 'keep' value or adding an additional swap.
+[0;0m[0;97m[0;37mTransforming data to dynamic: 4095.0 -> 4095.0
+[0;0m[0;93m
+[WARN] [0;33mThread 3 is OK 9h31min -> 34312000000
+[0;0m[0;97m[0;37m[0;0m[0;97m[0;37m[0;0m[0;96m
+[0;36mThread   	3
+Alloted  	9h31min
+Ellapsed 	5h44min
+Remaining	3h47min
+
+
+[0;0m[0;97m
+[0;37mChanging multiTraverse to False:4095.0 -> 4097.0
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4095.0 -> 4095.0
+[0;0m[0;97m[0;37mDrifting (Swapping) 1 rounds with 10 maximum changes per round on 1 input graph(s) at minimum cost 4095.0 keeping maximum of 4 graphs
+[0;0m[0;97m[0;37m	-> 4104.0[0;0m[0;97m[0;37m	-> 4081.0[0;0m[0;97m[0;37m	-> 4100.0[0;0m[0;97m[0;37m	-> 4110.0[0;0m[0;97m[0;37m	-> 4095.0[0;0m[0;97m[0;37m	-> 4123.0[0;0m[0;97m[0;37m
+	After Drifting: 1 resulting graphs with minimum cost 4167.0 with swap rounds (total): 2 Alternate
+	Warning--Swap returned as many minimum cost graphs as the 'keep' number.  
+	This may have limited the effectiveness of the swap. 
+	Consider increasing the 'keep' value or adding an additional swap.
+[0;0m[0;97m[0;37mTransforming data to dynamic: 4167.0 -> 4167.0
+[0;0m[0;93m
+[WARN] [0;33mThread 1 is OK 5h26min -> 19619000000
+[0;0m[0;97m[0;37m[0;0m[0;97m[0;37m[0;0m[0;96m
+[0;36mThread   	1
+Alloted  	5h26min
+Ellapsed 	2h01min
+Remaining	3h25min
+
+
+[0;0m[0;97m
+[0;37mChanging multiTraverse to False:4167.0 -> 4181.0
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4167.0 -> 4167.0
+[0;0m[0;97m[0;37mSwapping 1 input graph(s) with 1 trajectories at minimum cost 4167.0 keeping maximum of 1 graphs per input graph
+[0;0m[0;97m[0;37m	-> 4124.0[0;0m[0;97m[0;37m	-> 4114.0[0;0m[0;97m[0;37m	-> 4108.0[0;0m[0;97m[0;37m	-> 4081.0[0;0m[0;97m[0;37m	-> 4117.0[0;0m[0;97m[0;37m	-> 4113.0[0;0m[0;97m[0;37m	-> 4111.0[0;0m[0;97m[0;37m	-> 4109.0[0;0m[0;97m[0;37m
+	After swap: 1 resulting graphs with minimum cost 4167.0 with swap rounds (total): 1 Alternate
+	Warning--Swap returned as many minimum cost graphs as the 'keep' number.  
+	This may have limited the effectiveness of the swap. 
+	Consider increasing the 'keep' value or adding an additional swap.
+[0;0m[0;97m[0;37mTransforming data to dynamic: 4167.0 -> 4167.0
+[0;0m[0;93m
+[WARN] [0;33mThread 1 is OK 3h25min -> 12336000000
+[0;0m[0;97m[0;37m[0;0m[0;97m[0;37m[0;0m[0;96m
+[0;36mThread   	1
+Alloted  	3h25min
+Ellapsed 	1h04min
+Remaining	2h20min
+
+
+[0;0m[0;97m
+[0;37mChanging multiTraverse to False:4167.0 -> 4181.0
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4167.0 -> 4167.0
+[0;0m[0;97m[0;37mSimulated Annealing (Swapping) 1 rounds with 10 cooling steps 1 input graph(s) at minimum cost 4181.0 keeping maximum of 1 graphs
+[0;0m[0;97m[0;37m	-> 4181.0[0;0m[0;97m[0;37m	-> 4199.0[0;0m[0;97m[0;37m	-> 4181.0[0;0m[0;97m[0;37m	-> 4187.0[0;0m[0;97m[0;37m	-> 4181.0[0;0m[0;97m[0;37m	-> 4181.0[0;0m[0;97m[0;37m	-> 4181.0[0;0m[0;97m[0;37m	-> 4181.0[0;0m[0;97m[0;37m	-> 4179.0[0;0m[0;97m[0;37m	-> 4177.0[0;0m[0;97m[0;37m	-> 4105.0[0;0m[0;97m[0;37m	-> 4104.0[0;0m[0;97m[0;37m	-> 4162.0[0;0m[0;97m[0;37m
+	After Drifting: 1 resulting graphs with minimum cost 4081.0 with swap rounds (total): 3 Alternate
+[0;0m[0;97m[0;37mTransforming data to dynamic: 4081.0 -> 4081.0
+[0;0m[0;93m
+[WARN] [0;33mThread 2 is OK 3h58min -> 14326000000
+[0;0m[0;97m[0;37m[0;0m[0;97m[0;37m[0;0m[0;96m
+[0;36mThread   	2
+Alloted  	3h58min
+Ellapsed 	2h05min
+Remaining	1h53min
+
+
+[0;0m[0;97m
+[0;37mChanging multiTraverse to False:4081.0 -> 4087.0
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4081.0 -> 4081.0
+[0;0m[0;97m[0;37mFusing 10 input graph(s) with minimum cost 4081.0 
+[0;0m[0;97m[0;37m	Fusing 10 randomized graph pairs without swapping at minimum cost 4081.0
+[0;0m[0;97m[0;37m
+	After Simulated Annealing: 1 resulting graphs with minimum cost 4162.0 with swap rounds (total): 5 SPR
+	Warning--Swap returned as many minimum cost graphs as the 'keep' number.  
+	This may have limited the effectiveness of the swap. 
+	Consider increasing the 'keep' value or adding an additional swap.
+[0;0m[0;97m[0;37mChanging multiTraverse to True:4162.0 -> 4155.0
+[0;0m[0;97m[0;37mTransforming data to dynamic: 4162.0 -> 4162.0
+[0;0m[0;93m
+[WARN] [0;33mThread 1 is OK 2h20min -> 8451000000
+[0;0m[0;97m[0;37m[0;0m[0;97m[0;37m[0;0m[0;96m
+[0;36mThread   	1
+Alloted  	2h20min
+Ellapsed 	29m17sec
+Remaining	1h51min
+
+
+[0;0m[0;97m
+[0;37mChanging multiTraverse to False:4155.0 -> 4162.0
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4155.0 -> 4155.0
+[0;0m[0;97m[0;37mSimulated Annealing (Swapping) 1 rounds with 20 cooling steps 1 input graph(s) at minimum cost 4162.0 keeping maximum of 2 graphs
+[0;0m[0;97m[0;37m	-> 4162.0[0;0m[0;97m[0;37m	-> 4191.0[0;0m[0;97m[0;37m	-> 4162.0[0;0m[0;97m[0;37m	-> 4182.0[0;0m[0;97m[0;37m	-> 4162.0[0;0m[0;97m[0;37m	-> 4162.0[0;0m[0;97m[0;37m	-> 4173.0[0;0m[0;96m
+[0;36m	After fusing: 1 resulting graphs with minimum cost 4081.0  after fuse rounds (total):  1 
+[0;0m[0;97m
+[0;37m	-> 4179.0[0;0m[0;97m[0;37m	-> 4162.0[0;0m[0;97m[0;37m	-> 4162.0[0;0m[0;97m[0;37mTransforming data to dynamic: 4081.0 -> 4081.0
+[0;0m[0;93m
+[WARN] [0;33mThread 2 is OK 1h53min -> 6800000000
+[0;0m[0;97m[0;37m[0;0m[0;97m[0;37m[0;0m[0;96m
+[0;36mThread   	2
+Alloted  	1h53min
+Ellapsed 	3m52sec
+Remaining	1h49min
+
+
+[0;0m[0;97m
+[0;37mChanging multiTraverse to False:4081.0 -> 4087.0
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4081.0 -> 4081.0
+[0;0m[0;97m[0;37mSwapping 1 input graph(s) with 1 trajectories at minimum cost 4081.0 keeping maximum of 2 graphs per input graph
+[0;0m[0;97m[0;37m	-> 4099.0[0;0m[0;97m[0;37m
+	After Simulated Annealing: 1 resulting graphs with minimum cost 4162.0 with swap rounds (total): 2 SPR
+[0;0m[0;97m[0;37mChanging multiTraverse to True:4162.0 -> 4155.0
+[0;0m[0;97m[0;37mTransforming data to dynamic: 4162.0 -> 4162.0
+[0;0m[0;93m
+[WARN] [0;33mThread 1 is OK 1h51min -> 6694000000
+[0;0m[0;97m[0;37m[0;0m[0;97m[0;37m[0;0m[0;96m
+[0;36mThread   	1
+Alloted  	1h51min
+Ellapsed 	18m11sec
+Remaining	1h33min
+
+
+[0;0m[0;97m
+[0;37mChanging multiTraverse to False:4155.0 -> 4162.0
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4155.0 -> 4155.0
+[0;0m[0;97m[0;37mSimulated Annealing (Swapping) 1 rounds with 20 cooling steps 1 input graph(s) at minimum cost 4162.0 keeping maximum of 1 graphs
+[0;0m[0;97m[0;37m	-> 4219.0[0;0m[0;97m[0;37m	-> 4181.0[0;0m[0;97m[0;37m	-> 4185.0[0;0m[0;97m[0;37m	-> 4167.0[0;0m[0;97m[0;37m	-> 4162.0[0;0m[0;97m[0;37m	-> 4162.0[0;0m[0;97m[0;37m
+	After Simulated Annealing: 1 resulting graphs with minimum cost 4162.0 with swap rounds (total): 2 Alternate
+	Warning--Swap returned as many minimum cost graphs as the 'keep' number.  
+	This may have limited the effectiveness of the swap. 
+	Consider increasing the 'keep' value or adding an additional swap.
+[0;0m[0;97m[0;37mChanging multiTraverse to True:4162.0 -> 4155.0
+[0;0m[0;97m[0;37mTransforming data to dynamic: 4162.0 -> 4162.0
+[0;0m[0;93m
+[WARN] [0;33mThread 1 is OK 1h33min -> 5603000000
+[0;0m[0;97m[0;37m[0;0m[0;97m[0;37m[0;0m[0;96m
+[0;36mThread   	1
+Alloted  	1h33min
+Ellapsed 	21m11sec
+Remaining	1h12min
+
+
+[0;0m[0;97m
+[0;37mChanging multiTraverse to False:4155.0 -> 4162.0
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4155.0 -> 4155.0
+[0;0m[0;97m[0;37mDrifting (Swapping) 1 rounds with 10 maximum changes per round on 1 input graph(s) at minimum cost 4155.0 keeping maximum of 1 graphs
+[0;0m[0;97m[0;37m	-> 4173.0[0;0m[0;97m[0;37m	-> 4155.0[0;0m[0;97m[0;37m	-> 4155.0[0;0m[0;97m[0;37m	-> 4166.0[0;0m[0;97m[0;37m	-> 4155.0[0;0m[0;97m[0;37m	-> 4155.0[0;0m[0;97m[0;37m	-> 4185.0[0;0m[0;97m[0;37m	-> 4157.0[0;0m[0;97m[0;37m	-> 4155.0[0;0m[0;97m[0;37m	-> 4097.0[0;0m[0;97m[0;37m	-> 4177.0[0;0m[0;97m[0;37m	-> 4167.0[0;0m[0;97m[0;37m	-> 4166.0[0;0m[0;97m[0;37m
+	After swap: 1 resulting graphs with minimum cost 4081.0 with swap rounds (total): 1 Alternate
+[0;0m[0;97m[0;37mTransforming data to dynamic: 4081.0 -> 4081.0
+[0;0m[0;93m
+[WARN] [0;33mThread 2 is OK 1h49min -> 6568000000
+[0;0m[0;97m[0;37m[0;0m[0;97m[0;37m[0;0m[0;96m
+[0;36mThread   	2
+Alloted  	1h49min
+Ellapsed 	1h06min
+Remaining	42m45sec
+
+
+[0;0m[0;97m
+[0;37mChanging multiTraverse to False:4081.0 -> 4087.0
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4081.0 -> 4081.0
+[0;0m[0;97m[0;37mDrifting (Swapping) 1 rounds with 5 maximum changes per round on 1 input graph(s) at minimum cost 4087.0 keeping maximum of 1 graphs
+[0;0m[0;97m[0;37m	-> 4087.0[0;0m[0;97m[0;37m	-> 4086.0[0;0m[0;97m[0;37m	-> 4087.0[0;0m[0;97m[0;37m	-> 4099.0[0;0m[0;97m[0;37m	-> 4164.0[0;0m[0;97m[0;37m	-> 4096.0[0;0m[0;97m[0;37m	-> 4091.0[0;0m[0;97m[0;37m	-> 4090.0[0;0m[0;97m[0;37m	-> 4089.0[0;0m[0;97m[0;37m	-> 4088.0[0;0m[0;97m[0;37m	-> 4086.0[0;0m[0;97m[0;37m	-> 4161.0[0;0m[0;97m[0;37m	-> 4085.0[0;0m[0;97m[0;37m	-> 4160.0[0;0m[0;97m[0;37m	-> 4156.0[0;0m[0;93m
+[WARN] [0;33mThread 3 terminated due to time
+[0;0m[0;93m
+[WARN] [0;33mThread 2 terminated due to time
+[0;0m[0;93m
+[WARN] [0;33mThread 1 terminated due to time
+[0;0m[0;97m[0;37mHit minimum cost 4081.0 in 1 of 3 iterations
+[0;0m[0;97m[0;37mSelecting best graphs 
+[0;0m[0;97m[0;37mSelecting unique graphs 
+[0;0m[0;97m[0;37mReporting 1 graph(s) at minimum cost 4081.0
+[0;0m[0;97m[0;37mReport writing to "example1.tre"
+[0;0m[0;97m[0;37mReport writing to "example1.cons"
+[0;0m[0;97m[0;37mTransforming data to staticApprox: 4081.0 -> 4081.0
+[0;0m[0;97m[0;37m	Warning: Prealigned sequence data with non-additive type costs (all change values equal) have been recoded to non-additive characters and will not appear in implied alignment output.
+[0;0m[0;97m[0;37mReport writing to "example1_ia.ss"
+[0;0m[0;93m
+[WARN] [0;33m
+Unrecognized/missing report option in ["concatenate","overwrite"] defaulting to 'graphs'
+[0;0m[0;97m[0;37mReport writing to "example1_ia.tnt"
+[0;0m[0;97m[0;37mReporting 1 graph(s) at minimum cost 4081.0
+[0;0m[0;97m[0;37mReport writing to "example1_ia.events"
+[0;0m[0;97m[0;37mExecution returned 1 graph(s) at cost range (4081.0,4081.0) 
+[0;0m[0;97m[0;37m	Wall-Clock time  36136.962567745 second(s)
+	CPU time 345178.68550074805 second(s)
+	CPU usage 955%
+[0;0m

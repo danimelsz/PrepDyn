@@ -1,0 +1,16 @@
+digraph {
+    0 [label=sp1];
+    1 [label=sp2];
+    2 [label=sp3];
+    3 [label=sp4];
+    4 [label=HTU4];
+    5 [label=HTU5];
+    6 [label=HTU6];
+    4 -> 3 [label=0.0];
+    4 -> 6 [label=0.0];
+    5 -> 0 [label=0.0];
+    5 -> 1 [label=0.0];
+    6 -> 2 [label=0.0];
+    6 -> 5 [label=3.0];
+}
+//5.0

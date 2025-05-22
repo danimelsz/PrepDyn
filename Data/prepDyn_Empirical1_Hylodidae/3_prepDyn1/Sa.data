@@ -1,0 +1,270 @@
+Data
+    
+
+
+Taxa
+    
+    Total 75
+                                                              
+ Name                                   Code          
+Alsodes_coppingeri                     24           {}
+Alsodes_vanzolinii                     25           {}
+Crossodactylus_caramaschii_CFBH17647   21           {}
+Crossodactylus_gaudichaudii_ZUEC17569  71           {}
+Crossodactylus_gaudichaudii_ZUEC17570  72           {}
+Crossodactylus_gaudichaudii_novoucher  22           {}
+Crossodactylus_schmidti_MLPA01414      23           {}
+Crossodactylus_trachystomus_MCNAM18054 73           {}
+Crossodactylus_werneri_AA01320         74           {}
+Crossodactylus_werneri_AAGUFU01876     75           {}
+Cycloramphus_boraceiensis              27           {}
+Eupsophus_nahuelbutensis               26           {}
+Hylodes_amnicola_CFBH30971             10           {}
+Hylodes_amnicola_CFBH30972             11           {}
+Hylodes_asper_ZUEC11555                59           {}
+Hylodes_caete_CFBH40524                60           {}
+Hylodes_caete_CFBH40526                61           {}
+Hylodes_fredi_MNRJ36077                62           {}
+Hylodes_heyeri_ZUEC24650               63           {}
+Hylodes_japi_CFBH25403                 12           {}
+Hylodes_japi_CFBH25426                 13           {}
+Hylodes_meridionalis_MCP11546          64           {}
+Hylodes_meridionalis_MCP11547          65           {}
+Hylodes_nasus_MNRJ35435                14           {}
+Hylodes_ornatus_CFBH34905              15           {}
+Hylodes_perere_CFBH31106               16           {}
+Hylodes_perere_CFBH31107               17           {}
+Hylodes_phyllodes_CFBH39961            66           {}
+Hylodes_phyllodes_CFBHT03131           67           {}
+Hylodes_pipilans_MNRJ37307             18           {}
+Hylodes_pipilans_MNRJ39371             68           {}
+Hylodes_regius_CFBH30970               69           {}
+Hylodes_regius_CFBH34910               70           {}
+Hylodes_sazimai_CFBH29586              19           {}
+Hylodes_sazimai_CFBHT14629             20           {}
+Megaelosia_aff_goeldii_CFBH28108       9            {}
+Megaelosia_goeldii_CFBH14028           54           {}
+Megaelosia_goeldii_CFBH18821           7            {}
+Megaelosia_goeldii_CFBHT02911          55           {}
+Megaelosia_goeldii_MZUSP95879          8            {}
+Megaelosia_goeldii_SMRP527.2           56           {}
+Megaelosia_goeldii_SMRP527.3           57           {}
+Megaelosia_goeldii_SMRP527.4           58           {}
+Phantasmarana_apuana_CFBH10811         28           {}
+Phantasmarana_apuana_CFBHT09118        29           {}
+Phantasmarana_apuana_MTR12614          1            {}
+Phantasmarana_apuana_MTR12650          2            {}
+Phantasmarana_apuana_SMRP526.4         30           {}
+Phantasmarana_apuana_TLFT1911          32           {}
+Phantasmarana_apuana_TLFT1981          31           {}
+Phantasmarana_boticariana_CFBH06292    3            {}
+Phantasmarana_boticariana_CFBH06293    33           {}
+Phantasmarana_boticariana_SMRP109.1    34           {}
+Phantasmarana_boticariana_SMRP109.2    35           {}
+Phantasmarana_boticariana_ZUEC24587    36           {}
+Phantasmarana_curucutuensis_CFBH17668_ 4            {}
+Phantasmarana_jordanensis_CFBH28578    37           {}
+Phantasmarana_jordanensis_MCP11575     41           {}
+Phantasmarana_jordanensis_SMRP81.3     38           {}
+Phantasmarana_jordanensis_SMRP81.6     39           {}
+Phantasmarana_jordanensis_SMRP81.8     40           {}
+Phantasmarana_lutzae_SMRP555.1         42           {}
+Phantasmarana_lutzae_SMRP555.2         43           {}
+Phantasmarana_lutzae_SMRP555.3         44           {}
+Phantasmarana_lutzae_SMRP555.4         45           {}
+Phantasmarana_lutzae_SMRP555.5         46           {}
+Phantasmarana_massarti_CFBHT23090      47           {}
+Phantasmarana_massarti_ZUEC11395       48           {}
+Phantasmarana_massarti_ZUEC11553       49           {}
+Phantasmarana_tamuia_CFBH38735         50           {}
+Phantasmarana_tamuia_CFBH38976         5            {}
+Phantasmarana_tamuia_CFBH38977         6            {}
+Phantasmarana_tamuia_CFBH38978a        51           {}
+Phantasmarana_tamuia_CFBH38978b        52           {}
+Phantasmarana_tamuia_CFBH38978c        53           {}
+
+Synonyms
+    
+    Total 0
+
+
+
+Ignored taxa
+    
+Characters
+    Non Additive
+    
+    Total 0
+
+
+
+Additive
+    
+    Total 0
+
+
+
+Sankoff
+    
+    Total 0
+
+
+
+Molecular
+    
+    Total 8
+                                                                                                                                                                           
+ Name                                              Initial Assignment         Transformation Cost Matrix         Gap Opening         Weight         class          
+output_COI_aligned_GB2MSA_preprocessed.fasta:0    Direct Optimization        tcm:(1,1)                          0                   1.             sequence      {}
+output_COI_aligned_GB2MSA_preprocessed.fasta:1    Direct Optimization        tcm:(1,1)                          0                   1.             sequence      {}
+output_H1_aligned_GB2MSA_preprocessed.fasta:0     Direct Optimization        tcm:(1,1)                          0                   1.             sequence      {}
+output_H1_aligned_GB2MSA_preprocessed.fasta:1     Direct Optimization        tcm:(1,1)                          0                   1.             sequence      {}
+output_RAG1_A_aligned_GB2MSA_preprocessed.fasta:0 Direct Optimization        tcm:(1,1)                          0                   1.             sequence      {}
+output_RAG1_A_aligned_GB2MSA_preprocessed.fasta:1 Direct Optimization        tcm:(1,1)                          0                   1.             sequence      {}
+output_RAG1_B_aligned_GB2MSA_preprocessed.fasta:0 Direct Optimization        tcm:(1,1)                          0                   1.             sequence      {}
+output_RAG1_B_aligned_GB2MSA_preprocessed.fasta:1 Direct Optimization        tcm:(1,1)                          0                   1.             sequence      {}
+
+Likelihood
+    
+    Total 0
+
+
+
+
+Ignored characters
+    
+Files
+    
+
+
+File
+    
+
+File Name : output_RAG1_B_aligned_GB2MSA_preprocessed.fasta
+
+File Contents 
+
+
+Characters
+
+
+
+File
+    
+
+File Name : output_RAG1_A_aligned_GB2MSA_preprocessed.fasta
+
+File Contents 
+
+
+Characters
+
+
+
+File
+    
+
+File Name : output_H1_aligned_GB2MSA_preprocessed.fasta
+
+File Contents 
+
+
+Characters
+
+
+
+File
+    
+
+File Name : output_COI_aligned_GB2MSA_preprocessed.fasta
+
+File Contents 
+
+
+Characters
+
+
+
+
+
+
+
+File References:
+                                                                                                                                                                                                                                                              
+Terminal                               output_RAG1_B_aligned_GB2MSA_preprocessed.fasta        output_RAG1_A_aligned_GB2MSA_preprocessed.fasta        output_H1_aligned_GB2MSA_preprocessed.fasta        output_COI_aligned_GB2MSA_preprocessed.fasta
+Alsodes_coppingeri                     +                                                      -                                                      +                                                  +
+Alsodes_vanzolinii                     +                                                      -                                                      +                                                  +
+Crossodactylus_caramaschii_CFBH17647   -                                                      +                                                      +                                                  +
+Crossodactylus_gaudichaudii_ZUEC17569  -                                                      -                                                      +                                                  -
+Crossodactylus_gaudichaudii_ZUEC17570  +                                                      -                                                      +                                                  -
+Crossodactylus_gaudichaudii_novoucher  -                                                      -                                                      +                                                  +
+Crossodactylus_schmidti_MLPA01414      +                                                      -                                                      +                                                  +
+Crossodactylus_trachystomus_MCNAM18054 -                                                      -                                                      +                                                  -
+Crossodactylus_werneri_AA01320         -                                                      -                                                      +                                                  -
+Crossodactylus_werneri_AAGUFU01876     -                                                      -                                                      +                                                  -
+Cycloramphus_boraceiensis              -                                                      +                                                      +                                                  +
+Eupsophus_nahuelbutensis               +                                                      -                                                      +                                                  +
+Hylodes_amnicola_CFBH30971             -                                                      +                                                      +                                                  +
+Hylodes_amnicola_CFBH30972             -                                                      +                                                      +                                                  +
+Hylodes_asper_ZUEC11555                +                                                      -                                                      +                                                  -
+Hylodes_caete_CFBH40524                -                                                      -                                                      +                                                  -
+Hylodes_caete_CFBH40526                -                                                      -                                                      +                                                  -
+Hylodes_fredi_MNRJ36077                -                                                      -                                                      +                                                  -
+Hylodes_heyeri_ZUEC24650               +                                                      -                                                      +                                                  -
+Hylodes_japi_CFBH25403                 -                                                      +                                                      +                                                  +
+Hylodes_japi_CFBH25426                 -                                                      +                                                      +                                                  +
+Hylodes_meridionalis_MCP11546          -                                                      -                                                      +                                                  -
+Hylodes_meridionalis_MCP11547          +                                                      -                                                      +                                                  -
+Hylodes_nasus_MNRJ35435                -                                                      +                                                      +                                                  +
+Hylodes_ornatus_CFBH34905              -                                                      +                                                      +                                                  +
+Hylodes_perere_CFBH31106               -                                                      +                                                      +                                                  +
+Hylodes_perere_CFBH31107               -                                                      +                                                      +                                                  +
+Hylodes_phyllodes_CFBH39961            -                                                      -                                                      +                                                  -
+Hylodes_phyllodes_CFBHT03131           -                                                      -                                                      +                                                  -
+Hylodes_pipilans_MNRJ37307             -                                                      +                                                      +                                                  +
+Hylodes_pipilans_MNRJ39371             -                                                      -                                                      +                                                  -
+Hylodes_regius_CFBH30970               -                                                      -                                                      +                                                  -
+Hylodes_regius_CFBH34910               -                                                      -                                                      +                                                  -
+Hylodes_sazimai_CFBH29586              -                                                      +                                                      +                                                  +
+Hylodes_sazimai_CFBHT14629             -                                                      +                                                      +                                                  +
+Megaelosia_aff_goeldii_CFBH28108       -                                                      -                                                      +                                                  +
+Megaelosia_goeldii_CFBH14028           -                                                      -                                                      +                                                  -
+Megaelosia_goeldii_CFBH18821           -                                                      -                                                      +                                                  +
+Megaelosia_goeldii_CFBHT02911          -                                                      +                                                      +                                                  -
+Megaelosia_goeldii_MZUSP95879          +                                                      -                                                      +                                                  +
+Megaelosia_goeldii_SMRP527.2           +                                                      -                                                      +                                                  -
+Megaelosia_goeldii_SMRP527.3           +                                                      -                                                      +                                                  -
+Megaelosia_goeldii_SMRP527.4           +                                                      -                                                      +                                                  -
+Phantasmarana_apuana_CFBH10811         -                                                      +                                                      +                                                  -
+Phantasmarana_apuana_CFBHT09118        -                                                      -                                                      +                                                  -
+Phantasmarana_apuana_MTR12614          -                                                      +                                                      +                                                  +
+Phantasmarana_apuana_MTR12650          -                                                      +                                                      +                                                  +
+Phantasmarana_apuana_SMRP526.4         +                                                      -                                                      +                                                  -
+Phantasmarana_apuana_TLFT1911          +                                                      -                                                      +                                                  -
+Phantasmarana_apuana_TLFT1981          +                                                      -                                                      +                                                  -
+Phantasmarana_boticariana_CFBH06292    -                                                      +                                                      +                                                  +
+Phantasmarana_boticariana_CFBH06293    -                                                      -                                                      +                                                  -
+Phantasmarana_boticariana_SMRP109.1    +                                                      -                                                      +                                                  -
+Phantasmarana_boticariana_SMRP109.2    +                                                      -                                                      +                                                  -
+Phantasmarana_boticariana_ZUEC24587    +                                                      -                                                      +                                                  -
+Phantasmarana_curucutuensis_CFBH17668_ -                                                      +                                                      +                                                  +
+Phantasmarana_jordanensis_CFBH28578    -                                                      -                                                      +                                                  -
+Phantasmarana_jordanensis_MCP11575     -                                                      -                                                      +                                                  -
+Phantasmarana_jordanensis_SMRP81.3     +                                                      -                                                      +                                                  -
+Phantasmarana_jordanensis_SMRP81.6     +                                                      -                                                      +                                                  -
+Phantasmarana_jordanensis_SMRP81.8     +                                                      -                                                      +                                                  -
+Phantasmarana_lutzae_SMRP555.1         +                                                      -                                                      +                                                  -
+Phantasmarana_lutzae_SMRP555.2         +                                                      -                                                      +                                                  -
+Phantasmarana_lutzae_SMRP555.3         +                                                      -                                                      +                                                  -
+Phantasmarana_lutzae_SMRP555.4         +                                                      -                                                      +                                                  -
+Phantasmarana_lutzae_SMRP555.5         +                                                      -                                                      +                                                  -
+Phantasmarana_massarti_CFBHT23090      -                                                      -                                                      +                                                  -
+Phantasmarana_massarti_ZUEC11395       +                                                      -                                                      +                                                  -
+Phantasmarana_massarti_ZUEC11553       +                                                      -                                                      +                                                  -
+Phantasmarana_tamuia_CFBH38735         -                                                      +                                                      +                                                  -
+Phantasmarana_tamuia_CFBH38976         -                                                      -                                                      +                                                  +
+Phantasmarana_tamuia_CFBH38977         -                                                      -                                                      +                                                  +
+Phantasmarana_tamuia_CFBH38978a        -                                                      +                                                      +                                                  -
+Phantasmarana_tamuia_CFBH38978b        -                                                      -                                                      +                                                  -
+Phantasmarana_tamuia_CFBH38978c        -                                                      +                                                      +                                                  -
+
