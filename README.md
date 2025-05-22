@@ -17,13 +17,13 @@ conda create -n new_env python=3.10 --yes
 conda install bioconda::mafft
 ```
 
-Other dependencies are Python modules that will be automatically installed by prepDyn (if already installed, they will simply be loaded):
+Other dependencies are Python modules that will be automatically installed by **prepDyn** (if already installed, they will simply be loaded):
 - Bio v. 1.73 (or newer), including *AlignIO*, *Entrez*, *SeqIO*, *Align*, *Seq*, and *SeqRecord*.
 - matplotlib v. 3.7.0 (or newer)
 - numpy v. 1.23.5 (or newer)
 - termcolor
 
-If the  modules are not installed automatically when running prepDyn for the first time, try:
+If the  modules are not installed automatically when running **prepDyn** for the first time, try:
 ```
 conda install conda-forge::biopython
 conda install conda-forge::matplotlib
@@ -33,19 +33,19 @@ conda install conda-forge::termcolor
 
 ## Introduction
 
-The four steps are (1) data collection from GenBank, (2) trimming, (3) identification of missing data, and (4) successive partitioning.
+**prepDyn** comprises four steps are (1) data collection from GenBank, (2) trimming, (3) identification of missing data, and (4) successive partitioning.
 
 ## Usage
-prepDyn is organized in three Python files:
-- prepDyn_auxiliary.py: script containing all auxiliary Python functions required by the other scripts.
+**prepDyn** is organized in three Python files:
+- prepDyn.py: main script integrating the pipeline.
 - GB2MSA.py: script to download sequences from GenBank and identify internal missing data.
-- prepDyn.py: script integrating the pipeline.
+- prepDyn_auxiliary.py: script containing all auxiliary Python functions required by the other scripts.
 
 The following examples are designed for users with little experience on Unix. If you have questions, send a message using **GitHub issues**.
 
 ### Example 1: Basic
 
-The basic use of prepDyn is running all four steps using a single command. Given an input CSV, whose first column is called *Terminals* and the other columns are the names of genes (and each cell contain the correspondent GenBank accession number), the following command will download sequences, trim invariants and orphan nucleotides <10 bp in terminal positions, and identify missing data as *?* (all differences in sequence length in terminal positions are missing data).
+The basic use of **prepDyn** is running all four steps using a single command. Given an input CSV, whose first column is called *Terminals* and the other columns are the names of genes (each cell containing the correspondent GenBank accession number), the following command will download sequences, trim invariants and orphan nucleotides <10 bp in terminal positions, and identify missing data as *?* (all differences in sequence length in terminal positions are missing data). The log reports the run time.
 
 ```
 python prepDyn.py --GB_input input.csv --output_file out --del_inv --orphan_method semi --orphan_threshold 10 --partitioning_round 0 --log
@@ -59,7 +59,11 @@ We specified *--paritioning_round 0*, which means that partitioning was not perf
 python prepDyn.py --input_file out.fasta --output_file out1 --partitioning_round 1 --log
 ```
 
-This process can continue (e.g. *--partitioning_round 2*) until tree costs remain stationary.
+This process can continue until tree costs reported by POY/PhyG remain stationary (e.g. *--partitioning_round 2* inserts pound signs in the 1- and 2-largest block(s) of contiguous invariants).
+
+```
+python prepDyn.py --input_file out.fasta --output_file out2 --partitioning_round 2 --log
+```
 
 ### Example 2: Data collection + Preprocessing
 
