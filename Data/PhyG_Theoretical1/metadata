@@ -1,0 +1,25 @@
+What is the difference between 
+(1) isolating blocks of missing data with pound signs (#)
+(2) extending incomplete sequences with question marks (?)
+
+1. isolating blocks of missing data with pound signs (#)
+>sp1 
+AAATC#---#--
+>sp2 
+AAATC#AAC#--
+>sp3 
+CCCCT#GCA#AC
+>sp4 
+CCCCT#GCA#AC
+
+2. extending incomplete sequences with question marks (?)
+>sp1 
+AAATC?????
+>sp2 
+AAATCAAC??
+>sp3 
+CCCCTGCAAC
+>sp4 
+CCCCTGCAAC
+
+
