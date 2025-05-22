@@ -61,29 +61,43 @@ In the CSV file, if more than one GenBank accession number is specified in the s
 We specified *--paritioning_round 0*, which means that partitioning was not performed. As a heuristic, we recommend testing the impact of adding pound signs to the tree optimality scores using a successive partitioning strategy. For instance, if you specify *--partitioning_round 1*, the largest block(s) of contiguous invariants will be partitioned.
 
 ```
-python prepDyn.py --input_file out.fasta --output_file out1 --partitioning_round 1 --log
+python prepDyn.py --input_file data.fasta --output_file out1 --partitioning_round 1 --log
 ```
 
 This process can continue until tree costs reported by POY/PhyG remain stationary (e.g. *--partitioning_round 2* inserts pound signs in the 1- and 2-largest block(s) of contiguous invariants).
 
 ```
-python prepDyn.py --input_file out.fasta --output_file out2 --partitioning_round 2 --log
+python prepDyn.py --input_file data.fasta --output_file out2 --partitioning_round 2 --log
 ```
 
 ### Example 2: Data collection + Preprocessing
 
-Suppose you want to download sequences and perprocess them using different commands. Given a CSV file called *input.csv*, the following command will download the sequences and align them with MAFFT. In addition, files containing the names of the terminals (useful for control of taxon sampling in POY/PhyG) and the wall-clock time will be reported. 
+Suppose you want to download sequences and preprocess them using different commands. Given a CSV file called *input.csv*, the following command will download the sequences and align them with MAFFT. In addition, files containing the names of the terminals (useful for control of taxon sampling in POY/PhyG) and the run time will be reported. 
 
 ```
 python GB2MSA.py --input_file input.csv --output_prefix output --delimiter , --write_names --log
 ```
 
+Now, you can run **prepDyn**:
+
+```
+python prepDyn.py --input_file output.fasta --del_inv --orphan_method semi --partitioning_round 0 --log
+```
+
 ### Example 3: Multiple alignments
 
-Suppose you have a phylogenomic dataset with hundreds of gene alignmens.
+Suppose you have a phylogenomic dataset with hundreds of gene alignmens in the directory *./data/*. You can preprocess all gene alignments in FASTA format using a single command:
+
+```
+python prepDyn.py --input_file ./data/ --input_format fasta --output_prefix output --del_inv --orphan_method semi --log
+```
 
 ### Example 4: Appending new sequences
 
-Suppose you have newly generated sequences (unavailable in GenBank). 
+If you have newly generated sequences (unavailable in GenBank) that you want to append to a prealigned FASTA alignment, run:
+
+```
+AAAAAAAA
+```
 
 ## Citation
