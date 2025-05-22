@@ -17,11 +17,19 @@ conda create -n new_env python=3.10 --yes
 conda install bioconda::mafft
 ```
 
-Other dependencies are Python modules that will be automatically installed by prepDyn (if already installed, they will only be loaded):
+Other dependencies are Python modules that will be automatically installed by prepDyn (if already installed, they will simply be loaded):
 - Bio v. 1.73 (or newer), including *AlignIO*, *Entrez*, *SeqIO*, *Align*, *Seq*, and *SeqRecord*.
 - matplotlib v. 3.7.0 (or newer)
 - numpy v. 1.23.5 (or newer)
-- termolor
+- termcolor
+
+If the  modules are not installed automatically when running prepDyn for the first time, try:
+```
+conda install conda-forge::biopython
+conda install conda-forge::matplotlib
+conda install anaconda::numpy
+conda install conda-forge::termcolor
+```
 
 ## Introduction
 
