@@ -38,7 +38,7 @@ git clone https://github.com/danimelsz/PrepDyn.git
 
 ## Introduction
 
-**prepDyn** comprises four steps are (1) data collection from GenBank, (2) trimming, (3) identification of missing data, and (4) successive partitioning.
+**prepDyn** comprises four steps: (1) data collection from GenBank, (2) trimming, (3) identification of missing data, and (4) successive partitioning.
 
 ## Usage
 **prepDyn** is organized in three Python files:
