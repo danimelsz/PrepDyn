@@ -12,6 +12,11 @@ The two dependencies that should be installed beforehand by the user are:
 - Python v. 3.10.9 (or newer), including *argparse*, *ast*, *csv*, *importlib*, *re*, *StringIO*, *subprocess*, *sys*, *tempfile*, and *time*, which are usually part of recent versions of Python.
 - MAFFT v. 7.5.2 (or newer), installed in $PATH as 'mafft'.
 
+```
+conda create -n new_env python=3.10 --yes
+conda install bioconda::mafft
+```
+
 Other dependencies are Python modules that will be automatically installed by prepDyn (if already installed, they will only be loaded):
 - Bio v. 1.73 (or newer), including *AlignIO*, *Entrez*, *SeqIO*, *Align*, *Seq*, and *SeqRecord*.
 - matplotlib v. 3.7.0 (or newer)
