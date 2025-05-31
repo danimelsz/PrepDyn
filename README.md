@@ -1,7 +1,8 @@
 # prepDyn: Preprocessing sequences for dynamic homology
 
 [![language](https://img.shields.io/badge/language-python-green?style=flat&logo=python&logoColor=green)](https://www.python.org)
-
+[![author](https://img.shields.io/badge/author-DYM_Nakamura-green?style=flat)]
+[![license](https://img.shields.io/badge/license-GPL3-green?style=flat)]
 
 A collection of Python scripts to facilitate the preprocessing of input sequences for dynamic homology. 
 
