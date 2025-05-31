@@ -1,5 +1,8 @@
 # prepDyn: Preprocessing sequences for dynamic homology
 
+[![language](https://img.shields.io/badge/language-python-green?style=flat&logo=python&logoColor=green)](https://www.python.org)
+
+
 A collection of Python scripts to facilitate the preprocessing of input sequences for dynamic homology. 
 
 In dynamic homology, data should be preprocessed to distinguish differences in sequence length resulting from missing data or insertion-deletion events to avoid grouping from artifacts. However, previous empirical studies using POY/PhyG manually preprocessed data with varying approaches. Here we present **prepDyn**, a collection of Python scripts to facilitate the preprocessing of input sequences to POY/PhyG.
