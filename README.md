@@ -74,9 +74,9 @@ This process can continue until tree costs reported by POY/PhyG remain stationar
 python prepDyn.py --input_file data.fasta --output_file out2 --partitioning_round 2 --log
 ```
 
-### Example 2: Data collection + Preprocessing
+### Example 2: GB2MSA + prepDyn
 
-Suppose you want to download sequences and preprocess them using different commands. Given a CSV file called *input.csv*, the following command will download the sequences and align them with MAFFT. In addition, files containing the names of the terminals (useful for control of taxon sampling in POY/PhyG) and the run time will be reported. 
+Suppose you want to download sequences and preprocess them using different commands. Given a CSV file called *input.csv*, the following command will download the sequences and align them with MAFFT. In addition, files containing the names of the terminals (useful to control taxon sampling in POY/PhyG) and the run time will be reported. 
 
 ```
 python GB2MSA.py --input_file input.csv --output_prefix output --delimiter , --write_names --log
