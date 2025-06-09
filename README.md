@@ -35,7 +35,7 @@ conda install anaconda::numpy
 conda install conda-forge::termcolor
 ```
 
-Clone the **prepDyn** repository using the command:
+Finally, clone the **prepDyn** repository using the command:
 ```
 git clone https://github.com/danimelsz/PrepDyn.git
 ```
