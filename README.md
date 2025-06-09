@@ -104,4 +104,13 @@ If you have newly generated sequences (unavailable in GenBank) that you want to 
 AAAAAAAA
 ```
 
+### Example 5: Ancient DNA
+
+Suppose you have a dataset with ancient DNA sequences from the sample *Dendropsophus_tritaeniatus_MZUSP73973*. The IUPAC Ns present in sequences are ambiguous positions resulting from low coverage death in DNA read mapping. It is unknown if this positions actually correspond to nucleotides N or to indels (-). As such, the IUPAC Ns of ancient DNA sequences can be replaced with question marks using the following command:
+
+```
+AAAAAAAA
+```
+
+
 ## Citation
