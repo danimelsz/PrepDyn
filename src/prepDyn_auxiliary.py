@@ -1192,26 +1192,56 @@ def remove_columns_with_W(alignment: dict) -> dict:
 
     return cleaned_alignment
 
+def n2question_func(alignment: dict, leaves='all'):
+    """
+    Replace all ambiguous nucleotides 'N' or 'n' with '?' in selected sequences.
+
+    Parameters:
+    - alignment (dict): Dictionary where keys are sequence names and values are DNA sequences (str).
+    - leaves (str or list): Sequence name(s) to apply the replacement. Use 'all' to apply to all sequences.
+
+    Returns:
+    - dict: A new dictionary named 'alignment' with modified sequences.
+    """
+    if leaves == 'all':
+        leaves_to_process = alignment.keys()
+    elif isinstance(leaves, str):
+        leaves_to_process = [leaves]
+    else:
+        leaves_to_process = leaves
+
+    alignment = {
+        name: seq.replace('N', '?').replace('n', '?') if name in leaves_to_process else seq
+        for name, seq in alignment.items()
+    }
+
+    return alignment
+
 #######################
 # INTEGRATED FUNCTION #
 #######################
 
 def prepDyn(input_file=None, 
-             GB_input=None,
-             input_format="fasta",
-             MSA=False,
-             orphan_method=None,
-             orphan_threshold=5,
-             percentile=25,
-             del_inv=True,
-             internal_method=None,
-             internal_column_ranges=None,
-             internal_leaves="all",
-             internal_threshold=None,
-             partitioning_round=0,
-             output_file=None,
-             output_format="fasta",
-             log=False):
+            GB_input=None,
+            input_format="fasta",
+            MSA=False,
+            output_file=None,
+            output_format="fasta",
+            log=False,
+            # Trimming parameters
+            orphan_method=None,
+            orphan_threshold=5,
+            percentile=25,
+            del_inv=True,
+            # Missing data parameters
+            internal_method=None,
+            internal_column_ranges=None,
+            internal_leaves="all",
+            internal_threshold=None,
+            n2question=None,
+            # Partitioning parameters
+            partitioning_round=0
+            ):
     """
     Preprocess missing data for dynamic homology in PhyG. First, columns containing 
     only gaps, orphan nucleotides, and invariant columns can be trimmed. Second, 
@@ -1222,10 +1252,9 @@ def prepDyn(input_file=None,
         input_file (str): Path to the input alignment file or directory. Ignored if GB_input is provided.
         GB_input (str): Path to a CSV/TSV file containing GenBank accession numbers. If provided,
                         sequences will be downloaded from GenBank and aligned before preprocessing.
-                        Ignored if input_file is provided.
         input_format (str): Format of the input alignment. Options: 'fasta' (default), 
                             'clustal', 'phylip', or any format accepted by Biopython. 
-        MSA (bool): Whether to perform MSA if input sequences specified in input_file are unaligned.
+        MSA (bool): Whether to perform MSA if input sequences specified in input_file are unaligned
         orphan_method (str): The trimming method. By default, trimming orphan nucleotides
                              is not performed. Options:
                             - 'auto': trim using the 25th percentile;
@@ -1243,14 +1272,15 @@ def prepDyn(input_file=None,
                                        if internal_method is not "None".
         internal_threshold (int): Used with internal_method = 'semi' to define gap threshold.
                                   Contiguous '-' larger than the threshold are replaced with '?'.
-        partitioning_round (int or str): Number of partitioning round. Invariant regions are sorted by length
+        partitioning_round (int): Number of partitioning round. Invariant regions are sorted by length
                                   in descendant order and the n-largest block(s) partitioned using '#'.
                                   If "max" is specified, pound signs are inserted arund all blocks of 
                                   missing data. 
         output_file (str): Custom prefix for output files. If None, base_name from input_file is used.
         output_format (str): Output format. Default is 'fasta'.
         log (bool): Whether to write a log with wall-clock time. Default is False.
-
+        n2question (str or list): If specified, replaces ambiguous nucleotide 'N' or 'n' with '?'. If None (default), n2question is not performed. If 'all', apply to all sequences. If you want to apply to only one sequence, write the name of this sequence. If you want to apply to multiple sequences but no all, wrie the list of sequences.
+                                  
     Returns:
         dict: The preprocessed unaligned sequences.
     """
@@ -1286,6 +1316,7 @@ def prepDyn(input_file=None,
                     internal_column_ranges=internal_column_ranges,
                     internal_leaves=internal_leaves,
                     internal_threshold=internal_threshold,
+                    n2question=n2question,
                     partitioning_round=partitioning_round,
                     output_format=output_format,
                     log=log,
@@ -1309,16 +1340,36 @@ def prepDyn(input_file=None,
                       internal_column_ranges=internal_column_ranges,
                       internal_leaves=internal_leaves,
                       internal_threshold=internal_threshold,
+                      n2question=n2question,
                       output_format=output_format)
         return
 
     # Step 3: Read and process alignment
-    if input_format == "dict":
+    if isinstance(input_file, dict):
         alignment = input_file
     else:
         alignment = AlignIO.read(input_file, input_format)
         alignment = {record.id: str(record.seq) for record in alignment}
-    
+
+    # Optional MAFFT alignment
+    if MSA:
+        with tempfile.NamedTemporaryFile(mode="w", delete=False) as tmp_in:
+            for k, v in alignment.items():
+                tmp_in.write(f">{k}\n{v}\n")
+            tmp_in_path = tmp_in.name
+
+        tmp_out_path = tmp_in_path + "_aligned.fasta"
+        try:
+            subprocess.run(["mafft", "--auto", tmp_in_path], stdout=open(tmp_out_path, "w"), stderr=subprocess.DEVNULL, check=True)
+        except subprocess.CalledProcessError:
+            raise RuntimeError("MAFFT alignment failed.")
+
+        alignment = AlignIO.read(tmp_out_path, "fasta")
+        alignment = {record.id: str(record.seq) for record in alignment}
+
+        os.remove(tmp_in_path)
+        os.remove(tmp_out_path)
+
     # 3.1 Remove columns with gaps in all leaves
     remove_all_gap_columns(alignment)
     
@@ -1348,8 +1399,12 @@ def prepDyn(input_file=None,
                                                        internal_leaves=internal_leaves, 
                                                        internal_method="semi", 
                                                        internal_threshold=internal_threshold)
-    
-    # 3.6 Successive partition
+
+    # 3.6 Replace ambiguous nucleotides N/n with ?
+    if n2question is not None:
+        alignment = n2question_func(alignment, leaves=n2question)
+
+    # 3.7 Successive partition
     classify_and_insert_hashtags(alignment, 
                                  partitioning_round=partitioning_round)
     refinement_question2hyphen(alignment)

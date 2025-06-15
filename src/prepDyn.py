@@ -107,6 +107,15 @@ def parse_partitioning_round(value):
     except ValueError:
         raise argparse.ArgumentTypeError("partitioning_round must be an integer or 'max'")
 
+def parse_n2question_leaves(value):
+    if value.lower() == "none":
+        return None
+    elif value.lower() == "all":
+        return "all"
+    else:
+        return [leaf.strip() for leaf in value.split(",")]
+
+ 
 ########
 # MAIN #
 ########
@@ -117,11 +126,17 @@ def main():
         formatter_class=argparse.RawTextHelpFormatter,
         epilog="""\
 Examples:
-  # Given a CSV file with GenBank accession numbers, download sequences, identify missing data (no trimming and no partitioning), and compute wall-clock time
-  python prepDyn.py --GB_input accessions.csv --output_file output_prefix --log
+  # Given a CSV file with GenBank accession numbers, download and align sequences, and identify terminal and internal missing data
+  python prepDyn.py --GB_input accessions.csv --output_file output
 
-  # Given a FASTA alignment, identify missing data and delete orphan nucleotides of length < 10.
-  python prepDyn.py --input_file aln.fasta --output_file output_prefix --orphan_method semi --orphan_threshold 10
+  # Given a FASTA alignment, identify terminal missing data and delete orphan nucleotides of length < 10.
+  python prepDyn.py --input_file aln.fasta --output_file output --orphan_method semi --orphan_threshold 10
+
+  # Given a FASTA alignment with hDNA sequences in sp1 and sp4, replace IUPAC N with ?
+  python prepDyn.py --input_file aln.fasta --output_file output --n2question sp1,sp4
+
+  # Given a CSV file with GenBank accession numbers, download and align sequences, identify terminal and internal missing data, trim invariants and orphan nucleotides  
+  python prepDyn.py --GB_input accessions.csv --output_file output --del_inv True --internal_method semi 
 """)
     # Basic
     parser.add_argument("--input_file", help="Path to input alignment file or directory containing multiple files. Ignored if GB_input is provided.", default=None)
@@ -130,7 +145,7 @@ Examples:
     parser.add_argument("--output_file", help="Path (including prefix) for output file(s)", default=None)
     parser.add_argument("--output_format", help="Output format [default: fasta]", default="fasta")
     parser.add_argument("--log", help="Write time log", action="store_true")
-    parser.add_argument("--MSA", help="Perform a MSA. Only use it if the sequences specified in input_file are unaligned", action="store_true")
+    parser.add_argument("--MSA", help="Perform a MSA. Only use it if the sequences specified in input_file are unaligned. Ignore if GB_input is used.", action="store_true")
 
     # Trimming
     parser.add_argument("--orphan_method", help="Method to trim orphan nucleotides. Options: 'none' (default), 'auto' (define a threshold using percentile), 'semi' (define a threshold using an integer)", choices=["auto", "semi"], default=None)
@@ -143,6 +158,7 @@ Examples:
     parser.add_argument("--internal_column_ranges", help="Column ranges (Python list format) if internal_method=manual", type=parse_internal_column_ranges, default="all")
     parser.add_argument("--internal_leaves", help="Sequence names to apply the parameters if internal_method='semi' or 'manual'. Use 'all' (default) or comma-separated list e.g. seq1,seq2", type=parse_internal_leaves, default="all")
     parser.add_argument("--internal_threshold", type=int, help="Threshold for internal gaps if method='semi'", default=None)
+    parser.add_argument("--n2question", type=parse_n2question_leaves, default=None, help="Replace IUPAC N with ?. Options: 'none' (default), 'all' (apply to all leaves), single leaf name, or list of leaf names ['sp1', 'sp2'].")
 
     # Partitioning
     parser.add_argument("--partitioning_round", type=parse_partitioning_round, help="Round of successive partitioning. Invariant regions are sorted by length in descendant order and the n-largest block(s) partitioned using '#'. If 'max' is specified, pound signs are inserted in every instance of gap opening/closure.", default=0)
@@ -160,14 +176,18 @@ Examples:
             output_file=args.output_file,
             output_format=args.output_format,
             log=args.log,
+            # Trimming parameters
             orphan_method=args.orphan_method,
             orphan_threshold=args.orphan_threshold,
             percentile=args.percentile,
             del_inv=args.del_inv,
+            # Missing data parameters
+            n2question=args.n2question,
             internal_method=args.internal_method,
             internal_column_ranges=args.internal_column_ranges,
             internal_leaves=args.internal_leaves,
             internal_threshold=args.internal_threshold,
+            # Partitioning parameters
             partitioning_round=args.partitioning_round)
 
 if __name__ == "__main__":
