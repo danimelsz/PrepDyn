@@ -1,5 +1,9 @@
 # prepDyn: Preprocessing sequences for dynamic homology
 
+[![language](https://img.shields.io/badge/language-python-green?style=flat&logo=python&logoColor=green)](https://www.python.org)
+[![author](https://img.shields.io/badge/author-DYM_Nakamura-green?logo=googlescholar&logoColor=green)](https://scholar.google.com/citations?user=c0W8Cm8AAAAJ&hl=en)
+[![license](https://img.shields.io/badge/license-GPL_v3-green?logo=gnu&logoColor=green)](https://www.gnu.org/licenses/gpl-3.0.html)
+
 A collection of Python scripts to facilitate the preprocessing of input sequences for dynamic homology. 
 
 In dynamic homology, data should be preprocessed to distinguish differences in sequence length resulting from missing data or insertion-deletion events to avoid grouping from artifacts. However, previous empirical studies using POY/PhyG manually preprocessed data with varying approaches. Here we present **prepDyn**, a collection of Python scripts to facilitate the preprocessing of input sequences to POY/PhyG.
@@ -31,7 +35,7 @@ conda install anaconda::numpy
 conda install conda-forge::termcolor
 ```
 
-Clone the **prepDyn** repository using the command:
+Finally, clone the **prepDyn** repository using the command:
 ```
 git clone https://github.com/danimelsz/PrepDyn.git
 ```
@@ -70,7 +74,7 @@ This process can continue until tree costs reported by POY/PhyG remain stationar
 python prepDyn.py --input_file data.fasta --output_file out2 --partitioning_round 2 --log
 ```
 
-### Example 2: Data collection + Preprocessing
+### Example 2: GB2MSA + prepDyn
 
 Suppose you want to download sequences and preprocess them using different commands. Given a CSV file called *input.csv*, the following command will download the sequences and align them with MAFFT. In addition, files containing the names of the terminals (useful for control of taxon sampling in POY/PhyG) and the run time will be reported. 
 
@@ -99,5 +103,14 @@ If you have newly generated sequences (unavailable in GenBank) that you want to 
 ```
 AAAAAAAA
 ```
+
+### Example 5: Ancient DNA
+
+Suppose you have a dataset with ancient DNA sequences from the sample *Dendropsophus_tritaeniatus_MZUSP73973*. The IUPAC Ns present in sequences are ambiguous positions resulting from low coverage death in DNA read mapping. It is unknown if this positions actually correspond to nucleotides N or to indels (-). As such, the IUPAC Ns of ancient DNA sequences can be replaced with question marks using the following command:
+
+```
+AAAAAAAA
+```
+
 
 ## Citation
