@@ -2,15 +2,13 @@
 src/*      linguist-language=Python
 
 # Ignore Jupyter notebooks if code is elsewhere
-jupyter/*.ipynb linguist-documentation=true
+jupyter/* linguist-documentation=true
 .ipynb_checkpoints/*
 
 # Ignore data files
+Data/* linguist-generated=true
 data/* linguist-generated=true
 __pycache__/* linguist-generated=true
-
-# Ignore README and LICENSE
 LICENSE linguist-documentation=true
-README linguist-documentation=true
 README.md linguist-documentation=true
 
