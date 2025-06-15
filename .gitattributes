@@ -1,8 +1,8 @@
 # Ignore these files from language counting
 jupyter/* linguist-documentation=true
 .ipynb_checkpoints/* linguist-documentation=true
-test_data/* linguist-generated=true
-__pycache__/* linguist-generated=true
+test_data/* linguist-documentation=true
+__pycache__/* linguist-documentation=true
 .DS_Store linguist-documentation=true
 LICENSE linguist-documentation=true
 README.md linguist-documentation=true
