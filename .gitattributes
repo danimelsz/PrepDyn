@@ -1,6 +1,7 @@
 # Ignore these files from language counting
 # Mark everything as linguist-generated (ignored)
 * linguist-generated
+test_data/** linguist-documentation
 
 # Unmark files in src/ directory
 src/** linguist-generated=false
