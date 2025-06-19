@@ -1,0 +1,26 @@
+Input alignment: 155 sequences
+Input alignment: 19 # columns
+Input new sequences: 9 sequences
+Final alignment: 164 sequences
+Final alignment: 6161 columns
+Final alignment: 19 # columns
+
+Trimmed orphan blocks from new sequences:
+Cycloramphus_boraceiensis_CFBH5757: Left 0–2 (size=2, 'GC')
+Cycloramphus_boraceiensis_CFBH5757: Left 156–168 (size=12, 'TTGGTCCTAGCC')
+Cycloramphus_boraceiensis_CFBH5757: Left 236–250 (size=14, 'TTGAAATCAATTTT')
+Cycloramphus_boraceiensis_CFBH5757: Left 2004–2016 (size=12, 'TTCTAAATATAC')
+Cycloramphus_boraceiensis_CFBH5757: Left 2261–2273 (size=12, 'ACATGCAAGTTT')
+Cycloramphus_boraceiensis_CFBH5757: First partition adjacent to # deleted 2337–2342 (size=5, 'CCGCA')
+Thoropa_miliaris_CFBH10125: Left 0–28 (size=28, 'GACCCTAAAAAGTCCCCTAGACACAAAG')
+Thoropa_miliaris_CFBH10125: Left 154–168 (size=14, 'GTTTGGTCCTGGCC')
+Thoropa_miliaris_CFBH10125: Left 236–250 (size=14, 'TTGAAATCATTTGT')
+Thoropa_miliaris_CFBH10125: Left 2004–2016 (size=12, 'TACTCAATATAC')
+Thoropa_miliaris_CFBH10125: Left 2261–2273 (size=12, 'ACATGCAAGTCT')
+Thoropa_miliaris_CFBH10125: First partition adjacent to # deleted 2337–2342 (size=5, 'CCGCA')
+Thoropa_taophora_CFBH29711: Left 0–28 (size=28, 'GACCCTAAAAAGTCCCCTAAACACAAAG')
+Thoropa_taophora_CFBH29711: Left 154–168 (size=14, 'GTTTGGTCCTAGCC')
+Thoropa_taophora_CFBH29711: Left 236–250 (size=14, 'TTGAAATCATTTGT')
+Thoropa_taophora_CFBH29711: Left 2004–2016 (size=12, 'TACTCAATATAC')
+Thoropa_taophora_CFBH29711: Left 2261–2273 (size=12, 'ACATGCAAGTCT')
+Thoropa_taophora_CFBH29711: First partition adjacent to # deleted 2337–2342 (size=5, 'CCGCA')

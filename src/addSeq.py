@@ -8,7 +8,7 @@
 # Contact: dani_ymn@outlook.com
 
 COPYRIGHT=""""
-GB2MSA.py is part of prepDyn.
+addSeq.py is part of prepDyn.
 
 prepDyn - Data preprocessing for dynamic homology
 Copyright (C) 2025 - Daniel Y. M. Nakamura
@@ -24,7 +24,7 @@ print(COPYRIGHT)
 # MODULES #
 ###########
 
-# The programs pip and mafft should be installed beforehand.
+# The program mafft should be installed in $PATH beforehand.
 # The Python modules can be automatically installed using the
 # following script. If already installed, it will load them.
 
@@ -77,9 +77,21 @@ import tempfile
 import time
 
 # prepDyn libraries
-from prepDyn_auxiliary import GB2MSA
+from prepDyn_auxiliary import addSeq
 from Bio import SeqIO
 from Bio.Seq import Seq
+
+##################
+# CUSTOM PARSERS #
+##################
+
+def parse_n2question_leaves(value):
+    if value.lower() == "none":
+        return None
+    elif value.lower() == "all":
+        return "all"
+    else:
+        return [leaf.strip() for leaf in value.split(",")]
 
 ########
 # MAIN #
@@ -87,29 +99,34 @@ from Bio.Seq import Seq
 
 def main():
     parser = argparse.ArgumentParser(
-        description="GB2MSA downloads sequences from GenBank and performs multiple sequence alignment using MAFFT. If >1 non-overlapping fragments of the same gene is specified (e.g. MT893619/MT895696), the space between them is identified as missing data (?)",
+        description="Preprocess sequences for dynamic homology in PhyG. The four steps are (1) data collection from GB, (2) trimming, (3) identification of missing data, and (4) successive partitioning.",
         formatter_class=argparse.RawTextHelpFormatter,
         epilog="""\
-Example:  python GB2MSA.py --input_file input.csv --output_prefix myoutput --delimiter , --write_names --log --orphan_threshold 10
+Examples: python addSeq.py --alignment aln.fas --new_seqs 12s_sp_new.fas --output aln_updated.fas --write_names
 """)
-
-
-    parser.add_argument("--input_file", type=str, required=True, help="Path to CSV/TSV file with GenBank accession numbers.")
-    parser.add_argument("--output_prefix", type=str, required=True, help="Path (including prefix, if desirable) for output FASTA files.")
-    parser.add_argument("--delimiter", default=",", type=str, required=False, help="Delimiter used in the input file (default: ',').")
-    parser.add_argument("--write_names", action="store_true",  required=False, help="Write sequence names in a separate file, which can be used as input data in POY/PhyG to select taxon sample (default: True).")
-    parser.add_argument("--log", action="store_true",  required=False, help="If set, write wall and CPU time to a log file (default: False).")
-    parser.add_argument("--orphan_threshold", type=int, default=10,  required=False, help="Threshold to clean orphan nucleotides (default: 10).")
+    
+    parser.add_argument("-a", "--alignment", type=str, required=True, help="Path to FASTA input alignment. If question marks and pound signs are present, they will be maintained.", default=None)
+    parser.add_argument("-n", "--new_seqs", type=str, required=True, help="Path to FASTA input sequence(s) to be added to the alignment.", default=None)     
+    parser.add_argument("-o", "--output", type=str, required=True, help="Path to the output file with the new sequences aligned to the core alignment.", default=None)
+    parser.add_argument("-w", "--write_names", action="store_true",  required=False, help="Write sequence names in a separate file, which can be used as input data in POY/PhyG to select taxon sample (default: False).")
+    parser.add_argument("-ot", "--orphan_threshold", type=int, required=False, default=20, help="Threshold (int) to detect and remove orphan DNA blocks.")
+    parser.add_argument("-n2q", "--n2question", type=parse_n2question_leaves, required=False, default=None, help="Replace IUPAC N with ?. Options: 'none' (default), 'all' (apply to all added leaves), single added leaf, or list of added leaves ['sp1', 'sp2'].")
+    parser.add_argument("-g2q", "--gaps2question", default=None, required=False, type=int, help="gaps2question (int or None): Replace contiguous gap blocks larger than this threshold with '?'. Only applied to added sequences.")
+    parser.add_argument("-l", "--log", action="store_true", required=False, help="Write log tracking all operations and reporting runtime.")
 
     args = parser.parse_args()
 
-    GB2MSA(
-        input_file=args.input_file,
-        output_prefix=args.output_prefix,
-        delimiter=args.delimiter,
+    addSeq(
+        alignment=args.alignment, 
+        new_seqs=args.new_seqs, 
+        output=args.output,
         write_names=args.write_names,
         log=args.log,
-        orphan_threshold=args.orphan_threshold)
+        # Trimming
+        orphan_threshold=args.orphan_threshold,
+        # Missing data identification
+        gaps2question=args.gaps2question,
+        n2question=args.n2question)
 
 # Only run main() directly from command line, not imported as a module
 if __name__ == "__main__":

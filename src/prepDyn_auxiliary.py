@@ -534,84 +534,6 @@ def GB2MSA_4(alignment_dict):
 
     return cleaned_alignment
 
-def GB2MSA(input_file, 
-           output_prefix, 
-           delimiter=',', 
-           write_names=True, 
-           log=False, 
-           orphan_threshold=6):
-    """
-    Complete GenBank-to-MSA pipeline:
-    1. Downloads sequences from GenBank and aligns them by gene using MAFFT.
-    2. Cleans the alignments by replacing internal missing data and removing empty columns.
-    3. Applies GB2MSA_3 to replace selected gap and orphan nucleotide blocks with '?'.
-    4. Applies GB2MSA_4 to replace blocks of 15 or more w/W (with or without interspersed gaps) with '?'.
-    5. Replaces terminal '?' in sequences with '-'.
-    6. Deletes intermediate files ending with '_aligned.fasta'.
-    7. Optionally logs wall clock and CPU time to a log file named '<output_prefix>_log.txt'.
-    """
-    start_wall = time.time()
-    start_cpu = time.process_time()
-
-    # Step 1: Generate aligned FASTA files
-    aligned_files = GB2MSA_1(input_file, output_prefix, delimiter=delimiter, write_names=write_names)
-
-    # Step 2: Clean each aligned FASTA file
-    cleaned_files = []
-    for aligned_file in aligned_files:
-        cleaned_file = GB2MSA_2(aligned_file)
-        cleaned_files.append(cleaned_file)
-
-    # Step 3: Apply GB2MSA_3 to clean orphan gap/nucleotide blocks
-    for cleaned_file in cleaned_files:
-        records = list(SeqIO.parse(cleaned_file, "fasta"))
-        alignment_dict = {record.id: str(record.seq) for record in records}
-        updated_dict = GB2MSA_3(alignment_dict, orphan_threshold=orphan_threshold, log=log)
-        
-        # Step 4: Apply GB2MSA_4 to handle w/W blocks
-        updated_dict = GB2MSA_4(updated_dict)
-
-        updated_records = []
-        for record in records:
-            record.seq = Seq(updated_dict[record.id])
-            updated_records.append(record)
-        with open(cleaned_file, "w") as out_handle:
-            SeqIO.write(updated_records, out_handle, "fasta")
-
-    # Step 5: Replace terminal '?' with '-' in each sequence
-    for cleaned_file in cleaned_files:
-        records = list(SeqIO.parse(cleaned_file, "fasta"))
-        updated_records = []
-        for record in records:
-            seq = str(record.seq)
-            left = len(seq) - len(seq.lstrip('?'))
-            right = len(seq) - len(seq.rstrip('?'))
-            new_seq = '-' * left + seq[left:len(seq)-right] + '-' * right if right > 0 else '-' * left + seq[left:]
-            record.seq = Seq(new_seq)
-            updated_records.append(record)
-        with open(cleaned_file, "w") as out_handle:
-            SeqIO.write(updated_records, out_handle, "fasta")
-
-    # Step 6: Delete intermediate *_aligned.fasta files
-    for aligned_file in aligned_files:
-        if aligned_file.endswith("_aligned.fasta") and os.path.exists(aligned_file):
-            os.remove(aligned_file)
-
-    # Step 7: Log timing if requested
-    if log:
-        end_wall = time.time()
-        end_cpu = time.process_time()
-        wall_time = end_wall - start_wall
-        cpu_time = end_cpu - start_cpu
-
-        log_file = f"{output_prefix}_log.txt"
-        with open(log_file, "a") as lf:
-            lf.write(f"--- GB2MSA run for '{output_prefix}' ---\n")
-            lf.write(f"Wall clock time: {wall_time:.2f} seconds\n")
-            lf.write(f"CPU time: {cpu_time:.2f} seconds\n\n")
-
-    return cleaned_files
-
 ####################################
 # MAIN FUNCTIONS: STEP 2. TRIMMING #
 ####################################
@@ -1218,8 +1140,86 @@ def n2question_func(alignment: dict, leaves='all'):
     return alignment
 
 #######################
-# INTEGRATED FUNCTION #
+# INTEGRATED FUNCTIONS #
 #######################
+
+def GB2MSA(input_file, 
+           output_prefix, 
+           delimiter=',', 
+           write_names=True, 
+           log=False, 
+           orphan_threshold=6):
+    """
+    Complete GenBank-to-MSA pipeline:
+    1. Downloads sequences from GenBank and aligns them by gene using MAFFT.
+    2. Cleans the alignments by replacing internal missing data and removing empty columns.
+    3. Applies GB2MSA_3 to replace selected gap and orphan nucleotide blocks with '?'.
+    4. Applies GB2MSA_4 to replace blocks of 15 or more w/W (with or without interspersed gaps) with '?'.
+    5. Replaces terminal '?' in sequences with '-'.
+    6. Deletes intermediate files ending with '_aligned.fasta'.
+    7. Optionally logs wall clock and CPU time to a log file named '<output_prefix>_log.txt'.
+    """
+    start_wall = time.time()
+    start_cpu = time.process_time()
+
+    # Step 1: Generate aligned FASTA files
+    aligned_files = GB2MSA_1(input_file, output_prefix, delimiter=delimiter, write_names=write_names)
+
+    # Step 2: Clean each aligned FASTA file
+    cleaned_files = []
+    for aligned_file in aligned_files:
+        cleaned_file = GB2MSA_2(aligned_file)
+        cleaned_files.append(cleaned_file)
+
+    # Step 3: Apply GB2MSA_3 to clean orphan gap/nucleotide blocks
+    for cleaned_file in cleaned_files:
+        records = list(SeqIO.parse(cleaned_file, "fasta"))
+        alignment_dict = {record.id: str(record.seq) for record in records}
+        updated_dict = GB2MSA_3(alignment_dict, orphan_threshold=orphan_threshold, log=log)
+        
+        # Step 4: Apply GB2MSA_4 to handle w/W blocks
+        updated_dict = GB2MSA_4(updated_dict)
+
+        updated_records = []
+        for record in records:
+            record.seq = Seq(updated_dict[record.id])
+            updated_records.append(record)
+        with open(cleaned_file, "w") as out_handle:
+            SeqIO.write(updated_records, out_handle, "fasta")
+
+    # Step 5: Replace terminal '?' with '-' in each sequence
+    for cleaned_file in cleaned_files:
+        records = list(SeqIO.parse(cleaned_file, "fasta"))
+        updated_records = []
+        for record in records:
+            seq = str(record.seq)
+            left = len(seq) - len(seq.lstrip('?'))
+            right = len(seq) - len(seq.rstrip('?'))
+            new_seq = '-' * left + seq[left:len(seq)-right] + '-' * right if right > 0 else '-' * left + seq[left:]
+            record.seq = Seq(new_seq)
+            updated_records.append(record)
+        with open(cleaned_file, "w") as out_handle:
+            SeqIO.write(updated_records, out_handle, "fasta")
+
+    # Step 6: Delete intermediate *_aligned.fasta files
+    for aligned_file in aligned_files:
+        if aligned_file.endswith("_aligned.fasta") and os.path.exists(aligned_file):
+            os.remove(aligned_file)
+
+    # Step 7: Log timing if requested
+    if log:
+        end_wall = time.time()
+        end_cpu = time.process_time()
+        wall_time = end_wall - start_wall
+        cpu_time = end_cpu - start_cpu
+
+        log_file = f"{output_prefix}_log.txt"
+        with open(log_file, "a") as lf:
+            lf.write(f"--- GB2MSA run for '{output_prefix}' ---\n")
+            lf.write(f"Wall clock time: {wall_time:.2f} seconds\n")
+            lf.write(f"CPU time: {cpu_time:.2f} seconds\n\n")
+
+    return cleaned_files
 
 def prepDyn(input_file=None, 
             GB_input=None,
@@ -1435,3 +1435,414 @@ def prepDyn(input_file=None,
             log_file.write(f"CPU time: {cpu_time:.8f} seconds\n")
 
     return alignment
+
+def addSeq(
+    alignment,
+    new_seqs,
+    output,
+    write_names=True,
+    orphan_threshold=10,
+    log=False,
+    n2question=None,
+    gaps2question=None
+):
+    """
+    Add new sequences to an existing alignment using MAFFT, clean and standardize the result.
+
+    Steps performed:
+    1. Remove '#' columns from original alignment.
+    2. Align new sequences with MAFFT using --add.
+    3. Trim orphan nucleotide blocks from new sequences.
+    4. Remove short DNA blocks near # in first and last partitions.
+    5. Replace terminal '-' with '?'.
+    6. Optionally replace all N/n with '?' in selected sequences.
+    7. Optionally replace long gap blocks with '?'.
+    8. Reinsert '#' columns.
+    9. Replace all-'?' blocks between '#' with '-'.
+    10. Write the result and an optional log file.
+
+    Parameters:
+        alignment (str or dict): Existing alignment file path (FASTA) or dictionary {id: sequence}.
+        new_seqs (str or dict): New sequences to add (FASTA path or dict {id: sequence}).
+        output (str): Path to write the updated alignment in FASTA format.
+        write_names (bool): Whether to write a _terminal_names.txt file listing sequence IDs.
+        orphan_threshold (int): Threshold to detect and remove orphan DNA blocks.
+        log (bool): If True, writes a log file with trimming and runtime information.
+        n2question (str, list or None): Replace 'N/n' with '?' in specific sequences:
+            - 'all': apply to all sequences
+            - str: apply to a single sequence ID
+            - list: apply to listed sequence IDs
+        gaps2question (int or None): Replace contiguous gap blocks larger than this threshold with '?'. Only applied to added sequences.
+
+    Returns:
+        None
+
+    Example usage:
+        addSeq("alignment.fasta", "new.fasta", "updated.fasta", n2question="seq123", log=True)
+        addSeq(alignment_dict, new_dict, "out.fas", n2question='all')
+    """
+
+    # Start timing the execution
+    start_time = time.time()
+    temp_files_to_remove = []  # Temporary files to be removed after execution
+    log_lines = [] 
+
+    # Log the function call and parameters for reproducibility
+    if log:
+        cmd_used = f"addSeq(alignment=..., new_seqs=..., output='{output}', write_names={write_names}, orphan_threshold={orphan_threshold}, log={log}, n2question={n2question}, gaps2question={gaps2question})"
+        log_lines.append(f"Command used: {cmd_used}")
+        log_lines.append("")
+
+    # === Step 1: Load and clean the alignment ===
+    def write_dict_to_temp_fasta(seq_dict):
+        records = [SeqRecord(Seq(seq), id=str(seq_id), description="") for seq_id, seq in seq_dict.items()]
+        tmp = tempfile.NamedTemporaryFile("w+", delete=False)
+        SeqIO.write(records, tmp, "fasta")
+        tmp.close()
+        return tmp.name
+
+    if isinstance(alignment, dict):
+        alignment_path = write_dict_to_temp_fasta(alignment)
+        temp_files_to_remove.append(alignment_path)
+    elif isinstance(alignment, str):
+        alignment_path = alignment
+    else:
+        raise ValueError("alignment must be a FASTA file path or a dictionary")
+
+    records = list(SeqIO.parse(alignment_path, "fasta"))
+    if not records:
+        raise ValueError("Input alignment is empty or not found")
+
+    aln_len = len(records[0].seq)
+    # Identify columns that are '#' characters to temporarily remove them for alignment
+    pound_cols = [i for i in range(aln_len) if any(rec.seq[i] == '#' for rec in records)]
+
+    # Log input alignment info
+    if log:
+        log_lines.append(f"Input alignment: {len(records)} sequences")
+        log_lines.append(f"Input alignment: {len(pound_cols)} # columns")
+
+    def remove_cols(seq, cols):
+        return ''.join(seq[i] for i in range(len(seq)) if i not in cols)
+
+    # Remove '#' columns
+    aln_no_pound = [
+        SeqRecord(Seq(remove_cols(str(rec.seq), pound_cols)), id=rec.id, description="")
+        for rec in records
+    ]
+    # Write cleaned alignment to a temporary file
+    with tempfile.NamedTemporaryFile("w+", delete=False) as aln_tmp:
+        SeqIO.write(aln_no_pound, aln_tmp, "fasta")
+        aln_path = aln_tmp.name
+        temp_files_to_remove.append(aln_path)
+
+    # === Step 2: Load new sequences ===
+    if isinstance(new_seqs, dict):
+        new_seqs_path = write_dict_to_temp_fasta(new_seqs)
+        new_seq_count = len(new_seqs)
+        temp_files_to_remove.append(new_seqs_path)
+    elif isinstance(new_seqs, str):
+        new_seq_count = sum(1 for _ in SeqIO.parse(new_seqs, "fasta"))
+        new_seqs_path = new_seqs
+    else:
+        raise ValueError("new_seqs must be a FASTA file path or a dictionary")
+    # Log new sequence info
+    if log:
+        log_lines.append(f"Input new sequences: {new_seq_count} sequences")
+
+    # === Step 3: Align new sequences with MAFFT ===
+    with tempfile.NamedTemporaryFile("w+", delete=False) as out_tmp:
+        out_path = out_tmp.name
+        temp_files_to_remove.append(out_path)
+
+    try:
+        subprocess.run(
+            ['mafft', '--add', new_seqs_path, '--keeplength', '--preservecase', aln_path],
+            check=True,
+            stdout=open(out_path, 'w'),
+            stderr=subprocess.PIPE,
+            text=True,
+        )
+    except subprocess.CalledProcessError as e:
+        for file in temp_files_to_remove:
+            try:
+                os.remove(file)
+            except Exception:
+                pass
+        raise RuntimeError(f"MAFFT failed!\nCommand: {e.cmd}\nExit status: {e.returncode}\nMAFFT error output:\n{e.stderr}")
+
+    mafft_aligned_records = list(SeqIO.parse(out_path, "fasta"))
+    original_ids = {rec.id for rec in records}
+    new_records = [rec for rec in mafft_aligned_records if rec.id not in original_ids]
+
+
+    def replace_gap_blocks(seq, threshold, seq_id=None):
+        seq_list = list(seq)
+        replaced_log = []
+        i = 0
+        while i < len(seq_list):
+            if seq_list[i] == '-':
+                start = i
+                while i < len(seq_list) and seq_list[i] == '-':
+                    i += 1
+                if (i - start) > threshold:
+                    for j in range(start, i):
+                        seq_list[j] = '?'
+                    if seq_id:
+                        replaced_log.append(f"{seq_id}: {i - start} contiguous '-' replaced with '?' at {start}–{i}")
+            else:
+                i += 1
+        return ''.join(seq_list), replaced_log
+
+    def find_dna_blocks(seq_list, start, end):
+        blocks = []
+        i = start
+        while i < end:
+            if seq_list[i] not in "-?#":
+                s = i
+                while i < end and seq_list[i] not in "-?#":
+                    i += 1
+                e = i
+                blocks.append((s, e))
+            else:
+                i += 1
+        return blocks
+
+    def trim_orphan_blocks(seq, threshold, seq_id=None):
+        seq_list = list(seq)
+        trimmed_log = []
+
+        def find_blocks(seq_list):
+            blocks = []
+            i = 0
+            while i < len(seq_list):
+                if seq_list[i] not in "-?#":
+                    start = i
+                    while i < len(seq_list) and seq_list[i] not in "-?#":
+                        i += 1
+                    end = i
+                    blocks.append((start, end))
+                else:
+                    i += 1
+            return blocks
+
+        changed = True
+        while changed:
+            changed = False
+
+            while True:
+                blocks = find_blocks(seq_list)
+                if len(blocks) < 2:
+                    break
+                first_start, first_end = blocks[0]
+                next_start = blocks[1][0]
+                gap_count = seq_list[first_end:next_start].count('-') + seq_list[first_end:next_start].count('?')
+                size = first_end - first_start
+                if size < threshold and gap_count > threshold:
+                    deleted = ''.join(seq_list[first_start:first_end])
+                    seq_list[first_start:first_end] = ['-'] * size
+                    if seq_id:
+                        trimmed_log.append(f"{seq_id}: Left {first_start}–{first_end} (size={size}, '{deleted}')")
+                    changed = True
+                    continue
+                break
+
+            while True:
+                blocks = find_blocks(seq_list)
+                if len(blocks) < 2:
+                    break
+                last_start, last_end = blocks[-1]
+                prev_end = blocks[-2][1]
+                gap_count = seq_list[prev_end:last_start].count('-') + seq_list[prev_end:last_start].count('?')
+                size = last_end - last_start
+                if size < threshold and gap_count > threshold:
+                    deleted = ''.join(seq_list[last_start:last_end])
+                    seq_list[last_start:last_end] = ['-'] * size
+                    if seq_id:
+                        trimmed_log.append(f"{seq_id}: Right {last_start}–{last_end} (size={size}, '{deleted}')")
+                    changed = True
+                    continue
+                break
+
+        if pound_cols:
+            first_hash = min(pound_cols)
+            last_hash = max(pound_cols)
+            blocks = find_dna_blocks(seq_list, 0, first_hash)
+            if len(blocks) == 1:
+                s, e = blocks[0]
+                if e == first_hash and (e - s) < threshold:
+                    deleted = ''.join(seq_list[s:e])
+                    seq_list[s:e] = ['-'] * (e - s)
+                    if seq_id:
+                        trimmed_log.append(f"{seq_id}: Left {s}–{e} (size={e - s}, '{deleted}')")
+            blocks = find_dna_blocks(seq_list, last_hash + 1, len(seq_list))
+            if len(blocks) == 1:
+                s, e = blocks[0]
+                if s == last_hash + 1 and (e - s) < threshold:
+                    deleted = ''.join(seq_list[s:e])
+                    seq_list[s:e] = ['-'] * (e - s)
+                    if seq_id:
+                        trimmed_log.append(f"{seq_id}: Right {s}–{e} (size={e - s}, '{deleted}')")
+
+        return ''.join(seq_list), trimmed_log
+
+    trimmed_new_records = []
+    all_trim_logs = []
+    gaps2q_log = []  # This will no longer be used for logging replaced gaps
+
+    for rec in new_records:
+        trimmed_seq, seq_log = trim_orphan_blocks(str(rec.seq), orphan_threshold, seq_id=rec.id)
+        # Remove gaps2question here to not log replaced gaps multiple times
+        trimmed_new_records.append(SeqRecord(Seq(trimmed_seq), id=rec.id, description=""))
+        all_trim_logs.extend(seq_log)
+
+    processed_records = [rec for rec in mafft_aligned_records if rec.id in original_ids] + trimmed_new_records
+
+    updated_records = []
+    for rec in processed_records:
+        seq_chars = list(str(rec.seq))
+        for i in range(len(seq_chars)):
+            if seq_chars[i] == '-':
+                seq_chars[i] = '?'
+            else:
+                break
+        for i in range(len(seq_chars) - 1, -1, -1):
+            if seq_chars[i] == '-':
+                seq_chars[i] = '?'
+            else:
+                break
+        updated_records.append(SeqRecord(Seq(''.join(seq_chars)), id=rec.id, description=""))
+
+    n2q_log = []
+    if n2question:
+        if isinstance(n2question, str) and n2question != 'all':
+            target_ids = {n2question}
+        elif isinstance(n2question, list):
+            target_ids = set(n2question)
+        elif n2question == 'all':
+            target_ids = {rec.id for rec in updated_records}
+        else:
+            target_ids = set()
+
+        for rec in updated_records:
+            if rec.id in target_ids:
+                seq_str = str(rec.seq)
+                count_n = seq_str.count('N') + seq_str.count('n')
+                if count_n > 0:
+                    rec.seq = Seq(seq_str.replace('N', '?').replace('n', '?'))
+                    n2q_log.append(f"{rec.id}: {count_n} N/n replaced with ?")
+
+    # === Now apply gaps2question as the very last step on added sequences ===
+    def replace_gap_blocks(seq, threshold, seq_id=None):
+        seq_list = list(seq)
+        replaced_log = []
+        i = 0
+        while i < len(seq_list):
+            if seq_list[i] == '-':
+                start = i
+                while i < len(seq_list) and seq_list[i] == '-':
+                    i += 1
+                if (i - start) > threshold:
+                    for j in range(start, i):
+                        seq_list[j] = '?'
+                    if seq_id:
+                        replaced_log.append(f"{seq_id}: {i - start} contiguous '-' replaced with '?' at {start}–{i}")
+            else:
+                i += 1
+        return ''.join(seq_list), replaced_log
+
+    # Apply gaps2question only if specified
+    if gaps2question:
+        updated_records_dict = {rec.id: rec for rec in updated_records}
+        for rec in trimmed_new_records:
+            seq = str(updated_records_dict[rec.id].seq)
+            new_seq, _ = replace_gap_blocks(seq, gaps2question, seq_id=rec.id)
+            updated_records_dict[rec.id].seq = Seq(new_seq)
+        updated_records = list(updated_records_dict.values())
+
+    final_records = []
+    for rec in updated_records:
+        seq_list = list(str(rec.seq))
+        for col in sorted(pound_cols):
+            seq_list.insert(col, '#')
+        final_records.append(SeqRecord(Seq(''.join(seq_list)), id=rec.id, description=""))
+
+    def process_blocks(seq):
+        seq_chars = list(seq)
+        blocks = []
+        start = 0
+        for i, c in enumerate(seq_chars):
+            if c == '#':
+                blocks.append((start, i))
+                start = i + 1
+        blocks.append((start, len(seq_chars)))
+        for (start, end) in blocks:
+            if all(seq_chars[i] == '?' for i in range(start, end)):
+                for i in range(start, end):
+                    seq_chars[i] = '-'
+        return ''.join(seq_chars)
+
+    final_output = [
+        SeqRecord(Seq(process_blocks(str(rec.seq))), id=rec.id, description="")
+        for rec in final_records
+    ]
+
+    # --- New function to find contiguous '?' blocks ---
+    def find_question_blocks(seq):
+        blocks = []
+        seq_len = len(seq)
+        i = 0
+        while i < seq_len:
+            if seq[i] == '?':
+                start = i
+                while i < seq_len and seq[i] == '?':
+                    i += 1
+                end = i
+                blocks.append((start, end))
+            else:
+                i += 1
+        return blocks
+
+    # Identify gap ('?') blocks in added sequences for final logging
+    gap_question_blocks_log = []
+    added_ids = {rec.id for rec in trimmed_new_records}  # IDs of added sequences
+
+    for rec in final_output:
+        if rec.id in added_ids:
+            q_blocks = find_question_blocks(str(rec.seq))
+            for (start, end) in q_blocks:
+                length = end - start
+                gap_question_blocks_log.append(f"{rec.id}: ? block at positions {start}-{end} (length={length})")
+
+    SeqIO.write(final_output, output, "fasta")
+    if write_names:
+        with open(output + "_terminal_names.txt", "w") as f:
+            for rec in final_output:
+                f.write(rec.id + "\n")
+
+    if log:
+        elapsed = time.time() - start_time
+        log_lines.append(f"Final alignment: {len(final_output)} sequences")
+        log_lines.append(f"Final alignment: {len(final_output[0].seq)} columns")
+        log_lines.append(f"Final alignment: {sum(1 for i in range(len(final_output[0].seq)) if any(rec.seq[i] == '#' for rec in final_output))} # columns")
+        log_lines.append("")
+        log_lines.append("Trimmed orphan blocks from new sequences:")
+        log_lines.extend(all_trim_logs or ["None"])
+        if gap_question_blocks_log:
+            log_lines.append("")
+            log_lines.append("Gap block replacements:")
+            log_lines.extend(gap_question_blocks_log)
+        if n2q_log:
+            log_lines.append("")
+            log_lines.append("N/n to ? replacements:")
+            log_lines.extend(n2q_log)
+        log_lines.append("")
+        log_lines.append(f"Runtime: {elapsed:.2f} seconds")
+        with open(output + ".log", "w") as log_file:
+            log_file.write("\n".join(log_lines))
+
+    for file in temp_files_to_remove:
+        try:
+            os.remove(file)
+        except Exception:
+            pass
