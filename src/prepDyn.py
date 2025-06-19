@@ -139,29 +139,29 @@ Examples:
   python prepDyn.py --GB_input accessions.csv --output_file output --del_inv True --internal_method semi 
 """)
     # Basic
-    parser.add_argument("--input_file", help="Path to input alignment file or directory containing multiple files. Ignored if GB_input is provided.", default=None)
-    parser.add_argument("--GB_input", help="Path to a dataframe containing GenBank accession numbers (CSV/TSV). If provided, sequences will be downloaded from GenBank and aligned using MAFFT before preprocessing. Ignored if input_file is provided.", default=None)
-    parser.add_argument("--input_format", help="Input file format. Options: 'fasta' (default), 'clustal', 'phylip', or any format accepted by Biopython.", default="fasta")
-    parser.add_argument("--output_file", help="Path (including prefix) for output file(s)", default=None)
-    parser.add_argument("--output_format", help="Output format [default: fasta]", default="fasta")
-    parser.add_argument("--log", help="Write time log", action="store_true")
-    parser.add_argument("--MSA", help="Perform a MSA. Only use it if the sequences specified in input_file are unaligned. Ignore if GB_input is used.", action="store_true")
+    parser.add_argument("-i", "--input_file", help="Path to input alignment file or directory containing multiple files. Ignored if GB_input is provided.", default=None)
+    parser.add_argument("-gb", "--GB_input", help="Path to a dataframe containing GenBank accession numbers (CSV/TSV). If provided, sequences will be downloaded from GenBank and aligned using MAFFT before preprocessing. Ignored if input_file is provided.", default=None)
+    parser.add_argument("-if", "--input_format", help="Input file format. Options: 'fasta' (default), 'clustal', 'phylip', or any format accepted by Biopython.", default="fasta")
+    parser.add_argument("-o", "--output_file", help="Path (including prefix) for output file(s)", default=None)
+    parser.add_argument("-of", "--output_format", help="Output format [default: fasta]", default="fasta")
+    parser.add_argument("-l", "--log", help="Write time log", action="store_true")
+    parser.add_argument("-msa", "--MSA", help="Perform a MSA. Only use it if the sequences specified in input_file are unaligned. Ignore if GB_input is used.", action="store_true")
 
     # Trimming
-    parser.add_argument("--orphan_method", help="Method to trim orphan nucleotides. Options: 'none' (default), 'auto' (define a threshold using percentile), 'semi' (define a threshold using an integer)", choices=["auto", "semi"], default=None)
-    parser.add_argument("--orphan_threshold", type=int, help="Threshold integer if orphan_method='semi' (default: 10)", default=10)
-    parser.add_argument("--percentile", type=float, help="Percentile of gap lengths to define the orphan threshold if orphan_method='auto' (default: 25).", default=25.0)
-    parser.add_argument("--del_inv", help="Trim invariant terminal columns (default: False)", action="store_true")
+    parser.add_argument("-om", "--orphan_method", help="Method to trim orphan nucleotides. Options: 'none' (default), 'auto' (define a threshold using percentile), 'semi' (define a threshold using an integer)", choices=["auto", "semi"], default=None)
+    parser.add_argument("-ot", "--orphan_threshold", type=int, help="Threshold integer if orphan_method='semi' (default: 10)", default=10)
+    parser.add_argument("-op", "--percentile", type=float, help="Percentile of gap lengths to define the orphan threshold if orphan_method='auto' (default: 25).", default=25.0)
+    parser.add_argument("-di", "--del_inv", help="Trim invariant terminal columns (default: False)", action="store_true")
 
     # Missing data
-    parser.add_argument("--internal_method", help="Method to handle internal missing data: 'manual', 'semi', or 'none' (default)", default=None)
-    parser.add_argument("--internal_column_ranges", help="Column ranges (Python list format) if internal_method=manual", type=parse_internal_column_ranges, default="all")
-    parser.add_argument("--internal_leaves", help="Sequence names to apply the parameters if internal_method='semi' or 'manual'. Use 'all' (default) or comma-separated list e.g. seq1,seq2", type=parse_internal_leaves, default="all")
-    parser.add_argument("--internal_threshold", type=int, help="Threshold for internal gaps if method='semi'", default=None)
-    parser.add_argument("--n2question", type=parse_n2question_leaves, default=None, help="Replace IUPAC N with ?. Options: 'none' (default), 'all' (apply to all leaves), single leaf name, or list of leaf names ['sp1', 'sp2'].")
+    parser.add_argument("-g2q", "--internal_method", help="Method to handle internal missing data: 'manual', 'semi', or 'none' (default)", default=None)
+    parser.add_argument("-g2q_c", "--internal_column_ranges", help="Column ranges (Python list format) if internal_method=manual", type=parse_internal_column_ranges, default="all")
+    parser.add_argument("-g2q_l", "--internal_leaves", help="Sequence names to apply the parameters if internal_method='semi' or 'manual'. Use 'all' (default) or comma-separated list e.g. seq1,seq2", type=parse_internal_leaves, default="all")
+    parser.add_argument("-g2q_t", "--internal_threshold", type=int, help="Threshold for internal gaps if method='semi'", default=None)
+    parser.add_argument("-n2q", "--n2question", type=parse_n2question_leaves, default=None, help="Replace IUPAC N with ?. Options: 'none' (default), 'all' (apply to all leaves), single leaf name, or list of leaf names ['sp1', 'sp2'].")
 
     # Partitioning
-    parser.add_argument("--partitioning_round", type=parse_partitioning_round, help="Round of successive partitioning. Invariant regions are sorted by length in descendant order and the n-largest block(s) partitioned using '#'. If 'max' is specified, pound signs are inserted in every instance of gap opening/closure.", default=0)
+    parser.add_argument("-p", "--partitioning_round", type=parse_partitioning_round, help="Round of successive partitioning. Invariant regions are sorted by length in descendant order and the n-largest block(s) partitioned using '#'. If 'max' is specified, pound signs are inserted in every instance of gap opening/closure.", default=0)
 
     args = parser.parse_args()
     # Error messages
