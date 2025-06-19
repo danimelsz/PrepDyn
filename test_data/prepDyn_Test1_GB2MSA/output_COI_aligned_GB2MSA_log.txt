@@ -1,2 +1,0 @@
-Wall-clock time: 0.00685596 seconds
-CPU time: 0.00680400 seconds

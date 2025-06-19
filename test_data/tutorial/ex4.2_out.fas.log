@@ -1,0 +1,43 @@
+Command used: addSeq(alignment=..., new_seqs=..., output='test_data/tutorial/ex4.2_out.fas', write_names=True, orphan_threshold=45, log=True, n2question=['Thoropa_miliaris_CFBH10125'], gaps2question=20)
+
+Input alignment: 152 sequences
+Input alignment: 19 # columns
+Input new sequences: 9 sequences
+Final alignment: 161 sequences
+Final alignment: 6161 columns
+Final alignment: 19 # columns
+
+Trimmed orphan blocks from new sequences:
+Cycloramphus_boraceiensis_CFBH5757: Left 0–2 (size=2, 'GC')
+Cycloramphus_boraceiensis_CFBH5757: Left 156–168 (size=12, 'TTGGTCCTAGCC')
+Cycloramphus_boraceiensis_CFBH5757: Left 236–250 (size=14, 'TTGAAATCAATTTT')
+Cycloramphus_boraceiensis_CFBH5757: Left 2004–2016 (size=12, 'TTCTAAATATAC')
+Cycloramphus_boraceiensis_CFBH5757: Left 2261–2273 (size=12, 'ACATGCAAGTTT')
+Cycloramphus_boraceiensis_CFBH5757: Left 2337–2342 (size=5, 'CCGCA')
+Thoropa_miliaris_CFBH10125: Left 0–28 (size=28, 'GACCCTAAAAAGTCCCCTAGACACAAAG')
+Thoropa_miliaris_CFBH10125: Left 154–168 (size=14, 'GTTTGGTCCTGGCC')
+Thoropa_miliaris_CFBH10125: Left 236–250 (size=14, 'TTGAAATCATTTGT')
+Thoropa_miliaris_CFBH10125: Left 2004–2016 (size=12, 'TACTCAATATAC')
+Thoropa_miliaris_CFBH10125: Left 2261–2273 (size=12, 'ACATGCAAGTCT')
+Thoropa_miliaris_CFBH10125: Left 2337–2342 (size=5, 'CCGCA')
+Thoropa_taophora_CFBH29711: Left 0–28 (size=28, 'GACCCTAAAAAGTCCCCTAAACACAAAG')
+Thoropa_taophora_CFBH29711: Left 154–168 (size=14, 'GTTTGGTCCTAGCC')
+Thoropa_taophora_CFBH29711: Left 236–250 (size=14, 'TTGAAATCATTTGT')
+Thoropa_taophora_CFBH29711: Left 2004–2016 (size=12, 'TACTCAATATAC')
+Thoropa_taophora_CFBH29711: Left 2261–2273 (size=12, 'ACATGCAAGTCT')
+Thoropa_taophora_CFBH29711: Left 2337–2342 (size=5, 'CCGCA')
+
+Gap block replacements:
+Cycloramphus_bandeirensis_MZUSP133898: ? block at positions 4820-4900 (length=80)
+Cycloramphus_bandeirensis_MZUSP133898: ? block at positions 6093-6161 (length=68)
+Thoropa_miliaris_CFBH10125: ? block at positions 2355-2366 (length=11)
+Thoropa_miliaris_CFBH10125: ? block at positions 2794-2864 (length=70)
+Thoropa_miliaris_CFBH10125: ? block at positions 3198-3238 (length=40)
+Thoropa_miliaris_CFBH10125: ? block at positions 4819-5057 (length=238)
+Thoropa_megatympanum_MCNAM2072: ? block at positions 4819-5057 (length=238)
+Thoropa_saxatilis_CFBH30381: ? block at positions 4819-5057 (length=238)
+
+N/n to ? replacements:
+Thoropa_miliaris_CFBH10125: 11 N/n replaced with ?
+
+Runtime: 7.89 seconds

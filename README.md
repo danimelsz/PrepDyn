@@ -42,22 +42,23 @@ git clone https://github.com/danimelsz/PrepDyn.git
 
 ## Introduction
 
-**prepDyn** comprises four steps: (1) data collection from GenBank, (2) trimming, (3) identification of missing data, and (4) successive partitioning.
+**prepDyn** comprises four steps: (1) data collection from GenBank, (2) trimming, (3) identification of missing data, and (4) partitioning.
 
 ## Usage
 **prepDyn** is organized in three Python files:
 - prepDyn.py: main script integrating the pipeline.
 - GB2MSA.py: script to download sequences from GenBank and identify internal missing data.
-- prepDyn_auxiliary.py: script containing all auxiliary Python functions required by the other scripts.
+- addSeq.py: script to align one or a few sequence(s) to a previously preprocessed alignment.
+- prepDyn_auxiliary.py: all auxiliary Python functions required by the other scripts.
 
 The following examples are designed for users with little experience on Unix. If you have questions, send a message using **GitHub issues**.
 
 ### Example 1: Basic
 
-The basic use of **prepDyn** is running all four steps using a single command. Given an input CSV, whose first column is called *Terminals* and the other columns are the names of genes (each cell containing the correspondent GenBank accession number), the following command will download sequences, trim invariants and orphan nucleotides <10 bp in terminal positions, and identify missing data as *?* (all differences in sequence length in terminal positions are missing data). The log reports the run time.
+The basic use of **prepDyn** is running all four steps using a single command. Given an input CSV, whose first column is called *Terminals* and the other columns are the names of genes (each cell containing the correspondent GenBank accession number), the following command will download sequences, trim invariants and orphan nucleotides <10 bp in terminal positions, and identify missing data as *?* (all differences in sequence length in terminal positions are missing data). The log reports the runtime.
 
 ```
-python prepDyn.py --GB_input input.csv --output_file out --del_inv --orphan_method semi --orphan_threshold 10 --partitioning_round 0 --log
+python prepDyn.py --GB_input test_data/tutorial/ex1.0_input.csv --output_file test_data/tutorial/ex1.0 --del_inv --orphan_method semi --orphan_threshold 10 --partitioning_round 0 --log   
 ```
 
 In the CSV file, if more than one GenBank accession number is specified in the same cell refering to non-overlapping fragments of the same gene (e.g. MT893619/MT895696), the space between them is automatically identified as internal missing data (?).
@@ -65,7 +66,7 @@ In the CSV file, if more than one GenBank accession number is specified in the s
 We specified *--paritioning_round 0*, which means that partitioning was not performed. As a heuristic, we recommend testing the impact of adding pound signs to the tree optimality scores using a successive partitioning strategy. For instance, if you specify *--partitioning_round 1*, the largest block(s) of contiguous invariants will be partitioned.
 
 ```
-python prepDyn.py --input_file data.fasta --output_file out1 --partitioning_round 1 --log
+python prepDyn.py --input_file data.fasta --output_file out1 --partitioning_round 1 --log 
 ```
 
 This process can continue until tree costs reported by POY/PhyG remain stationary (e.g. *--partitioning_round 2* inserts pound signs in the 1- and 2-largest block(s) of contiguous invariants).
@@ -98,10 +99,30 @@ python prepDyn.py --input_file ./data/ --input_format fasta --output_prefix outp
 
 ### Example 4: Appending new sequences
 
-If you have newly generated sequences (unavailable in GenBank) that you want to append to a prealigned FASTA alignment, run:
+MUSCLE and MAFFT are unable to align sequences if pound signs or question marks are present. This is a problem when we try to align new sequences to a prevously preprocessed alignment. To avoid manual alignment by eye, addSeq.py allows aligning new sequences to a preprocessed alignment. Gaps, missing data, and pound signs are not modified for the sequences present in the preprocessed alignment. Gaps, missing data, and pound signs are only inserted in the new sequences.
+
+A simple example:
 
 ```
-AAAAAAAA
+python src/addSeq.py \
+    --alignment test_data/tutorial/ex4.1_aln.fas \
+    --new_seqs test_data/tutorial/ex4.1_new_seqs.fas \
+    --output test_data/tutorial/ex4.1_out.fas \
+    --log
+```
+
+A more complex example, where new sequences were preprocessed using trimming of blocks of orphan nucleotides of length lesser than 45 bp, replacement of internal blocks of gaps longer than 20 with question marks, and replacement of all IUPAC N with question marks in the sequence Thoropa_miliaris_CFBH10125:
+
+```
+python src/addSeq.py \
+    --alignment test_data/tutorial/ex4.2_aln.fas \
+    --new_seqs test_data/tutorial/ex4.2_new_seqs.fas \
+    --output test_data/tutorial/ex4.2_out.fas \
+    --orphan_threshold 45 \
+    --gaps2question 20 \
+    --n2question Thoropa_miliaris_CFBH10125 \
+    --write_names \
+    --log
 ```
 
 ### Example 5: Ancient DNA
@@ -112,5 +133,4 @@ Suppose you have a dataset with ancient DNA sequences from the sample *Dendropso
 AAAAAAAA
 ```
 
-
-## Citation
+## Cite
