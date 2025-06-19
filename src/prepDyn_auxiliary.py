@@ -1441,7 +1441,7 @@ def addSeq(
     new_seqs,
     output,
     write_names=True,
-    orphan_threshold=10,
+    orphan_threshold=0,
     log=False,
     n2question=None,
     gaps2question=None
