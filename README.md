@@ -58,7 +58,14 @@ The following examples are designed for users with little experience on Unix. If
 The basic use of **prepDyn** is running all four steps using a single command. Given an input CSV, whose first column is called *Terminals* and the other columns are the names of genes (each cell containing the correspondent GenBank accession number), the following command will download sequences, trim invariants and orphan nucleotides <10 bp in terminal positions, and identify missing data as *?* (all differences in sequence length in terminal positions are missing data). The log reports the runtime.
 
 ```
-python prepDyn.py --GB_input test_data/tutorial/ex1.0_input.csv --output_file test_data/tutorial/ex1.0 --del_inv --orphan_method semi --orphan_threshold 10 --partitioning_round 0 --log   
+python prepDyn.py \
+    --GB_input test_data/tutorial/ex1.0_input.csv \
+    --output_file test_data/tutorial/ex1.0 \
+    --del_inv \
+    --orphan_method semi \
+    --orphan_threshold 10 \
+    --partitioning_round 0 \
+    --log   
 ```
 
 In the CSV file, if more than one GenBank accession number is specified in the same cell refering to non-overlapping fragments of the same gene (e.g. MT893619/MT895696), the space between them is automatically identified as internal missing data (?).
