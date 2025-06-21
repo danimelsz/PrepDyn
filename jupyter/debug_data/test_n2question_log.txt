@@ -1,2 +1,45 @@
-Wall-clock time: 0.00609684 seconds
-CPU time: 0.00562200 seconds
+--- Command used ---
+prepDyn(input_file='jupyter/debug_data/test_n2question.fasta', GB_input=None, input_format='fasta', MSA=False, output_file='jupyter/debug_data/test_n2question', output_format='fasta', log=True, orphan_method='semi', orphan_threshold=2, percentile=25.0, del_inv=True, internal_method=None, internal_column_ranges='all', internal_leaves='all', internal_threshold=None, n2question='all', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 6
+No. columns: 52
+Total no. nucleotides (A/C/G/T only): 248 bp
+Total no. gaps (-): 29
+Total no. IUPAC N: 26
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 50, 51]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+sp3: Right block 51-52 deleted ('G')
+
+--- Step 3: Missing data identification (Ns replaced with '?') ---
+sp1: 41–41
+sp2: 35–40
+sp4: 12–29
+sp4: 34–34
+
+--- Step 3: Missing data identification ---
+Total '?' characters: 34
+Total '-' characters in fully missing partitions: 2
+Combined total: 36
+
+sp4: partition 0 (0–0, length 1) fully missing (all '-')
+sp6: partition 0 (0–0, length 1) fully missing (all '-')
+
+--- Step 4: Partitioning (columns with # inserted) ---
+[1, 12, 35]
+
+--- Summary after preprocessing ---
+No. sequences: 6
+No. columns: 48
+No. pound sign columns (#): 3
+Total no. nucleotides (A/C/G/T): 235 bp
+Total no. gaps (-): 19
+Total no. IUPAC N: 0
+Total no. missing values (?): 36
+
+--- Run time ---
+Wall-clock time: 0.00505781 seconds
+CPU time: 0.00326300 seconds

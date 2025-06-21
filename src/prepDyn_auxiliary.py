@@ -757,12 +757,13 @@ def is_parsimony_non_informative(column):
     # Otherwise, the column is informative (multiple unique characters without '?')
     return False
 
-def remove_non_informative_positions(alignment):
+def remove_non_informative_positions(alignment, removed_indices=None):
     """
     Remove parsimony non-informative positions from both the start and the end of the alignment.
     
     Parameters:
         alignment (dict): Dictionary where keys are sequence names and values are sequences (strings).
+        removed_indices (list, optional): If provided, the function will append the indices of removed columns.
         
     Returns:
         dict: Updated alignment with non-informative positions removed.
@@ -770,21 +771,27 @@ def remove_non_informative_positions(alignment):
     # Convert the alignment to a list of sequences
     sequences = list(alignment.values())
     seq_length = len(sequences[0])
-   
+
     # Remove non-informative positions from the start
     first_position = 0
     while first_position < seq_length and is_parsimony_non_informative([seq[first_position] for seq in sequences]):
         first_position += 1
-    
+
     # Remove non-informative positions from the end
     last_position = seq_length - 1
     while last_position >= first_position and is_parsimony_non_informative([seq[last_position] for seq in sequences]):
         last_position -= 1
-    
-    # Build the updated alignment and rename the variable to 'alignment'
+
+    # If logging, record the indices of removed columns
+    if removed_indices is not None:
+        removed_start = list(range(0, first_position))
+        removed_end = list(range(last_position + 1, seq_length))
+        removed_indices.extend(removed_start + removed_end)
+
+    # Build the updated alignment
     for seq_name, seq in alignment.items():
         alignment[seq_name] = seq[first_position:last_position + 1]
-    
+
     return alignment
 
 ##########################################################
@@ -1114,16 +1121,18 @@ def remove_columns_with_W(alignment: dict) -> dict:
 
     return cleaned_alignment
 
-def n2question_func(alignment: dict, leaves='all'):
+def n2question_func(alignment: dict, leaves='all', log=False):
     """
     Replace all ambiguous nucleotides 'N' or 'n' with '?' in selected sequences.
 
     Parameters:
     - alignment (dict): Dictionary where keys are sequence names and values are DNA sequences (str).
     - leaves (str or list): Sequence name(s) to apply the replacement. Use 'all' to apply to all sequences.
+    - log (bool): If True, also return a log of replaced blocks with their positions.
 
     Returns:
-    - dict: A new dictionary named 'alignment' with modified sequences.
+    - dict: Modified alignment with 'N'/'n' replaced with '?'.
+    - list (optional): List of tuples (seq_name, start, end) for each replaced block.
     """
     if leaves == 'all':
         leaves_to_process = alignment.keys()
@@ -1132,12 +1141,106 @@ def n2question_func(alignment: dict, leaves='all'):
     else:
         leaves_to_process = leaves
 
-    alignment = {
-        name: seq.replace('N', '?').replace('n', '?') if name in leaves_to_process else seq
-        for name, seq in alignment.items()
+    updated_alignment = {}
+    replacement_log = []
+
+    for name, seq in alignment.items():
+        if name in leaves_to_process:
+            new_seq = []
+            i = 0
+            while i < len(seq):
+                if seq[i] in ('N', 'n'):
+                    start = i
+                    while i < len(seq) and seq[i] in ('N', 'n'):
+                        i += 1
+                    end = i - 1
+                    replacement_log.append((name, start, end))
+                    new_seq.extend(['?'] * (end - start + 1))
+                else:
+                    new_seq.append(seq[i])
+                    i += 1
+            updated_alignment[name] = ''.join(new_seq)
+        else:
+            updated_alignment[name] = seq
+
+    if log:
+        return updated_alignment, replacement_log
+    return updated_alignment
+
+##############################
+# AUXILIARY FUNCTIONS TO LOG #
+##############################
+
+def compute_summary_after(alignment):
+    num_seqs = len(alignment)
+
+    # Transpose to columns
+    columns = list(zip(*alignment.values()))
+    
+    # Count columns that contain pound signs
+    total_pound = sum('#' in col for col in columns)
+    
+    # Alignment length excluding columns of only pound signs
+    aln_length = sum(1 for col in columns if set(col) != {'#'})
+
+    # Count nucleotide and gap characters
+    total_nt = sum(c in "ACGTacgt" for seq in alignment.values() for c in seq)
+    total_gaps = sum(seq.count("-") for seq in alignment.values())
+    total_ns = sum(c in "Nn" for seq in alignment.values() for c in seq)
+    total_qm = sum(seq.count("?") for seq in alignment.values())  # <- includes everything now
+
+    # Count additional missing data as gap-only blocks between #
+    missing_by_partition = 0
+    for seq in alignment.values():
+        parts = seq.split("#")
+        for part in parts:
+            if all(c == '-' for c in part):
+                missing_by_partition += len(part)
+
+    total_missing = total_qm + missing_by_partition
+
+    return {
+        "num_seqs": num_seqs,
+        "aln_length": aln_length,
+        "total_nt": total_nt,
+        "total_gaps": total_gaps,
+        "total_ns": total_ns,
+        "total_qm": total_qm,
+        "total_pound": total_pound,
+        "missing_by_partition": missing_by_partition,
+        "total_missing": total_missing
     }
 
-    return alignment
+def detect_fully_missing_partitions(alignment):
+    """
+    Logs all `?` and `-` from fully missing partitions.
+    A fully missing partition is a region (between #) in which a sequence has only dashes.
+    """
+    log_entries = []
+    total_question_marks = 0
+    total_dash_from_missing_partitions = 0
+
+    for seq_id, seq in alignment.items():
+        total_question_marks += seq.count("?")
+
+        parts = seq.split("#")
+        col_index = 0  # absolute position tracker
+        for i, part in enumerate(parts):
+            if all(c == '-' for c in part):
+                dash_count = len(part)
+                total_dash_from_missing_partitions += dash_count
+                start = col_index
+                end = col_index + dash_count - 1
+                log_entries.append(f"{seq_id}: partition {i} ({start}–{end}, length {dash_count}) fully missing (all '-')")
+            col_index += len(part) + 1  # +1 for the '#' removed in split
+
+    summary = (
+        f"Total '?' characters: {total_question_marks}\n"
+        f"Total '-' characters in fully missing partitions: {total_dash_from_missing_partitions}\n"
+        f"Combined total: {total_question_marks + total_dash_from_missing_partitions}\n"
+    )
+
+    return summary + "\n" + "\n".join(log_entries)
 
 #######################
 # INTEGRATED FUNCTIONS #
@@ -1220,221 +1323,6 @@ def GB2MSA(input_file,
             lf.write(f"CPU time: {cpu_time:.2f} seconds\n\n")
 
     return cleaned_files
-
-def prepDyn(input_file=None, 
-            GB_input=None,
-            input_format="fasta",
-            MSA=False,
-            output_file=None,
-            output_format="fasta",
-            log=False,
-            # Trimming parameters
-            orphan_method=None,
-            orphan_threshold=5,
-            percentile=25,
-            del_inv=True,
-            # Missing data parameters
-            internal_method=None,
-            internal_column_ranges=None,
-            internal_leaves="all",
-            internal_threshold=None,
-            n2question=None,
-            # Partitioning parameters
-            partitioning_round=0
-            ):
-    """
-    Preprocess missing data for dynamic homology in PhyG. First, columns containing 
-    only gaps, orphan nucleotides, and invariant columns can be trimmed. Second, 
-    missing data is coded with question marks. Third, partitions are delimited in 
-    highly conserved regions.
-
-    Args:
-        input_file (str): Path to the input alignment file or directory. Ignored if GB_input is provided.
-        GB_input (str): Path to a CSV/TSV file containing GenBank accession numbers. If provided,
-                        sequences will be downloaded from GenBank and aligned before preprocessing.
-        input_format (str): Format of the input alignment. Options: 'fasta' (default), 
-                            'clustal', 'phylip', or any format accepted by Biopython. 
-        MSA (bool): Whether to perform MSA if input sequences specified in input_file are unaligned
-        orphan_method (str): The trimming method. By default, trimming orphan nucleotides
-                             is not performed. Options:
-                            - 'auto': trim using the 25th percentile;
-                            - 'semi': trim with a manual threshold.
-        orphan_threshold (int): Threshold used to trim orphan nucleotides if orphan_method = 'semi'.
-        percentile (float): Used with orphan_method = 'auto' to define trimming threshold.
-        del_inv (bool): Whether to trim invariant terminal columns. Default is True.
-        internal_method (str): Defines how to identify internal missing data. Automatic identificaton
-                               of missing data is made if GB_input is provided. Otherwise, naive 
-                               options to identify internal missing data are:
-                               - "manual": Use column ranges;
-                               - "semi": Use a threshold for gaps.
-        internal_column_ranges (list): Column ranges (inclusive) if internal_method = 'manual'.
-        internal_leaves (str or list): Sequences to apply internal missing data replacement 
-                                       if internal_method is not "None".
-        internal_threshold (int): Used with internal_method = 'semi' to define gap threshold.
-                                  Contiguous '-' larger than the threshold are replaced with '?'.
-        partitioning_round (int): Number of partitioning round. Invariant regions are sorted by length
-                                  in descendant order and the n-largest block(s) partitioned using '#'.
-                                  If "max" is specified, pound signs are inserted arund all blocks of 
-                                  missing data. 
-        output_file (str): Custom prefix for output files. If None, base_name from input_file is used.
-        output_format (str): Output format. Default is 'fasta'.
-        log (bool): Whether to write a log with wall-clock time. Default is False.
-        n2question (str or list): If specified, replaces ambiguous nucleotide 'N' or 'n' with '?'. If None (default), n2question is not performed. If 'all', apply to all sequences. If you want to apply to only one sequence, write the name of this sequence. If you want to apply to multiple sequences but no all, wrie the list of sequences.
-                                  
-    Returns:
-        dict: The preprocessed unaligned sequences.
-    """
-
-    # Start timers if logging is enabled
-    if log:
-        start_wall_time = time.time()
-        start_cpu_time = time.process_time()
-
-    # Step 1: Run GB2MSA if GenBank input is provided
-    if GB_input is not None:
-        print("Running GB2MSA on GenBank input...")
-        gb_output_prefix = output_file if output_file else "output"
-        cleaned_files = GB2MSA(GB_input, output_prefix=gb_output_prefix, log=False)
-
-        for file in cleaned_files:
-            gene_name = os.path.splitext(os.path.basename(file))[0].replace("output_", "")
-            if output_file:
-                specific_output_prefix = f"{output_file}_{gene_name}"
-            else:
-                specific_output_prefix = f"{gene_name}"
-
-            alignment = AlignIO.read(file, "fasta")
-            alignment_dict = {record.id: str(record.seq) for record in alignment}
-            
-            prepDyn(input_file=alignment_dict,
-                    input_format="dict",
-                    orphan_method=orphan_method,
-                    orphan_threshold=orphan_threshold,
-                    percentile=percentile,
-                    del_inv=del_inv,
-                    internal_method=internal_method,
-                    internal_column_ranges=internal_column_ranges,
-                    internal_leaves=internal_leaves,
-                    internal_threshold=internal_threshold,
-                    n2question=n2question,
-                    partitioning_round=partitioning_round,
-                    output_format=output_format,
-                    log=log,
-                    output_file=specific_output_prefix)
-
-        return
-
-    # Step 2: If a folder is provided, process each alignment inside
-    if isinstance(input_file, str) and os.path.isdir(input_file):
-        for file_name in os.listdir(input_file):
-            if file_name.endswith(f".{input_format}"):
-                file_path = os.path.join(input_file, file_name)
-                prepDyn(file_path,
-                      input_format=input_format,
-                      MSA=MSA,
-                      orphan_method=orphan_method,
-                      orphan_threshold=orphan_threshold,
-                      percentile=percentile,
-                      del_inv=del_inv,
-                      internal_method=internal_method,
-                      internal_column_ranges=internal_column_ranges,
-                      internal_leaves=internal_leaves,
-                      internal_threshold=internal_threshold,
-                      n2question=n2question,
-                      output_format=output_format)
-        return
-
-    # Step 3: Read and process alignment
-    if isinstance(input_file, dict):
-        alignment = input_file
-    else:
-        alignment = AlignIO.read(input_file, input_format)
-        alignment = {record.id: str(record.seq) for record in alignment}
-
-    # Optional MAFFT alignment
-    if MSA:
-        with tempfile.NamedTemporaryFile(mode="w", delete=False) as tmp_in:
-            for k, v in alignment.items():
-                tmp_in.write(f">{k}\n{v}\n")
-            tmp_in_path = tmp_in.name
-
-        tmp_out_path = tmp_in_path + "_aligned.fasta"
-        try:
-            subprocess.run(["mafft", "--auto", tmp_in_path], stdout=open(tmp_out_path, "w"), stderr=subprocess.DEVNULL, check=True)
-        except subprocess.CalledProcessError:
-            raise RuntimeError("MAFFT alignment failed.")
-
-        alignment = AlignIO.read(tmp_out_path, "fasta")
-        alignment = {record.id: str(record.seq) for record in alignment}
-
-        os.remove(tmp_in_path)
-        os.remove(tmp_out_path)
-
-    # 3.1 Remove columns with gaps in all leaves
-    remove_all_gap_columns(alignment)
-    
-    # 3.2 Trim orphan nucleotides
-    if orphan_method == "percentile":
-        orphan_threshold = calculate_orphan_threshold_from_percentile(alignment, percentile, terminal_only=True)
-        alignment = delete_orphan_nucleotides2(alignment, orphan_threshold)
-    elif orphan_method == "semi":
-        alignment = delete_orphan_nucleotides2(alignment, orphan_threshold)
-
-    # 3.3 Replace terminal gaps with ?
-    alignment = replace_terminal_gaps_dict(alignment)
-
-    # 3.4 Trim invariant columns
-    if del_inv:
-        alignment = remove_non_informative_positions(alignment)
-    alignment = replace_terminal_gaps_dict(alignment)
-
-    # 3.5 Replace internal gaps with ?
-    if internal_method == "manual":
-        alignment = replace_dashes_with_question_marks(alignment=alignment, 
-                                                       internal_column_ranges=internal_column_ranges, 
-                                                       internal_leaves=internal_leaves, 
-                                                       internal_method="manual")
-    elif internal_method == "semi":
-        alignment = replace_dashes_with_question_marks(alignment=alignment, 
-                                                       internal_leaves=internal_leaves, 
-                                                       internal_method="semi", 
-                                                       internal_threshold=internal_threshold)
-
-    # 3.6 Replace ambiguous nucleotides N/n with ?
-    if n2question is not None:
-        alignment = n2question_func(alignment, leaves=n2question)
-
-    # 3.7 Successive partition
-    classify_and_insert_hashtags(alignment, 
-                                 partitioning_round=partitioning_round)
-    refinement_question2hyphen(alignment)
-    alignment = remove_columns_with_W(alignment)
-
-    # Step 4: Write output file
-    records = [SeqRecord(Seq(seq), id=key, description="") for key, seq in alignment.items()]
-    base_name = os.path.splitext(os.path.basename(input_file))[0] if isinstance(input_file, str) else "alignment"
-
-    if output_file:
-        output_prefix = f"{output_file}"
-    else:
-        output_prefix = base_name
-
-    output_path = f"{output_prefix}_preprocessed.{output_format}"
-    with open(output_path, "w") as output_handle:
-        SeqIO.write(records, output_handle, output_format)
-
-    # Step 5: Write log
-    if log:
-        end_wall_time = time.time()
-        end_cpu_time = time.process_time()
-        wall_time = end_wall_time - start_wall_time
-        cpu_time = end_cpu_time - start_cpu_time
-        log_path = f"{output_prefix}_log.txt"
-        with open(log_path, "w") as log_file:
-            log_file.write(f"Wall-clock time: {wall_time:.8f} seconds\n")
-            log_file.write(f"CPU time: {cpu_time:.8f} seconds\n")
-
-    return alignment
 
 def addSeq(
     alignment,
@@ -1846,3 +1734,327 @@ def addSeq(
             os.remove(file)
         except Exception:
             pass
+
+def prepDyn(input_file=None, 
+            GB_input=None,
+            input_format="fasta",
+            MSA=False,
+            output_file=None,
+            output_format="fasta",
+            log=False,
+            # Trimming parameters
+            orphan_method=None,
+            orphan_threshold=10,
+            percentile=25,
+            del_inv=True,
+            # Missing data parameters
+            internal_method=None,
+            internal_column_ranges=None,
+            internal_leaves="all",
+            internal_threshold=None,
+            n2question=None,
+            # Partitioning parameters
+            partitioning_round=0
+            ):
+    """
+    Preprocess missing data for dynamic homology in PhyG. First, columns containing 
+    only gaps, orphan nucleotides, and invariant columns can be trimmed. Second, 
+    missing data is coded with question marks. Third, partitions are delimited in 
+    highly conserved regions.
+
+    Args:
+        input_file (str): Path to the input alignment file or directory. Ignored if GB_input is provided.
+        GB_input (str): Path to a CSV/TSV file containing GenBank accession numbers. If provided,
+                        sequences will be downloaded from GenBank and aligned before preprocessing.
+        input_format (str): Format of the input alignment. Options: 'fasta' (default), 
+                            'clustal', 'phylip', or any format accepted by Biopython. 
+        MSA (bool): Whether to perform MSA if input sequences specified in input_file are unaligned
+        orphan_method (str): The trimming method. By default, trimming orphan nucleotides
+                             is not performed. Options:
+                            - 'auto': trim using the 25th percentile;
+                            - 'semi': trim with a manual threshold.
+        orphan_threshold (int): Threshold used to trim orphan nucleotides if orphan_method = 'semi'.
+        percentile (float): Used with orphan_method = 'auto' to define trimming threshold.
+        del_inv (bool): Whether to trim invariant terminal columns. Default is True.
+        internal_method (str): Defines how to identify internal missing data. Automatic identificaton
+                               of missing data is made if GB_input is provided. Otherwise, naive 
+                               options to identify internal missing data are:
+                               - "manual": Use column ranges;
+                               - "semi": Use a threshold for gaps.
+        internal_column_ranges (list): Column ranges (inclusive) if internal_method = 'manual'.
+        internal_leaves (str or list): Sequences to apply internal missing data replacement 
+                                       if internal_method is not "None".
+        internal_threshold (int): Used with internal_method = 'semi' to define gap threshold.
+                                  Contiguous '-' larger than the threshold are replaced with '?'.
+        partitioning_round (int): Number of partitioning round. Invariant regions are sorted by length
+                                  in descendant order and the n-largest block(s) partitioned using '#'.
+                                  If "max" is specified, pound signs are inserted arund all blocks of 
+                                  missing data. 
+        output_file (str): Custom prefix for output files. If None, base_name from input_file is used.
+        output_format (str): Output format. Default is 'fasta'.
+        log (bool): Whether to write a log with wall-clock time. Default is False.
+        n2question (str or list): If specified, replaces ambiguous nucleotide 'N' or 'n' with '?'. If None (default), n2question is not performed. If 'all', apply to all sequences. If you want to apply to only one sequence, write the name of this sequence. If you want to apply to multiple sequences but no all, wrie the list of sequences.
+                                  
+    Returns:
+        dict: The preprocessed unaligned sequences.
+    """
+
+    # Start timers if logging is enabled
+    if log:
+        start_wall_time = time.time()
+        start_cpu_time = time.process_time()
+
+    # Step 1: Run GB2MSA if GenBank input is provided
+    if GB_input is not None:
+        print("Running GB2MSA on GenBank input...")
+        gb_output_prefix = output_file if output_file else "output"
+        cleaned_files = GB2MSA(GB_input, output_prefix=gb_output_prefix, log=False)
+
+        for file in cleaned_files:
+            gene_name = os.path.splitext(os.path.basename(file))[0].replace("output_", "")
+            if output_file:
+                specific_output_prefix = f"{output_file}_{gene_name}"
+            else:
+                specific_output_prefix = f"{gene_name}"
+
+            alignment = AlignIO.read(file, "fasta")
+            alignment_dict = {record.id: str(record.seq) for record in alignment}
+            
+            prepDyn(input_file=alignment_dict,
+                    input_format="dict",
+                    orphan_method=orphan_method,
+                    orphan_threshold=orphan_threshold,
+                    percentile=percentile,
+                    del_inv=del_inv,
+                    internal_method=internal_method,
+                    internal_column_ranges=internal_column_ranges,
+                    internal_leaves=internal_leaves,
+                    internal_threshold=internal_threshold,
+                    n2question=n2question,
+                    partitioning_round=partitioning_round,
+                    output_format=output_format,
+                    log=log,
+                    output_file=specific_output_prefix)
+
+        return
+
+    # Step 2: If a folder is provided, process each alignment inside
+    if isinstance(input_file, str) and os.path.isdir(input_file):
+        for file_name in os.listdir(input_file):
+            if file_name.endswith(f".{input_format}"):
+                file_path = os.path.join(input_file, file_name)
+                prepDyn(file_path,
+                      input_format=input_format,
+                      MSA=MSA,
+                      orphan_method=orphan_method,
+                      orphan_threshold=orphan_threshold,
+                      percentile=percentile,
+                      del_inv=del_inv,
+                      internal_method=internal_method,
+                      internal_column_ranges=internal_column_ranges,
+                      internal_leaves=internal_leaves,
+                      internal_threshold=internal_threshold,
+                      n2question=n2question,
+                      output_format=output_format)
+        return
+
+    # Step 3: Read and process alignment
+    if isinstance(input_file, dict):
+        alignment = input_file
+    else:
+        alignment = AlignIO.read(input_file, input_format)
+        alignment = {record.id: str(record.seq) for record in alignment}
+
+    # Optional MAFFT alignment
+    if MSA:
+        with tempfile.NamedTemporaryFile(mode="w", delete=False) as tmp_in:
+            for k, v in alignment.items():
+                tmp_in.write(f">{k}\n{v}\n")
+            tmp_in_path = tmp_in.name
+
+        tmp_out_path = tmp_in_path + "_aligned.fasta"
+        try:
+            subprocess.run(["mafft", "--auto", tmp_in_path], stdout=open(tmp_out_path, "w"), stderr=subprocess.DEVNULL, check=True)
+        except subprocess.CalledProcessError:
+            raise RuntimeError("MAFFT alignment failed.")
+
+        alignment = AlignIO.read(tmp_out_path, "fasta")
+        alignment = {record.id: str(record.seq) for record in alignment}
+
+        os.remove(tmp_in_path)
+        os.remove(tmp_out_path)
+
+    # Summary of characteristics before preprocessing
+    if log:
+        num_seqs = len(alignment)
+        aln_length = len(next(iter(alignment.values())))
+        total_nt = sum(c.upper() in "ACGT" for seq in alignment.values() for c in seq)
+        total_gaps = sum(seq.count("-") for seq in alignment.values())
+        total_ns = sum(c in "Nn" for seq in alignment.values() for c in seq)
+
+    # 3.1 Remove columns with gaps in all leaves
+    remove_all_gap_columns(alignment)
+    
+    # 3.2 Trim orphan nucleotides
+    orphan_log = None
+    if orphan_method == "percentile":
+        orphan_threshold = calculate_orphan_threshold_from_percentile(alignment, percentile, terminal_only=True)
+        if log:
+            alignment, orphan_log = delete_orphan_nucleotides2(alignment, orphan_threshold, log_changes=True)
+        else:
+            alignment = delete_orphan_nucleotides2(alignment, orphan_threshold)
+    elif orphan_method == "semi":
+        if log:
+            alignment, orphan_log = delete_orphan_nucleotides2(alignment, orphan_threshold, log_changes=True)
+        else:
+            alignment = delete_orphan_nucleotides2(alignment, orphan_threshold)
+
+
+    # 3.3 Replace terminal gaps with ?
+    alignment = replace_terminal_gaps_dict(alignment)
+
+    # 3.4 Trim invariant columns
+    removed_cols = []
+    if del_inv:
+        alignment = remove_non_informative_positions(alignment, removed_indices=removed_cols)
+
+    alignment = replace_terminal_gaps_dict(alignment)
+
+    # 3.5 Replace internal gaps with ?
+    if internal_method == "manual":
+        alignment = replace_dashes_with_question_marks(alignment=alignment, 
+                                                       internal_column_ranges=internal_column_ranges, 
+                                                       internal_leaves=internal_leaves, 
+                                                       internal_method="manual")
+    elif internal_method == "semi":
+        alignment = replace_dashes_with_question_marks(alignment=alignment, 
+                                                       internal_leaves=internal_leaves, 
+                                                       internal_method="semi", 
+                                                       internal_threshold=internal_threshold)
+
+    # 3.6 Replace ambiguous nucleotides N/n with ?
+    n_blocks = []
+    if n2question is not None:
+        alignment, n_blocks = n2question_func(alignment, leaves=n2question, log=True)
+
+
+    # 3.7 Successive partition
+    classify_and_insert_hashtags(alignment, 
+                                 partitioning_round=partitioning_round)
+    refinement_question2hyphen(alignment)
+    alignment = remove_columns_with_W(alignment)
+
+    # Step 4: Write output file
+    records = [SeqRecord(Seq(seq), id=key, description="") for key, seq in alignment.items()]
+    base_name = os.path.splitext(os.path.basename(input_file))[0] if isinstance(input_file, str) else "alignment"
+
+    if output_file:
+        output_prefix = f"{output_file}"
+    else:
+        output_prefix = base_name
+
+    output_path = f"{output_prefix}_preprocessed.{output_format}"
+    with open(output_path, "w") as output_handle:
+        SeqIO.write(records, output_handle, output_format)
+
+    # Step 5: Write log
+    if log:
+        end_wall_time = time.time()
+        end_cpu_time = time.process_time()
+        wall_time = end_wall_time - start_wall_time
+        cpu_time = end_cpu_time - start_cpu_time
+        
+        # Build the command string with all parameters and their current values
+        cmd_parts = ["prepDyn("]
+        params = {
+            "input_file": input_file,
+            "GB_input": GB_input,
+            "input_format": input_format,
+            "MSA": MSA,
+            "output_file": output_file,
+            "output_format": output_format,
+            "log": log,
+            "orphan_method": orphan_method,
+            "orphan_threshold": orphan_threshold,
+            "percentile": percentile,
+            "del_inv": del_inv,
+            "internal_method": internal_method,
+            "internal_column_ranges": internal_column_ranges,
+            "internal_leaves": internal_leaves,
+            "internal_threshold": internal_threshold,
+            "n2question": n2question,
+            "partitioning_round": partitioning_round
+        }
+        param_strs = []
+        for k, v in params.items():
+            if v is None:
+                param_strs.append(f"{k}=None")
+            elif isinstance(v, str):
+                param_strs.append(f"{k}='{v}'")
+            else:
+                param_strs.append(f"{k}={repr(v)}")
+        cmd_parts.append(", ".join(param_strs))
+        cmd_parts.append(")")
+        cmd_line = "".join(cmd_parts)
+        
+        log_path = f"{output_prefix}_log.txt"
+        with open(log_path, "w") as log_file:
+            log_file.write("--- Command used ---\n")
+            log_file.write(f"{cmd_line}\n\n")
+
+            log_file.write("--- Step 1: Summary before preprocessing ---\n")
+            log_file.write(f"No. sequences: {num_seqs}\n")
+            log_file.write(f"No. columns: {aln_length}\n")
+            log_file.write(f"Total no. nucleotides (A/C/G/T only): {total_nt} bp\n")
+            log_file.write(f"Total no. gaps (-): {total_gaps}\n")
+            log_file.write(f"Total no. IUPAC N: {total_ns}\n\n")
+
+            # log trimming: invariants
+            if del_inv:
+                log_file.write("--- Step 2: Trimming (invariant columns) ---\n")
+                log_file.write(f"{removed_cols}\n\n")
+            # log trimming: orphans
+            if orphan_log:
+                log_file.write("--- Step 2: Trimming (orphan nucleotides) ---\n")
+                log_file.write(f"{orphan_log}\n\n")
+            
+            # log missing: n2question
+            if n_blocks:
+                log_file.write("--- Step 3: Missing data identification (Ns replaced with '?') ---\n")
+                for seq_name, start, end in n_blocks:
+                    log_file.write(f"{seq_name}: {start}–{end}\n")
+                log_file.write("\n")
+            
+            # log terminal ? detection
+            missing_partition_log = detect_fully_missing_partitions(alignment)
+            if missing_partition_log:
+                log_file.write("--- Step 3: Missing data identification ---\n")
+                log_file.write(f"{missing_partition_log}\n\n")
+
+
+            # log partitioning (#)
+            if partitioning_round > 0:
+                log_file.write("--- Step 4: Partitioning (columns with # inserted) ---\n")
+                # Transpose alignment to columns
+                columns = list(zip(*alignment.values()))
+                pound_indices = [i for i, col in enumerate(columns) if '#' in col]
+                log_file.write(f"{pound_indices}\n\n")
+            
+            # log preprocessed summary            
+            summary_post = compute_summary_after(alignment)
+            log_file.write("--- Summary after preprocessing ---\n")
+            log_file.write(f"No. sequences: {summary_post['num_seqs']}\n")
+            log_file.write(f"No. columns: {summary_post['aln_length']}\n")
+            log_file.write(f"No. pound sign columns (#): {summary_post['total_pound']}\n")
+            log_file.write(f"Total no. nucleotides (A/C/G/T): {summary_post['total_nt']} bp\n")
+            log_file.write(f"Total no. gaps (-): {summary_post['total_gaps']}\n")
+            log_file.write(f"Total no. IUPAC N: {summary_post['total_ns']}\n")
+            log_file.write(f"Total no. missing values (?): {summary_post['total_missing']}\n\n")
+            
+            # log run time
+            log_file.write("--- Run time ---\n")
+            log_file.write(f"Wall-clock time: {wall_time:.8f} seconds\n")
+            log_file.write(f"CPU time: {cpu_time:.8f} seconds\n")
+
+    return alignment
+        
