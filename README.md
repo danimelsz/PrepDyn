@@ -45,11 +45,12 @@ git clone https://github.com/danimelsz/PrepDyn.git
 **prepDyn** comprises four steps: (1) data collection from GenBank, (2) trimming, (3) identification of missing data, and (4) partitioning.
 
 ## Usage
-**prepDyn** is organized in three Python files:
+**prepDyn** is organized in three Python files in the directory src:
 - prepDyn.py: main script integrating the pipeline.
 - GB2MSA.py: script to download sequences from GenBank and identify internal missing data.
 - addSeq.py: script to align one or a few sequence(s) to a previously preprocessed alignment.
-- prepDyn_auxiliary.py: all auxiliary Python functions required by the other scripts.
+
+**Warning**: Do not move the files from the directory src, otherwise Python may not recognize modules.
 
 The following examples are designed for users with little experience on Unix. If you have questions, send a message using **GitHub issues**.
 
@@ -58,7 +59,7 @@ The following examples are designed for users with little experience on Unix. If
 The basic use of **prepDyn** is running all four steps using a single command. Given an input CSV, whose first column is called *Terminals* and the other columns are the names of genes (each cell containing the correspondent GenBank accession number), the following command will download sequences, trim invariants and orphan nucleotides <10 bp in terminal positions, and identify missing data as *?* (all differences in sequence length in terminal positions are missing data). The log reports the runtime.
 
 ```
-python prepDyn.py \
+python src/prepDyn.py \
     --GB_input test_data/tutorial/ex1.0_input.csv \
     --output_file test_data/tutorial/ex1.0 \
     --del_inv \
