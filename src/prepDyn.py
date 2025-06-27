@@ -161,7 +161,8 @@ Examples:
     parser.add_argument("-n2q", "--n2question", type=parse_n2question_leaves, default=None, help="Replace IUPAC N with ?. Options: 'none' (default), 'all' (apply to all leaves), single leaf name, or list of leaf names ['sp1', 'sp2'].")
 
     # Partitioning
-    parser.add_argument("-p", "--partitioning_round", type=parse_partitioning_round, help="Round of successive partitioning. Invariant regions are sorted by length in descendant order and the n-largest block(s) partitioned using '#'. If 'max' is specified, pound signs are inserted in every instance of gap opening/closure.", default=0)
+    parser.add_argument("-pm", "--partitioning_method", type=str, default="conservative", choices=["conservative"], help="Method of partitioning. Options: (1) conservative (given invariant regions sorted by length, partition the n-largest block(s))")
+    parser.add_argument("-pr", "--partitioning_round", type=parse_partitioning_round, help="Round of successive partitioning. Use it if partitioning_method is 'conservative", default=0)
 
     args = parser.parse_args()
     # Error messages

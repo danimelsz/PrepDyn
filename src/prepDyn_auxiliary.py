@@ -1167,6 +1167,41 @@ def n2question_func(alignment: dict, leaves='all', log=False):
         return updated_alignment, replacement_log
     return updated_alignment
 
+def remove_adjacent_pound_columns(alignment):
+    """
+    Remove adjacent columns of '#' in an alignment dictionary.
+    Keeps only one '#' per contiguous block of # columns.
+
+    Args:
+        alignment (dict): DNA alignment {sequence_id: sequence_string}
+
+    Returns:
+        dict: Cleaned alignment with single '#' per contiguous block
+    """
+    # Transpose alignment to column-wise format
+    columns = list(zip(*alignment.values()))
+
+    # Identify positions to keep (i.e., not redundant '#')
+    keep_indices = []
+    prev_pound = False
+    for i, col in enumerate(columns):
+        if all(c == '#' for c in col):
+            if not prev_pound:
+                keep_indices.append(i)
+                prev_pound = True
+            # else skip this redundant pound column
+        else:
+            keep_indices.append(i)
+            prev_pound = False
+
+    # Rebuild alignment from kept columns
+    cleaned_alignment = {}
+    for seq_id in alignment:
+        new_seq = ''.join([alignment[seq_id][i] for i in keep_indices])
+        cleaned_alignment[seq_id] = new_seq
+
+    return cleaned_alignment
+
 ##############################
 # AUXILIARY FUNCTIONS TO LOG #
 ##############################
@@ -1181,7 +1216,8 @@ def compute_summary_after(alignment):
     total_pound = sum('#' in col for col in columns)
     
     # Alignment length excluding columns of only pound signs
-    aln_length = sum(1 for col in columns if set(col) != {'#'})
+    aln_length = len(columns)
+
 
     # Count nucleotide and gap characters
     total_nt = sum(c in "ACGTacgt" for seq in alignment.values() for c in seq)
@@ -1754,7 +1790,8 @@ def prepDyn(input_file=None,
             internal_threshold=None,
             n2question=None,
             # Partitioning parameters
-            partitioning_round=0
+            partitioning_round=0,
+            partitioning_method="conservative"
             ):
     """
     Preprocess missing data for dynamic homology in PhyG. First, columns containing 
@@ -1786,6 +1823,9 @@ def prepDyn(input_file=None,
                                        if internal_method is not "None".
         internal_threshold (int): Used with internal_method = 'semi' to define gap threshold.
                                   Contiguous '-' larger than the threshold are replaced with '?'.
+        partitioning_method (str): Method of partitioning:
+                                   - "conservative": Invariant regions are sorted by length in descendant
+                                   order and the n-largest block(s) partitioned using '#'. 
         partitioning_round (int): Number of partitioning round. Invariant regions are sorted by length
                                   in descendant order and the n-largest block(s) partitioned using '#'.
                                   If "max" is specified, pound signs are inserted arund all blocks of 
@@ -1831,6 +1871,7 @@ def prepDyn(input_file=None,
                     internal_leaves=internal_leaves,
                     internal_threshold=internal_threshold,
                     n2question=n2question,
+                    partitioning_method=partitioning_method,
                     partitioning_round=partitioning_round,
                     output_format=output_format,
                     log=log,
@@ -1939,10 +1980,12 @@ def prepDyn(input_file=None,
 
 
     # 3.7 Successive partition
-    classify_and_insert_hashtags(alignment, 
-                                 partitioning_round=partitioning_round)
+    if partitioning_method == "conservative" and partitioning_round > 0:
+        classify_and_insert_hashtags(alignment, partitioning_round=partitioning_round)
     refinement_question2hyphen(alignment)
     alignment = remove_columns_with_W(alignment)
+    alignment = remove_adjacent_pound_columns(alignment)
+
 
     # Step 4: Write output file
     records = [SeqRecord(Seq(seq), id=key, description="") for key, seq in alignment.items()]
@@ -1983,6 +2026,7 @@ def prepDyn(input_file=None,
             "internal_leaves": internal_leaves,
             "internal_threshold": internal_threshold,
             "n2question": n2question,
+            "partitioning_method": partitioning_method,
             "partitioning_round": partitioning_round
         }
         param_strs = []
@@ -2028,7 +2072,7 @@ def prepDyn(input_file=None,
             # log terminal ? detection
             missing_partition_log = detect_fully_missing_partitions(alignment)
             if missing_partition_log:
-                log_file.write("--- Step 3: Missing data identification ---\n")
+                log_file.write("--- Step 3: Missing data identification (gaps replaced with '?') ---\n")
                 log_file.write(f"{missing_partition_log}\n\n")
 
 
@@ -2057,4 +2101,3 @@ def prepDyn(input_file=None,
             log_file.write(f"CPU time: {cpu_time:.8f} seconds\n")
 
     return alignment
-        
