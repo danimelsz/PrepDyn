@@ -909,6 +909,52 @@ def replace_dashes_with_question_marks(alignment, internal_column_ranges=None, i
 
     return alignment
 
+def n2question_func(alignment: dict, leaves='all', log=False):
+    """
+    Replace all ambiguous nucleotides 'N' or 'n' with '?' in selected sequences.
+
+    Parameters:
+    - alignment (dict): Dictionary where keys are sequence names and values are DNA sequences (str).
+    - leaves (str or list): Sequence name(s) to apply the replacement. Use 'all' to apply to all sequences.
+    - log (bool): If True, also return a log of replaced blocks with their positions.
+
+    Returns:
+    - dict: Modified alignment with 'N'/'n' replaced with '?'.
+    - list (optional): List of tuples (seq_name, start, end) for each replaced block.
+    """
+    if leaves == 'all':
+        leaves_to_process = alignment.keys()
+    elif isinstance(leaves, str):
+        leaves_to_process = [leaves]
+    else:
+        leaves_to_process = leaves
+
+    updated_alignment = {}
+    replacement_log = []
+
+    for name, seq in alignment.items():
+        if name in leaves_to_process:
+            new_seq = []
+            i = 0
+            while i < len(seq):
+                if seq[i] in ('N', 'n'):
+                    start = i
+                    while i < len(seq) and seq[i] in ('N', 'n'):
+                        i += 1
+                    end = i - 1
+                    replacement_log.append((name, start, end))
+                    new_seq.extend(['?'] * (end - start + 1))
+                else:
+                    new_seq.append(seq[i])
+                    i += 1
+            updated_alignment[name] = ''.join(new_seq)
+        else:
+            updated_alignment[name] = seq
+
+    if log:
+        return updated_alignment, replacement_log
+    return updated_alignment
+
 ###################################################
 # MAIN FUNCTIONS: STEP 4. SUCCESSIVE PARTITIONING #
 ###################################################
@@ -1121,52 +1167,6 @@ def remove_columns_with_W(alignment: dict) -> dict:
 
     return cleaned_alignment
 
-def n2question_func(alignment: dict, leaves='all', log=False):
-    """
-    Replace all ambiguous nucleotides 'N' or 'n' with '?' in selected sequences.
-
-    Parameters:
-    - alignment (dict): Dictionary where keys are sequence names and values are DNA sequences (str).
-    - leaves (str or list): Sequence name(s) to apply the replacement. Use 'all' to apply to all sequences.
-    - log (bool): If True, also return a log of replaced blocks with their positions.
-
-    Returns:
-    - dict: Modified alignment with 'N'/'n' replaced with '?'.
-    - list (optional): List of tuples (seq_name, start, end) for each replaced block.
-    """
-    if leaves == 'all':
-        leaves_to_process = alignment.keys()
-    elif isinstance(leaves, str):
-        leaves_to_process = [leaves]
-    else:
-        leaves_to_process = leaves
-
-    updated_alignment = {}
-    replacement_log = []
-
-    for name, seq in alignment.items():
-        if name in leaves_to_process:
-            new_seq = []
-            i = 0
-            while i < len(seq):
-                if seq[i] in ('N', 'n'):
-                    start = i
-                    while i < len(seq) and seq[i] in ('N', 'n'):
-                        i += 1
-                    end = i - 1
-                    replacement_log.append((name, start, end))
-                    new_seq.extend(['?'] * (end - start + 1))
-                else:
-                    new_seq.append(seq[i])
-                    i += 1
-            updated_alignment[name] = ''.join(new_seq)
-        else:
-            updated_alignment[name] = seq
-
-    if log:
-        return updated_alignment, replacement_log
-    return updated_alignment
-
 def remove_adjacent_pound_columns(alignment):
     """
     Remove adjacent columns of '#' in an alignment dictionary.
@@ -1201,6 +1201,60 @@ def remove_adjacent_pound_columns(alignment):
         cleaned_alignment[seq_id] = new_seq
 
     return cleaned_alignment
+
+def equal_length_partitioning(alignment, partitioning_size=None, partitioning_round=None, log=False):
+    """
+    Insert pound signs '#' into a DNA alignment at regular intervals, either:
+      - every `partitioning_size` bp (e.g. every 100 bp), or
+      - using `partitioning_round` to divide into equal-length partitions.
+
+    Args:
+        alignment (dict): Dictionary of sequences {seq_id: sequence_str}
+        partitioning_size (int): Length of partitions (in base pairs)
+        partitioning_round (int): Number of pound signs to insert (creates N+1 partitions)
+        log (bool): Whether to print insertion positions and runtime
+
+    Returns:
+        dict: Modified alignment with pound signs inserted
+    """
+    start_time = time.time()
+    
+    if not alignment:
+        raise ValueError("Alignment is empty")
+
+    aln_length = len(next(iter(alignment.values())))
+    positions = []
+
+    # Mode 1: divide by fixed size
+    if partitioning_size:
+        positions = list(range(partitioning_size, aln_length, partitioning_size))
+
+    # Mode 2: divide by number of equal partitions
+    elif partitioning_round:
+        if partitioning_round >= aln_length:
+            raise ValueError("Too many partitions requested for alignment length.")
+        interval = aln_length // (partitioning_round + 1)
+        positions = [(i + 1) * interval for i in range(partitioning_round)]
+
+    else:
+        raise ValueError("You must provide either 'partitioning_size' or 'partitioning_round'")
+
+    # Insert '#' at the selected positions
+    updated_alignment = {}
+    for seq_id, seq in alignment.items():
+        seq_list = list(seq)
+        for offset, pos in enumerate(positions):
+            seq_list.insert(pos + offset, "#")  # account for shifting due to insertions
+        updated_alignment[seq_id] = ''.join(seq_list)
+
+    runtime = time.time() - start_time
+
+    if log:
+        print("--- equal_length_partitioning ---")
+        print(f"Total time: {runtime:.4f} seconds")
+        print(f"Pound signs inserted at columns: {positions}\n")
+
+    return updated_alignment
 
 ##############################
 # AUXILIARY FUNCTIONS TO LOG #
@@ -1791,7 +1845,8 @@ def prepDyn(input_file=None,
             n2question=None,
             # Partitioning parameters
             partitioning_round=0,
-            partitioning_method="conservative"
+            partitioning_method="conservative",
+            partitioning_size=None
             ):
     """
     Preprocess missing data for dynamic homology in PhyG. First, columns containing 
@@ -1824,12 +1879,17 @@ def prepDyn(input_file=None,
         internal_threshold (int): Used with internal_method = 'semi' to define gap threshold.
                                   Contiguous '-' larger than the threshold are replaced with '?'.
         partitioning_method (str): Method of partitioning:
-                                   - "conservative": Invariant regions are sorted by length in descendant
-                                   order and the n-largest block(s) partitioned using '#'. 
+                                   - 'conservative': Blocks containing only invariant columns are sorted 
+                                   by length and '#' column(s) inserted at the midpoint of the n-largest 
+                                   block(s). Must define n using partitioning_round.
+                                   - 'equal: Equal-length partitions are created by specifying their size
+                                   or their round. If partitioning_round = 1, only 1 '#' column is 
+                                   inserted; if partitioning_round = 2, then 2 '#' columns are inserted. 
         partitioning_round (int): Number of partitioning round. Invariant regions are sorted by length
                                   in descendant order and the n-largest block(s) partitioned using '#'.
                                   If "max" is specified, pound signs are inserted arund all blocks of 
                                   missing data. 
+        partitioning_size (int): Size of equal-length partitions if partitioning_method = 'equal'.
         output_file (str): Custom prefix for output files. If None, base_name from input_file is used.
         output_format (str): Output format. Default is 'fasta'.
         log (bool): Whether to write a log with wall-clock time. Default is False.
@@ -1873,6 +1933,7 @@ def prepDyn(input_file=None,
                     n2question=n2question,
                     partitioning_method=partitioning_method,
                     partitioning_round=partitioning_round,
+                    partitioning_size=partitioning_size,
                     output_format=output_format,
                     log=log,
                     output_file=specific_output_prefix)
@@ -1884,20 +1945,29 @@ def prepDyn(input_file=None,
         for file_name in os.listdir(input_file):
             if file_name.endswith(f".{input_format}"):
                 file_path = os.path.join(input_file, file_name)
-                prepDyn(file_path,
-                      input_format=input_format,
-                      MSA=MSA,
-                      orphan_method=orphan_method,
-                      orphan_threshold=orphan_threshold,
-                      percentile=percentile,
-                      del_inv=del_inv,
-                      internal_method=internal_method,
-                      internal_column_ranges=internal_column_ranges,
-                      internal_leaves=internal_leaves,
-                      internal_threshold=internal_threshold,
-                      n2question=n2question,
-                      output_format=output_format)
+                base_name = os.path.splitext(file_name)[0]
+                specific_output_prefix = f"{output_file}_{base_name}" if output_file else base_name
+
+                prepDyn(input_file=file_path,
+                        input_format=input_format,
+                        MSA=MSA,
+                        orphan_method=orphan_method,
+                        orphan_threshold=orphan_threshold,
+                        percentile=percentile,
+                        del_inv=del_inv,
+                        internal_method=internal_method,
+                        internal_column_ranges=internal_column_ranges,
+                        internal_leaves=internal_leaves,
+                        internal_threshold=internal_threshold,
+                        n2question=n2question,
+                        partitioning_method=partitioning_method,
+                        partitioning_round=partitioning_round,
+                        partitioning_size=partitioning_size,
+                        output_file=specific_output_prefix,
+                        output_format=output_format,
+                        log=log)
         return
+
 
     # Step 3: Read and process alignment
     if isinstance(input_file, dict):
@@ -1982,6 +2052,25 @@ def prepDyn(input_file=None,
     # 3.7 Successive partition
     if partitioning_method == "conservative" and partitioning_round > 0:
         classify_and_insert_hashtags(alignment, partitioning_round=partitioning_round)
+
+    elif partitioning_method == "equal":
+        # Ignore partitioning_size if partitining_round is specified
+        if partitioning_round > 0:
+            alignment = equal_length_partitioning(
+                alignment=alignment,
+                partitioning_round=partitioning_round,
+                partitioning_size=None,
+                log=False
+            )
+        # Ignoore partitioning_round if partitioning_size is specified
+        elif partitioning_size:
+            alignment = equal_length_partitioning(
+                alignment=alignment,
+                partitioning_round=None,
+                partitioning_size=partitioning_size,
+                log=False
+            )
+
     refinement_question2hyphen(alignment)
     alignment = remove_columns_with_W(alignment)
     alignment = remove_adjacent_pound_columns(alignment)
@@ -2027,7 +2116,8 @@ def prepDyn(input_file=None,
             "internal_threshold": internal_threshold,
             "n2question": n2question,
             "partitioning_method": partitioning_method,
-            "partitioning_round": partitioning_round
+            "partitioning_round": partitioning_round,
+            "partitioning_size": partitioning_size
         }
         param_strs = []
         for k, v in params.items():
@@ -2075,15 +2165,19 @@ def prepDyn(input_file=None,
                 log_file.write("--- Step 3: Missing data identification (gaps replaced with '?') ---\n")
                 log_file.write(f"{missing_partition_log}\n\n")
 
-
             # log partitioning (#)
-            if partitioning_round > 0:
+            columns = list(zip(*alignment.values()))
+            pound_indices = [i for i, col in enumerate(columns) if '#' in col]
+            if pound_indices:
                 log_file.write("--- Step 4: Partitioning (columns with # inserted) ---\n")
-                # Transpose alignment to columns
-                columns = list(zip(*alignment.values()))
-                pound_indices = [i for i, col in enumerate(columns) if '#' in col]
-                log_file.write(f"{pound_indices}\n\n")
-            
+                log_file.write(f"Method used: {partitioning_method}")
+                if partitioning_method == "equal" and partitioning_size:
+                    log_file.write(f" (partitioning_size={partitioning_size})")
+                elif partitioning_method == "conservative":
+                    log_file.write(f" (partitioning_round={partitioning_round})")
+                log_file.write("\n")
+                log_file.write(f"Columns: {pound_indices}\n\n")
+
             # log preprocessed summary            
             summary_post = compute_summary_after(alignment)
             log_file.write("--- Summary after preprocessing ---\n")
@@ -2101,3 +2195,4 @@ def prepDyn(input_file=None,
             log_file.write(f"CPU time: {cpu_time:.8f} seconds\n")
 
     return alignment
+

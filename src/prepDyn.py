@@ -161,8 +161,9 @@ Examples:
     parser.add_argument("-n2q", "--n2question", type=parse_n2question_leaves, default=None, help="Replace IUPAC N with ?. Options: 'none' (default), 'all' (apply to all leaves), single leaf name, or list of leaf names ['sp1', 'sp2'].")
 
     # Partitioning
-    parser.add_argument("-pm", "--partitioning_method", type=str, default="conservative", choices=["conservative"], help="Method of partitioning. Options: (1) conservative (given invariant regions sorted by length, partition the n-largest block(s))")
-    parser.add_argument("-pr", "--partitioning_round", type=parse_partitioning_round, help="Round of successive partitioning. Use it if partitioning_method is 'conservative", default=0)
+    parser.add_argument("-pm", "--partitioning_method", type=str, default="conservative", choices=["conservative", "equal"], help="Method of partitioning. Options: (1) conservative (given invariant regions sorted by length, partition the n-largest block(s) of invariants; define n using partitioning_round), (2) equal (insert # to divide the alignment into equal-length partitions; define the size of partitins using partitioning_size or the the round of partitioning using partitioning_round).")
+    parser.add_argument("-pr", "--partitioning_round", type=parse_partitioning_round, help="Round of successive partitioning. Use it if partitioning_method is 'conservative' or 'equal'.", default=0)
+    parser.add_argument("-ps", "--partitioning_size", type=int, default=None, help="Size of equal-length partitions if partitioning_method = 'equal'.")
 
     args = parser.parse_args()
     # Error messages
@@ -189,7 +190,9 @@ Examples:
             internal_leaves=args.internal_leaves,
             internal_threshold=args.internal_threshold,
             # Partitioning parameters
-            partitioning_round=args.partitioning_round)
+            partitioning_method=args.partitioning_method,
+            partitioning_round=args.partitioning_round,
+            partitioning_size=args.partitioning_size)
 
 if __name__ == "__main__":
     main()
