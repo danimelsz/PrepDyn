@@ -1,4 +1,4 @@
-Command used: addSeq(alignment=..., new_seqs=..., output='test_data/tutorial/ex4.2_out.fas', write_names=True, orphan_threshold=45, log=True, n2question=['Thoropa_miliaris_CFBH10125'], gaps2question=20)
+Command used: addSeq(alignment=..., new_seqs=..., output='test_data/tutorial/ex4.2/ex4.2_out.fas', write_names=True, orphan_threshold=45, log=True, n2question=['Thoropa_miliaris_CFBH10125'], gaps2question=20)
 
 Input alignment: 152 sequences
 Input alignment: 19 # columns
@@ -40,4 +40,4 @@ Thoropa_saxatilis_CFBH30381: ? block at positions 4819-5057 (length=238)
 N/n to ? replacements:
 Thoropa_miliaris_CFBH10125: 11 N/n replaced with ?
 
-Runtime: 7.89 seconds
+Runtime: 7.95 seconds

@@ -89,13 +89,13 @@ This process can continue until tree costs reported by POY/PhyG remain stationar
 Suppose you want to download sequences and preprocess them using different commands. Given a CSV file called *input.csv*, the following command will download the sequences and align them with MAFFT. In addition, files containing the names of the terminals (useful for control of taxon sampling in POY/PhyG) and the run time will be reported. 
 
 ```
-python GB2MSA.py --input_file input.csv --output_prefix output --delimiter , --write_names --log
+AAAA
 ```
 
 Now, you can run **prepDyn**:
 
 ```
-python prepDyn.py --input_file output.fasta --del_inv --orphan_method semi --partitioning_round 0 --log
+AAAA
 ```
 
 ### Example 3: Multiple alignments
@@ -117,9 +117,9 @@ If the input files are already aligned, just change the boolean parameter MSA to
 
 ```
 python src/prepDyn.py \
-    --input_file test_data/tutorial/ex3.1/ \
+    --input_file test_data/tutorial/ex3.2/ \
     --input_format fasta \
-    --output_file test_data/tutorial/ex3.1/out \
+    --output_file test_data/tutorial/ex3.2/ \
     --MSA F \
     --del_inv T \
     --orphan_method semi --orphan_threshold 10 \
@@ -138,7 +138,7 @@ python src/addSeq.py \
     --alignment test_data/tutorial/ex4.1/ex4.1_aln.fas \
     --new_seqs test_data/tutorial/ex4.1/ex4.1_new_seqs.fas \
     --output test_data/tutorial/ex4.1/ex4.1_out.fas \
-    --log
+    --log True
 ```
 
 A more complex example, where new sequences were preprocessed using trimming of blocks of orphan nucleotides of length lesser than 45 bp, replacement of internal blocks of gaps longer than 20 with question marks, and replacement of all IUPAC N with question marks in the sequence Thoropa_miliaris_CFBH10125:
@@ -151,8 +151,8 @@ python src/addSeq.py \
     --orphan_threshold 45 \
     --gaps2question 20 \
     --n2question Thoropa_miliaris_CFBH10125 \
-    --write_names \
-    --log
+    --write_names True \
+    --log True
 ```
 
 Warning: the input *new_seqs* cannot be longer than the profile *alignment*.

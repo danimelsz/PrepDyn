@@ -123,7 +123,7 @@ Examples: python addSeq.py --alignment aln.fas --new_seqs 12s_sp_new.fas --outpu
     parser.add_argument("-ot", "--orphan_threshold", type=int, required=False, default=0, help="Threshold (int) to detect and remove orphan DNA blocks. Default = 0.")
     parser.add_argument("-n2q", "--n2question", type=parse_n2question_leaves, required=False, default=None, help="Replace IUPAC N with ?. Options: 'none' (default), 'all' (apply to all added leaves), single added leaf, or list of added leaves ['sp1', 'sp2'].")
     parser.add_argument("-g2q", "--gaps2question", default=None, required=False, type=int, help="gaps2question (int or None): Replace contiguous gap blocks larger than this threshold with '?'. Only applied to added sequences.")
-    parser.add_argument("-l", "--log", type=str2bool, default=T, required=False, help="Write log tracking all operations and reporting runtime (default: true)")
+    parser.add_argument("-l", "--log", type=str2bool, default=True, required=False, help="Write log tracking all operations and reporting runtime (default: true)")
 
     args = parser.parse_args()
 
