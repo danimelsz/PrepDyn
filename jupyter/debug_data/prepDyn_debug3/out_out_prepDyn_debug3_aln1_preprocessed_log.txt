@@ -1,0 +1,42 @@
+--- Command used ---
+prepDyn(input_file='debug_data/prepDyn_debug3/out_prepDyn_debug3_aln1_preprocessed.fasta', GB_input=None, input_format='fasta', MSA=False, output_file='debug_data/prepDyn_debug3/out_out_prepDyn_debug3_aln1_preprocessed', output_format='fasta', log=True, orphan_method='semi', orphan_threshold=3, percentile=25, del_inv=True, internal_method='semi', internal_column_ranges=None, internal_leaves='all', internal_threshold=8, n2question='all', partitioning_method='equal', partitioning_round=0, partitioning_size=10)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 6
+No. columns: 52
+Total no. nucleotides (A/C/G/T only): 233 bp
+Total no. gaps (-): 12
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 28
+Total '-' characters in fully missing partitions: 23
+Combined total: 51
+
+sp2: partition 6 (43–45, length 3) fully missing (all '-')
+sp3: partition 7 (47–52, length 6) fully missing (all '-')
+sp3: partition 8 (54–55, length 2) fully missing (all '-')
+sp4: partition 2 (21–21, length 1) fully missing (all '-')
+sp4: partition 3 (23–30, length 8) fully missing (all '-')
+sp6: partition 2 (21–21, length 1) fully missing (all '-')
+sp6: partition 8 (54–55, length 2) fully missing (all '-')
+
+--- Step 4: Partitioning (columns with # inserted) ---
+Method used: equal (partitioning_size=10)
+Columns: [10, 20, 22, 31, 34, 42, 46, 53]
+
+--- Summary after preprocessing ---
+No. sequences: 6
+No. columns: 56
+No. pound sign columns (#): 8
+Total no. nucleotides (A/C/G/T): 233 bp
+Total no. gaps (-): 27
+Total no. IUPAC N: 0
+Total no. missing values (?): 51
+
+--- Run time ---
+Wall-clock time: 0.00450301 seconds
+CPU time: 0.00331700 seconds

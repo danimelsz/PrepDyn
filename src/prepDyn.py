@@ -115,7 +115,16 @@ def parse_n2question_leaves(value):
     else:
         return [leaf.strip() for leaf in value.split(",")]
 
- 
+def str2bool(v):
+    if isinstance(v, bool):
+       return v
+    if v.lower() in ('yes', 'true', 't', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', '0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')
+    
 ########
 # MAIN #
 ########
@@ -127,31 +136,32 @@ def main():
         epilog="""\
 Examples:
   # Given a CSV file with GenBank accession numbers, download and align sequences, and identify terminal and internal missing data
-  python prepDyn.py --GB_input accessions.csv --output_file output
+  python prepDyn.py -gb accessions.csv -o output
 
   # Given a FASTA alignment, identify terminal missing data and delete orphan nucleotides of length < 10.
-  python prepDyn.py --input_file aln.fasta --output_file output --orphan_method semi --orphan_threshold 10
+  python prepDyn.py -i aln.fasta -o output -om semi -ot 10
 
   # Given a FASTA alignment with hDNA sequences in sp1 and sp4, replace IUPAC N with ?
-  python prepDyn.py --input_file aln.fasta --output_file output --n2question sp1,sp4
+  python prepDyn.py -i aln.fasta -o output -n2q sp1,sp4
 
   # Given a CSV file with GenBank accession numbers, download and align sequences, identify terminal and internal missing data, trim invariants and orphan nucleotides  
-  python prepDyn.py --GB_input accessions.csv --output_file output --del_inv True --internal_method semi 
+  python prepDyn.py -gb accessions.csv -o output -di True -g2q semi 
 """)
-    # Basic
+    # Parsing
     parser.add_argument("-i", "--input_file", help="Path to input alignment file or directory containing multiple files. Ignored if GB_input is provided.", default=None)
     parser.add_argument("-gb", "--GB_input", help="Path to a dataframe containing GenBank accession numbers (CSV/TSV). If provided, sequences will be downloaded from GenBank and aligned using MAFFT before preprocessing. Ignored if input_file is provided.", default=None)
     parser.add_argument("-if", "--input_format", help="Input file format. Options: 'fasta' (default), 'clustal', 'phylip', or any format accepted by Biopython.", default="fasta")
     parser.add_argument("-o", "--output_file", help="Path (including prefix) for output file(s)", default=None)
     parser.add_argument("-of", "--output_format", help="Output format [default: fasta]", default="fasta")
-    parser.add_argument("-l", "--log", help="Write time log", action="store_true")
-    parser.add_argument("-msa", "--MSA", help="Perform a MSA. Only use it if the sequences specified in input_file are unaligned. Ignore if GB_input is used.", action="store_true")
+    parser.add_argument("-l", "--log", default=True, type=str2bool, help="Write time log")
+    parser.add_argument("-msa", "--MSA", default=False, type=str2bool, help="Perform a MSA. Only use it if the sequences specified in input_file are unaligned. Ignore if GB_input is used.")
+    parser.add_argument("-s", "--sequence_names", default=True, type=str2bool, help="Write sequence names. Useful to manage taxon sampling in POY/PhyG.")
 
     # Trimming
     parser.add_argument("-om", "--orphan_method", help="Method to trim orphan nucleotides. Options: 'none' (default), 'auto' (define a threshold using percentile), 'semi' (define a threshold using an integer)", choices=["auto", "semi"], default=None)
     parser.add_argument("-ot", "--orphan_threshold", type=int, help="Threshold integer if orphan_method='semi' (default: 10)", default=10)
     parser.add_argument("-op", "--percentile", type=float, help="Percentile of gap lengths to define the orphan threshold if orphan_method='auto' (default: 25).", default=25.0)
-    parser.add_argument("-di", "--del_inv", help="Trim invariant terminal columns (default: False)", action="store_true")
+    parser.add_argument("-di", "--del_inv", default=True, type=str2bool, help="Trim invariant terminal columns (default: False)")
 
     # Missing data
     parser.add_argument("-g2q", "--internal_method", help="Method to handle internal missing data: 'manual', 'semi', or 'none' (default)", default=None)
@@ -164,6 +174,12 @@ Examples:
     parser.add_argument("-pm", "--partitioning_method", type=str, default="conservative", choices=["conservative", "equal"], help="Method of partitioning. Options: (1) conservative (given invariant regions sorted by length, partition the n-largest block(s) of invariants; define n using partitioning_round), (2) equal (insert # to divide the alignment into equal-length partitions; define the size of partitins using partitioning_size or the the round of partitioning using partitioning_round).")
     parser.add_argument("-pr", "--partitioning_round", type=parse_partitioning_round, help="Round of successive partitioning. Use it if partitioning_method is 'conservative' or 'equal'.", default=0)
     parser.add_argument("-ps", "--partitioning_size", type=int, default=None, help="Size of equal-length partitions if partitioning_method = 'equal'.")
+
+    # Default
+    parser.set_defaults(log=True)
+    parser.set_defaults(del_inv=True)
+    parser.set_defaults(msa=False)
+    parser.set_defaults(sequence_names=True)
 
     args = parser.parse_args()
     # Error messages
@@ -178,6 +194,7 @@ Examples:
             output_file=args.output_file,
             output_format=args.output_format,
             log=args.log,
+            sequence_names=args.sequence_names,
             # Trimming parameters
             orphan_method=args.orphan_method,
             orphan_threshold=args.orphan_threshold,

@@ -93,6 +93,17 @@ def parse_n2question_leaves(value):
     else:
         return [leaf.strip() for leaf in value.split(",")]
 
+def str2bool(v):
+    if isinstance(v, bool):
+       return v
+    if v.lower() in ('yes', 'true', 't', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', '0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')
+ 
+
 ########
 # MAIN #
 ########
@@ -108,11 +119,11 @@ Examples: python addSeq.py --alignment aln.fas --new_seqs 12s_sp_new.fas --outpu
     parser.add_argument("-a", "--alignment", type=str, required=True, help="Path to FASTA input alignment. If question marks and pound signs are present, they will be maintained.", default=None)
     parser.add_argument("-n", "--new_seqs", type=str, required=True, help="Path to FASTA input sequence(s) to be added to the alignment.", default=None)     
     parser.add_argument("-o", "--output", type=str, required=True, help="Path to the output file with the new sequences aligned to the core alignment.", default=None)
-    parser.add_argument("-w", "--write_names", action="store_true",  required=False, help="Write sequence names in a separate file, which can be used as input data in POY/PhyG to select taxon sample (default: False).")
+    parser.add_argument("-w", "--write_names", type=str2bool, default=False, required=False, help="Write sequence names in a separate file, which can be used as input data in POY/PhyG to select taxon sample (default: False).")
     parser.add_argument("-ot", "--orphan_threshold", type=int, required=False, default=0, help="Threshold (int) to detect and remove orphan DNA blocks. Default = 0.")
     parser.add_argument("-n2q", "--n2question", type=parse_n2question_leaves, required=False, default=None, help="Replace IUPAC N with ?. Options: 'none' (default), 'all' (apply to all added leaves), single added leaf, or list of added leaves ['sp1', 'sp2'].")
     parser.add_argument("-g2q", "--gaps2question", default=None, required=False, type=int, help="gaps2question (int or None): Replace contiguous gap blocks larger than this threshold with '?'. Only applied to added sequences.")
-    parser.add_argument("-l", "--log", action="store_true", required=False, help="Write log tracking all operations and reporting runtime.")
+    parser.add_argument("-l", "--log", type=str2bool, default=T, required=False, help="Write log tracking all operations and reporting runtime (default: true)")
 
     args = parser.parse_args()
 
