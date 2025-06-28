@@ -60,12 +60,12 @@ The basic use of **prepDyn** is running all four steps using a single command. G
 
 ```
 python src/prepDyn.py \
-    --input_file test_data/tutorial/ex1.1/ex1.1_input.csv \
+    --GB_input test_data/tutorial/ex1.1/ex1.1_input.csv \
     --output_file test_data/tutorial/ex1.1/ex1.1 \
     --del_inv T \
     --orphan_method semi \
     --orphan_threshold 10 \
-    --partitioning_round 0 \
+    --partitioning_method max \
     --log T 
 ```
 
@@ -110,7 +110,8 @@ python src/prepDyn.py \
     --MSA T \
     --del_inv T \
     --orphan_method semi --orphan_threshold 10 \
-    --internal_method semi --internal_threshold 15
+    --internal_method semi --internal_threshold 15 \
+    --partitioning_method max
 ```
 
 If the input files are already aligned, just change the boolean parameter MSA to False:
