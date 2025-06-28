@@ -1,4 +1,4 @@
-Command used: addSeq(alignment=..., new_seqs=..., output='test_data/tutorial/ex4.1_out.fas', write_names=False, orphan_threshold=0, log=True, n2question=None, gaps2question=None)
+Command used: addSeq(alignment=..., new_seqs=..., output='test_data/tutorial/ex4.1/ex4.1_out.fas', write_names=False, orphan_threshold=0, log=True, n2question=None, gaps2question=None)
 
 Input alignment: 3 sequences
 Input alignment: 1 # columns
@@ -13,4 +13,4 @@ None
 Gap block replacements:
 sp4: ? block at positions 0-1 (length=1)
 
-Runtime: 0.43 seconds
+Runtime: 0.50 seconds
