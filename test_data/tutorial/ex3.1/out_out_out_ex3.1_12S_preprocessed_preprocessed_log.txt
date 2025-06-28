@@ -1,0 +1,32 @@
+--- Command used ---
+prepDyn(input_file='test_data/tutorial/ex3.1/', input_format='fasta', MSA=False, output_file='test_data/tutorial/ex3.1/out', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=10, percentile=25.0, del_inv=True, internal_method='semi', internal_column_ranges='all', internal_leaves='all', internal_threshold=15, partitioning_method='conservative', partitioning_round=0)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 13
+No. columns: 2465
+Total no. nucleotides (A/C/G/T only): 30472 bp
+Total no. gaps (-): 810
+Total no. IUPAC N: 1
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 762
+Total '-' characters in fully missing partitions: 0
+Combined total: 762
+
+
+
+--- Summary after preprocessing ---
+No. sequences: 13
+No. columns: 2465
+No. pound sign columns (#): 0
+Total no. nucleotides (A/C/G/T): 30472 bp
+Total no. gaps (-): 810
+Total no. IUPAC N: 1
+Total no. missing values (?): 762
+
+--- Run time ---
+Wall-clock time: 0.09722185 seconds
+CPU time: 0.09611900 seconds

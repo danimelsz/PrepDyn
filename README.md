@@ -60,28 +60,29 @@ The basic use of **prepDyn** is running all four steps using a single command. G
 
 ```
 python src/prepDyn.py \
-    --GB_input test_data/tutorial/ex1.0_input.csv \
-    --output_file test_data/tutorial/ex1.0 \
-    --del_inv \
+    --input_file test_data/tutorial/ex1.1/ex1.1_input.csv \
+    --output_file test_data/tutorial/ex1.1/ex1.1 \
+    --del_inv T \
     --orphan_method semi \
     --orphan_threshold 10 \
     --partitioning_round 0 \
-    --log   
+    --log T 
 ```
 
 In the CSV file, if more than one GenBank accession number is specified in the same cell refering to non-overlapping fragments of the same gene (e.g. MT893619/MT895696), the space between them is automatically identified as internal missing data (?).
 
-We specified *--paritioning_round 0*, which means that partitioning was not performed. As a heuristic, we recommend testing the impact of adding pound signs to the tree optimality scores using a successive partitioning strategy. For instance, if you specify *--partitioning_round 1*, the largest block(s) of contiguous invariants will be partitioned.
+We specified *--paritioning_round 0*, which means that partitioning was not performed. As a heuristic, we recommend testing the impact of adding pound signs to the tree optimality scores using a successive partitioning strategy. For instance, if you specify *partitioning_method conservative* and *--partitioning_round 1*, the largest block(s) of contiguous invariants will be partitioned.
 
 ```
-python prepDyn.py --input_file data.fasta --output_file out1 --partitioning_round 1 --log 
+python src/prepDyn.py \
+    --input_file test_data/tutorial/ex1.2/ex1.2_input.fasta \
+    --output_file test_data/tutorial/ex1.2/ex1.2 \
+    --partitioning_method conservative \
+    --partitioning_round 1 \
+    --log T
 ```
 
-This process can continue until tree costs reported by POY/PhyG remain stationary (e.g. *--partitioning_round 2* inserts pound signs in the 1- and 2-largest block(s) of contiguous invariants).
-
-```
-python prepDyn.py --input_file data.fasta --output_file out2 --partitioning_round 2 --log
-```
+This process can continue until tree costs reported by POY/PhyG remain stationary (e.g. *--partitioning_round 2* inserts pound signs in the 1- and 2-largest block(s) of contiguous invariants). Other methods of partitioning are also available and the user should explore whether they can reduce tree costs.
 
 ### Example 2: GB2MSA + prepDyn
 
@@ -99,23 +100,44 @@ python prepDyn.py --input_file output.fasta --del_inv --orphan_method semi --par
 
 ### Example 3: Multiple alignments
 
-Suppose you have a phylogenomic dataset with hundreds of gene alignmens in the directory *./data/*. You can preprocess all gene alignments in FASTA format using a single command:
+Suppose you have a phylogenomic dataset with hundreds of gene alignmens in the directory *./data/*. Phylogenomic datasets are usually unavailable in GenBank, but are available in repositories like Dryad and Zenodo. You can preprocess all unaligned gene alignments in FASTA format using a single command:
 
 ```
-python prepDyn.py --input_file ./data/ --input_format fasta --output_prefix output --del_inv --orphan_method semi --log
+python src/prepDyn.py \
+    --input_file test_data/tutorial/ex3.1/ \
+    --input_format fasta \
+    --output_file test_data/tutorial/ex3.1/out \
+    --MSA T \
+    --del_inv T \
+    --orphan_method semi --orphan_threshold 10 \
+    --internal_method semi --internal_threshold 15
+```
+
+If the input files are already aligned, just change the boolean parameter MSA to False:
+
+```
+python src/prepDyn.py \
+    --input_file test_data/tutorial/ex3.1/ \
+    --input_format fasta \
+    --output_file test_data/tutorial/ex3.1/out \
+    --MSA F \
+    --del_inv T \
+    --orphan_method semi --orphan_threshold 10 \
+    --internal_method semi --internal_threshold 15 \
+    --log T
 ```
 
 ### Example 4: Appending new sequences
 
-MUSCLE and MAFFT are unable to align sequences if pound signs or question marks are present. This is a problem when we try to align new sequences to a prevously preprocessed alignment. To avoid manual alignment by eye, addSeq.py allows aligning new sequences to a preprocessed alignment. Gaps, missing data, and pound signs are not modified for the sequences present in the preprocessed alignment. Gaps, missing data, and pound signs are only inserted in the new sequences.
+MUSCLE and MAFFT are unable to align sequences if pound signs or question marks are present. This is a problem when we try to align new sequences to a prevously preprocessed profile alignment. To avoid manual alignment by eye, addSeq.py allows aligning new sequences to profile alignments. Gaps, missing data, and pound signs are not modified for the sequences present in the profile alignment. Gaps, missing data, and pound signs are only inserted in the new sequences.
 
 A simple example:
 
 ```
 python src/addSeq.py \
-    --alignment test_data/tutorial/ex4.1_aln.fas \
-    --new_seqs test_data/tutorial/ex4.1_new_seqs.fas \
-    --output test_data/tutorial/ex4.1_out.fas \
+    --alignment test_data/tutorial/ex4.1/ex4.1_aln.fas \
+    --new_seqs test_data/tutorial/ex4.1/ex4.1_new_seqs.fas \
+    --output test_data/tutorial/ex4.1/ex4.1_out.fas \
     --log
 ```
 
@@ -123,9 +145,9 @@ A more complex example, where new sequences were preprocessed using trimming of 
 
 ```
 python src/addSeq.py \
-    --alignment test_data/tutorial/ex4.2_aln.fas \
-    --new_seqs test_data/tutorial/ex4.2_new_seqs.fas \
-    --output test_data/tutorial/ex4.2_out.fas \
+    --alignment test_data/tutorial/ex4.2/ex4.2_aln.fas \
+    --new_seqs test_data/tutorial/ex4.2/ex4.2_new_seqs.fas \
+    --output test_data/tutorial/ex4.2/ex4.2_out.fas \
     --orphan_threshold 45 \
     --gaps2question 20 \
     --n2question Thoropa_miliaris_CFBH10125 \
@@ -133,7 +155,7 @@ python src/addSeq.py \
     --log
 ```
 
-Warning: the input *new_seqs* cannot be longer than *alignment*.
+Warning: the input *new_seqs* cannot be longer than the profile *alignment*.
 
 ### Example 5: Ancient DNA
 

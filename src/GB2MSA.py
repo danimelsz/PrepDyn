@@ -81,6 +81,21 @@ from prepDyn_auxiliary import GB2MSA
 from Bio import SeqIO
 from Bio.Seq import Seq
 
+###########
+# PARSERS #
+###########
+
+def str2bool(v):
+    if isinstance(v, bool):
+       return v
+    if v.lower() in ('yes', 'true', 't', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', '0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')
+ 
+
 ########
 # MAIN #
 ########
@@ -90,16 +105,16 @@ def main():
         description="GB2MSA downloads sequences from GenBank and performs multiple sequence alignment using MAFFT. If >1 non-overlapping fragments of the same gene is specified (e.g. MT893619/MT895696), the space between them is identified as missing data (?)",
         formatter_class=argparse.RawTextHelpFormatter,
         epilog="""\
-Example:  python GB2MSA.py --input_file input.csv --output_prefix myoutput --delimiter , --write_names --log --orphan_threshold 10
+Example:  python GB2MSA.py --input_file input.csv --output_prefix myoutput --delimiter , --write_names T --log T --orphan_threshold 10
 """)
 
 
-    parser.add_argument("--input_file", type=str, required=True, help="Path to CSV/TSV file with GenBank accession numbers.")
-    parser.add_argument("--output_prefix", type=str, required=True, help="Path (including prefix, if desirable) for output FASTA files.")
-    parser.add_argument("--delimiter", default=",", type=str, required=False, help="Delimiter used in the input file (default: ',').")
-    parser.add_argument("--write_names", action="store_true",  required=False, help="Write sequence names in a separate file, which can be used as input data in POY/PhyG to select taxon sample (default: True).")
-    parser.add_argument("--log", action="store_true",  required=False, help="If set, write wall and CPU time to a log file (default: False).")
-    parser.add_argument("--orphan_threshold", type=int, default=10,  required=False, help="Threshold to clean orphan nucleotides (default: 10).")
+    parser.add_argument("-i", "--input_file", type=str, required=True, help="Path to CSV/TSV file with GenBank accession numbers.")
+    parser.add_argument("-o", "--output_prefix", type=str, required=True, help="Path (including prefix, if desirable) for output FASTA files.")
+    parser.add_argument("-d", "--delimiter", default=",", type=str, required=False, help="Delimiter used in the input file (default: ',').")
+    parser.add_argument("-w", "--write_names", type=str2bool, default=True, required=False, help="Write sequence names in a separate file, which can be used as input data in POY/PhyG to select taxon sample (default: True).")
+    parser.add_argument("-l", "--log", type=str2bool, default=True, required=False, help="If set, write wall and CPU time to a log file (default: True).")
+    parser.add_argument("-ot", "--orphan_threshold", type=int, default=10,  required=False, help="Threshold to clean orphan nucleotides (default: 10).")
 
     args = parser.parse_args()
 

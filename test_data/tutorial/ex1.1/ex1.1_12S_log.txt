@@ -1,0 +1,43 @@
+--- Command used ---
+prepDyn(GB_input='../test_data/tutorial/ex1.1/ex1.1_input.csv', input_format='fasta', MSA=False, output_file='../test_data/tutorial/ex1.1/ex1.1', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=20, percentile=25, del_inv=True, internal_method='semi', internal_leaves='all', internal_threshold=10, n2question='all', partitioning_method='equal', partitioning_round=0, partitioning_size=100)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 13
+No. columns: 2486
+Total no. nucleotides (A/C/G/T only): 30472 bp
+Total no. gaps (-): 1097
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 2, 3, 4, 5, 2468, 2469, 2470, 2471, 2472, 2473, 2474, 2475, 2476, 2477, 2478]
+
+--- Step 3: Missing data identification (Ns replaced with '?') ---
+QCAZ_16704: 921–921
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 437
+Total '-' characters in fully missing partitions: 462
+Combined total: 899
+
+MHNLS_20324: partition 0 (0–99, length 100) fully missing (all '-')
+MHNLS_20324: partition 1 (101–200, length 100) fully missing (all '-')
+MHNLS_20324: partition 2 (202–301, length 100) fully missing (all '-')
+MHNLS_20324: partition 3 (303–402, length 100) fully missing (all '-')
+MHNLS_20324: partition 24 (2424–2485, length 62) fully missing (all '-')
+
+--- Step 4: Partitioning (columns with # inserted) ---
+Method used: equal (partitioning_size=100)
+Columns: [100, 201, 302, 403, 504, 605, 706, 807, 908, 1009, 1110, 1211, 1312, 1413, 1514, 1615, 1716, 1817, 1918, 2019, 2120, 2221, 2322, 2423]
+
+--- Summary after preprocessing ---
+No. sequences: 13
+No. columns: 2486
+No. pound sign columns (#): 24
+Total no. nucleotides (A/C/G/T): 30472 bp
+Total no. gaps (-): 1097
+Total no. IUPAC N: 0
+Total no. missing values (?): 899
+
+--- Run time ---
+Wall-clock time: 0.11691904 seconds
+CPU time: 0.11511500 seconds
