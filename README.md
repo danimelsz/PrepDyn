@@ -65,7 +65,7 @@ python src/prepDyn.py \
     --del_inv T \
     --orphan_method semi \
     --orphan_threshold 10 \
-    --partitioning_method max \
+    --partitioning_method None \
     --log T 
 ```
 
@@ -77,7 +77,7 @@ We specified *--paritioning_round 0*, which means that partitioning was not perf
 python src/prepDyn.py \
     --input_file test_data/tutorial/ex1.2/ex1.2_input.fasta \
     --output_file test_data/tutorial/ex1.2/ex1.2 \
-    --partitioning_method conservative \
+    --partitioning_method balanced \
     --partitioning_round 1 \
     --log T
 ```
