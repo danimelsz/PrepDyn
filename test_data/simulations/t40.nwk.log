@@ -1,0 +1,50 @@
+IQ-TREE version 3.0.1 for MacOS Intel 64-bit built May  5 2025
+Developed by Bui Quang Minh, Thomas Wong, Nhan Ly-Trong, Huaiyan Ren
+Contributed by Lam-Tung Nguyen, Dominik Schrempf, Chris Bielow,
+Olga Chernomor, Michael Woodhams, Diep Thi Hoang, Heiko Schmidt
+
+Host:    MacBook-Pro-2.local (AVX2, FMA3, 8 GB RAM)
+Command: iqtree3 --alisim t40_len10000.fasta -m JC -t ../test_data/simulations/t40.nwk --indel 0,0.0005 --length 10000 --out-format fasta -seed 44
+Seed:    44 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Mon Jun 30 18:01:09 2025
+Kernel:  AVX+FMA - 1 threads (8 CPU cores detected)
+
+[Alignment Simulator] Executing
+ - Tree filepath: ../test_data/simulations/t40.nwk
+ - Length of output sequences: 10000
+ - Model: JC
+ - Number of output datasets: 1
+ - Number of threads: 1
+SUBSTITUTION PROCESS
+--------------------
+
+Model of substitution: JC
+
+Rate parameter R:
+
+  A-C: 1.000
+  A-G: 1.000
+  A-T: 1.000
+  C-G: 1.000
+  C-T: 1.000
+  G-T: 1.000
+
+State frequencies: (equal frequencies)
+
+Rate matrix Q:
+
+  A        -1     0.333     0.333     0.333
+  C     0.333        -1     0.333     0.333
+  G     0.333     0.333        -1     0.333
+  T     0.333     0.333     0.333        -1
+
+Model of rate heterogeneity: Uniform
+
+An alignment written to t40_len10000.fasta.fa
+Unaligned sequences written to t40_len10000.fasta.unaligned.fa
+Screen log file: ../test_data/simulations/t40.nwk.log
+[Alignment Simulator] Done
+Simulation CPU time: 0.261 sec (0h:0m:0s)
+Simulation wall-clock time: 0.310 sec (0h:0m:0s)
+
+Date and Time: Mon Jun 30 18:01:10 2025
