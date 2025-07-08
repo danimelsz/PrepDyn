@@ -44,56 +44,6 @@ git clone https://github.com/danimelsz/PrepDyn.git
 
 **prepDyn** comprises four steps: (1) data collection from GenBank, (2) trimming, (3) identification of missing data, and (4) partitioning.
 
-Here's a breakdown of the parameters by category in prepDyn.py:
-
-I. Input & Output
-
-- input_file (str): Path to an alignment file or a directory of alignments.
-
-- GB_input (str): Path to a CSV/TSV of GenBank accessions. Overrides input_file.
-
-- input_format (str, default: "fasta"): Format of input file(s) (e.g., 'phylip', 'clustal').
-
-- MSA (bool, default: False): If True, perform Multiple Sequence Alignment on unaligned input sequences.
-
-- output_file (str): Custom prefix for output files.
-
-- output_format (str, default: "fasta"): Format for the output alignment.
-
-- log (bool, default: False): Write a detailed log file.
-
-- sequence_names (bool, default: True): Write a file with all unique sequence names.
-
-II. Trimming Parameters
-
-- orphan_method (str): Method to trim orphan nucleotides at alignment ends: 'auto' (use percentile to set the threshold), 'semi' (use orphan_threshold manually), None (default: no orphan trimming).
-
-- orphan_threshold (int, default: 10): Manual length threshold for orphan_method='semi'.
-
-- percentile (float, default: 25): Percentile for orphan_method='auto'.
-
-- del_inv (bool, default: True): Trim invariant columns from the alignment ends.
-
-III. Missing Data Parameters
-
-- internal_method (str): Method to replace internal gaps with ?. Options: 'manual' (use internal_column_ranges), 'semi' (use internal_threshold), None (default: no internal gap replacement).
-
-- internal_column_ranges (list): Column ranges (e.g., [[10, 20]]) for 'manual' method.
-
-- internal_leaves (str or list, default: "all"): Sequences to apply internal replacement on.
-
-- internal_threshold (int): Contiguous gap length threshold for 'semi' method.
-
-- n2question (str or list): Replace ambiguous 'N' nucleotides with ?. Can be 'all', a single sequence name, or a list of names. None (default) does nothing.
-
-IV. Partitioning Parameters
-
-- partitioning_method (str, default: "balanced"): Method to insert # partition markers. Options: 'balanced' (iteratively merge small blocks initially defined by 'max'), 'conservative' (insert # in the middle of the n-largest invariant blocks, where n is partitioning_round), 'equal' (create equal-length partitions defined by partitioning_size or partitioning_round), 'max' (insert # around all blocks of missing data).
-
-- partitioning_round (int, default: 0): Number of partitions/rounds, used by 'balanced', 'conservative' and 'equal' methods.
-
-- partitioning_size (int): Size of partitions for partitioning_method='equal'.
-
 ## Usage
 **prepDyn** is organized in three Python files in the directory src:
 - prepDyn.py: main script integrating the pipeline.
@@ -101,6 +51,32 @@ IV. Partitioning Parameters
 - addSeq.py: script to align one or a few sequence(s) to a previously preprocessed alignment.
 
 **Warning**: Do not move the files from the directory src, otherwise Python may not recognize modules.
+
+A summary of parameters used in prepDyn.py:
+
+| **Parameter**            | **Type**              | **Default**  | **Description**                                                                   |
+| ------------------------ | --------------------- | ------------ | --------------------------------------------------------------------------------- |
+| `input_file`             | `str`                 | –            | Path to an alignment file or directory of alignments.                             |
+| `GB_input`               | `str`                 | –            | Path to a CSV/TSV of GenBank accessions. Overrides `input_file`.                  |
+| `input_format`           | `str`                 | `"fasta"`    | Format of input file(s) (e.g., `"phylip"`, `"clustal"`).                          |
+| `MSA`                    | `bool`                | `False`      | If `True`, perform multiple sequence alignment on unaligned input sequences.      |
+| `output_file`            | `str`                 | –            | Custom prefix for output files.                                                   |
+| `output_format`          | `str`                 | `"fasta"`    | Format for the output alignment.                                                  |
+| `log`                    | `bool`                | `False`      | Write a detailed log file.                                                        |
+| `sequence_names`         | `bool`                | `True`       | Write a file with all unique sequence names.                                      |
+| `orphan_method`          | `str`                 | `None`       | Method to trim orphan nucleotides: `'auto'`, `'semi'`, or `None`.                 |
+| `orphan_threshold`       | `int`                 | `10`         | Manual length threshold for `orphan_method='semi'`.                               |
+| `percentile`             | `float`               | `25`         | Percentile for `orphan_method='auto'`.                                            |
+| `del_inv`                | `bool`                | `True`       | Trim invariant columns from alignment ends.                                       |
+| `internal_method`        | `str`                 | `None`       | Method to replace internal gaps with `?`: `'manual'`, `'semi'`, or `None`.        |
+| `internal_column_ranges` | `list`                | –            | Column ranges (e.g., `[[10, 20]]`) for `'manual'` method.                         |
+| `internal_leaves`        | `str` or `list`       | `"all"`      | Sequences to apply internal gap replacement to.                                   |
+| `internal_threshold`     | `int`                 | –            | Gap length threshold for `'semi'` method.                                         |
+| `n2question`             | `str`, `list`, `None` | `None`       | Replace ambiguous `'N'` with `?`. Options: `'all'`, list of names, or `None`.     |
+| `partitioning_method`    | `str`                 | `"balanced"` | Method to insert `#` markers: `'balanced'`, `'conservative'`, `'equal'`, `'max'`. |
+| `partitioning_round`     | `int`                 | `0`          | Number of partitions/rounds for relevant partitioning methods.                    |
+| `partitioning_size`      | `int`                 | –            | Partition size for `partitioning_method='equal'`.                                 |
+
 
 The following examples are designed for users with little experience on Unix. If you have questions, send a message using **GitHub issues**.
 
