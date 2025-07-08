@@ -1,0 +1,58 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical1_deSa/3_balanced/round3/', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical1_deSa/3_balanced/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 28
+No. columns: 442
+Total no. nucleotides (A/C/G/T only): 11325 bp
+Total no. gaps (-): 1049
+Total no. IUPAC N: 2
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 436, 437, 438, 439, 440, 441]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 120
+Total '-' characters in fully missing partitions: 509
+Combined total: 629
+
+Phantasmarana_apuana_SMRP526.4: partition 0 (0–31, length 32) fully missing (all '-')
+Phantasmarana_apuana_TLFT1981: partition 0 (0–31, length 32) fully missing (all '-')
+Phantasmarana_apuana_TLFT1981: partition 1 (33–42, length 10) fully missing (all '-')
+Phantasmarana_jordanensis_SMRP81.3: partition 0 (0–31, length 32) fully missing (all '-')
+Phantasmarana_jordanensis_SMRP81.3: partition 1 (33–42, length 10) fully missing (all '-')
+Phantasmarana_jordanensis_SMRP81.8: partition 0 (0–31, length 32) fully missing (all '-')
+Phantasmarana_jordanensis_SMRP81.8: partition 1 (33–42, length 10) fully missing (all '-')
+Phantasmarana_jordanensis_SMRP81.8: partition 2 (44–80, length 37) fully missing (all '-')
+Phantasmarana_jordanensis_SMRP81.8: partition 3 (82–85, length 4) fully missing (all '-')
+Phantasmarana_jordanensis_SMRP81.8: partition 4 (87–127, length 41) fully missing (all '-')
+Phantasmarana_massarti_ZUEC11395: partition 0 (0–31, length 32) fully missing (all '-')
+Phantasmarana_massarti_ZUEC11395: partition 1 (33–42, length 10) fully missing (all '-')
+Phantasmarana_massarti_ZUEC11395: partition 2 (44–80, length 37) fully missing (all '-')
+Phantasmarana_massarti_ZUEC11395: partition 3 (82–85, length 4) fully missing (all '-')
+Phantasmarana_massarti_ZUEC11553: partition 0 (0–31, length 32) fully missing (all '-')
+Phantasmarana_massarti_ZUEC11553: partition 1 (33–42, length 10) fully missing (all '-')
+Megaelosia_goeldii_SMRP527.3: partition 6 (369–421, length 53) fully missing (all '-')
+Megaelosia_goeldii_SMRP527.3: partition 7 (423–426, length 4) fully missing (all '-')
+Hylodes_asper_ZUEC11555: partition 7 (423–426, length 4) fully missing (all '-')
+Hylodes_heyeri_ZUEC24650: partition 0 (0–31, length 32) fully missing (all '-')
+Hylodes_heyeri_ZUEC24650: partition 1 (33–42, length 10) fully missing (all '-')
+Hylodes_heyeri_ZUEC24650: partition 2 (44–80, length 37) fully missing (all '-')
+Crossodactylus_gaudichaudii_ZUEC17570: partition 7 (423–426, length 4) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=3)
+Columns with '#' inserted: [32, 43, 81, 86, 128, 368, 422]
+
+--- Summary after preprocessing ---
+No. sequences: 28
+No. columns: 427
+No. pound sign columns (#): 7
+Total no. nucleotides (A/C/G/T): 11129 bp
+Total no. gaps (-): 509
+Total no. IUPAC N: 2
+Total no. missing values (?): 629
+
+--- Run time ---
+Wall-clock time: 0.05081701 seconds
+CPU time: 0.04704100 seconds
