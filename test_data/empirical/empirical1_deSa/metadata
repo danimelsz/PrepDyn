@@ -1,0 +1,23 @@
+1_notPreprocessed
+- Description: GB2MSA only, with ? replaced with - manually using bash.
+- Results:
+
+2_noPartitioning
+- Description: prepDyn specifying partitioning_method=None
+- Results:
+
+3_balanced
+- Description: prepDyn with partitioning_method=balanced.
+- Results: 
+
+4_conservative
+- Description: prepDyn with partitioning_method = conservative
+- Results:
+
+5_equal
+- Description: prepDyn with partitioning_method = equal
+- Results:
+
+6_max
+- Description: prepDyn with partitioning_method = max
+- Results:

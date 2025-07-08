@@ -1,0 +1,4 @@
+--- GB2MSA run for '../test_data/empirical/empirical1_deSa/1_noPreprocessing/output' ---
+Wall clock time: 266.64 seconds
+CPU time: 3.83 seconds
+

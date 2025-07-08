@@ -1979,6 +1979,8 @@ def addSeq(
         except Exception:
             pass
 
+# Assuming all necessary imports like os, time, SeqIO, etc., are present
+
 def prepDyn(input_file=None,
             GB_input=None,
             input_format="fasta",
@@ -2141,237 +2143,148 @@ def prepDyn(input_file=None,
             start_cpu_time = time.process_time()
 
         # --- Pre-processing for output_file path handling for *this* recursive call ---
-        # The output_file argument passed to this function is the specific prefix for its output.
         current_output_dir = os.path.dirname(output_file)
         if not current_output_dir:
             current_output_dir = "." # Default to current directory if no path in output_file
         os.makedirs(current_output_dir, exist_ok=True)
-        # No need for output_base_for_current_prefix here, as output_file is already the specific prefix.
 
 
         # Step 1: Run GB2MSA if GenBank input is provided
         if GB_input is not None:
+            # (This part of the logic remains unchanged)
             print("Running GB2MSA on GenBank input...")
             
-            # For GB_input, the `output_file` passed to _prepDyn_recursive is already the desired prefix
             gb_output_prefix_for_gb2msa = output_file 
             cleaned_files = GB2MSA(GB_input, output_prefix=gb_output_prefix_for_gb2msa, write_names=False, log=False)
             
             for file_path_from_gb2msa in cleaned_files:
                 file_basename_no_ext = os.path.splitext(os.path.basename(file_path_from_gb2msa))[0]
-                
-                # Derive gene name correctly from the GB2MSA output file name
-                # This logic might need refinement depending on GB2MSA output naming
                 gene_name_part = file_basename_no_ext.replace("_aligned", "").replace("_GB2MSA", "")
-                
-                # Construct the specific output prefix for THIS gene for the recursive call
-                # If original_output_file_arg was "output_dir/my_prefix", then this becomes "output_dir/my_prefix_geneName"
-                # If original_output_file_arg was just "my_prefix", then this becomes "my_prefix_geneName"
-                # If original_output_file_arg was "output_dir/", then this becomes "output_dir/geneName" (assuming geneName isn't empty)
-                
-                # Determine the base part from the original output_file_arg
                 base_from_original_output = os.path.basename(original_output_file_arg) if original_output_file_arg else ""
                 if base_from_original_output and base_from_original_output != os.path.basename(os.path.normpath(original_output_file_arg)):
-                    # If it's a file name like "my_data", use that
                     gene_specific_prefix_base = f"{base_from_original_output}_{gene_name_part}"
                 elif os.path.isdir(original_output_file_arg):
-                    # If it's a directory like "output_dir/", just use gene name
                     gene_specific_prefix_base = gene_name_part
                 else:
-                    # Fallback if original_output_file_arg was None or just "my_file"
                     gene_specific_prefix_base = gene_name_part
 
-
                 specific_output_prefix_for_recursion = os.path.join(current_output_dir, gene_specific_prefix_base)
-
                 alignment = AlignIO.read(file_path_from_gb2msa, "fasta")
                 alignment_dict = {record.id: str(record.seq) for record in alignment}
-
-                # Add sequence IDs to the SHARED set
                 _all_sequence_ids.update(alignment_dict.keys())
-
-                _prepDyn_recursive(input_val=alignment_dict, # Pass dictionary
-                                GB_input=None, # Clear GB_input for recursive calls
-                                input_format="dict", # Indicate input is a dictionary now
-                                MSA=MSA, # Pass MSA status as is for downstream single file handling
-                                orphan_method=orphan_method,
-                                orphan_threshold=orphan_threshold,
-                                percentile=percentile,
-                                del_inv=del_inv,
-                                internal_method=internal_method,
-                                internal_column_ranges=internal_column_ranges,
-                                internal_leaves=internal_leaves,
-                                internal_threshold=internal_threshold,
-                                n2question=n2question,
-                                partitioning_method=partitioning_method,
-                                partitioning_round=partitioning_round,
-                                partitioning_size=partitioning_size,
-                                output_format=output_format,
-                                log=log,
-                                sequence_names=False, # Disable sequence_names writing in recursive calls
-                                _all_sequence_ids=_all_sequence_ids, # Pass the shared set
-                                _is_top_level_call=False, # Indicate this is a recursive call
-                                _original_cmd_line=_original_cmd_line, # Pass original command
-                                output_file=specific_output_prefix_for_recursion) # !!! Pass the specific_output_prefix_for_recursion
-            return # GB_input processing is done for this branch
+                _prepDyn_recursive(input_val=alignment_dict,
+                                GB_input=None, input_format="dict", MSA=MSA,
+                                orphan_method=orphan_method, orphan_threshold=orphan_threshold, percentile=percentile, del_inv=del_inv,
+                                internal_method=internal_method, internal_column_ranges=internal_column_ranges, internal_leaves=internal_leaves, internal_threshold=internal_threshold,
+                                n2question=n2question, partitioning_method=partitioning_method, partitioning_round=partitioning_round, partitioning_size=partitioning_size,
+                                output_format=output_format, log=log, sequence_names=False,
+                                _all_sequence_ids=_all_sequence_ids, _is_top_level_call=False, _original_cmd_line=_original_cmd_line,
+                                output_file=specific_output_prefix_for_recursion)
+            return
 
         # Step 2: If a folder is provided, process each alignment inside
         if isinstance(input_val, str) and os.path.isdir(input_val):
+            # (This part of the logic remains unchanged)
             processed_any_file = False
-            # Determine the base name to prepend to output files if output_file was a directory path
             base_name_for_output_prefix = ""
             if original_output_file_arg and os.path.isdir(original_output_file_arg):
-                # If original_output_file was a directory (e.g., "../test_data/tutorial/ex3.1/"),
-                # use its last directory name as the base for output files.
                 base_name_for_output_prefix = os.path.basename(os.path.normpath(original_output_file_arg))
-            elif original_output_file_arg: # If it was a file prefix (e.g., "my_output")
+            elif original_output_file_arg:
                  base_name_for_output_prefix = os.path.basename(original_output_file_arg)
 
             for file_name in os.listdir(input_val):
                 file_extension = os.path.splitext(file_name)[1].lstrip('.')
-                # Process only files with the specified input_format extension
                 if file_extension == input_format:
                     processed_any_file = True
                     file_path = os.path.join(input_val, file_name)
                     base_name_of_file = os.path.splitext(file_name)[0]
                     
-                    # Construct the specific output prefix for THIS file
                     if base_name_for_output_prefix:
                         specific_output_prefix = os.path.join(current_output_dir, f"{base_name_for_output_prefix}_{base_name_of_file}")
                     else: 
-                        # If no output_file prefix given in main call, use the file's base name directly in the current_output_dir
                         specific_output_prefix = os.path.join(current_output_dir, base_name_of_file)
 
                     current_file_alignment = None
                     if MSA:
+                        # (MSA logic for folder input unchanged)
                         print(f"Processing unaligned file for MAFFT: {file_path}")
                         temp_dir = current_output_dir if current_output_dir != "." else tempfile.gettempdir()
                         os.makedirs(temp_dir, exist_ok=True)
-                        
-                        # Create a unique temporary input file for MAFFT
                         with tempfile.NamedTemporaryFile(mode="w", delete=False, dir=temp_dir, suffix=f".{input_format}") as tmp_in:
-                            # Read unaligned sequences and write to temp file for MAFFT
                             sequences = list(SeqIO.parse(file_path, input_format))
-                            SeqIO.write(sequences, tmp_in, "fasta") # MAFFT prefers FASTA input
+                            SeqIO.write(sequences, tmp_in, "fasta")
                             tmp_in_path = tmp_in.name
-
                         tmp_out_path = os.path.join(temp_dir, f"{os.path.basename(tmp_in_path)}_aligned.fasta")
                         try:
-                            print(f"Aligning {file_name} using MAFFT...")
                             mafft_result = subprocess.run(["mafft", "--auto", tmp_in_path], capture_output=True, text=True, check=False)
-                            if mafft_result.returncode != 0:
-                                print(f"MAFFT alignment failed for {file_name}. Stderr:\n{mafft_result.stderr}")
-                                raise RuntimeError(f"MAFFT alignment failed for {file_name}. See stderr above.")
-                            
-                            with open(tmp_out_path, "w") as f_out:
-                                f_out.write(mafft_result.stdout)
-
+                            if mafft_result.returncode != 0: raise RuntimeError(f"MAFFT alignment failed for {file_name}.")
+                            with open(tmp_out_path, "w") as f_out: f_out.write(mafft_result.stdout)
                             current_file_alignment = {record.id: str(record.seq) for record in AlignIO.read(tmp_out_path, "fasta")}
-                            print(f"MAFFT alignment for {file_name} successful.")
-                        except Exception as e: # Catch broader exceptions during MAFFT
-                            print(f"Error during MAFFT alignment for {file_name}: {e}")
-                            raise
                         finally:
-                            if os.path.exists(tmp_in_path):
-                                os.remove(tmp_in_path)
-                            if os.path.exists(tmp_out_path):
-                                os.remove(tmp_out_path)
+                            if os.path.exists(tmp_in_path): os.remove(tmp_in_path)
+                            if os.path.exists(tmp_out_path): os.remove(tmp_out_path)
                     else:
-                        # If MSA is False, assume files in directory are already aligned
-                        print(f"Reading pre-aligned file: {file_path}")
                         alignment_temp = AlignIO.read(file_path, input_format)
                         current_file_alignment = {record.id: str(record.seq) for record in alignment_temp}
 
                     if current_file_alignment:
                         _all_sequence_ids.update(current_file_alignment.keys())
-                        print(f"Calling recursive for {file_name} with aligned data (dict). Output prefix: {specific_output_prefix}")
-                        _prepDyn_recursive(input_val=current_file_alignment, # Pass the dictionary directly
-                                GB_input=None, # Clear GB_input for recursive calls
-                                input_format="dict", # Indicate input is a dictionary now
-                                MSA=False, # MSA already performed for this file (or not needed)
-                                orphan_method=orphan_method,
-                                orphan_threshold=orphan_threshold,
-                                percentile=percentile,
-                                del_inv=del_inv,
-                                internal_method=internal_method,
-                                internal_column_ranges=internal_column_ranges,
-                                internal_leaves=internal_leaves,
-                                internal_threshold=internal_threshold,
-                                n2question=n2question,
-                                partitioning_method=partitioning_method,
-                                partitioning_round=partitioning_round,
-                                partitioning_size=partitioning_size,
-                                output_format=output_format,
-                                log=log,
-                                sequence_names=False, # Disable sequence_names writing in recursive calls
-                                _all_sequence_ids=_all_sequence_ids, # Pass the shared set
-                                _is_top_level_call=False, # Indicate this is a recursive call
-                                _original_cmd_line=_original_cmd_line, # Pass original command
-                                output_file=specific_output_prefix) # !!! Corrected: Pass specific_output_prefix
+                        _prepDyn_recursive(input_val=current_file_alignment,
+                                GB_input=None, input_format="dict", MSA=False,
+                                orphan_method=orphan_method, orphan_threshold=orphan_threshold, percentile=percentile, del_inv=del_inv,
+                                internal_method=internal_method, internal_column_ranges=internal_column_ranges, internal_leaves=internal_leaves, internal_threshold=internal_threshold,
+                                n2question=n2question, partitioning_method=partitioning_method, partitioning_round=partitioning_round, partitioning_size=partitioning_size,
+                                output_format=output_format, log=log, sequence_names=False,
+                                _all_sequence_ids=_all_sequence_ids, _is_top_level_call=False, _original_cmd_line=_original_cmd_line,
+                                output_file=specific_output_prefix)
             if not processed_any_file:
                 print(f"WARNING: No files with extension '.{input_format}' found in directory: {input_val}")
-            return # Folder processing is done for this branch
+            return
 
 
-        # Step 3: Read and process alignment (This block is executed by recursive calls
-        # or by an initial call with a single file/dict input_val).
+        # Step 3: Read and process alignment
         alignment = None
         if isinstance(input_val, dict):
-            print("Processing input as dictionary.")
             alignment = input_val
-        elif isinstance(input_val, str) and os.path.isfile(input_val): # Ensure it's a file path
-            print(f"Processing single file: {input_val}")
+        elif isinstance(input_val, str) and os.path.isfile(input_val):
+            # (MSA logic for single file input unchanged)
             if MSA:
-                # If MSA is True for a single file input, read as sequences, align, then convert to dict
                 temp_dir = current_output_dir if current_output_dir != "." else tempfile.gettempdir()
-                os.makedirs(temp_dir, exist_ok=True) # Ensure temp_dir exists
-                
+                os.makedirs(temp_dir, exist_ok=True)
                 with tempfile.NamedTemporaryFile(mode="w", delete=False, dir=temp_dir, suffix=f".{input_format}") as tmp_in:
                     sequences = list(SeqIO.parse(input_val, input_format))
                     SeqIO.write(sequences, tmp_in, "fasta")
                     tmp_in_path = tmp_in.name
-
                 tmp_out_path = os.path.join(temp_dir, f"{os.path.basename(tmp_in_path)}_aligned.fasta")
                 try:
-                    print(f"Aligning {os.path.basename(input_val)} using MAFFT...")
                     mafft_result = subprocess.run(["mafft", "--auto", tmp_in_path], capture_output=True, text=True, check=False)
-                    if mafft_result.returncode != 0:
-                        print(f"MAFFT alignment failed for {os.path.basename(input_val)}. Stderr:\n{mafft_result.stderr}")
-                        raise RuntimeError(f"MAFFT alignment failed for {os.path.basename(input_val)}. See stderr above.")
-                    
-                    with open(tmp_out_path, "w") as f_out:
-                        f_out.write(mafft_result.stdout)
-
+                    if mafft_result.returncode != 0: raise RuntimeError(f"MAFFT alignment failed for {os.path.basename(input_val)}.")
+                    with open(tmp_out_path, "w") as f_out: f_out.write(mafft_result.stdout)
                     alignment_obj = AlignIO.read(tmp_out_path, "fasta")
-                    print(f"MAFFT alignment for {os.path.basename(input_val)} successful.")
-                except Exception as e: # Catch broader exceptions during MAFFT
-                    print(f"Error during MAFFT alignment for {os.path.basename(input_val)}: {e}")
-                    raise
                 finally:
-                    if os.path.exists(tmp_in_path):
-                        os.remove(tmp_in_path)
-                    if os.path.exists(tmp_out_path):
-                        os.remove(tmp_out_path)
+                    if os.path.exists(tmp_in_path): os.remove(tmp_in_path)
+                    if os.path.exists(tmp_out_path): os.remove(tmp_out_path)
             else:
-                # If MSA is False, assume the single input file is already an alignment
-                print(f"Reading pre-aligned single file: {input_val}")
                 alignment_obj = AlignIO.read(input_val, input_format)
             
             alignment = {record.id: str(record.seq) for record in alignment_obj}
-            
-            # Add sequence IDs to the SHARED set for single file/dict input
             _all_sequence_ids.update(alignment.keys())
         else:
-            raise ValueError(f"Invalid input_val type or path: {input_val}. Must be a dictionary, a valid file path, or a valid directory path.")
+            raise ValueError(f"Invalid input_val type or path: {input_val}.")
 
 
-        # Summary of characteristics before preprocessing
+        ### FIX: PART 1 - Capture "before" statistics right after loading ###
+        # Initialize variables to store the "before" summary
+        num_seqs_before, aln_length_before, total_nt_before, total_gaps_before, total_ns_before = 0, 0, 0, 0, 0
+        
+        # If logging is enabled, calculate and store the initial state of the alignment
         if log:
-            num_seqs = len(alignment)
-            aln_length = len(next(iter(alignment.values())) if alignment else 0)
-            total_nt = sum(c.upper() in "ACGT" for seq in alignment.values() for c in seq)
-            total_gaps = sum(seq.count("-") for seq in alignment.values())
-            total_ns = sum(c in "Nn" for seq in alignment.values() for c in seq)
+            num_seqs_before = len(alignment)
+            aln_length_before = len(next(iter(alignment.values())) if alignment else 0)
+            total_nt_before = sum(c.upper() in "ACGT" for seq in alignment.values() for c in seq)
+            total_gaps_before = sum(seq.count("-") for seq in alignment.values())
+            total_ns_before = sum(c in "Nn" for seq in alignment.values() for c in seq)
+        ### END FIX PART 1 ###
 
 
         # 3.1 Remove columns with gaps in all leaves
@@ -2426,29 +2339,15 @@ def prepDyn(input_file=None,
 
         elif partitioning_method == "equal":
             if partitioning_round > 0:
-                alignment = equal_length_partitioning(
-                    alignment=alignment,
-                    partitioning_round=partitioning_round,
-                    partitioning_size=None,
-                    log=False
-                )
+                alignment = equal_length_partitioning(alignment=alignment, partitioning_round=partitioning_round, partitioning_size=None, log=False)
             elif partitioning_size:
-                alignment = equal_length_partitioning(
-                    alignment=alignment,
-                    partitioning_round=None,
-                    partitioning_size=partitioning_size,
-                    log=False
-                )
+                alignment = equal_length_partitioning(alignment=alignment, partitioning_round=None, partitioning_size=partitioning_size, log=False)
 
         elif partitioning_method == "max":
             alignment = insert_pound_around_questions(alignment)
         
         elif partitioning_method == "balanced":
-            alignment = balanced_partitioning(
-                alignment,
-                log=False,
-                partitioning_round=partitioning_round
-            ) 
+            alignment = balanced_partitioning(alignment, log=False, partitioning_round=partitioning_round) 
 
         refinement_question2hyphen(alignment)
         alignment = remove_columns_with_W(alignment)
@@ -2457,17 +2356,12 @@ def prepDyn(input_file=None,
 
         # Step 4: Write output file
         records = [SeqRecord(Seq(seq), id=key, description="") for key, seq in alignment.items()]
-
-        final_output_path_prefix = output_file # This is the specific prefix for this gene/alignment
-
-        # Ensure the directory exists for this specific output file
+        final_output_path_prefix = output_file
         output_directory_for_final_write = os.path.dirname(final_output_path_prefix)
         if output_directory_for_final_write and not os.path.exists(output_directory_for_final_write):
             os.makedirs(output_directory_for_final_write, exist_ok=True)
 
-
         output_path = f"{final_output_path_prefix}_preprocessed.{output_format}"
-        print(f"Writing preprocessed output to: {output_path}")
         with open(output_path, "w") as output_handle:
             SeqIO.write(records, output_handle, output_format)
 
@@ -2479,23 +2373,18 @@ def prepDyn(input_file=None,
             cpu_time = end_cpu_time - start_cpu_time
 
             log_path = f"{final_output_path_prefix}_log.txt"
-            print(f"Writing individual log to: {log_path}")
             with open(log_path, "w") as log_file:
                 log_file.write("--- Command used ---\n")
-                log_file.write(f"{_original_cmd_line}\n\n") # Use the passed original command
+                log_file.write(f"{_original_cmd_line}\n\n")
 
+                ### FIX: PART 2 - Use the stored "before" values for logging ###
                 log_file.write("--- Step 1: Summary before preprocessing ---\n")
-                num_seqs = len(alignment)
-                aln_length = len(next(iter(alignment.values())) if alignment else 0)
-                total_nt = sum(c.upper() in "ACGT" for seq in alignment.values() for c in seq)
-                total_gaps = sum(seq.count("-") for seq in alignment.values())
-                total_ns = sum(c in "Nn" for seq in alignment.values() for c in seq)
-
-                log_file.write(f"No. sequences: {num_seqs}\n")
-                log_file.write(f"No. columns: {aln_length}\n")
-                log_file.write(f"Total no. nucleotides (A/C/G/T only): {total_nt} bp\n")
-                log_file.write(f"Total no. gaps (-): {total_gaps}\n")
-                log_file.write(f"Total no. IUPAC N: {total_ns}\n\n")
+                log_file.write(f"No. sequences: {num_seqs_before}\n")
+                log_file.write(f"No. columns: {aln_length_before}\n")
+                log_file.write(f"Total no. nucleotides (A/C/G/T only): {total_nt_before} bp\n")
+                log_file.write(f"Total no. gaps (-): {total_gaps_before}\n")
+                log_file.write(f"Total no. IUPAC N: {total_ns_before}\n\n")
+                ### END FIX PART 2 ###
 
                 if del_inv:
                     log_file.write("--- Step 2: Trimming (invariant columns) ---\n")
@@ -2524,8 +2413,8 @@ def prepDyn(input_file=None,
                         log_file.write(f" (partitioning_size={partitioning_size})")
                     elif partitioning_method == "conservative":
                         log_file.write(f" (partitioning_round={partitioning_round})")
-                    elif partitioning_method == "max": # This is the added part
-                        log_file.write(" (inserted at '?' block boundaries)") # And this
+                    elif partitioning_method == "max":
+                        log_file.write(" (inserted at '?' block boundaries)")
                     log_file.write("\n")
                     log_file.write(f"Columns: {pound_indices}\n\n")
 
@@ -2543,22 +2432,20 @@ def prepDyn(input_file=None,
                 log_file.write(f"Wall-clock time: {wall_time:.8f} seconds\n")
                 log_file.write(f"CPU time: {cpu_time:.8f} seconds\n")
         
-        return alignment # Return processed alignment for current file/gene
+        return alignment
 
-    # --- Call the recursive helper function ---
-    # This is the initial call, so _is_top_level_call is True
-    # Pass input_file (which can be a path or dict initially) as input_val
+    # --- Initial call to the recursive helper function (Unchanged) ---
     final_processed_alignment = _prepDyn_recursive(input_val=input_file,
                                                    GB_input=GB_input,
                                                    input_format=input_format,
                                                    MSA=MSA,
-                                                   output_file=output_file, # This is the output_file passed from the top-level call
+                                                   output_file=output_file,
                                                    output_format=output_format,
                                                    log=log,
                                                    sequence_names=sequence_names,
-                                                   _all_sequence_ids=_all_sequence_ids_shared, # Pass the initially created shared set
-                                                   _is_top_level_call=True, # Mark as top-level call
-                                                   _original_cmd_line=original_cmd_line, # Pass the generated original command
+                                                   _all_sequence_ids=_all_sequence_ids_shared,
+                                                   _is_top_level_call=True,
+                                                   _original_cmd_line=original_cmd_line,
                                                    orphan_method=orphan_method,
                                                    orphan_threshold=orphan_threshold,
                                                    percentile=percentile,
@@ -2572,46 +2459,32 @@ def prepDyn(input_file=None,
                                                    partitioning_method=partitioning_method,
                                                    partitioning_size=partitioning_size)
 
-    # --- Final sequence_names.txt writing (only if requested by user) ---
-    # This block now correctly uses the consolidated _all_sequence_ids_shared
-    # and runs only once after all recursive processing is done.
+    # --- Final sequence_names.txt and overall log writing (Unchanged) ---
     if sequence_names:
         sorted_unique_names = sorted(list(_all_sequence_ids_shared))
-        
-        # Determine the correct path for the sequence names file
-        # Use the original output_file's directory and base name
         names_file_path = None
-        if original_output_file_arg: # Use original_output_file_arg for path derivation
+        if original_output_file_arg:
             output_dir_for_final_names = os.path.dirname(original_output_file_arg)
-            if not output_dir_for_final_names:
-                output_dir_for_final_names = "."
+            if not output_dir_for_final_names: output_dir_for_final_names = "."
             output_base_for_final_names = os.path.basename(original_output_file_arg)
-            
-            # If original_output_file_arg was a directory, use its name as the prefix for the names file
             if os.path.isdir(original_output_file_arg) and not output_base_for_final_names:
                 output_base_for_final_names = os.path.basename(os.path.normpath(original_output_file_arg))
-            
             names_file_path = os.path.join(output_dir_for_final_names, f"{output_base_for_final_names}_sequence_names.txt")
-        elif GB_input: # If GB_input was used and no output_file was set, default to "output" in CWD
-            names_file_path = "output_sequence_names.txt"
-        elif isinstance(input_file, str) and os.path.isdir(input_file): # Folder input and no output_file
+        elif GB_input: names_file_path = "output_sequence_names.txt"
+        elif isinstance(input_file, str) and os.path.isdir(input_file):
             base_for_names = os.path.basename(os.path.normpath(input_file))
             names_file_path = f"{base_for_names}_sequence_names.txt"
-        elif isinstance(input_file, str) and not os.path.isdir(input_file): # Single input file and no output_file
+        elif isinstance(input_file, str) and not os.path.isdir(input_file):
             base_for_names = os.path.splitext(os.path.basename(input_file))[0]
             names_file_path = f"{base_for_names}_sequence_names.txt"
-        else: # Fallback for dict input with no output_file
-            names_file_path = "alignment_sequence_names.txt"
+        else: names_file_path = "alignment_sequence_names.txt"
         
         if names_file_path:
-            # Ensure the directory exists for the sequence names file
             os.makedirs(os.path.dirname(names_file_path), exist_ok=True)
             with open(names_file_path, 'w') as nf:
                 for name in sorted_unique_names:
                     nf.write(f"{name}\n")
 
-    # --- Write overall log if requested and applicable (implicitly) ---
-    # This condition will be true if 'log' is True AND either GB_input is used OR input_file is a directory
     if log and (GB_input is not None or (isinstance(input_file, str) and os.path.isdir(input_file))):
         overall_end_wall_time = time.time()
         overall_end_cpu_time = time.process_time()
@@ -2619,19 +2492,14 @@ def prepDyn(input_file=None,
         total_cpu_time = overall_end_cpu_time - overall_start_cpu_time
 
         overall_log_path = None
-        if original_output_file_arg: # Use original_output_file_arg for path derivation
+        if original_output_file_arg:
             output_dir_for_overall_log = os.path.dirname(original_output_file_arg)
-            if not output_dir_for_overall_log:
-                output_dir_for_overall_log = "."
+            if not output_dir_for_overall_log: output_dir_for_overall_log = "."
             output_base_for_overall_log = os.path.basename(original_output_file_arg)
-            
-            # If original_output_file_arg was a directory, use its name for the overall log prefix
             if os.path.isdir(original_output_file_arg) and not output_base_for_overall_log:
                 output_base_for_overall_log = os.path.basename(os.path.normpath(original_output_file_arg))
-            
             overall_log_path = os.path.join(output_dir_for_overall_log, f"{output_base_for_overall_log}_overall_log.txt")
-        elif GB_input:
-            overall_log_path = "overall_prepDyn_log.txt"
+        elif GB_input: overall_log_path = "overall_prepDyn_log.txt"
         elif isinstance(input_file, str) and os.path.isdir(input_file):
             base_for_overall_log = os.path.basename(os.path.normpath(input_file))
             overall_log_path = f"{base_for_overall_log}_overall_log.txt"
@@ -2645,11 +2513,7 @@ def prepDyn(input_file=None,
                 of.write(f"Total CPU time: {total_cpu_time:.8f} seconds\n")
                 of.write("\nNote: Individual gene/alignment logs provide detailed information.\n")
 
-    # In the main function, we only return if it was a single file/dict input.
-    # For directory/GB_input, processing is done via recursive calls and files are written internally.
-    # So, we return None or a generic success indicator.
     if GB_input or (isinstance(input_file, str) and os.path.isdir(input_file)):
-        print("Preprocessing complete for all files in the directory/GenBank input.")
         return None 
     else:
         return final_processed_alignment
