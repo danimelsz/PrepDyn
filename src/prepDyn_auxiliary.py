@@ -1981,7 +1981,7 @@ def addSeq(
 
 # Assuming all necessary imports like os, time, SeqIO, etc., are present
 
-def prepDyn(input_file=None,
+def prepDyn_(input_file=None,
             GB_input=None,
             input_format="fasta",
             MSA=False,
@@ -2417,6 +2417,570 @@ def prepDyn(input_file=None,
                         log_file.write(" (inserted at '?' block boundaries)")
                     log_file.write("\n")
                     log_file.write(f"Columns: {pound_indices}\n\n")
+
+                summary_post = compute_summary_after(alignment)
+                log_file.write("--- Summary after preprocessing ---\n")
+                log_file.write(f"No. sequences: {summary_post['num_seqs']}\n")
+                log_file.write(f"No. columns: {summary_post['aln_length']}\n")
+                log_file.write(f"No. pound sign columns (#): {summary_post['total_pound']}\n")
+                log_file.write(f"Total no. nucleotides (A/C/G/T): {summary_post['total_nt']} bp\n")
+                log_file.write(f"Total no. gaps (-): {summary_post['total_gaps']}\n")
+                log_file.write(f"Total no. IUPAC N: {summary_post['total_ns']}\n")
+                log_file.write(f"Total no. missing values (?): {summary_post['total_missing']}\n\n")
+
+                log_file.write("--- Run time ---\n")
+                log_file.write(f"Wall-clock time: {wall_time:.8f} seconds\n")
+                log_file.write(f"CPU time: {cpu_time:.8f} seconds\n")
+        
+        return alignment
+
+    # --- Initial call to the recursive helper function (Unchanged) ---
+    final_processed_alignment = _prepDyn_recursive(input_val=input_file,
+                                                   GB_input=GB_input,
+                                                   input_format=input_format,
+                                                   MSA=MSA,
+                                                   output_file=output_file,
+                                                   output_format=output_format,
+                                                   log=log,
+                                                   sequence_names=sequence_names,
+                                                   _all_sequence_ids=_all_sequence_ids_shared,
+                                                   _is_top_level_call=True,
+                                                   _original_cmd_line=original_cmd_line,
+                                                   orphan_method=orphan_method,
+                                                   orphan_threshold=orphan_threshold,
+                                                   percentile=percentile,
+                                                   del_inv=del_inv,
+                                                   internal_method=internal_method,
+                                                   internal_column_ranges=internal_column_ranges,
+                                                   internal_leaves=internal_leaves,
+                                                   internal_threshold=internal_threshold,
+                                                   n2question=n2question,
+                                                   partitioning_round=partitioning_round,
+                                                   partitioning_method=partitioning_method,
+                                                   partitioning_size=partitioning_size)
+
+    # --- Final sequence_names.txt and overall log writing (Unchanged) ---
+    if sequence_names:
+        sorted_unique_names = sorted(list(_all_sequence_ids_shared))
+        names_file_path = None
+        if original_output_file_arg:
+            output_dir_for_final_names = os.path.dirname(original_output_file_arg)
+            if not output_dir_for_final_names: output_dir_for_final_names = "."
+            output_base_for_final_names = os.path.basename(original_output_file_arg)
+            if os.path.isdir(original_output_file_arg) and not output_base_for_final_names:
+                output_base_for_final_names = os.path.basename(os.path.normpath(original_output_file_arg))
+            names_file_path = os.path.join(output_dir_for_final_names, f"{output_base_for_final_names}_sequence_names.txt")
+        elif GB_input: names_file_path = "output_sequence_names.txt"
+        elif isinstance(input_file, str) and os.path.isdir(input_file):
+            base_for_names = os.path.basename(os.path.normpath(input_file))
+            names_file_path = f"{base_for_names}_sequence_names.txt"
+        elif isinstance(input_file, str) and not os.path.isdir(input_file):
+            base_for_names = os.path.splitext(os.path.basename(input_file))[0]
+            names_file_path = f"{base_for_names}_sequence_names.txt"
+        else: names_file_path = "alignment_sequence_names.txt"
+        
+        if names_file_path:
+            os.makedirs(os.path.dirname(names_file_path), exist_ok=True)
+            with open(names_file_path, 'w') as nf:
+                for name in sorted_unique_names:
+                    nf.write(f"{name}\n")
+
+    if log and (GB_input is not None or (isinstance(input_file, str) and os.path.isdir(input_file))):
+        overall_end_wall_time = time.time()
+        overall_end_cpu_time = time.process_time()
+        total_wall_time = overall_end_wall_time - overall_start_wall_time
+        total_cpu_time = overall_end_cpu_time - overall_start_cpu_time
+
+        overall_log_path = None
+        if original_output_file_arg:
+            output_dir_for_overall_log = os.path.dirname(original_output_file_arg)
+            if not output_dir_for_overall_log: output_dir_for_overall_log = "."
+            output_base_for_overall_log = os.path.basename(original_output_file_arg)
+            if os.path.isdir(original_output_file_arg) and not output_base_for_overall_log:
+                output_base_for_overall_log = os.path.basename(os.path.normpath(original_output_file_arg))
+            overall_log_path = os.path.join(output_dir_for_overall_log, f"{output_base_for_overall_log}_overall_log.txt")
+        elif GB_input: overall_log_path = "overall_prepDyn_log.txt"
+        elif isinstance(input_file, str) and os.path.isdir(input_file):
+            base_for_overall_log = os.path.basename(os.path.normpath(input_file))
+            overall_log_path = f"{base_for_overall_log}_overall_log.txt"
+        
+        if overall_log_path:
+            os.makedirs(os.path.dirname(overall_log_path), exist_ok=True)
+            with open(overall_log_path, 'w') as of:
+                of.write("--- Overall prepDyn Execution Summary ---\n")
+                of.write(f"Command used:\n{original_cmd_line}\n\n")
+                of.write(f"Total Wall-clock time: {total_wall_time:.8f} seconds\n")
+                of.write(f"Total CPU time: {total_cpu_time:.8f} seconds\n")
+                of.write("\nNote: Individual gene/alignment logs provide detailed information.\n")
+
+    if GB_input or (isinstance(input_file, str) and os.path.isdir(input_file)):
+        return None 
+    else:
+        return final_processed_alignment
+    
+def prepDyn(input_file=None,
+            GB_input=None,
+            input_format="fasta",
+            MSA=False,
+            output_file=None,
+            output_format="fasta",
+            log=False,
+            sequence_names=True,
+            # Trimming parameters
+            orphan_method=None,
+            orphan_threshold=10,
+            percentile=25,
+            del_inv=True,
+            # Missing data parameters
+            internal_method=None,
+            internal_column_ranges=None,
+            internal_leaves="all",
+            internal_threshold=None,
+            n2question=None,
+            # Partitioning parameters
+            partitioning_round=0,
+            partitioning_method="balanced",
+            partitioning_size=None
+            ):
+    """
+    Preprocess missing data for dynamic homology in PhyG. First, columns containing
+    only gaps, orphan nucleotides, and invariant columns can be trimmed. Second,
+    missing data is coded with question marks. Third, partitions are delimited in
+    highly conserved regions.
+
+    Args:
+        input_file (str): Path to the input alignment file or directory. Ignored if GB_input is provided.
+        GB_input (str): Path to a CSV/TSV file containing GenBank accession numbers. If provided,
+                        sequences will be downloaded from GenBank and aligned before preprocessing.
+        input_format (str): Format of the input alignment. Options: 'fasta' (default),
+                            'clustal', 'phylip', or any format accepted by Biopython.
+        output_file (str): Custom prefix for output files. If None, base_name from input_file is used.
+        output_format (str): Output format. Default is 'fasta'.
+        log (bool): Whether to write a log with wall-clock time. Default is False.
+        sequence_names (bool): If True, writes a TXT file listing all sorted unique sequence names. Default is True.
+        MSA (bool): Whether to perform MSA if input sequences specified in input_file are unaligned
+        orphan_method (str): The trimming method. By default, trimming orphan nucleotides
+                             is not performed. Options:
+                            - 'auto': trim using the 25th percentile;
+                            - 'semi': trim with a manual threshold.
+        orphan_threshold (int): Threshold used to trim orphan nucleotides if orphan_method = 'semi'.
+        percentile (float): Used with orphan_method = 'auto' to define trimming threshold.
+        del_inv (bool): Whether to trim invariant terminal columns. Default is True.
+        internal_method (str): Defines how to identify internal missing data. Automatic identificaton
+                               of missing data is made if GB_input is provided. Otherwise, naive
+                               options to identify internal missing data are:
+                               - "manual": Use column ranges;
+                               - "semi": Use a threshold for gaps.
+        internal_column_ranges (list): Column ranges (inclusive) if internal_method = 'manual'.
+        internal_leaves (str or list): Sequences to apply internal missing data replacement
+                                       if internal_method is not "None".
+        internal_threshold (int): Used with internal_method = 'semi' to define gap threshold.
+                                  Contiguous '-' larger than the threshold are replaced with '?'.
+        n2question (str or list): If specified, replaces ambiguous nucleotide 'N' or 'n' with '?'. If None (default), n2question is not performed. If 'all', apply to all sequences. If you want to apply to only one sequence, write the name of this sequence. If you want to apply to multiple sequences but no all, wrie the list of sequences.    
+        partitioning_method (str): Method of partitioning:
+                                   - 'balanced': Based on initial '#' inserted with 'max', iteratively 
+                                   merges adjacent blocks flanked by # if their combined length is below
+                                   a threshold (the n-largest block of missing data).
+                                   - 'conservative': Blocks containing only invariant columns are sorted
+                                   by length and '#' column(s) inserted at the midpoint of the n-largest
+                                   block(s). Must define n using partitioning_round.
+                                   - 'equal: Equal-length partitions are created by specifying their size
+                                   or their round. If partitioning_round = 1, only 1 '#' column is
+                                   inserted; if partitioning_round = 2, then 2 '#' columns are inserted.
+                                   - 'max': '#' columns are inserted around blocks of missing data (every
+                                   instance of '?' opening/closure but not '?' extension).
+        partitioning_round (int): Number of partitioning round. Invariant regions are sorted by length
+                                  in descendant order and the n-largest block(s) partitioned using '#'.
+                                  If "max" is specified, pound signs are inserted arund all blocks of
+                                  missing data.
+        partitioning_size (int): Size of equal-length partitions if partitioning_method = 'equal'.
+
+    Returns:
+        dict: The preprocessed unaligned sequences.
+    """
+
+    # --- Start overall timer for the top-level call ---
+    overall_start_wall_time = time.time()
+    overall_start_cpu_time = time.process_time()
+
+    # --- Initialize the shared sequence ID set for the top-level call ---
+    _all_sequence_ids_shared = set()
+
+    # --- Store original output_file for final sequence_names.txt path ---
+    original_output_file_arg = output_file # Store the exact argument passed to prepDyn
+    
+    # --- Generate the original command line string here ---
+    cmd_parts = ["prepDyn("]
+    params = {
+        "input_file": input_file,
+        "GB_input": GB_input,
+        "input_format": input_format,
+        "MSA": MSA,
+        "output_file": output_file,
+        "output_format": output_format,
+        "log": log,
+        "sequence_names": sequence_names,
+        "orphan_method": orphan_method,
+        "orphan_threshold": orphan_threshold,
+        "percentile": percentile,
+        "del_inv": del_inv,
+        "internal_method": internal_method,
+        "internal_column_ranges": internal_column_ranges,
+        "internal_leaves": internal_leaves,
+        "internal_threshold": internal_threshold,
+        "n2question": n2question,
+        "partitioning_method": partitioning_method,
+        "partitioning_round": partitioning_round,
+        "partitioning_size": partitioning_size,
+    }
+
+    param_strs = []
+    for k, v in params.items():
+        # Represent strings with quotes, lists/tuples as is, others repr()
+        if isinstance(v, str):
+            param_strs.append(f"{k}='{v}'")
+        elif isinstance(v, (list, tuple)):
+            param_strs.append(f"{k}={v}")
+        elif v is not None: 
+            param_strs.append(f"{k}={repr(v)}")
+    
+    cmd_parts.append(", ".join(param_strs))
+    cmd_parts.append(")")
+    original_cmd_line = "".join(cmd_parts)
+
+
+    def _prepDyn_recursive(input_val, # Renamed to input_val to be more generic for file path or dict
+                           GB_input,
+                           input_format,
+                           MSA,
+                           output_file, # This is crucial: the output prefix for THIS specific call
+                           output_format,
+                           log,
+                           sequence_names, # This will be False for recursive calls
+                           _all_sequence_ids, # This is the shared set
+                           _is_top_level_call, # Flag for controlling final write
+                           _original_cmd_line, # Parameter to pass the original command
+                           orphan_method,
+                           orphan_threshold,
+                           percentile,
+                           del_inv,
+                           internal_method,
+                           internal_column_ranges,
+                           internal_leaves,
+                           internal_threshold,
+                           n2question,
+                           partitioning_round,
+                           partitioning_method,
+                           partitioning_size
+                           ):
+
+        # Start timers if logging is enabled (only for current processing, not recursive overall)
+        if log:
+            start_wall_time = time.time()
+            start_cpu_time = time.process_time()
+
+        # --- Pre-processing for output_file path handling for *this* recursive call ---
+        current_output_dir = os.path.dirname(output_file)
+        if not current_output_dir:
+            current_output_dir = "." # Default to current directory if no path in output_file
+        os.makedirs(current_output_dir, exist_ok=True)
+
+
+        # Step 1: Run GB2MSA if GenBank input is provided
+        if GB_input is not None:
+            # (This part of the logic remains unchanged)
+            print("Running GB2MSA on GenBank input...")
+            
+            gb_output_prefix_for_gb2msa = output_file 
+            cleaned_files = GB2MSA(GB_input, output_prefix=gb_output_prefix_for_gb2msa, write_names=False, log=False)
+            
+            for file_path_from_gb2msa in cleaned_files:
+                file_basename_no_ext = os.path.splitext(os.path.basename(file_path_from_gb2msa))[0]
+                gene_name_part = file_basename_no_ext.replace("_aligned", "").replace("_GB2MSA", "")
+                base_from_original_output = os.path.basename(original_output_file_arg) if original_output_file_arg else ""
+                if base_from_original_output and base_from_original_output != os.path.basename(os.path.normpath(original_output_file_arg)):
+                    gene_specific_prefix_base = f"{base_from_original_output}_{gene_name_part}"
+                elif os.path.isdir(original_output_file_arg):
+                    gene_specific_prefix_base = gene_name_part
+                else:
+                    gene_specific_prefix_base = gene_name_part
+
+                specific_output_prefix_for_recursion = os.path.join(current_output_dir, gene_specific_prefix_base)
+                alignment = AlignIO.read(file_path_from_gb2msa, "fasta")
+                alignment_dict = {record.id: str(record.seq) for record in alignment}
+                _all_sequence_ids.update(alignment_dict.keys())
+                _prepDyn_recursive(input_val=alignment_dict,
+                                GB_input=None, input_format="dict", MSA=MSA,
+                                orphan_method=orphan_method, orphan_threshold=orphan_threshold, percentile=percentile, del_inv=del_inv,
+                                internal_method=internal_method, internal_column_ranges=internal_column_ranges, internal_leaves=internal_leaves, internal_threshold=internal_threshold,
+                                n2question=n2question, partitioning_method=partitioning_method, partitioning_round=partitioning_round, partitioning_size=partitioning_size,
+                                output_format=output_format, log=log, sequence_names=False,
+                                _all_sequence_ids=_all_sequence_ids, _is_top_level_call=False, _original_cmd_line=_original_cmd_line,
+                                output_file=specific_output_prefix_for_recursion)
+            return
+
+        # Step 2: If a folder is provided, process each alignment inside
+        if isinstance(input_val, str) and os.path.isdir(input_val):
+            # (This part of the logic remains unchanged)
+            processed_any_file = False
+            base_name_for_output_prefix = ""
+            if original_output_file_arg and os.path.isdir(original_output_file_arg):
+                base_name_for_output_prefix = os.path.basename(os.path.normpath(original_output_file_arg))
+            elif original_output_file_arg:
+                 base_name_for_output_prefix = os.path.basename(original_output_file_arg)
+
+            for file_name in os.listdir(input_val):
+                file_extension = os.path.splitext(file_name)[1].lstrip('.')
+                if file_extension == input_format:
+                    processed_any_file = True
+                    file_path = os.path.join(input_val, file_name)
+                    base_name_of_file = os.path.splitext(file_name)[0]
+                    
+                    if base_name_for_output_prefix:
+                        specific_output_prefix = os.path.join(current_output_dir, f"{base_name_for_output_prefix}_{base_name_of_file}")
+                    else: 
+                        specific_output_prefix = os.path.join(current_output_dir, base_name_of_file)
+
+                    current_file_alignment = None
+                    if MSA:
+                        # (MSA logic for folder input unchanged)
+                        print(f"Processing unaligned file for MAFFT: {file_path}")
+                        temp_dir = current_output_dir if current_output_dir != "." else tempfile.gettempdir()
+                        os.makedirs(temp_dir, exist_ok=True)
+                        with tempfile.NamedTemporaryFile(mode="w", delete=False, dir=temp_dir, suffix=f".{input_format}") as tmp_in:
+                            sequences = list(SeqIO.parse(file_path, input_format))
+                            SeqIO.write(sequences, tmp_in, "fasta")
+                            tmp_in_path = tmp_in.name
+                        tmp_out_path = os.path.join(temp_dir, f"{os.path.basename(tmp_in_path)}_aligned.fasta")
+                        try:
+                            mafft_result = subprocess.run(["mafft", "--auto", tmp_in_path], capture_output=True, text=True, check=False)
+                            if mafft_result.returncode != 0: raise RuntimeError(f"MAFFT alignment failed for {file_name}.")
+                            with open(tmp_out_path, "w") as f_out: f_out.write(mafft_result.stdout)
+                            current_file_alignment = {record.id: str(record.seq) for record in AlignIO.read(tmp_out_path, "fasta")}
+                        finally:
+                            if os.path.exists(tmp_in_path): os.remove(tmp_in_path)
+                            if os.path.exists(tmp_out_path): os.remove(tmp_out_path)
+                    else:
+                        alignment_temp = AlignIO.read(file_path, input_format)
+                        current_file_alignment = {record.id: str(record.seq) for record in alignment_temp}
+
+                    if current_file_alignment:
+                        _all_sequence_ids.update(current_file_alignment.keys())
+                        _prepDyn_recursive(input_val=current_file_alignment,
+                                GB_input=None, input_format="dict", MSA=False,
+                                orphan_method=orphan_method, orphan_threshold=orphan_threshold, percentile=percentile, del_inv=del_inv,
+                                internal_method=internal_method, internal_column_ranges=internal_column_ranges, internal_leaves=internal_leaves, internal_threshold=internal_threshold,
+                                n2question=n2question, partitioning_method=partitioning_method, partitioning_round=partitioning_round, partitioning_size=partitioning_size,
+                                output_format=output_format, log=log, sequence_names=False,
+                                _all_sequence_ids=_all_sequence_ids, _is_top_level_call=False, _original_cmd_line=_original_cmd_line,
+                                output_file=specific_output_prefix)
+            if not processed_any_file:
+                print(f"WARNING: No files with extension '.{input_format}' found in directory: {input_val}")
+            return
+
+
+        # Step 3: Read and process alignment
+        alignment = None
+        if isinstance(input_val, dict):
+            alignment = input_val
+        elif isinstance(input_val, str) and os.path.isfile(input_val):
+            # (MSA logic for single file input unchanged)
+            if MSA:
+                temp_dir = current_output_dir if current_output_dir != "." else tempfile.gettempdir()
+                os.makedirs(temp_dir, exist_ok=True)
+                with tempfile.NamedTemporaryFile(mode="w", delete=False, dir=temp_dir, suffix=f".{input_format}") as tmp_in:
+                    sequences = list(SeqIO.parse(input_val, input_format))
+                    SeqIO.write(sequences, tmp_in, "fasta")
+                    tmp_in_path = tmp_in.name
+                tmp_out_path = os.path.join(temp_dir, f"{os.path.basename(tmp_in_path)}_aligned.fasta")
+                try:
+                    mafft_result = subprocess.run(["mafft", "--auto", tmp_in_path], capture_output=True, text=True, check=False)
+                    if mafft_result.returncode != 0: raise RuntimeError(f"MAFFT alignment failed for {os.path.basename(input_val)}.")
+                    with open(tmp_out_path, "w") as f_out: f_out.write(mafft_result.stdout)
+                    alignment_obj = AlignIO.read(tmp_out_path, "fasta")
+                finally:
+                    if os.path.exists(tmp_in_path): os.remove(tmp_in_path)
+                    if os.path.exists(tmp_out_path): os.remove(tmp_out_path)
+            else:
+                alignment_obj = AlignIO.read(input_val, input_format)
+            
+            alignment = {record.id: str(record.seq) for record in alignment_obj}
+            _all_sequence_ids.update(alignment.keys())
+        else:
+            raise ValueError(f"Invalid input_val type or path: {input_val}.")
+
+
+        ### FIX: PART 1 - Capture "before" statistics right after loading ###
+        # Initialize variables to store the "before" summary
+        num_seqs_before, aln_length_before, total_nt_before, total_gaps_before, total_ns_before = 0, 0, 0, 0, 0
+        
+        # If logging is enabled, calculate and store the initial state of the alignment
+        if log:
+            num_seqs_before = len(alignment)
+            aln_length_before = len(next(iter(alignment.values())) if alignment else 0)
+            total_nt_before = sum(c.upper() in "ACGT" for seq in alignment.values() for c in seq)
+            total_gaps_before = sum(seq.count("-") for seq in alignment.values())
+            total_ns_before = sum(c in "Nn" for seq in alignment.values() for c in seq)
+        ### END FIX PART 1 ###
+
+
+        # 3.1 Remove columns with gaps in all leaves
+        remove_all_gap_columns(alignment)
+
+        # 3.2 Trim orphan nucleotides
+        orphan_log = None
+        if orphan_method == "percentile":
+            orphan_threshold = calculate_orphan_threshold_from_percentile(alignment, percentile, terminal_only=True)
+            if log:
+                alignment, orphan_log = delete_orphan_nucleotides2(alignment, orphan_threshold, log_changes=True)
+            else:
+                alignment = delete_orphan_nucleotides2(alignment, orphan_threshold)
+        elif orphan_method == "semi":
+            if log:
+                alignment, orphan_log = delete_orphan_nucleotides2(alignment, orphan_threshold, log_changes=True)
+            else:
+                alignment = delete_orphan_nucleotides2(alignment, orphan_threshold)
+
+
+        # 3.3 Replace terminal gaps with ?
+        alignment = replace_terminal_gaps_dict(alignment)
+
+        # 3.4 Trim invariant columns
+        removed_cols = []
+        if del_inv:
+            alignment = remove_non_informative_positions(alignment, removed_indices=removed_cols)
+
+        alignment = replace_terminal_gaps_dict(alignment)
+
+        # 3.5 Replace internal gaps with ?
+        if internal_method == "manual":
+            alignment = replace_dashes_with_question_marks(alignment=alignment,
+                                                           internal_column_ranges=internal_column_ranges,
+                                                           internal_leaves=internal_leaves,
+                                                           internal_method="manual")
+        elif internal_method == "semi":
+            alignment = replace_dashes_with_question_marks(alignment=alignment,
+                                                           internal_leaves=internal_leaves,
+                                                           internal_method="semi",
+                                                           internal_threshold=internal_threshold)
+
+        # 3.6 Replace ambiguous nucleotides N/n with ?
+        n_blocks = []
+        if n2question is not None:
+            alignment, n_blocks = n2question_func(alignment, leaves=n2question, log=True)
+
+
+        # 3.7 Partitioning
+        partitioning_log_entry = None
+
+        if partitioning_method == "conservative" and partitioning_round > 0:
+            classify_and_insert_hashtags(alignment, partitioning_round=partitioning_round)
+
+        elif partitioning_method == "equal":
+            if partitioning_round > 0:
+                alignment = equal_length_partitioning(alignment=alignment, partitioning_round=partitioning_round, partitioning_size=None, log=False)
+            elif partitioning_size:
+                alignment = equal_length_partitioning(alignment=alignment, partitioning_round=None, partitioning_size=partitioning_size, log=False)
+
+        elif partitioning_method == "max":
+            alignment = insert_pound_around_questions(alignment)
+        
+        elif partitioning_method == "balanced":
+            try:
+                # Attempt to run the balanced partitioning. This may fail if there are not enough '?' blocks.
+                processed_alignment = balanced_partitioning(
+                    alignment,
+                    log=False,
+                    partitioning_round=partitioning_round
+                )
+                alignment = processed_alignment
+            except (IndexError, ValueError) as e:
+                # If it fails, catch the error, prepare a log message, and continue.
+                warning_message = (
+                    f"WARNING: 'balanced' partitioning with partitioning_round={partitioning_round} was skipped for this alignment. "
+                    "This typically happens when the alignment has fewer blocks of missing data ('?') than required. "
+                    "The process will continue without partitioning this file."
+                )
+                print(f"\n{warning_message}\n") # Print to console for immediate user feedback.
+                partitioning_log_entry = warning_message # Save the message for the log file.
+
+        refinement_question2hyphen(alignment)
+        alignment = remove_columns_with_W(alignment)
+        alignment = remove_adjacent_pound_columns(alignment)
+
+
+        # Step 4: Write output file
+        records = [SeqRecord(Seq(seq), id=key, description="") for key, seq in alignment.items()]
+        final_output_path_prefix = output_file
+        output_directory_for_final_write = os.path.dirname(final_output_path_prefix)
+        if output_directory_for_final_write and not os.path.exists(output_directory_for_final_write):
+            os.makedirs(output_directory_for_final_write, exist_ok=True)
+
+        output_path = f"{final_output_path_prefix}_preprocessed.{output_format}"
+        with open(output_path, "w") as output_handle:
+            SeqIO.write(records, output_handle, output_format)
+
+        # Step 5: Write log (local to this gene/file)
+        if log:
+            end_wall_time = time.time()
+            end_cpu_time = time.process_time()
+            wall_time = end_wall_time - start_wall_time
+            cpu_time = end_cpu_time - start_cpu_time
+
+            log_path = f"{final_output_path_prefix}_log.txt"
+            with open(log_path, "w") as log_file:
+                log_file.write("--- Command used ---\n")
+                log_file.write(f"{_original_cmd_line}\n\n")
+
+                ### FIX: PART 2 - Use the stored "before" values for logging ###
+                log_file.write("--- Step 1: Summary before preprocessing ---\n")
+                log_file.write(f"No. sequences: {num_seqs_before}\n")
+                log_file.write(f"No. columns: {aln_length_before}\n")
+                log_file.write(f"Total no. nucleotides (A/C/G/T only): {total_nt_before} bp\n")
+                log_file.write(f"Total no. gaps (-): {total_gaps_before}\n")
+                log_file.write(f"Total no. IUPAC N: {total_ns_before}\n\n")
+                ### END FIX PART 2 ###
+
+                if del_inv:
+                    log_file.write("--- Step 2: Trimming (invariant columns) ---\n")
+                    log_file.write(f"{removed_cols}\n\n")
+                if orphan_log:
+                    log_file.write("--- Step 2: Trimming (orphan nucleotides) ---\n")
+                    log_file.write(f"{orphan_log}\n\n")
+
+                if n_blocks:
+                    log_file.write("--- Step 3: Missing data identification (Ns replaced with '?') ---\n")
+                    for seq_name, start, end in n_blocks:
+                        log_file.write(f"{seq_name}: {start}–{end}\n")
+                    log_file.write("\n")
+
+                missing_partition_log = detect_fully_missing_partitions(alignment)
+                if missing_partition_log:
+                    log_file.write("--- Step 3: Missing data identification (gaps replaced with '?') ---\n")
+                    log_file.write(f"{missing_partition_log}\n\n")
+
+                log_file.write("--- Step 4: Partitioning ---\n")
+                if partitioning_log_entry:
+                    # If partitioning failed, write the stored warning message.
+                    log_file.write(f"{partitioning_log_entry}\n\n")
+                else:
+                    # Otherwise, report success as usual.
+                    columns = list(zip(*alignment.values()))
+                    pound_indices = [i for i, col in enumerate(columns) if '#' in col]
+                    if pound_indices:
+                        log_file.write(f"Method used: {partitioning_method}")
+                        if partitioning_method == "equal" and partitioning_size:
+                            log_file.write(f" (partitioning_size={partitioning_size})")
+                        elif partitioning_method in ["conservative", "balanced"]:
+                            log_file.write(f" (partitioning_round={partitioning_round})")
+                        elif partitioning_method == "max":
+                            log_file.write(" (inserted at '?' block boundaries)")
+                        log_file.write("\n")
+                        log_file.write(f"Columns with '#' inserted: {pound_indices}\n\n")
+                    elif partitioning_method and partitioning_method != 'none':
+                        log_file.write(f"Method used: {partitioning_method}\nNo partitions were inserted based on the criteria.\n\n")
+                    else:
+                        log_file.write("No partitioning method was specified.\n\n")
 
                 summary_post = compute_summary_after(alignment)
                 log_file.write("--- Summary after preprocessing ---\n")
