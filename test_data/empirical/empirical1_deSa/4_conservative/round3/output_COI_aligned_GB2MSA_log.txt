@@ -1,0 +1,149 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical1_deSa/4_conservative/round3', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical1_deSa/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 27
+No. columns: 715
+Total no. nucleotides (A/C/G/T only): 17392 bp
+Total no. gaps (-): 1913
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 705, 706, 707, 708, 709, 710, 711, 712, 713, 714]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 561
+Total '-' characters in fully missing partitions: 834
+Combined total: 1395
+
+Phantasmarana_apuana_MTR12614: partition 0 (0–4, length 5) fully missing (all '-')
+Phantasmarana_apuana_MTR12614: partition 1 (6–13, length 8) fully missing (all '-')
+Phantasmarana_apuana_MTR12614: partition 2 (15–23, length 9) fully missing (all '-')
+Phantasmarana_apuana_MTR12614: partition 3 (25–30, length 6) fully missing (all '-')
+Phantasmarana_apuana_MTR12614: partition 6 (691–699, length 9) fully missing (all '-')
+Phantasmarana_apuana_MTR12650: partition 0 (0–4, length 5) fully missing (all '-')
+Phantasmarana_apuana_MTR12650: partition 1 (6–13, length 8) fully missing (all '-')
+Phantasmarana_apuana_MTR12650: partition 2 (15–23, length 9) fully missing (all '-')
+Phantasmarana_apuana_MTR12650: partition 3 (25–30, length 6) fully missing (all '-')
+Phantasmarana_apuana_MTR12650: partition 6 (691–699, length 9) fully missing (all '-')
+Phantasmarana_boticariana_CFBH06292: partition 6 (691–699, length 9) fully missing (all '-')
+Phantasmarana_curucutuensis_CFBH17668_: partition 0 (0–4, length 5) fully missing (all '-')
+Phantasmarana_curucutuensis_CFBH17668_: partition 1 (6–13, length 8) fully missing (all '-')
+Phantasmarana_curucutuensis_CFBH17668_: partition 2 (15–23, length 9) fully missing (all '-')
+Phantasmarana_curucutuensis_CFBH17668_: partition 3 (25–30, length 6) fully missing (all '-')
+Phantasmarana_curucutuensis_CFBH17668_: partition 6 (691–699, length 9) fully missing (all '-')
+Phantasmarana_tamuia_CFBH38976: partition 0 (0–4, length 5) fully missing (all '-')
+Phantasmarana_tamuia_CFBH38976: partition 1 (6–13, length 8) fully missing (all '-')
+Phantasmarana_tamuia_CFBH38976: partition 2 (15–23, length 9) fully missing (all '-')
+Phantasmarana_tamuia_CFBH38976: partition 3 (25–30, length 6) fully missing (all '-')
+Phantasmarana_tamuia_CFBH38976: partition 6 (691–699, length 9) fully missing (all '-')
+Phantasmarana_tamuia_CFBH38977: partition 0 (0–4, length 5) fully missing (all '-')
+Phantasmarana_tamuia_CFBH38977: partition 1 (6–13, length 8) fully missing (all '-')
+Phantasmarana_tamuia_CFBH38977: partition 2 (15–23, length 9) fully missing (all '-')
+Phantasmarana_tamuia_CFBH38977: partition 3 (25–30, length 6) fully missing (all '-')
+Phantasmarana_tamuia_CFBH38977: partition 6 (691–699, length 9) fully missing (all '-')
+Megaelosia_goeldii_CFBH18821: partition 0 (0–4, length 5) fully missing (all '-')
+Megaelosia_goeldii_CFBH18821: partition 1 (6–13, length 8) fully missing (all '-')
+Megaelosia_goeldii_CFBH18821: partition 2 (15–23, length 9) fully missing (all '-')
+Megaelosia_goeldii_CFBH18821: partition 3 (25–30, length 6) fully missing (all '-')
+Megaelosia_goeldii_CFBH18821: partition 6 (691–699, length 9) fully missing (all '-')
+Megaelosia_goeldii_MZUSP95879: partition 0 (0–4, length 5) fully missing (all '-')
+Megaelosia_goeldii_MZUSP95879: partition 1 (6–13, length 8) fully missing (all '-')
+Megaelosia_goeldii_MZUSP95879: partition 2 (15–23, length 9) fully missing (all '-')
+Megaelosia_goeldii_MZUSP95879: partition 3 (25–30, length 6) fully missing (all '-')
+Megaelosia_aff_goeldii_CFBH28108: partition 0 (0–4, length 5) fully missing (all '-')
+Megaelosia_aff_goeldii_CFBH28108: partition 1 (6–13, length 8) fully missing (all '-')
+Megaelosia_aff_goeldii_CFBH28108: partition 2 (15–23, length 9) fully missing (all '-')
+Megaelosia_aff_goeldii_CFBH28108: partition 3 (25–30, length 6) fully missing (all '-')
+Megaelosia_aff_goeldii_CFBH28108: partition 6 (691–699, length 9) fully missing (all '-')
+Hylodes_amnicola_CFBH30971: partition 0 (0–4, length 5) fully missing (all '-')
+Hylodes_amnicola_CFBH30971: partition 1 (6–13, length 8) fully missing (all '-')
+Hylodes_amnicola_CFBH30971: partition 2 (15–23, length 9) fully missing (all '-')
+Hylodes_amnicola_CFBH30971: partition 3 (25–30, length 6) fully missing (all '-')
+Hylodes_amnicola_CFBH30971: partition 6 (691–699, length 9) fully missing (all '-')
+Hylodes_amnicola_CFBH30972: partition 0 (0–4, length 5) fully missing (all '-')
+Hylodes_amnicola_CFBH30972: partition 1 (6–13, length 8) fully missing (all '-')
+Hylodes_amnicola_CFBH30972: partition 2 (15–23, length 9) fully missing (all '-')
+Hylodes_amnicola_CFBH30972: partition 3 (25–30, length 6) fully missing (all '-')
+Hylodes_japi_CFBH25403: partition 0 (0–4, length 5) fully missing (all '-')
+Hylodes_japi_CFBH25403: partition 1 (6–13, length 8) fully missing (all '-')
+Hylodes_japi_CFBH25403: partition 2 (15–23, length 9) fully missing (all '-')
+Hylodes_japi_CFBH25403: partition 3 (25–30, length 6) fully missing (all '-')
+Hylodes_japi_CFBH25403: partition 6 (691–699, length 9) fully missing (all '-')
+Hylodes_japi_CFBH25426: partition 0 (0–4, length 5) fully missing (all '-')
+Hylodes_japi_CFBH25426: partition 1 (6–13, length 8) fully missing (all '-')
+Hylodes_japi_CFBH25426: partition 2 (15–23, length 9) fully missing (all '-')
+Hylodes_japi_CFBH25426: partition 3 (25–30, length 6) fully missing (all '-')
+Hylodes_japi_CFBH25426: partition 6 (691–699, length 9) fully missing (all '-')
+Hylodes_nasus_MNRJ35435: partition 0 (0–4, length 5) fully missing (all '-')
+Hylodes_nasus_MNRJ35435: partition 1 (6–13, length 8) fully missing (all '-')
+Hylodes_nasus_MNRJ35435: partition 2 (15–23, length 9) fully missing (all '-')
+Hylodes_nasus_MNRJ35435: partition 3 (25–30, length 6) fully missing (all '-')
+Hylodes_nasus_MNRJ35435: partition 6 (691–699, length 9) fully missing (all '-')
+Hylodes_ornatus_CFBH34905: partition 0 (0–4, length 5) fully missing (all '-')
+Hylodes_ornatus_CFBH34905: partition 1 (6–13, length 8) fully missing (all '-')
+Hylodes_ornatus_CFBH34905: partition 2 (15–23, length 9) fully missing (all '-')
+Hylodes_ornatus_CFBH34905: partition 3 (25–30, length 6) fully missing (all '-')
+Hylodes_ornatus_CFBH34905: partition 6 (691–699, length 9) fully missing (all '-')
+Hylodes_perere_CFBH31106: partition 0 (0–4, length 5) fully missing (all '-')
+Hylodes_perere_CFBH31106: partition 1 (6–13, length 8) fully missing (all '-')
+Hylodes_perere_CFBH31106: partition 2 (15–23, length 9) fully missing (all '-')
+Hylodes_perere_CFBH31106: partition 3 (25–30, length 6) fully missing (all '-')
+Hylodes_perere_CFBH31106: partition 6 (691–699, length 9) fully missing (all '-')
+Hylodes_perere_CFBH31107: partition 0 (0–4, length 5) fully missing (all '-')
+Hylodes_perere_CFBH31107: partition 1 (6–13, length 8) fully missing (all '-')
+Hylodes_perere_CFBH31107: partition 2 (15–23, length 9) fully missing (all '-')
+Hylodes_perere_CFBH31107: partition 3 (25–30, length 6) fully missing (all '-')
+Hylodes_pipilans_MNRJ37307: partition 0 (0–4, length 5) fully missing (all '-')
+Hylodes_pipilans_MNRJ37307: partition 1 (6–13, length 8) fully missing (all '-')
+Hylodes_pipilans_MNRJ37307: partition 2 (15–23, length 9) fully missing (all '-')
+Hylodes_pipilans_MNRJ37307: partition 3 (25–30, length 6) fully missing (all '-')
+Hylodes_pipilans_MNRJ37307: partition 6 (691–699, length 9) fully missing (all '-')
+Hylodes_sazimai_CFBH29586: partition 0 (0–4, length 5) fully missing (all '-')
+Hylodes_sazimai_CFBH29586: partition 1 (6–13, length 8) fully missing (all '-')
+Hylodes_sazimai_CFBH29586: partition 2 (15–23, length 9) fully missing (all '-')
+Hylodes_sazimai_CFBH29586: partition 3 (25–30, length 6) fully missing (all '-')
+Hylodes_sazimai_CFBH29586: partition 6 (691–699, length 9) fully missing (all '-')
+Hylodes_sazimai_CFBHT14629: partition 0 (0–4, length 5) fully missing (all '-')
+Hylodes_sazimai_CFBHT14629: partition 1 (6–13, length 8) fully missing (all '-')
+Hylodes_sazimai_CFBHT14629: partition 2 (15–23, length 9) fully missing (all '-')
+Hylodes_sazimai_CFBHT14629: partition 3 (25–30, length 6) fully missing (all '-')
+Crossodactylus_gaudichaudii_novoucher: partition 0 (0–4, length 5) fully missing (all '-')
+Crossodactylus_gaudichaudii_novoucher: partition 1 (6–13, length 8) fully missing (all '-')
+Crossodactylus_gaudichaudii_novoucher: partition 2 (15–23, length 9) fully missing (all '-')
+Crossodactylus_gaudichaudii_novoucher: partition 3 (25–30, length 6) fully missing (all '-')
+Crossodactylus_gaudichaudii_novoucher: partition 6 (691–699, length 9) fully missing (all '-')
+Crossodactylus_schmidti_MLPA01414: partition 0 (0–4, length 5) fully missing (all '-')
+Crossodactylus_schmidti_MLPA01414: partition 1 (6–13, length 8) fully missing (all '-')
+Crossodactylus_schmidti_MLPA01414: partition 2 (15–23, length 9) fully missing (all '-')
+Crossodactylus_schmidti_MLPA01414: partition 3 (25–30, length 6) fully missing (all '-')
+Alsodes_coppingeri: partition 0 (0–4, length 5) fully missing (all '-')
+Alsodes_coppingeri: partition 1 (6–13, length 8) fully missing (all '-')
+Alsodes_coppingeri: partition 2 (15–23, length 9) fully missing (all '-')
+Alsodes_coppingeri: partition 3 (25–30, length 6) fully missing (all '-')
+Alsodes_vanzolinii: partition 0 (0–4, length 5) fully missing (all '-')
+Alsodes_vanzolinii: partition 1 (6–13, length 8) fully missing (all '-')
+Alsodes_vanzolinii: partition 2 (15–23, length 9) fully missing (all '-')
+Alsodes_vanzolinii: partition 3 (25–30, length 6) fully missing (all '-')
+Eupsophus_nahuelbutensis: partition 0 (0–4, length 5) fully missing (all '-')
+Eupsophus_nahuelbutensis: partition 1 (6–13, length 8) fully missing (all '-')
+Eupsophus_nahuelbutensis: partition 2 (15–23, length 9) fully missing (all '-')
+Eupsophus_nahuelbutensis: partition 3 (25–30, length 6) fully missing (all '-')
+Cycloramphus_boraceiensis: partition 6 (691–699, length 9) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [5, 14, 24, 31, 301, 690]
+
+--- Summary after preprocessing ---
+No. sequences: 27
+No. columns: 700
+No. pound sign columns (#): 6
+Total no. nucleotides (A/C/G/T): 17343 bp
+Total no. gaps (-): 834
+Total no. IUPAC N: 0
+Total no. missing values (?): 1395
+
+--- Run time ---
+Wall-clock time: 0.05626607 seconds
+CPU time: 0.05550600 seconds

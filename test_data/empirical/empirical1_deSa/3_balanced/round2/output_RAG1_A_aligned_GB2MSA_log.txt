@@ -16,6 +16,8 @@ Total '?' characters: 0
 Total '-' characters in fully missing partitions: 0
 Combined total: 0
 
+
+
 --- Step 4: Partitioning ---
 WARNING: 'balanced' partitioning with partitioning_round=2 was skipped for this alignment. This typically happens when the alignment has fewer blocks of missing data ('?') than required. The process will continue without partitioning this file.
 
@@ -29,5 +31,5 @@ Total no. IUPAC N: 0
 Total no. missing values (?): 0
 
 --- Run time ---
-Wall-clock time: 0.05733013 seconds
-CPU time: 0.05610700 seconds
+Wall-clock time: 0.05670285 seconds
+CPU time: 0.05481200 seconds

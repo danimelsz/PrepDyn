@@ -182,5 +182,5 @@ Total no. IUPAC N: 637
 Total no. missing values (?): 52734
 
 --- Run time ---
-Wall-clock time: 0.75630593 seconds
-CPU time: 0.71375700 seconds
+Wall-clock time: 0.70080209 seconds
+CPU time: 0.67742000 seconds

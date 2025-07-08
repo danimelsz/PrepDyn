@@ -1,0 +1,36 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical1_deSa/5_equal/round3/', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical1_deSa/5_equal/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 28
+No. columns: 442
+Total no. nucleotides (A/C/G/T only): 11325 bp
+Total no. gaps (-): 1049
+Total no. IUPAC N: 2
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 436, 437, 438, 439, 440, 441]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 524
+Total '-' characters in fully missing partitions: 105
+Combined total: 629
+
+Phantasmarana_jordanensis_SMRP81.8: partition 0 (0–104, length 105) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [105, 211, 317]
+
+--- Summary after preprocessing ---
+No. sequences: 28
+No. columns: 423
+No. pound sign columns (#): 3
+Total no. nucleotides (A/C/G/T): 11129 bp
+Total no. gaps (-): 105
+Total no. IUPAC N: 2
+Total no. missing values (?): 629
+
+--- Run time ---
+Wall-clock time: 0.03389382 seconds
+CPU time: 0.03341800 seconds

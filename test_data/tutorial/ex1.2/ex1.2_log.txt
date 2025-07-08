@@ -53,5 +53,5 @@ Total no. IUPAC N: 2551
 Total no. missing values (?): 10594
 
 --- Run time ---
-Wall-clock time: 0.39721918 seconds
-CPU time: 0.35706800 seconds
+Wall-clock time: 0.32311416 seconds
+CPU time: 0.29403600 seconds
