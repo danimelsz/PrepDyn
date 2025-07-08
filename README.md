@@ -48,9 +48,7 @@ git clone https://github.com/danimelsz/PrepDyn.git
 **prepDyn** is organized in three Python files in the directory src:
 - prepDyn.py: main script integrating the pipeline.
 - GB2MSA.py: script to download sequences from GenBank and identify internal missing data.
-- addSeq.py: script to align one or a few sequence(s) to a previously preprocessed alignment.
-
-**Warning**: Do not move the files from the directory src, otherwise Python may not recognize modules.
+- addSeq.py: script to align one or a few sequence(s) to a previously preprocessed (profile) alignment.
 
 A summary of parameters used in prepDyn.py:
 
