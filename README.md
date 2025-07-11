@@ -28,6 +28,7 @@ Other dependencies are Python modules that will be automatically installed by **
 - termcolor
 
 If the  modules are not installed automatically, try:
+
 ```
 conda install conda-forge::biopython
 conda install conda-forge::matplotlib
@@ -36,6 +37,7 @@ conda install conda-forge::termcolor
 ```
 
 Finally, clone the **prepDyn** repository using the command:
+
 ```
 git clone https://github.com/danimelsz/PrepDyn.git
 ```
@@ -72,11 +74,11 @@ A summary of parameters used in prepDyn.py:
 | `partitioning_size`      | `int`                 | –            | Partition size for `partitioning_method='equal'`.                                 |
 
 
-The following examples are designed for users with little experience on Unix. If you have questions, send a message using **GitHub issues**.
+The following examples are designed for users with little experience on Unix. If you have questions, send a message using **GitHub issues**. Do not move the scripts from the directory *src*, otherwise the modular structure will break.
 
 ### Example 1: Basic
 
-The basic use of **prepDyn** is running all four steps using a single command. Given an input CSV, whose first column is called *Terminals* and the other columns are the names of genes (each cell containing the correspondent GenBank accession number), the following command will download sequences, trim invariants and orphan nucleotides <10 bp in terminal positions, and identify missing data as *?* (all differences in sequence length in terminal positions are missing data). The log reports the runtime.
+The basic use of **prepDyn** is running all four steps using a single command. Given an input CSV, whose first column is called *Terminals* and the other columns are the names of genes (each cell containing the correspondent GenBank accession number), the following command will download sequences, trim invariants and orphan nucleotides <10 bp in terminal positions, and identify missing data as *?* (all differences in sequence length in terminal positions are missing data). In the CSV file, if more than one GenBank accession number is specified in the same cell refering to non-overlapping fragments of the same gene (e.g. MT893619/MT895696), the space between them is automatically identified as internal missing data (?).
 
 ```
 python src/prepDyn.py \
@@ -88,8 +90,6 @@ python src/prepDyn.py \
     --partitioning_method None \
     --log T 
 ```
-
-In the CSV file, if more than one GenBank accession number is specified in the same cell refering to non-overlapping fragments of the same gene (e.g. MT893619/MT895696), the space between them is automatically identified as internal missing data (?).
 
 We specified *--paritioning_round 0*, which means that partitioning was not performed. As a heuristic, we recommend testing the impact of adding pound signs to the tree optimality scores using a successive partitioning strategy. For instance, if you specify *partitioning_method conservative* and *--partitioning_round 1*, the largest block(s) of contiguous invariants will be partitioned.
 
@@ -150,7 +150,7 @@ python src/prepDyn.py \
 
 ### Example 4: Appending new sequences
 
-MUSCLE and MAFFT are unable to align sequences if pound signs or question marks are present. This is a problem when we try to align new sequences to a prevously preprocessed profile alignment. To avoid manual alignment by eye, addSeq.py allows aligning new sequences to profile alignments. Gaps, missing data, and pound signs are not modified for the sequences present in the profile alignment. Gaps, missing data, and pound signs are only inserted in the new sequences.
+ MAFFT is unable to align sequences if pound signs or question marks are present. This is a problem when we try to align new sequences to a prevously preprocessed profile alignment. To avoid manual alignment by eye, addSeq.py allows aligning new sequences to profile alignments. Gaps, missing data, and pound signs are not modified for the sequences present in the profile alignment. Gaps, missing data, and pound signs are only inserted in the new sequences.
 
 A simple example:
 
@@ -176,11 +176,17 @@ python src/addSeq.py \
     --log True
 ```
 
-Warning: the input *new_seqs* cannot be longer than the profile *alignment*.
+Warning: The input *--new_seqs* cannot be longer than the input profile *--alignment*.
 
 ### Example 5: Ancient DNA
 
-Suppose you have a dataset with ancient DNA sequences from the sample *Dendropsophus_tritaeniatus_MZUSP73973*. The IUPAC Ns present in sequences are ambiguous positions resulting from low coverage death in DNA read mapping. It is unknown if this positions actually correspond to nucleotides N or to indels (-). As such, the IUPAC Ns of ancient DNA sequences can be replaced with question marks using the following command:
+Suppose you have a dataset with ancient DNA sequences from the sample *Dendropsophus_tritaeniatus_MZUSP73973*. The IUPAC Ns present in sequences are ambiguous positions resulting from low coverage death in DNA read mapping. It is unknown if this positions actually correspond to nucleotides N or to indels (-). As such, a conservative solution is replacing the IUPAC Ns of ancient DNA sequences with question marks:
+
+```
+AAAAAAAA
+```
+
+Only the ancient DNA sequences had IUPAC Ns replaced with '?' using the command above. If the user desires to replace Ns with '?' in all sequences (both ancient and modern DNA), the value *all* should be specified in the parameter *-n2q*.
 
 ```
 AAAAAAAA
