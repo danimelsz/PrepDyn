@@ -1,0 +1,28 @@
+set (log:"v4.2.2_POY_Sa.log")
+version ()
+
+read ("output_H1_aligned_GB2MSA_preprocessed.fasta")
+read ("output_COI_aligned_GB2MSA_preprocessed.fasta")
+read ("output_RAG1_A_aligned_GB2MSA_preprocessed.fasta")
+read ("output_RAG1_B_aligned_GB2MSA_preprocessed.fasta")
+
+set (root:"Cycloramphus_boraceiensis")
+
+report ("v4.2.2_POY_Sa.data",data, cross_references)
+
+search (max_time:0:12:0)
+
+report ("v4.2.2_POY_SearchTrees.txt", trees:(total))
+
+transform (all,(static_approx)) (*POY5*)
+
+select ()
+
+report ("v4.2.2_POY_Sa.pdf", graphtrees)
+report ("v4.2.2_POY_Sa.cons.pdf", graphconsensus)
+report ("v4.2.2_POY_Sa.txt", searchstats)
+report ("v4.2.2_POY_Sa.txt", trees:(total))
+report ("v4.2.2_POY_Sa.nwk", trees:(branches:min,newick))
+report ("v4.2.2_POY_Sa.ss", phastwinclad)
+
+quit()

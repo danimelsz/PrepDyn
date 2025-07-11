@@ -1,0 +1,31 @@
+set (seed:73412305)
+
+--LOAD DATA
+read ("output_COI_aligned_GB2MSA.fasta")
+read ("output_H1_aligned_GB2MSA.fasta")
+read ("output_RAG1_A_aligned_GB2MSA.fasta")
+read ("output_RAG1_B_aligned_GB2MSA.fasta")
+
+-- REPORT LOADED DATA
+report ("v3_PHYG_Sa_crossref.csv", crossrefs, overwrite)
+report ("v3_PHYG_Sa.data", data, overwrite)
+
+--LOAD INITIAL TREES
+read ("v1_POY_Sa.nwk")
+
+--SEARCH SETTINGS
+set (partitioncharacter:#)
+set (criterion:parsimony)
+set (graphtype:tree)
+set (outgroup:Cycloramphus_boraceiensis)
+search (hours:12, thompson:2, instances:5, exponential)
+
+--REPORT RESULTS
+report ("v3_PHYG_Sa_stats.txt", search)
+report ("v3_PHYG_sa_searchTrees.txt", graphs, newick, nohtulabels)
+
+select (unique)
+select (best)
+report ("v3_PHYG_Sa_bestUnique.nwk", graphs, newick, nohtulabels)
+report ("v3_PHYG_Sa_ia.tnt", tnt, concatenate, overwrite)
+report ("v3_PHYG_Sa_bestConsensus.nwk", newick, reconcile, method:strict)

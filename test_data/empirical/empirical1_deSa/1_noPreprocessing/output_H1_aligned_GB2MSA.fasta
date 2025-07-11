@@ -473,7 +473,7 @@ taccttttgcatcatgatttaactagtctaccc---------------------------
 --------------------------------------
 >Phantasmarana_boticariana_ZUEC24587
 ------------------------------------------------------------
------aaaacgcccttaaat-ccccattaggnnnnn?ggagccggtatcaggcacg-aaa
+-----aaaacgcccttaaat-ccccattaggnnnnn-ggagccggtatcaggcacg-aaa
 atctgcccaagacacctagctatgccacacccacaaggg-acccagcagtgattaacatt
 gaatataagcgtcagcttgattcagttaaagtaaa-gagagccggcaaatctggtgccag
 ccgccgcggttaccccacgtggctcaaattgatttctatcggcgtaaagcgtgattaaag
@@ -1832,7 +1832,7 @@ attcaagaaaaggattttagtcccacctaaagctgcaacacctg-tcactaaacaaa-aa
 -tctttagctttagagtaattcaattaaggtacagcctacttgaaacaggatacaacctt
 tactaacgggtaaactttatact--tatcatctttaagtaggcctaaaagcagccacctt
 tca-gatagcgtcaaagcttctccatgaactataaaaaataccaacactattatttaacc
-ctttacttatattgaataattctata?nta-ctatagaagttttcacgttaaaactagta
+ctttacttatattgaataattctata-nta-ctatagaagttttcacgttaaaactagta
 acaagaac-aag---attttctctat-atgtaagtttacatcagaaaggacaaaccactg
 ataattaacatttgtgaaactaa-agaaataact-aaacaagaaaatcct-tctatttcc
 catgttaatctaacacaagcacatatcaagaaagatttaaagaaaaagaaggaactcggc
@@ -1993,7 +1993,7 @@ nnnnnnnnnnnnnnnnnnnnnnnnnnnnnn-nnnnnnnnnnnnnnnnnnnnnnnnnnnnn
 nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
 nnnnnn-nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn-nnnnnnnnnnnnnnnnnnnnn
 nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnntatagcttag--ctaaagc
-atttcgcttacaccg-aaaaaacatnnnnnnnn?ctcagattattttgagctaaatatct
+atttcgcttacaccg-aaaaaacatnnnnnnnn-ctcagattattttgagctaaatatct
 aa---ccactttacctt-atgt-cacctaaaagcc-ttaatcatttaattaaaacatttt
 aacaacctagtagaggtgatcaaaaaa-ctaattggagtaataaacagtgtaccgcaagg
 gaaagatgaaataaaaatgaaaca-----tcaagcacaaaaaagtaaagattaaatcttg

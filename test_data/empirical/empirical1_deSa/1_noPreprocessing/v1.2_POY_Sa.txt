@@ -1,0 +1,134 @@
+Search Stats:
+                                                 
+# of Builds + TBR  2133
+# of Fuse          8860
+# of Ratchets      1088
+                                 
+Tree length        Number of hits
+10066.             97
+10070.             1
+10072.             1
+10079.             2
+10081.             1
+10086.             1
+10088.             1
+10106.             1
+
+(Cycloramphus_boraceiensis,(Crossodactylus_caramaschii_CFBH17647
+,((Hylodes_nasus_MNRJ35435,((Hylodes_pipilans_MNRJ37307
+,Hylodes_pipilans_MNRJ39371),((Hylodes_ornatus_CFBH34905
+,((Hylodes_sazimai_CFBH29586,Hylodes_sazimai_CFBHT14629)
+,((Hylodes_amnicola_CFBH30971,Hylodes_amnicola_CFBH30972)
+,(Hylodes_perere_CFBH31106,Hylodes_perere_CFBH31107))))
+,((Hylodes_japi_CFBH25403,Hylodes_japi_CFBH25426),((Hylodes_regius_CFBH30970
+,Hylodes_regius_CFBH34910),((Hylodes_meridionalis_MCP11546
+,Hylodes_meridionalis_MCP11547),((Hylodes_caete_CFBH40524
+,Hylodes_caete_CFBH40526),(Hylodes_fredi_MNRJ36077
+,(Hylodes_phyllodes_CFBH39961,Hylodes_phyllodes_CFBHT03131)))))))))
+,((Phantasmarana_boticariana_CFBH06292,((Phantasmarana_tamuia_CFBH38978a
+,(Phantasmarana_boticariana_CFBH06293,(Megaelosia_goeldii_CFBH18821
+,(Phantasmarana_boticariana_SMRP109.2,(Phantasmarana_apuana_CFBHT09118
+,(Crossodactylus_gaudichaudii_novoucher
+,(Crossodactylus_trachystomus_MCNAM18054,(Crossodactylus_werneri_AA01320
+,Crossodactylus_werneri_AAGUFU01876))))))))
+,((Phantasmarana_massarti_CFBHT23090,(Megaelosia_aff_goeldii_CFBH28108
+,(Megaelosia_goeldii_CFBH14028,Megaelosia_goeldii_CFBHT02911)))
+,(((Phantasmarana_apuana_CFBH10811,Phantasmarana_apuana_MTR12650)
+,(Phantasmarana_apuana_MTR12614,Phantasmarana_curucutuensis_CFBH17668_))
+,(Phantasmarana_tamuia_CFBH38978b,(Phantasmarana_tamuia_CFBH38976
+,(Phantasmarana_tamuia_CFBH38735,(Phantasmarana_tamuia_CFBH38977
+,Phantasmarana_tamuia_CFBH38978c)))))))),((Phantasmarana_jordanensis_MCP11575
+,((Eupsophus_nahuelbutensis,(Alsodes_coppingeri,Alsodes_vanzolinii))
+,(Crossodactylus_schmidti_MLPA01414,(Crossodactylus_gaudichaudii_ZUEC17569
+,Crossodactylus_gaudichaudii_ZUEC17570)))),((Hylodes_asper_ZUEC11555
+,(Megaelosia_goeldii_MZUSP95879,(Megaelosia_goeldii_SMRP527.2
+,(Megaelosia_goeldii_SMRP527.3,Megaelosia_goeldii_SMRP527.4))))
+,((Phantasmarana_boticariana_SMRP109.1,Phantasmarana_boticariana_ZUEC24587)
+,(((Phantasmarana_lutzae_SMRP555.1,Phantasmarana_lutzae_SMRP555.2)
+,(Phantasmarana_lutzae_SMRP555.5,(Phantasmarana_lutzae_SMRP555.3
+,Phantasmarana_lutzae_SMRP555.4))),(Phantasmarana_jordanensis_SMRP81.6
+,((Phantasmarana_apuana_TLFT1911,(Phantasmarana_apuana_SMRP526.4
+,Phantasmarana_apuana_TLFT1981)),((Phantasmarana_jordanensis_SMRP81.3
+,(Phantasmarana_jordanensis_CFBH28578,Phantasmarana_jordanensis_SMRP81.8))
+,(Hylodes_heyeri_ZUEC24650,(Phantasmarana_massarti_ZUEC11395
+,Phantasmarana_massarti_ZUEC11553)))))))))))))
+[10055.];
+(Cycloramphus_boraceiensis,(Crossodactylus_caramaschii_CFBH17647
+,((Hylodes_nasus_MNRJ35435,((Hylodes_pipilans_MNRJ37307
+,Hylodes_pipilans_MNRJ39371),((Hylodes_ornatus_CFBH34905
+,((Hylodes_sazimai_CFBH29586,Hylodes_sazimai_CFBHT14629)
+,((Hylodes_amnicola_CFBH30971,Hylodes_amnicola_CFBH30972)
+,(Hylodes_perere_CFBH31106,Hylodes_perere_CFBH31107))))
+,((Hylodes_japi_CFBH25403,Hylodes_japi_CFBH25426),((Hylodes_regius_CFBH30970
+,Hylodes_regius_CFBH34910),((Hylodes_meridionalis_MCP11546
+,Hylodes_meridionalis_MCP11547),((Hylodes_caete_CFBH40524
+,Hylodes_caete_CFBH40526),(Hylodes_fredi_MNRJ36077
+,(Hylodes_phyllodes_CFBH39961,Hylodes_phyllodes_CFBHT03131)))))))))
+,((Phantasmarana_boticariana_CFBH06292,((Phantasmarana_tamuia_CFBH38978a
+,(Phantasmarana_boticariana_CFBH06293,(Megaelosia_goeldii_CFBH18821
+,(Phantasmarana_boticariana_SMRP109.2,(Phantasmarana_apuana_CFBHT09118
+,(Crossodactylus_gaudichaudii_novoucher
+,(Crossodactylus_trachystomus_MCNAM18054,(Crossodactylus_werneri_AA01320
+,Crossodactylus_werneri_AAGUFU01876))))))))
+,((Phantasmarana_massarti_CFBHT23090,(Megaelosia_aff_goeldii_CFBH28108
+,(Megaelosia_goeldii_CFBH14028,Megaelosia_goeldii_CFBHT02911)))
+,(((Phantasmarana_apuana_CFBH10811,Phantasmarana_apuana_MTR12650)
+,(Phantasmarana_apuana_MTR12614,Phantasmarana_curucutuensis_CFBH17668_))
+,(Phantasmarana_tamuia_CFBH38978b,(Phantasmarana_tamuia_CFBH38735
+,(Phantasmarana_tamuia_CFBH38977,(Phantasmarana_tamuia_CFBH38976
+,Phantasmarana_tamuia_CFBH38978c)))))))),((Phantasmarana_jordanensis_MCP11575
+,((Eupsophus_nahuelbutensis,(Alsodes_coppingeri,Alsodes_vanzolinii))
+,(Crossodactylus_schmidti_MLPA01414,(Crossodactylus_gaudichaudii_ZUEC17569
+,Crossodactylus_gaudichaudii_ZUEC17570)))),((Hylodes_asper_ZUEC11555
+,(Megaelosia_goeldii_MZUSP95879,(Megaelosia_goeldii_SMRP527.2
+,(Megaelosia_goeldii_SMRP527.3,Megaelosia_goeldii_SMRP527.4))))
+,((Phantasmarana_boticariana_SMRP109.1,Phantasmarana_boticariana_ZUEC24587)
+,(((Phantasmarana_lutzae_SMRP555.1,Phantasmarana_lutzae_SMRP555.2)
+,(Phantasmarana_lutzae_SMRP555.5,(Phantasmarana_lutzae_SMRP555.3
+,Phantasmarana_lutzae_SMRP555.4))),(Phantasmarana_jordanensis_SMRP81.6
+,((Phantasmarana_apuana_TLFT1981,(Phantasmarana_apuana_SMRP526.4
+,Phantasmarana_apuana_TLFT1911)),((Phantasmarana_jordanensis_SMRP81.3
+,(Phantasmarana_jordanensis_CFBH28578,Phantasmarana_jordanensis_SMRP81.8))
+,(Hylodes_heyeri_ZUEC24650,(Phantasmarana_massarti_ZUEC11395
+,Phantasmarana_massarti_ZUEC11553)))))))))))))
+[10055.];
+(Cycloramphus_boraceiensis,(Crossodactylus_caramaschii_CFBH17647
+,((Hylodes_nasus_MNRJ35435,((Hylodes_pipilans_MNRJ37307
+,Hylodes_pipilans_MNRJ39371),((Hylodes_ornatus_CFBH34905
+,((Hylodes_sazimai_CFBH29586,Hylodes_sazimai_CFBHT14629)
+,((Hylodes_amnicola_CFBH30971,Hylodes_amnicola_CFBH30972)
+,(Hylodes_perere_CFBH31106,Hylodes_perere_CFBH31107))))
+,((Hylodes_japi_CFBH25403,Hylodes_japi_CFBH25426),((Hylodes_regius_CFBH30970
+,Hylodes_regius_CFBH34910),((Hylodes_meridionalis_MCP11546
+,Hylodes_meridionalis_MCP11547),((Hylodes_caete_CFBH40524
+,Hylodes_caete_CFBH40526),(Hylodes_fredi_MNRJ36077
+,(Hylodes_phyllodes_CFBH39961,Hylodes_phyllodes_CFBHT03131)))))))))
+,((Phantasmarana_boticariana_CFBH06292,((Phantasmarana_tamuia_CFBH38978a
+,(Phantasmarana_boticariana_CFBH06293,(Megaelosia_goeldii_CFBH18821
+,(Phantasmarana_boticariana_SMRP109.2,(Phantasmarana_apuana_CFBHT09118
+,(Crossodactylus_gaudichaudii_novoucher
+,(Crossodactylus_trachystomus_MCNAM18054,(Crossodactylus_werneri_AA01320
+,Crossodactylus_werneri_AAGUFU01876))))))))
+,((Phantasmarana_massarti_CFBHT23090,(Megaelosia_aff_goeldii_CFBH28108
+,(Megaelosia_goeldii_CFBH14028,Megaelosia_goeldii_CFBHT02911)))
+,(((Phantasmarana_apuana_CFBH10811,Phantasmarana_apuana_MTR12650)
+,(Phantasmarana_apuana_MTR12614,Phantasmarana_curucutuensis_CFBH17668_))
+,(Phantasmarana_tamuia_CFBH38978b,(Phantasmarana_tamuia_CFBH38977
+,(Phantasmarana_tamuia_CFBH38976,(Phantasmarana_tamuia_CFBH38735
+,Phantasmarana_tamuia_CFBH38978c)))))))),((Phantasmarana_jordanensis_MCP11575
+,((Eupsophus_nahuelbutensis,(Alsodes_coppingeri,Alsodes_vanzolinii))
+,(Crossodactylus_schmidti_MLPA01414,(Crossodactylus_gaudichaudii_ZUEC17569
+,Crossodactylus_gaudichaudii_ZUEC17570)))),((Hylodes_asper_ZUEC11555
+,(Megaelosia_goeldii_MZUSP95879,(Megaelosia_goeldii_SMRP527.2
+,(Megaelosia_goeldii_SMRP527.3,Megaelosia_goeldii_SMRP527.4))))
+,((Phantasmarana_boticariana_SMRP109.1,Phantasmarana_boticariana_ZUEC24587)
+,(((Phantasmarana_lutzae_SMRP555.1,Phantasmarana_lutzae_SMRP555.2)
+,(Phantasmarana_lutzae_SMRP555.5,(Phantasmarana_lutzae_SMRP555.3
+,Phantasmarana_lutzae_SMRP555.4))),(Phantasmarana_jordanensis_SMRP81.6
+,((Phantasmarana_apuana_SMRP526.4,(Phantasmarana_apuana_TLFT1911
+,Phantasmarana_apuana_TLFT1981)),((Phantasmarana_jordanensis_CFBH28578
+,(Phantasmarana_jordanensis_SMRP81.3,Phantasmarana_jordanensis_SMRP81.8))
+,(Hylodes_heyeri_ZUEC24650,(Phantasmarana_massarti_ZUEC11395
+,Phantasmarana_massarti_ZUEC11553)))))))))))))
+[10055.];
+

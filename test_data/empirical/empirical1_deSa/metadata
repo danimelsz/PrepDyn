@@ -1,10 +1,10 @@
 1_notPreprocessed
 - Description: GB2MSA only, with ? replaced with - manually using bash.
-- Results:
+- Results: POY completed, running PHYG in 242SQ; prepare files to TNT in 242SQ
 
 2_noPartitioning
 - Description: prepDyn specifying partitioning_method=None
-- Results:
+- Results: POY completed, running PHYG in 242SQ; prepare files to TNT in 242SQ
 
 3_balanced
 - Description: prepDyn with partitioning_method=balanced.
