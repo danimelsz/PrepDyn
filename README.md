@@ -43,6 +43,7 @@ git clone https://github.com/danimelsz/PrepDyn.git
 ```
 
 ## Usage
+
 **prepDyn** is organized in three Python files in the directory src:
 - prepDyn.py: main script integrating the pipeline.
 - GB2MSA.py: script to download sequences from GenBank and identify internal missing data.
@@ -73,6 +74,13 @@ A summary of parameters used in prepDyn.py:
 | `partitioning_round`     | `int`                 | `0`          | Number of partitions/rounds for relevant partitioning methods.                    |
 | `partitioning_size`      | `int`                 | –            | Partition size for `partitioning_method='equal'`.                                 |
 
+Parameters can be either specified with long or short options. For more information:
+
+```
+python src/prepDyn.py -h
+python src/GB2MSA.py -h
+python src/addSeq.py -h
+```
 
 The following examples are designed for users with little experience on Unix. If you have questions, send a message using **GitHub issues**. Do not move the scripts from the directory *src*, otherwise the modular structure will break.
 
