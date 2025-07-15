@@ -170,7 +170,7 @@ python src/addSeq.py \
     --log True
 ```
 
-A more complex example, where new sequences were preprocessed using trimming of blocks of orphan nucleotides of length lesser than 45 bp, replacement of internal blocks of gaps longer than 20 with question marks, and replacement of all IUPAC N with question marks in the sequence Thoropa_miliaris_CFBH10125:
+A more complex example, where new sequences were preprocessed using trimming of blocks of orphan nucleotides of length lesser than 45 bp, replacement of internal blocks of gaps longer than 20 with question marks, and replacement of all IUPAC N with question marks in the sequence *Thoropa_miliaris_CFBH10125*:
 
 ```
 python src/addSeq.py \
