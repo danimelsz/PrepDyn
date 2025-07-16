@@ -1,0 +1,44 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 98
+No. columns: 1342
+Total no. nucleotides (A/C/G/T only): 128614 bp
+Total no. gaps (-): 2273
+Total no. IUPAC N: 385
+
+--- Step 2: Trimming (invariant columns) ---
+[1341]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+FMNH230905_Rhacophoridae_Rhacophorus_nigropalmatus: Left block 0-4 deleted ('AATT')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1053
+Total '-' characters in fully missing partitions: 649
+Combined total: 1702
+
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 4 (1273–1344, length 72) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–84, length 85) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (86–248, length 163) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 3 (1100–1271, length 172) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 4 (1273–1344, length 72) fully missing (all '-')
+ESP808_Microhylidae_Phrynomantis_annectens: partition 0 (0–84, length 85) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=3)
+Columns with '#' inserted: [85, 249, 1099, 1272]
+
+--- Summary after preprocessing ---
+No. sequences: 98
+No. columns: 1345
+No. pound sign columns (#): 4
+Total no. nucleotides (A/C/G/T): 128538 bp
+Total no. gaps (-): 1198
+Total no. IUPAC N: 385
+Total no. missing values (?): 1702
+
+--- Run time ---
+Wall-clock time: 0.55679703 seconds
+CPU time: 0.55235200 seconds

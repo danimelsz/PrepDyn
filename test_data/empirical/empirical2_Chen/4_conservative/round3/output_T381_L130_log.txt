@@ -1,0 +1,62 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 98
+No. columns: 978
+Total no. nucleotides (A/C/G/T only): 93386 bp
+Total no. gaps (-): 2248
+Total no. IUPAC N: 36
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 988
+Total '-' characters in fully missing partitions: 1209
+Combined total: 2197
+
+CAS230905_Rhacophoridae_Chiromantis_nongkhorensis: partition 0 (0–67, length 68) fully missing (all '-')
+AMNH-A168079_Mantellidae_Boophis_goudotii: partition 13 (975–990, length 16) fully missing (all '-')
+FMNH267837_Rhacophoridae_Rhacophorus_cyanopunctatus: partition 12 (908–973, length 66) fully missing (all '-')
+FMNH267837_Rhacophoridae_Rhacophorus_cyanopunctatus: partition 13 (975–990, length 16) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 0 (0–67, length 68) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 10 (828–836, length 9) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 11 (838–906, length 69) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 12 (908–973, length 66) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 13 (975–990, length 16) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 8 (613–738, length 126) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 9 (740–826, length 87) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 10 (828–836, length 9) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 11 (838–906, length 69) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 12 (908–973, length 66) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 13 (975–990, length 16) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 12 (908–973, length 66) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 13 (975–990, length 16) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 0 (0–67, length 68) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 13 (975–990, length 16) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 13 (975–990, length 16) fully missing (all '-')
+AMNH-A163767_Rhacophoridae_Rhacophorus_hoanglienensis: partition 13 (975–990, length 16) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 0 (0–67, length 68) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 13 (975–990, length 16) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 10 (828–836, length 9) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 11 (838–906, length 69) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 12 (908–973, length 66) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 13 (975–990, length 16) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [68, 228, 250, 341, 384, 430, 470, 612, 739, 827, 837, 907, 974]
+
+--- Summary after preprocessing ---
+No. sequences: 98
+No. columns: 991
+No. pound sign columns (#): 13
+Total no. nucleotides (A/C/G/T): 93386 bp
+Total no. gaps (-): 1260
+Total no. IUPAC N: 36
+Total no. missing values (?): 2197
+
+--- Run time ---
+Wall-clock time: 0.26473784 seconds
+CPU time: 0.26104100 seconds

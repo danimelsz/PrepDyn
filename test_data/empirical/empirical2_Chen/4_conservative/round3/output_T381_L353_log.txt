@@ -1,0 +1,36 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 93
+No. columns: 961
+Total no. nucleotides (A/C/G/T only): 83500 bp
+Total no. gaps (-): 4841
+Total no. IUPAC N: 735
+
+--- Step 2: Trimming (invariant columns) ---
+[960]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 4495
+Total '-' characters in fully missing partitions: 0
+Combined total: 4495
+
+
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [219, 266, 296, 452]
+
+--- Summary after preprocessing ---
+No. sequences: 93
+No. columns: 964
+No. pound sign columns (#): 4
+Total no. nucleotides (A/C/G/T): 83432 bp
+Total no. gaps (-): 321
+Total no. IUPAC N: 735
+Total no. missing values (?): 4495
+
+--- Run time ---
+Wall-clock time: 0.24659085 seconds
+CPU time: 0.24302500 seconds

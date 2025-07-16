@@ -1,0 +1,41 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing/', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/2_noPartitioning/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_round=0)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 98
+No. columns: 984
+Total no. nucleotides (A/C/G/T only): 94171 bp
+Total no. gaps (-): 2141
+Total no. IUPAC N: 8
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+KIZYPX23229_Ranidae_Rana_temporaria: Right block 938-943 deleted ('AGAGA')
+FMNH240957_Rhacophoridae_Rhacophorus_dulitensis: Left block 0-2 deleted ('TA')
+CAS241141_Rhacophoridae_Polypedates_leucomystax: Left block 0-2 deleted ('TA')
+CAS229549_Rhacophoridae_Polypedates_macrotis: Left block 0-2 deleted ('TA')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1954
+Total '-' characters in fully missing partitions: 0
+Combined total: 1954
+
+
+
+--- Step 4: Partitioning ---
+No partitioning method was specified.
+
+--- Summary after preprocessing ---
+No. sequences: 98
+No. columns: 984
+No. pound sign columns (#): 0
+Total no. nucleotides (A/C/G/T): 94160 bp
+Total no. gaps (-): 198
+Total no. IUPAC N: 8
+Total no. missing values (?): 1954
+
+--- Run time ---
+Wall-clock time: 0.57188797 seconds
+CPU time: 0.48334600 seconds

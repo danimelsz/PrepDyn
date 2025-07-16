@@ -1,0 +1,43 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/5_equal/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1501
+Total no. nucleotides (A/C/G/T only): 139879 bp
+Total no. gaps (-): 8078
+Total no. IUPAC N: 376
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 3548
+Total '-' characters in fully missing partitions: 3998
+Combined total: 7546
+
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 0 (0–498, length 499) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 2 (1000–1500, length 501) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 2 (1000–1500, length 501) fully missing (all '-')
+ROM30298_Rhacophoridae_Raorchestes_gryllus: partition 0 (0–498, length 499) fully missing (all '-')
+ROM30282_Rhacophoridae_Theloderma_sp.: partition 0 (0–498, length 499) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 0 (0–498, length 499) fully missing (all '-')
+MVZ236697_Rhacophoridae_Chiromantis_doriae: partition 0 (0–498, length 499) fully missing (all '-')
+MVZ258310_Rhacophoridae_Philautus_abditus: partition 2 (1000–1500, length 501) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [499, 999]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1501
+No. pound sign columns (#): 2
+Total no. nucleotides (A/C/G/T): 139737 bp
+Total no. gaps (-): 4474
+Total no. IUPAC N: 376
+Total no. missing values (?): 7546
+
+--- Run time ---
+Wall-clock time: 0.39770699 seconds
+CPU time: 0.39131100 seconds

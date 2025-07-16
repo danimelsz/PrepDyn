@@ -1,0 +1,44 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/5_equal/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 93
+No. columns: 970
+Total no. nucleotides (A/C/G/T only): 87636 bp
+Total no. gaps (-): 2298
+Total no. IUPAC N: 66
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+R1422_Rhacophoridae_Raorchestes_sp.: Right block 968-970 deleted ('CA')
+KIZYPX16167_Rhacophoridae_Raorchestes_andersoni: Right block 968-970 deleted ('CA')
+R1267_Rhacophoridae_Raorchestes_ghatei: Right block 968-970 deleted ('CA')
+CAS233160_Rhacophoridae_Raorchestes_parvulus: Right block 968-970 deleted ('CW')
+ROM30298_Rhacophoridae_Raorchestes_gryllus: Right block 968-970 deleted ('CA')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1776
+Total '-' characters in fully missing partitions: 484
+Combined total: 2260
+
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–241, length 242) fully missing (all '-')
+AMNH-A168079_Mantellidae_Boophis_goudotii: partition 0 (0–241, length 242) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [242, 485, 728]
+
+--- Summary after preprocessing ---
+No. sequences: 93
+No. columns: 973
+No. pound sign columns (#): 3
+Total no. nucleotides (A/C/G/T): 87627 bp
+Total no. gaps (-): 532
+Total no. IUPAC N: 66
+Total no. missing values (?): 2260
+
+--- Run time ---
+Wall-clock time: 0.51062989 seconds
+CPU time: 0.38289900 seconds

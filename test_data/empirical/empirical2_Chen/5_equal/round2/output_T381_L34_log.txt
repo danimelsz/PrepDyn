@@ -1,0 +1,47 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/5_equal/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 87
+No. columns: 755
+Total no. nucleotides (A/C/G/T only): 57308 bp
+Total no. gaps (-): 8015
+Total no. IUPAC N: 210
+
+--- Step 2: Trimming (invariant columns) ---
+[753, 754]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 4873
+Total '-' characters in fully missing partitions: 3012
+Combined total: 7885
+
+ROM35975_Dicroglossidae_Occidozyga_martensii: partition 0 (0–250, length 251) fully missing (all '-')
+ID7602_Nyctibatrachidae_Nyctibatrachus_humayuni: partition 0 (0–250, length 251) fully missing (all '-')
+FMNH266259_Ceratobatrachidae_Platymantis_corrugatus: partition 0 (0–250, length 251) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 0 (0–250, length 251) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 0 (0–250, length 251) fully missing (all '-')
+CAS224676_Rhacophoridae_Rhacophorus_rhodopus: partition 0 (0–250, length 251) fully missing (all '-')
+R1283_Rhacophoridae_Pseudophilautus_sp.: partition 0 (0–250, length 251) fully missing (all '-')
+FMNH243341_Ranidae_Meristogenys_orphnocnemis: partition 0 (0–250, length 251) fully missing (all '-')
+HN0806100_Rhacophoridae_Theloderma_sp.: partition 0 (0–250, length 251) fully missing (all '-')
+FMNH263189_Dicroglossidae_Limnonectes_kohchangae: partition 0 (0–250, length 251) fully missing (all '-')
+FMNH263189_Dicroglossidae_Limnonectes_kohchangae: partition 1 (252–502, length 251) fully missing (all '-')
+CAS234711_Ranidae_Sylvirana_khare: partition 0 (0–250, length 251) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [251, 503]
+
+--- Summary after preprocessing ---
+No. sequences: 87
+No. columns: 755
+No. pound sign columns (#): 2
+Total no. nucleotides (A/C/G/T): 57172 bp
+Total no. gaps (-): 3104
+Total no. IUPAC N: 210
+Total no. missing values (?): 7885
+
+--- Run time ---
+Wall-clock time: 0.19121408 seconds
+CPU time: 0.18530300 seconds

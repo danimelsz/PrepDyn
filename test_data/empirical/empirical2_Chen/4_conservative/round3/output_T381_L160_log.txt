@@ -1,0 +1,47 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1500
+Total no. nucleotides (A/C/G/T only): 143542 bp
+Total no. gaps (-): 4699
+Total no. IUPAC N: 82
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 3688
+Total '-' characters in fully missing partitions: 930
+Combined total: 4618
+
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 11 (1201–1218, length 18) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 12 (1220–1357, length 138) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 13 (1359–1382, length 24) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 14 (1384–1513, length 130) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 11 (1201–1218, length 18) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 12 (1220–1357, length 138) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 13 (1359–1382, length 24) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 14 (1384–1513, length 130) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 11 (1201–1218, length 18) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 12 (1220–1357, length 138) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 13 (1359–1382, length 24) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 14 (1384–1513, length 130) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [635, 669, 721, 749, 771, 778, 888, 1005, 1120, 1134, 1200, 1219, 1358, 1383]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1514
+No. pound sign columns (#): 14
+Total no. nucleotides (A/C/G/T): 143542 bp
+Total no. gaps (-): 1011
+Total no. IUPAC N: 82
+Total no. missing values (?): 4618
+
+--- Run time ---
+Wall-clock time: 0.41046715 seconds
+CPU time: 0.40382900 seconds

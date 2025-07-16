@@ -1,0 +1,48 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round1/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=1)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 87
+No. columns: 755
+Total no. nucleotides (A/C/G/T only): 57308 bp
+Total no. gaps (-): 8015
+Total no. IUPAC N: 210
+
+--- Step 2: Trimming (invariant columns) ---
+[753, 754]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 6429
+Total '-' characters in fully missing partitions: 1456
+Combined total: 7885
+
+E16_Ranidae_Rana_macrocnemis: partition 0 (0–111, length 112) fully missing (all '-')
+ROM35975_Dicroglossidae_Occidozyga_martensii: partition 0 (0–111, length 112) fully missing (all '-')
+ID7602_Nyctibatrachidae_Nyctibatrachus_humayuni: partition 0 (0–111, length 112) fully missing (all '-')
+FMNH266259_Ceratobatrachidae_Platymantis_corrugatus: partition 0 (0–111, length 112) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 0 (0–111, length 112) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 0 (0–111, length 112) fully missing (all '-')
+CAS224676_Rhacophoridae_Rhacophorus_rhodopus: partition 0 (0–111, length 112) fully missing (all '-')
+R1283_Rhacophoridae_Pseudophilautus_sp.: partition 0 (0–111, length 112) fully missing (all '-')
+FMNH243341_Ranidae_Meristogenys_orphnocnemis: partition 0 (0–111, length 112) fully missing (all '-')
+HN0806100_Rhacophoridae_Theloderma_sp.: partition 0 (0–111, length 112) fully missing (all '-')
+FMNH263189_Dicroglossidae_Limnonectes_kohchangae: partition 0 (0–111, length 112) fully missing (all '-')
+CAS234711_Ranidae_Sylvirana_khare: partition 0 (0–111, length 112) fully missing (all '-')
+KIZ10652_Rhacophoridae_Theloderma_vietnamense: partition 0 (0–111, length 112) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=1)
+Columns with '#' inserted: [112]
+
+--- Summary after preprocessing ---
+No. sequences: 87
+No. columns: 754
+No. pound sign columns (#): 1
+Total no. nucleotides (A/C/G/T): 57172 bp
+Total no. gaps (-): 1548
+Total no. IUPAC N: 210
+Total no. missing values (?): 7885
+
+--- Run time ---
+Wall-clock time: 0.17561221 seconds
+CPU time: 0.17413600 seconds

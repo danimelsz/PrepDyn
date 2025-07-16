@@ -1,0 +1,42 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/5_equal/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 2027
+Total no. nucleotides (A/C/G/T only): 195944 bp
+Total no. gaps (-): 3939
+Total no. IUPAC N: 270
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+CAS224676_Rhacophoridae_Rhacophorus_rhodopus: Left block 0-4 deleted ('GTTA')
+KIZYPX16592_Rhacophoridae_Rhacophorus_sp.: Left block 0-4 deleted ('GTTA')
+FMNH230905_Rhacophoridae_Rhacophorus_nigropalmatus: Left block 0-4 deleted ('GTTA')
+FMNH239280_Rhacophoridae_Philautus_ingeri: Left block 18-23 deleted ('TCTAC')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 3354
+Total '-' characters in fully missing partitions: 0
+Combined total: 3354
+
+
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [675, 1351]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 2029
+No. pound sign columns (#): 2
+Total no. nucleotides (A/C/G/T): 195927 bp
+Total no. gaps (-): 602
+Total no. IUPAC N: 270
+Total no. missing values (?): 3354
+
+--- Run time ---
+Wall-clock time: 0.75235915 seconds
+CPU time: 0.73472300 seconds

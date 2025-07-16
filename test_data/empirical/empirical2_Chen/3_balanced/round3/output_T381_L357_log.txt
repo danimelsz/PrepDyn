@@ -1,0 +1,66 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1594
+Total no. nucleotides (A/C/G/T only): 154592 bp
+Total no. gaps (-): 2554
+Total no. IUPAC N: 102
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+ROM30298_Rhacophoridae_Raorchestes_gryllus: Right block 1590-1594 deleted ('ACAC')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 875
+Total '-' characters in fully missing partitions: 1544
+Combined total: 2419
+
+AMCC144966_Rhacophoridae_Gracixalus_supercornutus: partition 0 (0–57, length 58) fully missing (all '-')
+AMCC144966_Rhacophoridae_Gracixalus_supercornutus: partition 1 (59–88, length 30) fully missing (all '-')
+AMCC144966_Rhacophoridae_Gracixalus_supercornutus: partition 2 (90–151, length 62) fully missing (all '-')
+AMCC144966_Rhacophoridae_Gracixalus_supercornutus: partition 3 (153–178, length 26) fully missing (all '-')
+MVZ258310_Rhacophoridae_Philautus_abditus: partition 0 (0–57, length 58) fully missing (all '-')
+KIZ11104_Ceratobatrachidae_Luirana_xizangensis: partition 0 (0–57, length 58) fully missing (all '-')
+KIZ11104_Ceratobatrachidae_Luirana_xizangensis: partition 1 (59–88, length 30) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 0 (0–57, length 58) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 1 (59–88, length 30) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 2 (90–151, length 62) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 3 (153–178, length 26) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 4 (180–324, length 145) fully missing (all '-')
+ROM30282_Rhacophoridae_Theloderma_sp.: partition 0 (0–57, length 58) fully missing (all '-')
+AMNH-A191915_Rhacophoridae_Theloderma_truongsonensis: partition 0 (0–57, length 58) fully missing (all '-')
+AMNH-A191915_Rhacophoridae_Theloderma_truongsonensis: partition 1 (59–88, length 30) fully missing (all '-')
+AMNH-A191915_Rhacophoridae_Theloderma_truongsonensis: partition 2 (90–151, length 62) fully missing (all '-')
+AMNH-A191915_Rhacophoridae_Theloderma_truongsonensis: partition 3 (153–178, length 26) fully missing (all '-')
+AMNH-A191915_Rhacophoridae_Theloderma_truongsonensis: partition 4 (180–324, length 145) fully missing (all '-')
+AMNH-A191915_Rhacophoridae_Theloderma_truongsonensis: partition 5 (326–365, length 40) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 0 (0–57, length 58) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 1 (59–88, length 30) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 2 (90–151, length 62) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–57, length 58) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 7 (1559–1600, length 42) fully missing (all '-')
+CAS233160_Rhacophoridae_Raorchestes_parvulus: partition 0 (0–57, length 58) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 0 (0–57, length 58) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 0 (0–57, length 58) fully missing (all '-')
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 0 (0–57, length 58) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=3)
+Columns with '#' inserted: [58, 89, 152, 179, 325, 366, 1558]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1601
+No. pound sign columns (#): 7
+Total no. nucleotides (A/C/G/T): 154588 bp
+Total no. gaps (-): 1683
+Total no. IUPAC N: 102
+Total no. missing values (?): 2419
+
+--- Run time ---
+Wall-clock time: 0.77251029 seconds
+CPU time: 0.74668300 seconds

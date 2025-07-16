@@ -1,0 +1,47 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 72
+No. columns: 491
+Total no. nucleotides (A/C/G/T only): 34556 bp
+Total no. gaps (-): 543
+Total no. IUPAC N: 154
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 88
+Total '-' characters in fully missing partitions: 438
+Combined total: 526
+
+R1283_Rhacophoridae_Pseudophilautus_sp.: partition 0 (0–49, length 50) fully missing (all '-')
+R1283_Rhacophoridae_Pseudophilautus_sp.: partition 1 (51–80, length 30) fully missing (all '-')
+AMNH-A191915_Rhacophoridae_Theloderma_truongsonensis: partition 0 (0–49, length 50) fully missing (all '-')
+AMNH-A191915_Rhacophoridae_Theloderma_truongsonensis: partition 1 (51–80, length 30) fully missing (all '-')
+AMNH-A191915_Rhacophoridae_Theloderma_truongsonensis: partition 2 (82–113, length 32) fully missing (all '-')
+FMNH250626_Rhacophoridae_Philautus_worcesteri: partition 0 (0–49, length 50) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 5 (424–476, length 53) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 6 (478–496, length 19) fully missing (all '-')
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 4 (390–422, length 33) fully missing (all '-')
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 5 (424–476, length 53) fully missing (all '-')
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 6 (478–496, length 19) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 6 (478–496, length 19) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=2)
+Columns with '#' inserted: [50, 81, 114, 389, 423, 477]
+
+--- Summary after preprocessing ---
+No. sequences: 72
+No. columns: 497
+No. pound sign columns (#): 6
+Total no. nucleotides (A/C/G/T): 34556 bp
+Total no. gaps (-): 455
+Total no. IUPAC N: 154
+Total no. missing values (?): 526
+
+--- Run time ---
+Wall-clock time: 0.15854597 seconds
+CPU time: 0.15626800 seconds

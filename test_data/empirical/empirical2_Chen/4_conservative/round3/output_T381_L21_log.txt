@@ -1,0 +1,83 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 90
+No. columns: 1585
+Total no. nucleotides (A/C/G/T only): 138295 bp
+Total no. gaps (-): 3650
+Total no. IUPAC N: 199
+
+--- Step 2: Trimming (invariant columns) ---
+[1581, 1582, 1583, 1584]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1586
+Total '-' characters in fully missing partitions: 1878
+Combined total: 3464
+
+ID7602_Nyctibatrachidae_Nyctibatrachus_humayuni: partition 0 (0–25, length 26) fully missing (all '-')
+ID7602_Nyctibatrachidae_Nyctibatrachus_humayuni: partition 1 (27–42, length 16) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–25, length 26) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (27–42, length 16) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 2 (44–142, length 99) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 3 (144–149, length 6) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 19 (832–837, length 6) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 20 (839–976, length 138) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 21 (978–1022, length 45) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 22 (1024–1044, length 21) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 23 (1046–1145, length 100) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 24 (1147–1181, length 35) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 25 (1183–1266, length 84) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 26 (1268–1315, length 48) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 27 (1317–1427, length 111) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 28 (1429–1608, length 180) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 0 (0–25, length 26) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 1 (27–42, length 16) fully missing (all '-')
+CAS229549_Rhacophoridae_Polypedates_macrotis: partition 0 (0–25, length 26) fully missing (all '-')
+CAS229549_Rhacophoridae_Polypedates_macrotis: partition 1 (27–42, length 16) fully missing (all '-')
+CAS229549_Rhacophoridae_Polypedates_macrotis: partition 2 (44–142, length 99) fully missing (all '-')
+CAS229549_Rhacophoridae_Polypedates_macrotis: partition 3 (144–149, length 6) fully missing (all '-')
+CAS229549_Rhacophoridae_Polypedates_macrotis: partition 4 (151–246, length 96) fully missing (all '-')
+CAS229549_Rhacophoridae_Polypedates_macrotis: partition 5 (248–286, length 39) fully missing (all '-')
+CAS229549_Rhacophoridae_Polypedates_macrotis: partition 6 (288–341, length 54) fully missing (all '-')
+CAS229549_Rhacophoridae_Polypedates_macrotis: partition 7 (343–384, length 42) fully missing (all '-')
+CAS229549_Rhacophoridae_Polypedates_macrotis: partition 8 (386–409, length 24) fully missing (all '-')
+CAS229549_Rhacophoridae_Polypedates_macrotis: partition 9 (411–419, length 9) fully missing (all '-')
+CAS229549_Rhacophoridae_Polypedates_macrotis: partition 10 (421–427, length 7) fully missing (all '-')
+CAS229549_Rhacophoridae_Polypedates_macrotis: partition 11 (429–445, length 17) fully missing (all '-')
+CAS229549_Rhacophoridae_Polypedates_macrotis: partition 12 (447–512, length 66) fully missing (all '-')
+CAS229549_Rhacophoridae_Polypedates_macrotis: partition 13 (514–525, length 12) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 0 (0–25, length 26) fully missing (all '-')
+MVZ239460_Rhacophoridae_Nyctixalus_pictus: partition 0 (0–25, length 26) fully missing (all '-')
+MVZ239460_Rhacophoridae_Nyctixalus_pictus: partition 1 (27–42, length 16) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 0 (0–25, length 26) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 0 (0–25, length 26) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 1 (27–42, length 16) fully missing (all '-')
+ROM30263_Rhacophoridae_Theloderma_gordoni: partition 0 (0–25, length 26) fully missing (all '-')
+AMNH-A167908_Mantellidae_Spinomantis_fimbriatus: partition 0 (0–25, length 26) fully missing (all '-')
+MVZ258310_Rhacophoridae_Philautus_abditus: partition 0 (0–25, length 26) fully missing (all '-')
+MVZ258310_Rhacophoridae_Philautus_abditus: partition 1 (27–42, length 16) fully missing (all '-')
+AMNH-A168079_Mantellidae_Boophis_goudotii: partition 0 (0–25, length 26) fully missing (all '-')
+AMNH-A168079_Mantellidae_Boophis_goudotii: partition 1 (27–42, length 16) fully missing (all '-')
+CAS234711_Ranidae_Sylvirana_khare: partition 0 (0–25, length 26) fully missing (all '-')
+KIZYPX23229_Ranidae_Rana_temporaria: partition 0 (0–25, length 26) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 0 (0–25, length 26) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 1 (27–42, length 16) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [26, 43, 143, 150, 247, 287, 342, 385, 410, 420, 428, 446, 513, 526, 557, 564, 760, 788, 831, 838, 977, 1023, 1045, 1146, 1182, 1267, 1316, 1428]
+
+--- Summary after preprocessing ---
+No. sequences: 90
+No. columns: 1609
+No. pound sign columns (#): 28
+Total no. nucleotides (A/C/G/T): 138039 bp
+Total no. gaps (-): 1960
+Total no. IUPAC N: 199
+Total no. missing values (?): 3464
+
+--- Run time ---
+Wall-clock time: 0.39711809 seconds
+CPU time: 0.39136000 seconds

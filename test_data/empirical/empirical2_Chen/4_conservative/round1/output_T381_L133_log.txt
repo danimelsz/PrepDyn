@@ -1,0 +1,38 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round1/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=1)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 98
+No. columns: 1994
+Total no. nucleotides (A/C/G/T only): 187326 bp
+Total no. gaps (-): 7670
+Total no. IUPAC N: 161
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 6764
+Total '-' characters in fully missing partitions: 612
+Combined total: 7376
+
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 0 (0–203, length 204) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 0 (0–203, length 204) fully missing (all '-')
+CAS223402_Ranidae_Lithobates_pipiens: partition 0 (0–203, length 204) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=1)
+Columns with '#' inserted: [204]
+
+--- Summary after preprocessing ---
+No. sequences: 98
+No. columns: 1995
+No. pound sign columns (#): 1
+Total no. nucleotides (A/C/G/T): 187326 bp
+Total no. gaps (-): 906
+Total no. IUPAC N: 161
+Total no. missing values (?): 7376
+
+--- Run time ---
+Wall-clock time: 0.60404301 seconds
+CPU time: 0.57448500 seconds

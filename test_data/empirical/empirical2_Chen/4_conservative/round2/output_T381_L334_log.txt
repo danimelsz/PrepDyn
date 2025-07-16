@@ -1,0 +1,56 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 92
+No. columns: 1164
+Total no. nucleotides (A/C/G/T only): 104078 bp
+Total no. gaps (-): 2853
+Total no. IUPAC N: 20
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1679
+Total '-' characters in fully missing partitions: 1067
+Combined total: 2746
+
+R1263_Rhacophoridae_Raorchestes_signatus: partition 22 (1098–1121, length 24) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 23 (1123–1186, length 64) fully missing (all '-')
+AMNH-A163896_Rhacophoridae_Gracixalus_gracilipes: partition 23 (1123–1186, length 64) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 11 (601–609, length 9) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 12 (611–679, length 69) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 13 (681–692, length 12) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 14 (694–714, length 21) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 15 (716–736, length 21) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 16 (738–764, length 27) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 17 (766–819, length 54) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 18 (821–874, length 54) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 19 (876–911, length 36) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 20 (913–1048, length 136) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 21 (1050–1096, length 47) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 22 (1098–1121, length 24) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 23 (1123–1186, length 64) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–164, length 165) fully missing (all '-')
+ROM30282_Rhacophoridae_Theloderma_sp.: partition 22 (1098–1121, length 24) fully missing (all '-')
+ROM30282_Rhacophoridae_Theloderma_sp.: partition 23 (1123–1186, length 64) fully missing (all '-')
+KIZ029453_Rhacophoridae_Theloderma_moloch: partition 22 (1098–1121, length 24) fully missing (all '-')
+KIZ029453_Rhacophoridae_Theloderma_moloch: partition 23 (1123–1186, length 64) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=2)
+Columns with '#' inserted: [165, 255, 400, 423, 438, 475, 509, 528, 547, 554, 600, 610, 680, 693, 715, 737, 765, 820, 875, 912, 1049, 1097, 1122]
+
+--- Summary after preprocessing ---
+No. sequences: 92
+No. columns: 1187
+No. pound sign columns (#): 23
+Total no. nucleotides (A/C/G/T): 104078 bp
+Total no. gaps (-): 1174
+Total no. IUPAC N: 20
+Total no. missing values (?): 2746
+
+--- Run time ---
+Wall-clock time: 0.29906607 seconds
+CPU time: 0.29445000 seconds

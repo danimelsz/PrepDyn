@@ -1,0 +1,47 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round1/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=1)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1746
+Total no. nucleotides (A/C/G/T only): 168045 bp
+Total no. gaps (-): 4145
+Total no. IUPAC N: 373
+
+--- Step 2: Trimming (invariant columns) ---
+[1744, 1745]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+R1428_Ranixalidae_Indirana_sp.: Left block 0-1 deleted ('A')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 2255
+Total '-' characters in fully missing partitions: 1452
+Combined total: 3707
+
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 4 (611–874, length 264) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 5 (876–887, length 12) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 6 (889–897, length 9) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 7 (899–1144, length 246) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 8 (1146–1646, length 501) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 9 (1648–1752, length 105) fully missing (all '-')
+KIZ010760_Rhacophoridae_Liuixalus_sp.: partition 9 (1648–1752, length 105) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 9 (1648–1752, length 105) fully missing (all '-')
+MVZ258310_Rhacophoridae_Philautus_abditus: partition 9 (1648–1752, length 105) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=1)
+Columns with '#' inserted: [235, 269, 414, 610, 875, 888, 898, 1145, 1647]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1753
+No. pound sign columns (#): 9
+Total no. nucleotides (A/C/G/T): 167916 bp
+Total no. gaps (-): 1821
+Total no. IUPAC N: 373
+Total no. missing values (?): 3707
+
+--- Run time ---
+Wall-clock time: 0.60502386 seconds
+CPU time: 0.59056100 seconds

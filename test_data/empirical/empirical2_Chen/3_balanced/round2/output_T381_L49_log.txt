@@ -1,0 +1,42 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1652
+Total no. nucleotides (A/C/G/T only): 157756 bp
+Total no. gaps (-): 5071
+Total no. IUPAC N: 291
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1995
+Total '-' characters in fully missing partitions: 2089
+Combined total: 4084
+
+CAS234711_Ranidae_Sylvirana_khare: partition 0 (0–204, length 205) fully missing (all '-')
+CAS234711_Ranidae_Sylvirana_khare: partition 1 (206–829, length 624) fully missing (all '-')
+CAS234711_Ranidae_Sylvirana_khare: partition 2 (831–839, length 9) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 0 (0–204, length 205) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–204, length 205) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (206–829, length 624) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 4 (1439–1655, length 217) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=2)
+Columns with '#' inserted: [205, 830, 840, 1438]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1656
+No. pound sign columns (#): 4
+Total no. nucleotides (A/C/G/T): 157756 bp
+Total no. gaps (-): 3076
+Total no. IUPAC N: 291
+Total no. missing values (?): 4084
+
+--- Run time ---
+Wall-clock time: 0.78718495 seconds
+CPU time: 0.77266000 seconds

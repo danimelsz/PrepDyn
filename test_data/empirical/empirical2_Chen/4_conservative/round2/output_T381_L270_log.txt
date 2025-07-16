@@ -1,0 +1,40 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1396
+Total no. nucleotides (A/C/G/T only): 133817 bp
+Total no. gaps (-): 3882
+Total no. IUPAC N: 223
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 3104
+Total '-' characters in fully missing partitions: 359
+Combined total: 3463
+
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 2 (1039–1048, length 10) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 3 (1050–1127, length 78) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 4 (1129–1253, length 125) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 5 (1255–1261, length 7) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 6 (1263–1401, length 139) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=2)
+Columns with '#' inserted: [663, 1038, 1049, 1128, 1254, 1262]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1402
+No. pound sign columns (#): 6
+Total no. nucleotides (A/C/G/T): 133817 bp
+Total no. gaps (-): 778
+Total no. IUPAC N: 223
+Total no. missing values (?): 3463
+
+--- Run time ---
+Wall-clock time: 0.47523522 seconds
+CPU time: 0.44562500 seconds

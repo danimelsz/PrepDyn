@@ -1,0 +1,39 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1542
+Total no. nucleotides (A/C/G/T only): 148907 bp
+Total no. gaps (-): 3557
+Total no. IUPAC N: 15
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 2162
+Total '-' characters in fully missing partitions: 991
+Combined total: 3153
+
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–348, length 349) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 2 (1047–1398, length 352) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 3 (1400–1544, length 145) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 3 (1400–1544, length 145) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=2)
+Columns with '#' inserted: [349, 1046, 1399]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1545
+No. pound sign columns (#): 3
+Total no. nucleotides (A/C/G/T): 148907 bp
+Total no. gaps (-): 1395
+Total no. IUPAC N: 15
+Total no. missing values (?): 3153
+
+--- Run time ---
+Wall-clock time: 0.64740586 seconds
+CPU time: 0.62968800 seconds

@@ -1,0 +1,68 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1563
+Total no. nucleotides (A/C/G/T only): 150855 bp
+Total no. gaps (-): 3520
+Total no. IUPAC N: 90
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 1560, 1561, 1562]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 2487
+Total '-' characters in fully missing partitions: 883
+Combined total: 3370
+
+KIZ11104_Ceratobatrachidae_Luirana_xizangensis: partition 13 (1542–1550, length 9) fully missing (all '-')
+KIZ11104_Ceratobatrachidae_Luirana_xizangensis: partition 14 (1552–1571, length 20) fully missing (all '-')
+AMNH-A168079_Mantellidae_Boophis_goudotii: partition 0 (0–182, length 183) fully missing (all '-')
+AMNH-A168079_Mantellidae_Boophis_goudotii: partition 12 (1489–1540, length 52) fully missing (all '-')
+AMNH-A168079_Mantellidae_Boophis_goudotii: partition 13 (1542–1550, length 9) fully missing (all '-')
+AMNH-A168079_Mantellidae_Boophis_goudotii: partition 14 (1552–1571, length 20) fully missing (all '-')
+MVZ258310_Rhacophoridae_Philautus_abditus: partition 13 (1542–1550, length 9) fully missing (all '-')
+MVZ258310_Rhacophoridae_Philautus_abditus: partition 14 (1552–1571, length 20) fully missing (all '-')
+ROM30298_Rhacophoridae_Raorchestes_gryllus: partition 13 (1542–1550, length 9) fully missing (all '-')
+ROM30298_Rhacophoridae_Raorchestes_gryllus: partition 14 (1552–1571, length 20) fully missing (all '-')
+R1332_Rhacophoridae_Pseudophilautus_alto: partition 13 (1542–1550, length 9) fully missing (all '-')
+R1332_Rhacophoridae_Pseudophilautus_alto: partition 14 (1552–1571, length 20) fully missing (all '-')
+MVZ236697_Rhacophoridae_Chiromantis_doriae: partition 14 (1552–1571, length 20) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 12 (1489–1540, length 52) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 13 (1542–1550, length 9) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 14 (1552–1571, length 20) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 14 (1552–1571, length 20) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 12 (1489–1540, length 52) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 13 (1542–1550, length 9) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 14 (1552–1571, length 20) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 13 (1542–1550, length 9) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 14 (1552–1571, length 20) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 12 (1489–1540, length 52) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 13 (1542–1550, length 9) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 14 (1552–1571, length 20) fully missing (all '-')
+AMNH-A163767_Rhacophoridae_Rhacophorus_hoanglienensis: partition 12 (1489–1540, length 52) fully missing (all '-')
+AMNH-A163767_Rhacophoridae_Rhacophorus_hoanglienensis: partition 13 (1542–1550, length 9) fully missing (all '-')
+AMNH-A163767_Rhacophoridae_Rhacophorus_hoanglienensis: partition 14 (1552–1571, length 20) fully missing (all '-')
+AMNH-A161638_Ceratobatrachidae_Cornufer_guentheri: partition 13 (1542–1550, length 9) fully missing (all '-')
+AMNH-A161638_Ceratobatrachidae_Cornufer_guentheri: partition 14 (1552–1571, length 20) fully missing (all '-')
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 12 (1489–1540, length 52) fully missing (all '-')
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 13 (1542–1550, length 9) fully missing (all '-')
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 14 (1552–1571, length 20) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [183, 348, 435, 733, 753, 773, 856, 917, 981, 1039, 1098, 1488, 1541, 1551]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1572
+No. pound sign columns (#): 14
+Total no. nucleotides (A/C/G/T): 150510 bp
+Total no. gaps (-): 883
+Total no. IUPAC N: 90
+Total no. missing values (?): 3370
+
+--- Run time ---
+Wall-clock time: 0.44346499 seconds
+CPU time: 0.43293800 seconds

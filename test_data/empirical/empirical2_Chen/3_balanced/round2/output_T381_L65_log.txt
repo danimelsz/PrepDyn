@@ -1,0 +1,39 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1768
+Total no. nucleotides (A/C/G/T only): 169633 bp
+Total no. gaps (-): 4909
+Total no. IUPAC N: 258
+
+--- Step 2: Trimming (invariant columns) ---
+[1767]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 3088
+Total '-' characters in fully missing partitions: 935
+Combined total: 4023
+
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–111, length 112) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (113–611, length 499) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 3 (1558–1769, length 212) fully missing (all '-')
+CAS230053_Odontobatrachidae_Odontobatrachus_natator: partition 0 (0–111, length 112) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=2)
+Columns with '#' inserted: [112, 612, 1557]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1770
+No. pound sign columns (#): 3
+Total no. nucleotides (A/C/G/T): 169564 bp
+Total no. gaps (-): 1791
+Total no. IUPAC N: 258
+Total no. missing values (?): 4023
+
+--- Run time ---
+Wall-clock time: 0.59196711 seconds
+CPU time: 0.58352600 seconds

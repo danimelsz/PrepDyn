@@ -1,0 +1,44 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round1/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=1)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 96
+No. columns: 1898
+Total no. nucleotides (A/C/G/T only): 178758 bp
+Total no. gaps (-): 2804
+Total no. IUPAC N: 206
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+KIZYN080280_Rhacophoridae_Rhacophorus_kio: Right block 1894-1898 deleted ('AACA')
+R717_Pyxicephalidae_Pyxicephalus_adspersus: Right block 1894-1898 deleted ('AATA')
+FMNH257910_Rhacophoridae_Rhacophorus_feae: Right block 1894-1898 deleted ('AACA')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 2265
+Total '-' characters in fully missing partitions: 288
+Combined total: 2553
+
+E16_Ranidae_Rana_macrocnemis: partition 1 (1827–1898, length 72) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (1827–1898, length 72) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 1 (1827–1898, length 72) fully missing (all '-')
+MVZ258310_Rhacophoridae_Philautus_abditus: partition 1 (1827–1898, length 72) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=1)
+Columns with '#' inserted: [1826]
+
+--- Summary after preprocessing ---
+No. sequences: 96
+No. columns: 1899
+No. pound sign columns (#): 1
+Total no. nucleotides (A/C/G/T): 178746 bp
+Total no. gaps (-): 551
+Total no. IUPAC N: 206
+Total no. missing values (?): 2553
+
+--- Run time ---
+Wall-clock time: 0.58363008 seconds
+CPU time: 0.56812500 seconds

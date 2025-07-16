@@ -1,0 +1,40 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/5_equal/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 98
+No. columns: 1150
+Total no. nucleotides (A/C/G/T only): 107803 bp
+Total no. gaps (-): 4083
+Total no. IUPAC N: 317
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+FMNH243341_Ranidae_Meristogenys_orphnocnemis: Right block 1148-1150 deleted ('TG')
+ROM30282_Rhacophoridae_Theloderma_sp.: Right block 1030-1034 deleted ('GGCA')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 2565
+Total '-' characters in fully missing partitions: 287
+Combined total: 2852
+
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–286, length 287) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [287, 575, 863]
+
+--- Summary after preprocessing ---
+No. sequences: 98
+No. columns: 1153
+No. pound sign columns (#): 3
+Total no. nucleotides (A/C/G/T): 107797 bp
+Total no. gaps (-): 1524
+Total no. IUPAC N: 317
+Total no. missing values (?): 2852
+
+--- Run time ---
+Wall-clock time: 0.34387422 seconds
+CPU time: 0.33876700 seconds

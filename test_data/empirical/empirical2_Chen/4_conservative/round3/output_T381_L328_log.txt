@@ -1,0 +1,51 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 98
+No. columns: 1150
+Total no. nucleotides (A/C/G/T only): 107803 bp
+Total no. gaps (-): 4083
+Total no. IUPAC N: 317
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+FMNH243341_Ranidae_Meristogenys_orphnocnemis: Right block 1148-1150 deleted ('TG')
+ROM30282_Rhacophoridae_Theloderma_sp.: Right block 1030-1034 deleted ('GGCA')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1868
+Total '-' characters in fully missing partitions: 984
+Combined total: 2852
+
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–75, length 76) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (77–177, length 101) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 2 (179–226, length 48) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 0 (0–75, length 76) fully missing (all '-')
+AMNH-A163747_Rhacophoridae_Rhacophorus_annamensis: partition 0 (0–75, length 76) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 0 (0–75, length 76) fully missing (all '-')
+CAS230905_Rhacophoridae_Chiromantis_nongkhorensis: partition 0 (0–75, length 76) fully missing (all '-')
+CAS230905_Rhacophoridae_Chiromantis_nongkhorensis: partition 1 (77–177, length 101) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 0 (0–75, length 76) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 1 (77–177, length 101) fully missing (all '-')
+ROM30282_Rhacophoridae_Theloderma_sp.: partition 0 (0–75, length 76) fully missing (all '-')
+ROM30282_Rhacophoridae_Theloderma_sp.: partition 1 (77–177, length 101) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [76, 178, 227, 400, 408, 415, 419, 423, 430, 434, 438, 442, 449, 459, 464, 473, 477, 481, 488, 495, 511, 521, 531, 544, 548, 552, 559, 605, 609, 613, 629, 633, 643, 647, 654, 658, 662, 666, 673, 677, 681, 688, 707, 714, 718, 722, 726, 733, 737, 744, 748, 752, 756, 760, 764, 768, 775, 779, 783, 790, 794, 798, 805, 809, 816, 829, 833, 840, 844, 848, 852, 856, 863, 867, 871, 878, 888, 895, 899, 909, 913, 917, 921, 940, 944, 951, 955, 959, 963, 967, 971, 975, 979, 983, 993, 997, 1003, 1008, 1012, 1019, 1023, 1027, 1034, 1038, 1042, 1048, 1053, 1057, 1061, 1065, 1069, 1073, 1080, 1087, 1091, 1101, 1108, 1115, 1125, 1132, 1138]
+
+--- Summary after preprocessing ---
+No. sequences: 98
+No. columns: 1271
+No. pound sign columns (#): 121
+Total no. nucleotides (A/C/G/T): 107797 bp
+Total no. gaps (-): 2221
+Total no. IUPAC N: 317
+Total no. missing values (?): 2852
+
+--- Run time ---
+Wall-clock time: 0.38918185 seconds
+CPU time: 0.38305400 seconds

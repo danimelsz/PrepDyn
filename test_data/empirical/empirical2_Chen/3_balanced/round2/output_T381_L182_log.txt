@@ -1,0 +1,58 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 100
+No. columns: 1371
+Total no. nucleotides (A/C/G/T only): 129511 bp
+Total no. gaps (-): 6758
+Total no. IUPAC N: 369
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+MVZ241442_Rhacophoridae_Buergeria_oxycephalus: Right block 1368-1371 deleted ('TCC')
+FMNH248431_Ranidae_Staurois_guttatus: Right block 1368-1371 deleted ('TCC')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 2074
+Total '-' characters in fully missing partitions: 2904
+Combined total: 4978
+
+ESP808_Microhylidae_Phrynomantis_annectens: partition 7 (1221–1377, length 157) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–154, length 155) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (156–283, length 128) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 2 (285–402, length 118) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 3 (404–544, length 141) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 6 (1098–1219, length 122) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 7 (1221–1377, length 157) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 0 (0–154, length 155) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 1 (156–283, length 128) fully missing (all '-')
+R1267_Rhacophoridae_Raorchestes_ghatei: partition 0 (0–154, length 155) fully missing (all '-')
+R1267_Rhacophoridae_Raorchestes_ghatei: partition 1 (156–283, length 128) fully missing (all '-')
+R1267_Rhacophoridae_Raorchestes_ghatei: partition 2 (285–402, length 118) fully missing (all '-')
+R1267_Rhacophoridae_Raorchestes_ghatei: partition 3 (404–544, length 141) fully missing (all '-')
+R1267_Rhacophoridae_Raorchestes_ghatei: partition 4 (546–935, length 390) fully missing (all '-')
+KIZ016395_Rhacophoridae_Nasutixalus_medogensis: partition 0 (0–154, length 155) fully missing (all '-')
+KIZ016395_Rhacophoridae_Nasutixalus_medogensis: partition 1 (156–283, length 128) fully missing (all '-')
+KIZ016395_Rhacophoridae_Nasutixalus_medogensis: partition 2 (285–402, length 118) fully missing (all '-')
+FMNH250626_Rhacophoridae_Philautus_worcesteri: partition 0 (0–154, length 155) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 0 (0–154, length 155) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=2)
+Columns with '#' inserted: [155, 284, 403, 545, 936, 1097, 1220]
+
+--- Summary after preprocessing ---
+No. sequences: 100
+No. columns: 1378
+No. pound sign columns (#): 7
+Total no. nucleotides (A/C/G/T): 129505 bp
+Total no. gaps (-): 4690
+Total no. IUPAC N: 369
+Total no. missing values (?): 4978
+
+--- Run time ---
+Wall-clock time: 0.54387712 seconds
+CPU time: 0.53077900 seconds

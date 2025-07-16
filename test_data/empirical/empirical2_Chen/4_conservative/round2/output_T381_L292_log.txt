@@ -1,0 +1,50 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 96
+No. columns: 1898
+Total no. nucleotides (A/C/G/T only): 178758 bp
+Total no. gaps (-): 2804
+Total no. IUPAC N: 206
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+KIZYN080280_Rhacophoridae_Rhacophorus_kio: Right block 1894-1898 deleted ('AACA')
+R717_Pyxicephalidae_Pyxicephalus_adspersus: Right block 1894-1898 deleted ('AATA')
+FMNH257910_Rhacophoridae_Rhacophorus_feae: Right block 1894-1898 deleted ('AACA')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1407
+Total '-' characters in fully missing partitions: 1146
+Combined total: 2553
+
+E16_Ranidae_Rana_macrocnemis: partition 8 (1834–1905, length 72) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 4 (1120–1134, length 15) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 5 (1136–1459, length 324) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 6 (1461–1757, length 297) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 7 (1759–1832, length 74) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 8 (1834–1905, length 72) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 7 (1759–1832, length 74) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 8 (1834–1905, length 72) fully missing (all '-')
+MVZ258310_Rhacophoridae_Philautus_abditus: partition 7 (1759–1832, length 74) fully missing (all '-')
+MVZ258310_Rhacophoridae_Philautus_abditus: partition 8 (1834–1905, length 72) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=2)
+Columns with '#' inserted: [132, 541, 569, 1119, 1135, 1460, 1758, 1833]
+
+--- Summary after preprocessing ---
+No. sequences: 96
+No. columns: 1906
+No. pound sign columns (#): 8
+Total no. nucleotides (A/C/G/T): 178746 bp
+Total no. gaps (-): 1409
+Total no. IUPAC N: 206
+Total no. missing values (?): 2553
+
+--- Run time ---
+Wall-clock time: 0.59417796 seconds
+CPU time: 0.58388900 seconds

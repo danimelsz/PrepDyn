@@ -1,0 +1,52 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 97
+No. columns: 1512
+Total no. nucleotides (A/C/G/T only): 142891 bp
+Total no. gaps (-): 3437
+Total no. IUPAC N: 68
+
+--- Step 2: Trimming (invariant columns) ---
+[1511]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1502
+Total '-' characters in fully missing partitions: 1798
+Combined total: 3300
+
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 5 (1318–1441, length 124) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 6 (1443–1516, length 74) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 6 (1443–1516, length 74) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 6 (1443–1516, length 74) fully missing (all '-')
+AMCC192785_Rhacophoridae_Rhacophorus_exechopygus: partition 6 (1443–1516, length 74) fully missing (all '-')
+ESP808_Microhylidae_Phrynomantis_annectens: partition 0 (0–59, length 60) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–59, length 60) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (61–349, length 289) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 2 (351–419, length 69) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 4 (1186–1316, length 131) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 5 (1318–1441, length 124) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 6 (1443–1516, length 74) fully missing (all '-')
+ROM30298_Rhacophoridae_Raorchestes_gryllus: partition 6 (1443–1516, length 74) fully missing (all '-')
+AMNH-A168079_Mantellidae_Boophis_goudotii: partition 6 (1443–1516, length 74) fully missing (all '-')
+MVZ258310_Rhacophoridae_Philautus_abditus: partition 0 (0–59, length 60) fully missing (all '-')
+MVZ258310_Rhacophoridae_Philautus_abditus: partition 1 (61–349, length 289) fully missing (all '-')
+MVZ258310_Rhacophoridae_Philautus_abditus: partition 6 (1443–1516, length 74) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=3)
+Columns with '#' inserted: [60, 350, 420, 1185, 1317, 1442]
+
+--- Summary after preprocessing ---
+No. sequences: 97
+No. columns: 1517
+No. pound sign columns (#): 6
+Total no. nucleotides (A/C/G/T): 142824 bp
+Total no. gaps (-): 1905
+Total no. IUPAC N: 68
+Total no. missing values (?): 3300
+
+--- Run time ---
+Wall-clock time: 0.63066602 seconds
+CPU time: 0.61204300 seconds

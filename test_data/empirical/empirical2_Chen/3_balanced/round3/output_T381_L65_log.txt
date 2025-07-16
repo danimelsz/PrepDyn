@@ -1,0 +1,71 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1768
+Total no. nucleotides (A/C/G/T only): 169633 bp
+Total no. gaps (-): 4909
+Total no. IUPAC N: 258
+
+--- Step 2: Trimming (invariant columns) ---
+[1767]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1358
+Total '-' characters in fully missing partitions: 2665
+Combined total: 4023
+
+AMNH-A163767_Rhacophoridae_Rhacophorus_hoanglienensis: partition 7 (1706–1773, length 68) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 5 (1566–1638, length 73) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 6 (1640–1704, length 65) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 7 (1706–1773, length 68) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 7 (1706–1773, length 68) fully missing (all '-')
+R1428_Ranixalidae_Indirana_sp.: partition 0 (0–60, length 61) fully missing (all '-')
+KIZ014016_Ranidae_Amolops_chayuensis: partition 0 (0–60, length 61) fully missing (all '-')
+AACRG0025_Pyxicephalidae_Natalobatrachus_bonebergi: partition 0 (0–60, length 61) fully missing (all '-')
+KIZYP07060251_Ranidae_Rana_asiatica: partition 0 (0–60, length 61) fully missing (all '-')
+AMNH-A163973_Ranidae_Hylarana_taipehensis: partition 0 (0–60, length 61) fully missing (all '-')
+ID7602_Nyctibatrachidae_Nyctibatrachus_humayuni: partition 0 (0–60, length 61) fully missing (all '-')
+KIZ9135_Rhacophoridae_Rhacophorus_dorsoviridis: partition 7 (1706–1773, length 68) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–60, length 61) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (62–112, length 51) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 2 (114–612, length 499) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 4 (1559–1564, length 6) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 5 (1566–1638, length 73) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 6 (1640–1704, length 65) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 7 (1706–1773, length 68) fully missing (all '-')
+CAS212740_Ranidae_Lithobates_catesbeianus: partition 0 (0–60, length 61) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 6 (1640–1704, length 65) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 7 (1706–1773, length 68) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 0 (0–60, length 61) fully missing (all '-')
+CAS223402_Ranidae_Lithobates_pipiens: partition 0 (0–60, length 61) fully missing (all '-')
+MVZ239400_Dicroglossidae_Fejervarya_cancrivora: partition 0 (0–60, length 61) fully missing (all '-')
+AMNH-A158394_Ptychadenidae_Ptychadena_cooperi: partition 0 (0–60, length 61) fully missing (all '-')
+MVZ258265_Ranidae_Odorrana_banaorum: partition 0 (0–60, length 61) fully missing (all '-')
+FMNH267837_Rhacophoridae_Rhacophorus_cyanopunctatus: partition 7 (1706–1773, length 68) fully missing (all '-')
+KIZYPX23229_Ranidae_Rana_temporaria: partition 0 (0–60, length 61) fully missing (all '-')
+CAS234711_Ranidae_Sylvirana_khare: partition 0 (0–60, length 61) fully missing (all '-')
+CAS230053_Odontobatrachidae_Odontobatrachus_natator: partition 0 (0–60, length 61) fully missing (all '-')
+CAS230053_Odontobatrachidae_Odontobatrachus_natator: partition 1 (62–112, length 51) fully missing (all '-')
+ESP90_Pyxicephalidae_Cacosternum_nanum: partition 0 (0–60, length 61) fully missing (all '-')
+AMNH-A168079_Mantellidae_Boophis_goudotii: partition 7 (1706–1773, length 68) fully missing (all '-')
+KIZ029453_Rhacophoridae_Theloderma_moloch: partition 7 (1706–1773, length 68) fully missing (all '-')
+MVZ258310_Rhacophoridae_Philautus_abditus: partition 7 (1706–1773, length 68) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=3)
+Columns with '#' inserted: [61, 113, 613, 1558, 1565, 1639, 1705]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1774
+No. pound sign columns (#): 7
+Total no. nucleotides (A/C/G/T): 169564 bp
+Total no. gaps (-): 3521
+Total no. IUPAC N: 258
+Total no. missing values (?): 4023
+
+--- Run time ---
+Wall-clock time: 0.77686310 seconds
+CPU time: 0.71556800 seconds

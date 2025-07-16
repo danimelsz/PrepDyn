@@ -1,0 +1,40 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/5_equal/round1/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=1)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 98
+No. columns: 1089
+Total no. nucleotides (A/C/G/T only): 99428 bp
+Total no. gaps (-): 6776
+Total no. IUPAC N: 190
+
+--- Step 2: Trimming (invariant columns) ---
+[1088]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 3139
+Total '-' characters in fully missing partitions: 2720
+Combined total: 5859
+
+AMNH-A167908_Mantellidae_Spinomantis_fimbriatus: partition 1 (545–1088, length 544) fully missing (all '-')
+FMNH266259_Ceratobatrachidae_Platymantis_corrugatus: partition 0 (0–543, length 544) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 1 (545–1088, length 544) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 1 (545–1088, length 544) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (545–1088, length 544) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [544]
+
+--- Summary after preprocessing ---
+No. sequences: 98
+No. columns: 1089
+No. pound sign columns (#): 1
+Total no. nucleotides (A/C/G/T): 99356 bp
+Total no. gaps (-): 3611
+Total no. IUPAC N: 190
+Total no. missing values (?): 5859
+
+--- Run time ---
+Wall-clock time: 0.49884534 seconds
+CPU time: 0.40206900 seconds

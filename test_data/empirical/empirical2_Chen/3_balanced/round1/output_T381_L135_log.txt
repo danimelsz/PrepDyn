@@ -1,0 +1,48 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round1/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=1)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 97
+No. columns: 1037
+Total no. nucleotides (A/C/G/T only): 97237 bp
+Total no. gaps (-): 2925
+Total no. IUPAC N: 191
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1473
+Total '-' characters in fully missing partitions: 1274
+Combined total: 2747
+
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 4 (983–1040, length 58) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 0 (0–65, length 66) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 1 (67–380, length 314) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 3 (676–981, length 306) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 4 (983–1040, length 58) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 4 (983–1040, length 58) fully missing (all '-')
+AMNH-A163767_Rhacophoridae_Rhacophorus_hoanglienensis: partition 4 (983–1040, length 58) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 4 (983–1040, length 58) fully missing (all '-')
+KIZ029453_Rhacophoridae_Theloderma_moloch: partition 4 (983–1040, length 58) fully missing (all '-')
+ROM30282_Rhacophoridae_Theloderma_sp.: partition 4 (983–1040, length 58) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 0 (0–65, length 66) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 4 (983–1040, length 58) fully missing (all '-')
+MVZ236697_Rhacophoridae_Chiromantis_doriae: partition 4 (983–1040, length 58) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=1)
+Columns with '#' inserted: [66, 381, 675, 982]
+
+--- Summary after preprocessing ---
+No. sequences: 97
+No. columns: 1041
+No. pound sign columns (#): 4
+Total no. nucleotides (A/C/G/T): 97237 bp
+Total no. gaps (-): 1452
+Total no. IUPAC N: 191
+Total no. missing values (?): 2747
+
+--- Run time ---
+Wall-clock time: 0.37027502 seconds
+CPU time: 0.35837700 seconds

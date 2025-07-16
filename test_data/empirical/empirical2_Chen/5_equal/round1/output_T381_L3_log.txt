@@ -1,0 +1,37 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/5_equal/round1/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=1)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1765
+Total no. nucleotides (A/C/G/T only): 168241 bp
+Total no. gaps (-): 5592
+Total no. IUPAC N: 504
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 2, 3]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 2973
+Total '-' characters in fully missing partitions: 1762
+Combined total: 4735
+
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (881–1761, length 881) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 1 (881–1761, length 881) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [880]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1762
+No. pound sign columns (#): 1
+Total no. nucleotides (A/C/G/T): 167961 bp
+Total no. gaps (-): 2503
+Total no. IUPAC N: 504
+Total no. missing values (?): 4735
+
+--- Run time ---
+Wall-clock time: 0.46055198 seconds
+CPU time: 0.45432700 seconds

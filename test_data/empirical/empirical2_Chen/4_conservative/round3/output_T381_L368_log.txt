@@ -1,0 +1,49 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1616
+Total no. nucleotides (A/C/G/T only): 155543 bp
+Total no. gaps (-): 4060
+Total no. IUPAC N: 159
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 2236
+Total '-' characters in fully missing partitions: 1205
+Combined total: 3441
+
+MVZ236697_Rhacophoridae_Chiromantis_doriae: partition 0 (0–107, length 108) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–107, length 108) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (109–141, length 33) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 2 (143–223, length 81) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 4 (853–951, length 99) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 5 (953–1060, length 108) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 6 (1062–1311, length 250) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 7 (1313–1373, length 61) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 8 (1375–1405, length 31) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 9 (1407–1460, length 54) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 10 (1462–1548, length 87) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 11 (1550–1562, length 13) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 12 (1564–1627, length 64) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 0 (0–107, length 108) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [108, 142, 224, 852, 952, 1061, 1312, 1374, 1406, 1461, 1549, 1563]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1628
+No. pound sign columns (#): 12
+Total no. nucleotides (A/C/G/T): 155543 bp
+Total no. gaps (-): 1824
+Total no. IUPAC N: 159
+Total no. missing values (?): 3441
+
+--- Run time ---
+Wall-clock time: 0.44126201 seconds
+CPU time: 0.43428300 seconds

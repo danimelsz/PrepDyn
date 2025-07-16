@@ -1,0 +1,61 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round1/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=1)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 98
+No. columns: 1224
+Total no. nucleotides (A/C/G/T only): 109582 bp
+Total no. gaps (-): 9608
+Total no. IUPAC N: 489
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+KIZ10652_Rhacophoridae_Theloderma_vietnamense: Left block 0-4 deleted ('TTTT')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 4774
+Total '-' characters in fully missing partitions: 3930
+Combined total: 8704
+
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 2 (610–1155, length 546) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 3 (1157–1226, length 70) fully missing (all '-')
+ROM30282_Rhacophoridae_Theloderma_sp.: partition 3 (1157–1226, length 70) fully missing (all '-')
+MVZ236697_Rhacophoridae_Chiromantis_doriae: partition 3 (1157–1226, length 70) fully missing (all '-')
+KIZ11104_Ceratobatrachidae_Luirana_xizangensis: partition 3 (1157–1226, length 70) fully missing (all '-')
+R1283_Rhacophoridae_Pseudophilautus_sp.: partition 0 (0–55, length 56) fully missing (all '-')
+R1283_Rhacophoridae_Pseudophilautus_sp.: partition 1 (57–608, length 552) fully missing (all '-')
+AMNH-A168079_Mantellidae_Boophis_goudotii: partition 3 (1157–1226, length 70) fully missing (all '-')
+R1428_Ranixalidae_Indirana_sp.: partition 3 (1157–1226, length 70) fully missing (all '-')
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 0 (0–55, length 56) fully missing (all '-')
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 1 (57–608, length 552) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 3 (1157–1226, length 70) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 0 (0–55, length 56) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 1 (57–608, length 552) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 0 (0–55, length 56) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 3 (1157–1226, length 70) fully missing (all '-')
+AMNH-A167908_Mantellidae_Spinomantis_fimbriatus: partition 3 (1157–1226, length 70) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 3 (1157–1226, length 70) fully missing (all '-')
+R1422_Rhacophoridae_Raorchestes_sp.: partition 3 (1157–1226, length 70) fully missing (all '-')
+AMNH-A158394_Ptychadenidae_Ptychadena_cooperi: partition 0 (0–55, length 56) fully missing (all '-')
+AMNH-A163896_Rhacophoridae_Gracixalus_gracilipes: partition 3 (1157–1226, length 70) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 0 (0–55, length 56) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 1 (57–608, length 552) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=1)
+Columns with '#' inserted: [56, 609, 1156]
+
+--- Summary after preprocessing ---
+No. sequences: 98
+No. columns: 1227
+No. pound sign columns (#): 3
+Total no. nucleotides (A/C/G/T): 109578 bp
+Total no. gaps (-): 4838
+Total no. IUPAC N: 489
+Total no. missing values (?): 8704
+
+--- Run time ---
+Wall-clock time: 0.46262789 seconds
+CPU time: 0.45678800 seconds

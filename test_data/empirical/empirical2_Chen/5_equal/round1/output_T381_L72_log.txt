@@ -1,0 +1,45 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/5_equal/round1/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=1)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 90
+No. columns: 1103
+Total no. nucleotides (A/C/G/T only): 85413 bp
+Total no. gaps (-): 13581
+Total no. IUPAC N: 139
+
+--- Step 2: Trimming (invariant columns) ---
+[1102]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 7699
+Total '-' characters in fully missing partitions: 5510
+Combined total: 13209
+
+FMNH248431_Ranidae_Staurois_guttatus: partition 0 (0–550, length 551) fully missing (all '-')
+ROM26861_Ranidae_Pelophylax_ridibunda: partition 0 (0–550, length 551) fully missing (all '-')
+MVZ225131_Rhacophoridae_Theloderma_corticale: partition 1 (552–1102, length 551) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 1 (552–1102, length 551) fully missing (all '-')
+ROM30263_Rhacophoridae_Theloderma_gordoni: partition 1 (552–1102, length 551) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (552–1102, length 551) fully missing (all '-')
+ID7602_Nyctibatrachidae_Nyctibatrachus_humayuni: partition 0 (0–550, length 551) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 0 (0–550, length 551) fully missing (all '-')
+AMNH-A163747_Rhacophoridae_Rhacophorus_annamensis: partition 1 (552–1102, length 551) fully missing (all '-')
+FMNH230905_Rhacophoridae_Rhacophorus_nigropalmatus: partition 1 (552–1102, length 551) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [551]
+
+--- Summary after preprocessing ---
+No. sequences: 90
+No. columns: 1103
+No. pound sign columns (#): 1
+Total no. nucleotides (A/C/G/T): 85349 bp
+Total no. gaps (-): 5856
+Total no. IUPAC N: 139
+Total no. missing values (?): 13209
+
+--- Run time ---
+Wall-clock time: 0.26526809 seconds
+CPU time: 0.26220800 seconds

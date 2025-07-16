@@ -1,0 +1,39 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 98
+No. columns: 1471
+Total no. nucleotides (A/C/G/T only): 140960 bp
+Total no. gaps (-): 2439
+Total no. IUPAC N: 321
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+FMNH243341_Ranidae_Meristogenys_orphnocnemis: Right block 1467-1471 deleted ('CAAT')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1963
+Total '-' characters in fully missing partitions: 0
+Combined total: 1963
+
+
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=2)
+Columns with '#' inserted: [556, 572, 615, 661, 904]
+
+--- Summary after preprocessing ---
+No. sequences: 98
+No. columns: 1476
+No. pound sign columns (#): 5
+Total no. nucleotides (A/C/G/T): 140956 bp
+Total no. gaps (-): 480
+Total no. IUPAC N: 321
+Total no. missing values (?): 1963
+
+--- Run time ---
+Wall-clock time: 0.44461107 seconds
+CPU time: 0.43862200 seconds

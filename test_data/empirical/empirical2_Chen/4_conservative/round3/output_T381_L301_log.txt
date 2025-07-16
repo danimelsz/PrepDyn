@@ -1,0 +1,48 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 98
+No. columns: 812
+Total no. nucleotides (A/C/G/T only): 77370 bp
+Total no. gaps (-): 1941
+Total no. IUPAC N: 26
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+R1263_Rhacophoridae_Raorchestes_signatus: Right block 779-781 deleted ('AC')
+KIZ010760_Rhacophoridae_Liuixalus_sp.: Right block 765-769 deleted ('ACTA')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1145
+Total '-' characters in fully missing partitions: 207
+Combined total: 1352
+
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 9 (725–733, length 9) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 10 (735–821, length 87) fully missing (all '-')
+AMNH-A158394_Ptychadenidae_Ptychadena_cooperi: partition 0 (0–2, length 3) fully missing (all '-')
+MVZ239400_Dicroglossidae_Fejervarya_cancrivora: partition 0 (0–2, length 3) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 9 (725–733, length 9) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 10 (735–821, length 87) fully missing (all '-')
+KIZ010760_Rhacophoridae_Liuixalus_sp.: partition 0 (0–2, length 3) fully missing (all '-')
+ESP808_Microhylidae_Phrynomantis_annectens: partition 0 (0–2, length 3) fully missing (all '-')
+AMNH-A501225_Mantellidae_Tsingymantis_antitra: partition 0 (0–2, length 3) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [3, 75, 131, 279, 321, 331, 432, 454, 724, 734]
+
+--- Summary after preprocessing ---
+No. sequences: 98
+No. columns: 822
+No. pound sign columns (#): 10
+Total no. nucleotides (A/C/G/T): 77364 bp
+Total no. gaps (-): 802
+Total no. IUPAC N: 26
+Total no. missing values (?): 1352
+
+--- Run time ---
+Wall-clock time: 0.25089622 seconds
+CPU time: 0.24643700 seconds

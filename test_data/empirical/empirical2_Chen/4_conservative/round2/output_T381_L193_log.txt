@@ -1,0 +1,53 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 87
+No. columns: 1096
+Total no. nucleotides (A/C/G/T only): 91872 bp
+Total no. gaps (-): 2965
+Total no. IUPAC N: 215
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+KIZ9387_Rhacophoridae_Feihyla_hansenae: Left block 0-4 deleted ('ATAA')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1072
+Total '-' characters in fully missing partitions: 1406
+Combined total: 2478
+
+E16_Ranidae_Rana_macrocnemis: partition 7 (830–891, length 62) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 8 (893–1001, length 109) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 9 (1003–1104, length 102) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 0 (0–51, length 52) fully missing (all '-')
+AMCC192785_Rhacophoridae_Rhacophorus_exechopygus: partition 0 (0–51, length 52) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 8 (893–1001, length 109) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 9 (1003–1104, length 102) fully missing (all '-')
+AMNH-A167908_Mantellidae_Spinomantis_fimbriatus: partition 0 (0–51, length 52) fully missing (all '-')
+AMNH-A167908_Mantellidae_Spinomantis_fimbriatus: partition 1 (53–229, length 177) fully missing (all '-')
+AMNH-A167908_Mantellidae_Spinomantis_fimbriatus: partition 2 (231–242, length 12) fully missing (all '-')
+AMNH-A167908_Mantellidae_Spinomantis_fimbriatus: partition 3 (244–372, length 129) fully missing (all '-')
+AMNH-A167908_Mantellidae_Spinomantis_fimbriatus: partition 4 (374–457, length 84) fully missing (all '-')
+AMNH-A167908_Mantellidae_Spinomantis_fimbriatus: partition 5 (459–668, length 210) fully missing (all '-')
+KIZ11104_Ceratobatrachidae_Luirana_xizangensis: partition 9 (1003–1104, length 102) fully missing (all '-')
+FMNH263189_Dicroglossidae_Limnonectes_kohchangae: partition 0 (0–51, length 52) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=2)
+Columns with '#' inserted: [52, 230, 243, 373, 458, 669, 829, 892, 1002]
+
+--- Summary after preprocessing ---
+No. sequences: 87
+No. columns: 1105
+No. pound sign columns (#): 9
+Total no. nucleotides (A/C/G/T): 91868 bp
+Total no. gaps (-): 1897
+Total no. IUPAC N: 215
+Total no. missing values (?): 2478
+
+--- Run time ---
+Wall-clock time: 0.32652402 seconds
+CPU time: 0.32121600 seconds

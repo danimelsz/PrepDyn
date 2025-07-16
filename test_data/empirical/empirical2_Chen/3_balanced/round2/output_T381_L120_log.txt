@@ -1,0 +1,48 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 100
+No. columns: 1209
+Total no. nucleotides (A/C/G/T only): 118627 bp
+Total no. gaps (-): 2022
+Total no. IUPAC N: 9
+
+--- Step 2: Trimming (invariant columns) ---
+[1208]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+AMCC144966_Rhacophoridae_Gracixalus_supercornutus: Right block 1208-1209 deleted ('T')
+AMCC192785_Rhacophoridae_Rhacophorus_exechopygus: Left block 0-3 deleted ('CTA')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 961
+Total '-' characters in fully missing partitions: 570
+Combined total: 1531
+
+ESP90_Pyxicephalidae_Cacosternum_nanum: partition 4 (1160–1211, length 52) fully missing (all '-')
+CAS230905_Rhacophoridae_Chiromantis_nongkhorensis: partition 4 (1160–1211, length 52) fully missing (all '-')
+KIZ016395_Rhacophoridae_Nasutixalus_medogensis: partition 0 (0–49, length 50) fully missing (all '-')
+KIZ016395_Rhacophoridae_Nasutixalus_medogensis: partition 1 (51–126, length 76) fully missing (all '-')
+MVZ236697_Rhacophoridae_Chiromantis_doriae: partition 4 (1160–1211, length 52) fully missing (all '-')
+ESP808_Microhylidae_Phrynomantis_annectens: partition 0 (0–49, length 50) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–49, length 50) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (51–126, length 76) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 2 (128–239, length 112) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=2)
+Columns with '#' inserted: [50, 127, 240, 1159]
+
+--- Summary after preprocessing ---
+No. sequences: 100
+No. columns: 1212
+No. pound sign columns (#): 4
+Total no. nucleotides (A/C/G/T): 118558 bp
+Total no. gaps (-): 1030
+Total no. IUPAC N: 9
+Total no. missing values (?): 1531
+
+--- Run time ---
+Wall-clock time: 0.56243610 seconds
+CPU time: 0.55259100 seconds

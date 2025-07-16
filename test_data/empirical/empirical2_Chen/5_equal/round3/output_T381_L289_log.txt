@@ -1,0 +1,46 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/5_equal/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1385
+Total no. nucleotides (A/C/G/T only): 130467 bp
+Total no. gaps (-): 5692
+Total no. IUPAC N: 442
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+ESP808_Microhylidae_Phrynomantis_annectens: Left block 19-24 deleted ('TTACC')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1558
+Total '-' characters in fully missing partitions: 2769
+Combined total: 4327
+
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–345, length 346) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (347–692, length 346) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 0 (0–345, length 346) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 1 (347–692, length 346) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 0 (0–345, length 346) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 1 (347–692, length 346) fully missing (all '-')
+R1267_Rhacophoridae_Raorchestes_ghatei: partition 2 (694–1039, length 346) fully missing (all '-')
+R1267_Rhacophoridae_Raorchestes_ghatei: partition 3 (1041–1387, length 347) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [346, 693, 1040]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1388
+No. pound sign columns (#): 3
+Total no. nucleotides (A/C/G/T): 130462 bp
+Total no. gaps (-): 4139
+Total no. IUPAC N: 442
+Total no. missing values (?): 4327
+
+--- Run time ---
+Wall-clock time: 0.42852402 seconds
+CPU time: 0.42141900 seconds

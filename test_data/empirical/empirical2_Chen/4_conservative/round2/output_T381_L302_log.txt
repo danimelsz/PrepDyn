@@ -1,0 +1,37 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 93
+No. columns: 990
+Total no. nucleotides (A/C/G/T only): 88630 bp
+Total no. gaps (-): 2789
+Total no. IUPAC N: 384
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1874
+Total '-' characters in fully missing partitions: 366
+Combined total: 2240
+
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 1 (625–702, length 78) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 2 (704–991, length 288) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=2)
+Columns with '#' inserted: [624, 703]
+
+--- Summary after preprocessing ---
+No. sequences: 93
+No. columns: 992
+No. pound sign columns (#): 2
+Total no. nucleotides (A/C/G/T): 88630 bp
+Total no. gaps (-): 915
+Total no. IUPAC N: 384
+Total no. missing values (?): 2240
+
+--- Run time ---
+Wall-clock time: 0.25237703 seconds
+CPU time: 0.24839600 seconds

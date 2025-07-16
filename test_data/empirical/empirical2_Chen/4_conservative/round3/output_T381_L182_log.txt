@@ -1,0 +1,47 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 100
+No. columns: 1371
+Total no. nucleotides (A/C/G/T only): 129511 bp
+Total no. gaps (-): 6758
+Total no. IUPAC N: 369
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+MVZ241442_Rhacophoridae_Buergeria_oxycephalus: Right block 1368-1371 deleted ('TCC')
+FMNH248431_Ranidae_Staurois_guttatus: Right block 1368-1371 deleted ('TCC')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 3407
+Total '-' characters in fully missing partitions: 1571
+Combined total: 4978
+
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–149, length 150) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 4 (1182–1374, length 193) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 0 (0–149, length 150) fully missing (all '-')
+R1267_Rhacophoridae_Raorchestes_ghatei: partition 0 (0–149, length 150) fully missing (all '-')
+R1267_Rhacophoridae_Raorchestes_ghatei: partition 1 (151–628, length 478) fully missing (all '-')
+KIZ016395_Rhacophoridae_Nasutixalus_medogensis: partition 0 (0–149, length 150) fully missing (all '-')
+FMNH250626_Rhacophoridae_Philautus_worcesteri: partition 0 (0–149, length 150) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 0 (0–149, length 150) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [150, 629, 1025, 1181]
+
+--- Summary after preprocessing ---
+No. sequences: 100
+No. columns: 1375
+No. pound sign columns (#): 4
+Total no. nucleotides (A/C/G/T): 129505 bp
+Total no. gaps (-): 3357
+Total no. IUPAC N: 369
+Total no. missing values (?): 4978
+
+--- Run time ---
+Wall-clock time: 0.44101906 seconds
+CPU time: 0.43279600 seconds

@@ -1,0 +1,36 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/5_equal/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1751
+Total no. nucleotides (A/C/G/T only): 169878 bp
+Total no. gaps (-): 3107
+Total no. IUPAC N: 78
+
+--- Step 2: Trimming (invariant columns) ---
+[1750]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 2371
+Total '-' characters in fully missing partitions: 439
+Combined total: 2810
+
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 3 (1314–1752, length 439) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [437, 875, 1313]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1753
+No. pound sign columns (#): 3
+Total no. nucleotides (A/C/G/T): 169814 bp
+Total no. gaps (-): 701
+Total no. IUPAC N: 78
+Total no. missing values (?): 2810
+
+--- Run time ---
+Wall-clock time: 0.47066712 seconds
+CPU time: 0.46347800 seconds

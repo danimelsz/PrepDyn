@@ -1,0 +1,39 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round1/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=1)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 98
+No. columns: 1673
+Total no. nucleotides (A/C/G/T only): 145894 bp
+Total no. gaps (-): 17903
+Total no. IUPAC N: 19
+
+--- Step 2: Trimming (invariant columns) ---
+[1671, 1672]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 15845
+Total '-' characters in fully missing partitions: 1860
+Combined total: 17705
+
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 1 (1207–1671, length 465) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 1 (1207–1671, length 465) fully missing (all '-')
+R1267_Rhacophoridae_Raorchestes_ghatei: partition 1 (1207–1671, length 465) fully missing (all '-')
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 1 (1207–1671, length 465) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=1)
+Columns with '#' inserted: [1206]
+
+--- Summary after preprocessing ---
+No. sequences: 98
+No. columns: 1672
+No. pound sign columns (#): 1
+Total no. nucleotides (A/C/G/T): 145752 bp
+Total no. gaps (-): 2004
+Total no. IUPAC N: 19
+Total no. missing values (?): 17705
+
+--- Run time ---
+Wall-clock time: 0.45579386 seconds
+CPU time: 0.44531000 seconds

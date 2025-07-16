@@ -1,0 +1,37 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round1/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=1)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1752
+Total no. nucleotides (A/C/G/T only): 168863 bp
+Total no. gaps (-): 4180
+Total no. IUPAC N: 145
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 3214
+Total '-' characters in fully missing partitions: 762
+Combined total: 3976
+
+AMNH-A168079_Mantellidae_Boophis_goudotii: partition 0 (0–181, length 182) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 2 (1174–1753, length 580) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=1)
+Columns with '#' inserted: [182, 1173]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1754
+No. pound sign columns (#): 2
+Total no. nucleotides (A/C/G/T): 168863 bp
+Total no. gaps (-): 966
+Total no. IUPAC N: 145
+Total no. missing values (?): 3976
+
+--- Run time ---
+Wall-clock time: 0.60766697 seconds
+CPU time: 0.59563900 seconds

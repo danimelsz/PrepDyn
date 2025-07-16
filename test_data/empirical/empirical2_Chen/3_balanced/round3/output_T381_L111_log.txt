@@ -1,0 +1,46 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 98
+No. columns: 1151
+Total no. nucleotides (A/C/G/T only): 109589 bp
+Total no. gaps (-): 2279
+Total no. IUPAC N: 300
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 336
+Total '-' characters in fully missing partitions: 1487
+Combined total: 1823
+
+FMNH250626_Rhacophoridae_Philautus_worcesteri: partition 0 (0–34, length 35) fully missing (all '-')
+FMNH250626_Rhacophoridae_Philautus_worcesteri: partition 1 (36–259, length 224) fully missing (all '-')
+FMNH250626_Rhacophoridae_Philautus_worcesteri: partition 2 (261–467, length 207) fully missing (all '-')
+FMNH250626_Rhacophoridae_Philautus_worcesteri: partition 3 (469–548, length 80) fully missing (all '-')
+CAS224676_Rhacophoridae_Rhacophorus_rhodopus: partition 0 (0–34, length 35) fully missing (all '-')
+MVZ239460_Rhacophoridae_Nyctixalus_pictus: partition 0 (0–34, length 35) fully missing (all '-')
+MVZ239460_Rhacophoridae_Nyctixalus_pictus: partition 1 (36–259, length 224) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–34, length 35) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (36–259, length 224) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 2 (261–467, length 207) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 5 (975–1155, length 181) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=3)
+Columns with '#' inserted: [35, 260, 468, 549, 974]
+
+--- Summary after preprocessing ---
+No. sequences: 98
+No. columns: 1156
+No. pound sign columns (#): 5
+Total no. nucleotides (A/C/G/T): 109589 bp
+Total no. gaps (-): 1943
+Total no. IUPAC N: 300
+Total no. missing values (?): 1823
+
+--- Run time ---
+Wall-clock time: 0.42031789 seconds
+CPU time: 0.41672600 seconds

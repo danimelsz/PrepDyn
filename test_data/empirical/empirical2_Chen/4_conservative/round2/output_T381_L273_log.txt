@@ -1,0 +1,55 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 959
+Total no. nucleotides (A/C/G/T only): 90688 bp
+Total no. gaps (-): 3791
+Total no. IUPAC N: 202
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 2390
+Total '-' characters in fully missing partitions: 961
+Combined total: 3351
+
+ROM30282_Rhacophoridae_Theloderma_sp.: partition 0 (0–42, length 43) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 0 (0–42, length 43) fully missing (all '-')
+FMNH267837_Rhacophoridae_Rhacophorus_cyanopunctatus: partition 0 (0–42, length 43) fully missing (all '-')
+MVZ236697_Rhacophoridae_Chiromantis_doriae: partition 0 (0–42, length 43) fully missing (all '-')
+MVZ236697_Rhacophoridae_Chiromantis_doriae: partition 1 (44–187, length 144) fully missing (all '-')
+AMNH-A191915_Rhacophoridae_Theloderma_truongsonensis: partition 0 (0–42, length 43) fully missing (all '-')
+ESP1091_Rhacophoridae_Chiromantis_xerampelina: partition 0 (0–42, length 43) fully missing (all '-')
+MVZ258310_Rhacophoridae_Philautus_abditus: partition 0 (0–42, length 43) fully missing (all '-')
+FMNH243341_Ranidae_Meristogenys_orphnocnemis: partition 0 (0–42, length 43) fully missing (all '-')
+FMNH259524_Rhacophoridae_Rhacophorus_pardalis: partition 0 (0–42, length 43) fully missing (all '-')
+ROM30263_Rhacophoridae_Theloderma_gordoni: partition 0 (0–42, length 43) fully missing (all '-')
+KIZ9387_Rhacophoridae_Feihyla_hansenae: partition 0 (0–42, length 43) fully missing (all '-')
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 0 (0–42, length 43) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 0 (0–42, length 43) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 0 (0–42, length 43) fully missing (all '-')
+CAS212740_Ranidae_Lithobates_catesbeianus: partition 0 (0–42, length 43) fully missing (all '-')
+FMNH230905_Rhacophoridae_Rhacophorus_nigropalmatus: partition 0 (0–42, length 43) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 0 (0–42, length 43) fully missing (all '-')
+CAS223402_Ranidae_Lithobates_pipiens: partition 0 (0–42, length 43) fully missing (all '-')
+ESP808_Microhylidae_Phrynomantis_annectens: partition 0 (0–42, length 43) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=2)
+Columns with '#' inserted: [43, 188]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 961
+No. pound sign columns (#): 2
+Total no. nucleotides (A/C/G/T): 90688 bp
+Total no. gaps (-): 1401
+Total no. IUPAC N: 202
+Total no. missing values (?): 3351
+
+--- Run time ---
+Wall-clock time: 0.29115200 seconds
+CPU time: 0.28021500 seconds

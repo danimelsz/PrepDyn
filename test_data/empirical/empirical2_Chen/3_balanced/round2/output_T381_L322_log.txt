@@ -1,0 +1,48 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 97
+No. columns: 1142
+Total no. nucleotides (A/C/G/T only): 105318 bp
+Total no. gaps (-): 3937
+Total no. IUPAC N: 1200
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+KIZ11104_Ceratobatrachidae_Luirana_xizangensis: Left block 0-4 deleted ('CTTA')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1282
+Total '-' characters in fully missing partitions: 2154
+Combined total: 3436
+
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 0 (0–72, length 73) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 1 (74–643, length 570) fully missing (all '-')
+ESP808_Microhylidae_Phrynomantis_annectens: partition 0 (0–72, length 73) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 4 (984–1145, length 162) fully missing (all '-')
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 0 (0–72, length 73) fully missing (all '-')
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 1 (74–643, length 570) fully missing (all '-')
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 2 (645–778, length 134) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 2 (645–778, length 134) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 3 (780–982, length 203) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 4 (984–1145, length 162) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=2)
+Columns with '#' inserted: [73, 644, 779, 983]
+
+--- Summary after preprocessing ---
+No. sequences: 97
+No. columns: 1146
+No. pound sign columns (#): 4
+Total no. nucleotides (A/C/G/T): 105314 bp
+Total no. gaps (-): 2659
+Total no. IUPAC N: 1200
+Total no. missing values (?): 3436
+
+--- Run time ---
+Wall-clock time: 0.58314967 seconds
+CPU time: 0.57627900 seconds

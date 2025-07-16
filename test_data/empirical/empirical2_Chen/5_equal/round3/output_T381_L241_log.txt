@@ -1,0 +1,45 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/5_equal/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1736
+Total no. nucleotides (A/C/G/T only): 164192 bp
+Total no. gaps (-): 6421
+Total no. IUPAC N: 686
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+AACRG0025_Pyxicephalidae_Natalobatrachus_bonebergi: Right block 1733-1736 deleted ('GGC')
+R717_Pyxicephalidae_Pyxicephalus_adspersus: Right block 1733-1736 deleted ('GGC')
+ROM30298_Rhacophoridae_Raorchestes_gryllus: Right block 1720-1723 deleted ('GTT')
+AMNH-A168079_Mantellidae_Boophis_goudotii: Right block 1733-1736 deleted ('GGC')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 4265
+Total '-' characters in fully missing partitions: 1736
+Combined total: 6001
+
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 2 (870–1303, length 434) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 3 (1305–1738, length 434) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 0 (0–433, length 434) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 1 (435–868, length 434) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [434, 869, 1304]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1739
+No. pound sign columns (#): 3
+Total no. nucleotides (A/C/G/T): 164180 bp
+Total no. gaps (-): 2168
+Total no. IUPAC N: 686
+Total no. missing values (?): 6001
+
+--- Run time ---
+Wall-clock time: 0.52896023 seconds
+CPU time: 0.52024500 seconds

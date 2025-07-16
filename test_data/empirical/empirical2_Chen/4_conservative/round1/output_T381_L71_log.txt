@@ -1,0 +1,61 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round1/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=1)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1629
+Total no. nucleotides (A/C/G/T only): 148867 bp
+Total no. gaps (-): 12221
+Total no. IUPAC N: 67
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 5944
+Total '-' characters in fully missing partitions: 6268
+Combined total: 12212
+
+AMNH-A167908_Mantellidae_Spinomantis_fimbriatus: partition 0 (0–1015, length 1016) fully missing (all '-')
+ROM30263_Rhacophoridae_Theloderma_gordoni: partition 2 (1491–1630, length 140) fully missing (all '-')
+KIZ9387_Rhacophoridae_Feihyla_hansenae: partition 0 (0–1015, length 1016) fully missing (all '-')
+KIZ5287_Rhacophoridae_Gracixalus_jinxiuensis: partition 2 (1491–1630, length 140) fully missing (all '-')
+FMNH266259_Ceratobatrachidae_Platymantis_corrugatus: partition 2 (1491–1630, length 140) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 2 (1491–1630, length 140) fully missing (all '-')
+AMNH-A163767_Rhacophoridae_Rhacophorus_hoanglienensis: partition 2 (1491–1630, length 140) fully missing (all '-')
+R1266_Rhacophoridae_Pseudophilautus_kani: partition 2 (1491–1630, length 140) fully missing (all '-')
+R1284_Rhacophoridae_Pseudophilautus_microtympanum: partition 2 (1491–1630, length 140) fully missing (all '-')
+AMNH-A161638_Ceratobatrachidae_Cornufer_guentheri: partition 2 (1491–1630, length 140) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 2 (1491–1630, length 140) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 2 (1491–1630, length 140) fully missing (all '-')
+KIZYN0705184_Rhacophoridae_Rhacophorus_puerensis: partition 2 (1491–1630, length 140) fully missing (all '-')
+KIZ14385_Rhacophoridae_Rhacophorus_dennysi: partition 2 (1491–1630, length 140) fully missing (all '-')
+KIZ9135_Rhacophoridae_Rhacophorus_dorsoviridis: partition 2 (1491–1630, length 140) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–1015, length 1016) fully missing (all '-')
+FMNH273830_Rhacophoridae_Philautus_hosii: partition 2 (1491–1630, length 140) fully missing (all '-')
+CAS235817_Rhacophoridae_Rhacophorus_smaragdinus: partition 2 (1491–1630, length 140) fully missing (all '-')
+ID7602_Nyctibatrachidae_Nyctibatrachus_humayuni: partition 2 (1491–1630, length 140) fully missing (all '-')
+KIZYPX23229_Ranidae_Rana_temporaria: partition 2 (1491–1630, length 140) fully missing (all '-')
+KIZ6648_Rhacophoridae_Rhacophorus_translineatus: partition 2 (1491–1630, length 140) fully missing (all '-')
+KIZ10652_Rhacophoridae_Theloderma_vietnamense: partition 2 (1491–1630, length 140) fully missing (all '-')
+AMNH-A168079_Mantellidae_Boophis_goudotii: partition 2 (1491–1630, length 140) fully missing (all '-')
+CAS224591_Rhacophoridae_Polypedates_sp.: partition 2 (1491–1630, length 140) fully missing (all '-')
+KIZ11104_Ceratobatrachidae_Luirana_xizangensis: partition 2 (1491–1630, length 140) fully missing (all '-')
+MVZ225131_Rhacophoridae_Theloderma_corticale: partition 2 (1491–1630, length 140) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=1)
+Columns with '#' inserted: [1016, 1490]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1631
+No. pound sign columns (#): 2
+Total no. nucleotides (A/C/G/T): 148867 bp
+Total no. gaps (-): 6277
+Total no. IUPAC N: 67
+Total no. missing values (?): 12212
+
+--- Run time ---
+Wall-clock time: 0.43255091 seconds
+CPU time: 0.42809600 seconds

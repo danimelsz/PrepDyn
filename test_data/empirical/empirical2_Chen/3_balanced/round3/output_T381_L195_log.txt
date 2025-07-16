@@ -1,0 +1,58 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 98
+No. columns: 1324
+Total no. nucleotides (A/C/G/T only): 123641 bp
+Total no. gaps (-): 5333
+Total no. IUPAC N: 454
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+ESP808_Microhylidae_Phrynomantis_annectens: Left block 0-2 deleted ('NN')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 2158
+Total '-' characters in fully missing partitions: 2827
+Combined total: 4985
+
+CAS207601_Rhacophoridae_Chiromantis_rufescens: partition 0 (0–53, length 54) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 0 (0–53, length 54) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 1 (55–311, length 257) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 2 (313–463, length 151) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 6 (1201–1329, length 129) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–53, length 54) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (55–311, length 257) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 2 (313–463, length 151) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 5 (1063–1199, length 137) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 6 (1201–1329, length 129) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 0 (0–53, length 54) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 1 (55–311, length 257) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 0 (0–53, length 54) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 1 (55–311, length 257) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 2 (313–463, length 151) fully missing (all '-')
+R1263_Rhacophoridae_Raorchestes_signatus: partition 3 (465–554, length 90) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 0 (0–53, length 54) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 1 (55–311, length 257) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 2 (313–463, length 151) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 6 (1201–1329, length 129) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=3)
+Columns with '#' inserted: [54, 312, 464, 555, 1062, 1200]
+
+--- Summary after preprocessing ---
+No. sequences: 98
+No. columns: 1330
+No. pound sign columns (#): 6
+Total no. nucleotides (A/C/G/T): 123641 bp
+Total no. gaps (-): 3177
+Total no. IUPAC N: 452
+Total no. missing values (?): 4985
+
+--- Run time ---
+Wall-clock time: 0.50166392 seconds
+CPU time: 0.49421300 seconds

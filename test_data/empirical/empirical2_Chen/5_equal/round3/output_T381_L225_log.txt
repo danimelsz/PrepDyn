@@ -1,0 +1,44 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/5_equal/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1698
+Total no. nucleotides (A/C/G/T only): 162867 bp
+Total no. gaps (-): 4596
+Total no. IUPAC N: 100
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+CAS233154_Rhacophoridae_Polypedates_maculatus: Left block 0-2 deleted ('CC')
+CAS241141_Rhacophoridae_Polypedates_leucomystax: Left block 0-2 deleted ('CC')
+FMNH259524_Rhacophoridae_Rhacophorus_pardalis: Right block 1694-1698 deleted ('ACTT')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 2154
+Total '-' characters in fully missing partitions: 1698
+Combined total: 3852
+
+MVZ258310_Rhacophoridae_Philautus_abditus: partition 0 (0–423, length 424) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–423, length 424) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 3 (1275–1700, length 426) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 0 (0–423, length 424) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [424, 849, 1274]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1701
+No. pound sign columns (#): 3
+Total no. nucleotides (A/C/G/T): 162859 bp
+Total no. gaps (-): 2450
+Total no. IUPAC N: 100
+Total no. missing values (?): 3852
+
+--- Run time ---
+Wall-clock time: 0.60214686 seconds
+CPU time: 0.50759700 seconds

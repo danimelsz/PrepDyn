@@ -1,0 +1,40 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round1/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=1)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 100
+No. columns: 1718
+Total no. nucleotides (A/C/G/T only): 168456 bp
+Total no. gaps (-): 2840
+Total no. IUPAC N: 121
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+AMNH-A168079_Mantellidae_Boophis_goudotii: Right block 1717-1718 deleted ('C')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1903
+Total '-' characters in fully missing partitions: 556
+Combined total: 2459
+
+KIZ016395_Rhacophoridae_Nasutixalus_medogensis: partition 2 (1221–1719, length 499) fully missing (all '-')
+ESP808_Microhylidae_Phrynomantis_annectens: partition 0 (0–56, length 57) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=1)
+Columns with '#' inserted: [57, 1220]
+
+--- Summary after preprocessing ---
+No. sequences: 100
+No. columns: 1720
+No. pound sign columns (#): 2
+Total no. nucleotides (A/C/G/T): 168455 bp
+Total no. gaps (-): 938
+Total no. IUPAC N: 121
+Total no. missing values (?): 2459
+
+--- Run time ---
+Wall-clock time: 0.77023697 seconds
+CPU time: 0.70720000 seconds

@@ -1,0 +1,36 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/5_equal/round1/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=1)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 83
+No. columns: 1103
+Total no. nucleotides (A/C/G/T only): 85305 bp
+Total no. gaps (-): 5698
+Total no. IUPAC N: 344
+
+--- Step 2: Trimming (invariant columns) ---
+[0]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 5118
+Total '-' characters in fully missing partitions: 551
+Combined total: 5669
+
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 0 (0–550, length 551) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [551]
+
+--- Summary after preprocessing ---
+No. sequences: 83
+No. columns: 1103
+No. pound sign columns (#): 1
+Total no. nucleotides (A/C/G/T): 85236 bp
+Total no. gaps (-): 566
+Total no. IUPAC N: 344
+Total no. missing values (?): 5669
+
+--- Run time ---
+Wall-clock time: 0.41111326 seconds
+CPU time: 0.32304300 seconds

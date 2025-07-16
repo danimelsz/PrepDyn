@@ -1,0 +1,52 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 98
+No. columns: 788
+Total no. nucleotides (A/C/G/T only): 74781 bp
+Total no. gaps (-): 2102
+Total no. IUPAC N: 142
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+MVZ253198_Conrauidae_Conraua_crassipes: Left block 0-2 deleted ('AA')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 833
+Total '-' characters in fully missing partitions: 508
+Combined total: 1341
+
+ROM30298_Rhacophoridae_Raorchestes_gryllus: partition 4 (770–791, length 22) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 4 (770–791, length 22) fully missing (all '-')
+ROM30282_Rhacophoridae_Theloderma_sp.: partition 4 (770–791, length 22) fully missing (all '-')
+AMNH-A168079_Mantellidae_Boophis_goudotii: partition 3 (691–768, length 78) fully missing (all '-')
+AMNH-A168079_Mantellidae_Boophis_goudotii: partition 4 (770–791, length 22) fully missing (all '-')
+ROM33944_Rhacophoridae_Kurixalus_baliogaster: partition 4 (770–791, length 22) fully missing (all '-')
+KIZYPX16167_Rhacophoridae_Raorchestes_andersoni: partition 4 (770–791, length 22) fully missing (all '-')
+KIZ9387_Rhacophoridae_Feihyla_hansenae: partition 4 (770–791, length 22) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 4 (770–791, length 22) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 2 (603–689, length 87) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 3 (691–768, length 78) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 4 (770–791, length 22) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 4 (770–791, length 22) fully missing (all '-')
+AMNH-A158394_Ptychadenidae_Ptychadena_cooperi: partition 0 (0–44, length 45) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=2)
+Columns with '#' inserted: [45, 602, 690, 769]
+
+--- Summary after preprocessing ---
+No. sequences: 98
+No. columns: 792
+No. pound sign columns (#): 4
+Total no. nucleotides (A/C/G/T): 74779 bp
+Total no. gaps (-): 1271
+Total no. IUPAC N: 142
+Total no. missing values (?): 1341
+
+--- Run time ---
+Wall-clock time: 0.28159618 seconds
+CPU time: 0.27531900 seconds

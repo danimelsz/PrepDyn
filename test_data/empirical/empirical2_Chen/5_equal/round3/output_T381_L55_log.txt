@@ -1,0 +1,44 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/5_equal/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 97
+No. columns: 1489
+Total no. nucleotides (A/C/G/T only): 139154 bp
+Total no. gaps (-): 4659
+Total no. IUPAC N: 220
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+AMNH-A167908_Mantellidae_Spinomantis_fimbriatus: Left block 0-5 deleted ('ATGAG')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 2202
+Total '-' characters in fully missing partitions: 2236
+Combined total: 4438
+
+R1263_Rhacophoridae_Raorchestes_signatus: partition 3 (1119–1491, length 373) fully missing (all '-')
+FMNH239280_Rhacophoridae_Philautus_ingeri: partition 3 (1119–1491, length 373) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 0 (0–371, length 372) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 0 (0–371, length 372) fully missing (all '-')
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 3 (1119–1491, length 373) fully missing (all '-')
+AMNH-A168079_Mantellidae_Boophis_goudotii: partition 3 (1119–1491, length 373) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [372, 745, 1118]
+
+--- Summary after preprocessing ---
+No. sequences: 97
+No. columns: 1492
+No. pound sign columns (#): 3
+Total no. nucleotides (A/C/G/T): 139149 bp
+Total no. gaps (-): 2462
+Total no. IUPAC N: 220
+Total no. missing values (?): 4438
+
+--- Run time ---
+Wall-clock time: 0.44042492 seconds
+CPU time: 0.43392400 seconds

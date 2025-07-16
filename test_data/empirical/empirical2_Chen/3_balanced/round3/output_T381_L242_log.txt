@@ -1,0 +1,44 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 98
+No. columns: 1854
+Total no. nucleotides (A/C/G/T only): 176911 bp
+Total no. gaps (-): 4395
+Total no. IUPAC N: 10
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1851, 1852, 1853]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1675
+Total '-' characters in fully missing partitions: 2600
+Combined total: 4275
+
+AMNH-A163904_Rhacophoridae_Gracixalus_sapaensis: partition 0 (0–152, length 153) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 4 (1116–1748, length 633) fully missing (all '-')
+E16_Ranidae_Rana_macrocnemis: partition 5 (1750–1854, length 105) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–152, length 153) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (154–495, length 342) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 3 (744–1114, length 371) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 4 (1116–1748, length 633) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 5 (1750–1854, length 105) fully missing (all '-')
+KIZ9135_Rhacophoridae_Rhacophorus_dorsoviridis: partition 5 (1750–1854, length 105) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=3)
+Columns with '#' inserted: [153, 496, 743, 1115, 1749]
+
+--- Summary after preprocessing ---
+No. sequences: 98
+No. columns: 1855
+No. pound sign columns (#): 5
+Total no. nucleotides (A/C/G/T): 176639 bp
+Total no. gaps (-): 2600
+Total no. IUPAC N: 10
+Total no. missing values (?): 4275
+
+--- Run time ---
+Wall-clock time: 0.62264109 seconds
+CPU time: 0.61649600 seconds

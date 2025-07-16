@@ -1,0 +1,46 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 1625
+Total no. nucleotides (A/C/G/T only): 153526 bp
+Total no. gaps (-): 6358
+Total no. IUPAC N: 646
+
+--- Step 2: Trimming (invariant columns) ---
+[1623, 1624]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+AMNH-A158394_Ptychadenidae_Ptychadena_cooperi: Right block 1620-1625 deleted ('GTTCT')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 2861
+Total '-' characters in fully missing partitions: 2673
+Combined total: 5534
+
+FMNH252417_Rhacophoridae_Philautus_amoenus: partition 0 (0–102, length 103) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 0 (0–102, length 103) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 1 (104–696, length 593) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 2 (698–1179, length 482) fully missing (all '-')
+MVZ236697_Rhacophoridae_Chiromantis_doriae: partition 0 (0–102, length 103) fully missing (all '-')
+MVZ236697_Rhacophoridae_Chiromantis_doriae: partition 1 (104–696, length 593) fully missing (all '-')
+CAS230905_Rhacophoridae_Chiromantis_nongkhorensis: partition 0 (0–102, length 103) fully missing (all '-')
+CAS230905_Rhacophoridae_Chiromantis_nongkhorensis: partition 1 (104–696, length 593) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=2)
+Columns with '#' inserted: [103, 697, 1180]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 1626
+No. pound sign columns (#): 3
+Total no. nucleotides (A/C/G/T): 153389 bp
+Total no. gaps (-): 3436
+Total no. IUPAC N: 646
+Total no. missing values (?): 5534
+
+--- Run time ---
+Wall-clock time: 0.64942169 seconds
+CPU time: 0.62533400 seconds

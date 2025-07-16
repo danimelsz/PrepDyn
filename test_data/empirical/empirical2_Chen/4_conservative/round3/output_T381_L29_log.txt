@@ -1,0 +1,41 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 99
+No. columns: 983
+Total no. nucleotides (A/C/G/T only): 94830 bp
+Total no. gaps (-): 2149
+Total no. IUPAC N: 107
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+MCZ-A136791_Phrynobatrachidae_Phrynodon_sandersoni: Left block 66-71 deleted ('ACATA')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1544
+Total '-' characters in fully missing partitions: 180
+Combined total: 1724
+
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 5 (808–844, length 37) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 6 (846–871, length 26) fully missing (all '-')
+AMNH-A168760_Rhacophoridae_Polypedates_mutus: partition 7 (873–989, length 117) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [146, 459, 615, 647, 807, 845, 872]
+
+--- Summary after preprocessing ---
+No. sequences: 99
+No. columns: 990
+No. pound sign columns (#): 7
+Total no. nucleotides (A/C/G/T): 94825 bp
+Total no. gaps (-): 610
+Total no. IUPAC N: 107
+Total no. missing values (?): 1724
+
+--- Run time ---
+Wall-clock time: 0.30203390 seconds
+CPU time: 0.29777000 seconds

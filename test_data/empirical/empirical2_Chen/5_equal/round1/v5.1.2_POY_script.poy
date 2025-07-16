@@ -1,0 +1,25 @@
+set (log:"v5.1.2_POY.log")
+version ()
+
+read ("*.fasta")
+
+set (root:"MVZ241442_Rhacophoridae_Buergeria_oxycephalus")
+
+report ("v5.1.2_POY.data",data, cross_references)
+
+search (max_time:0:24:0)
+
+report ("v5.1.2_POY_SearchTrees.txt", trees:(total))
+
+transform (all,(static_approx)) (*POY5*)
+
+select ()
+
+report ("v5.1.2_POY.pdf", graphtrees)
+report ("v5.1.2_POY.cons.pdf", graphconsensus)
+report ("v5.1.2_POY.txt", searchstats)
+report ("v5.1.2_POY.txt", trees:(total))
+report ("v5.1.2_POY.nwk", trees:(branches:min,newick))
+report ("v5.1.2_POY.ss", phastwinclad)
+
+quit()

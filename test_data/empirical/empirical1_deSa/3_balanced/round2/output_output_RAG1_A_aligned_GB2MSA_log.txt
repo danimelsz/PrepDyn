@@ -1,0 +1,35 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical1_deSa/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical1_deSa/3_balanced/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 22
+No. columns: 824
+Total no. nucleotides (A/C/G/T only): 18113 bp
+Total no. gaps (-): 0
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[820, 821, 822, 823]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 0
+Total '-' characters in fully missing partitions: 0
+Combined total: 0
+
+
+
+--- Step 4: Partitioning ---
+WARNING: 'balanced' partitioning with partitioning_round=2 was skipped for this alignment. This typically happens when the alignment has fewer blocks of missing data ('?') than required. The process will continue without partitioning this file.
+
+--- Summary after preprocessing ---
+No. sequences: 22
+No. columns: 820
+No. pound sign columns (#): 0
+Total no. nucleotides (A/C/G/T): 18025 bp
+Total no. gaps (-): 0
+Total no. IUPAC N: 0
+Total no. missing values (?): 0
+
+--- Run time ---
+Wall-clock time: 0.05891585 seconds
+CPU time: 0.05625200 seconds
