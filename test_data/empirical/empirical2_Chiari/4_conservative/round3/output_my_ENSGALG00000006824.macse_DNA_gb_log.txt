@@ -1,0 +1,44 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 10
+No. columns: 729
+Total no. nucleotides (A/C/G/T only): 6333 bp
+Total no. gaps (-): 957
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 171
+Total '-' characters in fully missing partitions: 740
+Combined total: 911
+
+Taeniopygia: partition 0 (0–138, length 139) fully missing (all '-')
+caiman: partition 0 (0–138, length 139) fully missing (all '-')
+caiman: partition 1 (140–205, length 66) fully missing (all '-')
+emys_orbicularis: partition 7 (536–549, length 14) fully missing (all '-')
+emys_orbicularis: partition 8 (551–565, length 15) fully missing (all '-')
+emys_orbicularis: partition 9 (567–735, length 169) fully missing (all '-')
+protopterus: partition 7 (536–549, length 14) fully missing (all '-')
+protopterus: partition 8 (551–565, length 15) fully missing (all '-')
+protopterus: partition 9 (567–735, length 169) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [139, 206, 246, 339, 361, 377, 535, 550, 566]
+
+--- Summary after preprocessing ---
+No. sequences: 10
+No. columns: 736
+No. pound sign columns (#): 9
+Total no. nucleotides (A/C/G/T): 6317 bp
+Total no. gaps (-): 782
+Total no. IUPAC N: 0
+Total no. missing values (?): 911
+
+--- Run time ---
+Wall-clock time: 0.02714682 seconds
+CPU time: 0.02637100 seconds

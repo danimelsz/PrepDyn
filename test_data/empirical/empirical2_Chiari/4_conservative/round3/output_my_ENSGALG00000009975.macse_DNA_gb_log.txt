@@ -1,0 +1,65 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 12
+No. columns: 960
+Total no. nucleotides (A/C/G/T only): 10110 bp
+Total no. gaps (-): 1410
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 95
+Total '-' characters in fully missing partitions: 1308
+Combined total: 1403
+
+caiman: partition 0 (0–63, length 64) fully missing (all '-')
+caiman: partition 1 (65–106, length 42) fully missing (all '-')
+caiman: partition 2 (108–132, length 25) fully missing (all '-')
+caiman: partition 3 (134–159, length 26) fully missing (all '-')
+caiman: partition 4 (161–220, length 60) fully missing (all '-')
+caiman: partition 5 (222–292, length 71) fully missing (all '-')
+caretta: partition 6 (294–313, length 20) fully missing (all '-')
+caretta: partition 7 (315–322, length 8) fully missing (all '-')
+caretta: partition 8 (324–362, length 39) fully missing (all '-')
+caretta: partition 9 (364–369, length 6) fully missing (all '-')
+caretta: partition 10 (371–424, length 54) fully missing (all '-')
+caretta: partition 11 (426–431, length 6) fully missing (all '-')
+caretta: partition 12 (433–439, length 7) fully missing (all '-')
+caretta: partition 13 (441–472, length 32) fully missing (all '-')
+caretta: partition 14 (474–602, length 129) fully missing (all '-')
+caretta: partition 15 (604–750, length 147) fully missing (all '-')
+caretta: partition 16 (752–757, length 6) fully missing (all '-')
+caretta: partition 17 (759–773, length 15) fully missing (all '-')
+caretta: partition 18 (775–810, length 36) fully missing (all '-')
+caretta: partition 19 (812–942, length 131) fully missing (all '-')
+caretta: partition 20 (944–977, length 34) fully missing (all '-')
+podarcis: partition 0 (0–63, length 64) fully missing (all '-')
+podarcis: partition 1 (65–106, length 42) fully missing (all '-')
+podarcis: partition 2 (108–132, length 25) fully missing (all '-')
+podarcis: partition 3 (134–159, length 26) fully missing (all '-')
+podarcis: partition 4 (161–220, length 60) fully missing (all '-')
+podarcis: partition 5 (222–292, length 71) fully missing (all '-')
+podarcis: partition 6 (294–313, length 20) fully missing (all '-')
+podarcis: partition 7 (315–322, length 8) fully missing (all '-')
+python: partition 20 (944–977, length 34) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [64, 107, 133, 160, 221, 293, 314, 323, 363, 370, 425, 432, 440, 473, 603, 751, 758, 774, 811, 943]
+
+--- Summary after preprocessing ---
+No. sequences: 12
+No. columns: 978
+No. pound sign columns (#): 20
+Total no. nucleotides (A/C/G/T): 10090 bp
+Total no. gaps (-): 1311
+Total no. IUPAC N: 0
+Total no. missing values (?): 1403
+
+--- Run time ---
+Wall-clock time: 0.04020882 seconds
+CPU time: 0.03910200 seconds

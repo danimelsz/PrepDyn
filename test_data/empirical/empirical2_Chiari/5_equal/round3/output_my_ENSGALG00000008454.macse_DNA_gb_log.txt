@@ -1,0 +1,37 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/5_equal/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 11
+No. columns: 564
+Total no. nucleotides (A/C/G/T only): 5511 bp
+Total no. gaps (-): 693
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 407
+Total '-' characters in fully missing partitions: 282
+Combined total: 689
+
+chelonoidis_nigra: partition 2 (282–421, length 140) fully missing (all '-')
+chelonoidis_nigra: partition 3 (423–564, length 142) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [140, 281, 422]
+
+--- Summary after preprocessing ---
+No. sequences: 11
+No. columns: 565
+No. pound sign columns (#): 3
+Total no. nucleotides (A/C/G/T): 5493 bp
+Total no. gaps (-): 282
+Total no. IUPAC N: 0
+Total no. missing values (?): 689
+
+--- Run time ---
+Wall-clock time: 0.01970911 seconds
+CPU time: 0.01951400 seconds

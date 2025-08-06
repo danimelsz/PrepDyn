@@ -1,0 +1,41 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing/', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari//6_max/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='max', partitioning_round=0)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 10
+No. columns: 1320
+Total no. nucleotides (A/C/G/T only): 11724 bp
+Total no. gaps (-): 1476
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 2, 3, 4]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 0
+Total '-' characters in fully missing partitions: 1445
+Combined total: 1445
+
+Ornithorhynchus: partition 0 (0–18, length 19) fully missing (all '-')
+Ornithorhynchus: partition 1 (20–583, length 564) fully missing (all '-')
+caiman: partition 0 (0–18, length 19) fully missing (all '-')
+caiman: partition 4 (1199–1318, length 120) fully missing (all '-')
+chelonoidis_nigra: partition 3 (595–1197, length 603) fully missing (all '-')
+chelonoidis_nigra: partition 4 (1199–1318, length 120) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: max (inserted at '?' block boundaries)
+Columns with '#' inserted: [19, 584, 594, 1198]
+
+--- Summary after preprocessing ---
+No. sequences: 10
+No. columns: 1319
+No. pound sign columns (#): 4
+Total no. nucleotides (A/C/G/T): 11684 bp
+Total no. gaps (-): 1466
+Total no. IUPAC N: 0
+Total no. missing values (?): 1445
+
+--- Run time ---
+Wall-clock time: 0.05592012 seconds
+CPU time: 0.05426400 seconds

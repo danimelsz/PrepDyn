@@ -1,0 +1,50 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/3_balanced/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 14
+No. columns: 651
+Total no. nucleotides (A/C/G/T only): 7335 bp
+Total no. gaps (-): 1779
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 0
+Total '-' characters in fully missing partitions: 1758
+Combined total: 1758
+
+caiman: partition 0 (0–12, length 13) fully missing (all '-')
+caiman: partition 1 (14–166, length 153) fully missing (all '-')
+caiman: partition 2 (168–179, length 12) fully missing (all '-')
+chelonoidis_nigra: partition 1 (14–166, length 153) fully missing (all '-')
+chelonoidis_nigra: partition 2 (168–179, length 12) fully missing (all '-')
+chelonoidis_nigra: partition 3 (181–522, length 342) fully missing (all '-')
+chelonoidis_nigra: partition 4 (524–652, length 129) fully missing (all '-')
+phrynops: partition 4 (524–652, length 129) fully missing (all '-')
+podarcis: partition 0 (0–12, length 13) fully missing (all '-')
+podarcis: partition 1 (14–166, length 153) fully missing (all '-')
+protopterus: partition 0 (0–12, length 13) fully missing (all '-')
+protopterus: partition 1 (14–166, length 153) fully missing (all '-')
+protopterus: partition 2 (168–179, length 12) fully missing (all '-')
+protopterus: partition 3 (181–522, length 342) fully missing (all '-')
+protopterus: partition 4 (524–652, length 129) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=3)
+Columns with '#' inserted: [13, 167, 180, 523]
+
+--- Summary after preprocessing ---
+No. sequences: 14
+No. columns: 653
+No. pound sign columns (#): 4
+Total no. nucleotides (A/C/G/T): 7313 bp
+Total no. gaps (-): 1773
+Total no. IUPAC N: 0
+Total no. missing values (?): 1758
+
+--- Run time ---
+Wall-clock time: 0.03767109 seconds
+CPU time: 0.03696200 seconds

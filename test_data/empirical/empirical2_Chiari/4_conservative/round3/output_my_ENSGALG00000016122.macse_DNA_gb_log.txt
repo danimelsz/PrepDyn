@@ -1,0 +1,44 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 16
+No. columns: 516
+Total no. nucleotides (A/C/G/T only): 7695 bp
+Total no. gaps (-): 561
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 513, 514, 515]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 164
+Total '-' characters in fully missing partitions: 378
+Combined total: 542
+
+alligator: partition 8 (466–518, length 53) fully missing (all '-')
+caiman: partition 8 (466–518, length 53) fully missing (all '-')
+caretta: partition 0 (0–21, length 22) fully missing (all '-')
+caretta: partition 1 (23–97, length 75) fully missing (all '-')
+caretta: partition 2 (99–152, length 54) fully missing (all '-')
+caretta: partition 3 (154–171, length 18) fully missing (all '-')
+caretta: partition 4 (173–178, length 6) fully missing (all '-')
+podarcis: partition 0 (0–21, length 22) fully missing (all '-')
+podarcis: partition 1 (23–97, length 75) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [22, 98, 153, 172, 179, 330, 394, 465]
+
+--- Summary after preprocessing ---
+No. sequences: 16
+No. columns: 519
+No. pound sign columns (#): 8
+Total no. nucleotides (A/C/G/T): 7628 bp
+Total no. gaps (-): 384
+Total no. IUPAC N: 0
+Total no. missing values (?): 542
+
+--- Run time ---
+Wall-clock time: 0.03125811 seconds
+CPU time: 0.02910300 seconds

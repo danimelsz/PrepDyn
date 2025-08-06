@@ -1,0 +1,74 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 10
+No. columns: 612
+Total no. nucleotides (A/C/G/T only): 4749 bp
+Total no. gaps (-): 1371
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 2, 610, 611]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 10
+Total '-' characters in fully missing partitions: 1348
+Combined total: 1358
+
+Ornithorhynchus: partition 0 (0–8, length 9) fully missing (all '-')
+Ornithorhynchus: partition 1 (10–27, length 18) fully missing (all '-')
+Ornithorhynchus: partition 2 (29–49, length 21) fully missing (all '-')
+Ornithorhynchus: partition 3 (51–116, length 66) fully missing (all '-')
+Ornithorhynchus: partition 4 (118–154, length 37) fully missing (all '-')
+Ornithorhynchus: partition 5 (156–190, length 35) fully missing (all '-')
+Ornithorhynchus: partition 6 (192–236, length 45) fully missing (all '-')
+Ornithorhynchus: partition 7 (238–270, length 33) fully missing (all '-')
+Ornithorhynchus: partition 8 (272–281, length 10) fully missing (all '-')
+Ornithorhynchus: partition 9 (283–293, length 11) fully missing (all '-')
+Ornithorhynchus: partition 10 (295–359, length 65) fully missing (all '-')
+Ornithorhynchus: partition 11 (361–406, length 46) fully missing (all '-')
+Ornithorhynchus: partition 12 (408–497, length 90) fully missing (all '-')
+Ornithorhynchus: partition 13 (499–513, length 15) fully missing (all '-')
+Ornithorhynchus: partition 14 (515–523, length 9) fully missing (all '-')
+Ornithorhynchus: partition 15 (525–539, length 15) fully missing (all '-')
+Ornithorhynchus: partition 16 (541–622, length 82) fully missing (all '-')
+caiman: partition 0 (0–8, length 9) fully missing (all '-')
+caiman: partition 1 (10–27, length 18) fully missing (all '-')
+caiman: partition 2 (29–49, length 21) fully missing (all '-')
+caiman: partition 3 (51–116, length 66) fully missing (all '-')
+caiman: partition 4 (118–154, length 37) fully missing (all '-')
+caiman: partition 5 (156–190, length 35) fully missing (all '-')
+caiman: partition 6 (192–236, length 45) fully missing (all '-')
+caiman: partition 7 (238–270, length 33) fully missing (all '-')
+caiman: partition 8 (272–281, length 10) fully missing (all '-')
+caiman: partition 9 (283–293, length 11) fully missing (all '-')
+chelonoidis_nigra: partition 5 (156–190, length 35) fully missing (all '-')
+chelonoidis_nigra: partition 6 (192–236, length 45) fully missing (all '-')
+chelonoidis_nigra: partition 7 (238–270, length 33) fully missing (all '-')
+chelonoidis_nigra: partition 8 (272–281, length 10) fully missing (all '-')
+chelonoidis_nigra: partition 9 (283–293, length 11) fully missing (all '-')
+chelonoidis_nigra: partition 10 (295–359, length 65) fully missing (all '-')
+chelonoidis_nigra: partition 11 (361–406, length 46) fully missing (all '-')
+chelonoidis_nigra: partition 12 (408–497, length 90) fully missing (all '-')
+chelonoidis_nigra: partition 13 (499–513, length 15) fully missing (all '-')
+chelonoidis_nigra: partition 14 (515–523, length 9) fully missing (all '-')
+chelonoidis_nigra: partition 15 (525–539, length 15) fully missing (all '-')
+chelonoidis_nigra: partition 16 (541–622, length 82) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [9, 28, 50, 117, 155, 191, 237, 271, 282, 294, 360, 407, 498, 514, 524, 540]
+
+--- Summary after preprocessing ---
+No. sequences: 10
+No. columns: 623
+No. pound sign columns (#): 16
+Total no. nucleotides (A/C/G/T): 4709 bp
+Total no. gaps (-): 1351
+Total no. IUPAC N: 0
+Total no. missing values (?): 1358
+
+--- Run time ---
+Wall-clock time: 0.04163575 seconds
+CPU time: 0.03321300 seconds

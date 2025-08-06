@@ -1,0 +1,44 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 9
+No. columns: 600
+Total no. nucleotides (A/C/G/T only): 4311 bp
+Total no. gaps (-): 1089
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 197
+Total '-' characters in fully missing partitions: 888
+Combined total: 1085
+
+Ornithorhynchus: partition 0 (0–307, length 308) fully missing (all '-')
+Ornithorhynchus: partition 1 (309–353, length 45) fully missing (all '-')
+Ornithorhynchus: partition 2 (355–363, length 9) fully missing (all '-')
+Ornithorhynchus: partition 3 (365–379, length 15) fully missing (all '-')
+Ornithorhynchus: partition 4 (381–601, length 221) fully missing (all '-')
+caiman: partition 1 (309–353, length 45) fully missing (all '-')
+caiman: partition 2 (355–363, length 9) fully missing (all '-')
+caiman: partition 3 (365–379, length 15) fully missing (all '-')
+caiman: partition 4 (381–601, length 221) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=2)
+Columns with '#' inserted: [308, 354, 364, 380]
+
+--- Summary after preprocessing ---
+No. sequences: 9
+No. columns: 602
+No. pound sign columns (#): 4
+Total no. nucleotides (A/C/G/T): 4297 bp
+Total no. gaps (-): 888
+Total no. IUPAC N: 0
+Total no. missing values (?): 1085
+
+--- Run time ---
+Wall-clock time: 0.01929498 seconds
+CPU time: 0.01894300 seconds

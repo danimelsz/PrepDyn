@@ -1,0 +1,46 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 9
+No. columns: 1002
+Total no. nucleotides (A/C/G/T only): 8463 bp
+Total no. gaps (-): 555
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 99
+Total '-' characters in fully missing partitions: 360
+Combined total: 459
+
+caiman: partition 0 (0–72, length 73) fully missing (all '-')
+caiman: partition 1 (74–84, length 11) fully missing (all '-')
+caiman: partition 2 (86–148, length 63) fully missing (all '-')
+caiman: partition 3 (150–215, length 66) fully missing (all '-')
+caiman: partition 4 (217–240, length 24) fully missing (all '-')
+caiman: partition 5 (242–250, length 9) fully missing (all '-')
+caiman: partition 6 (252–275, length 24) fully missing (all '-')
+caiman: partition 7 (277–285, length 9) fully missing (all '-')
+caiman: partition 8 (287–306, length 20) fully missing (all '-')
+caiman: partition 9 (308–359, length 52) fully missing (all '-')
+caiman: partition 24 (1017–1025, length 9) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [73, 85, 149, 216, 241, 251, 276, 286, 307, 360, 412, 442, 448, 580, 605, 632, 637, 676, 683, 691, 746, 852, 945, 1016]
+
+--- Summary after preprocessing ---
+No. sequences: 9
+No. columns: 1026
+No. pound sign columns (#): 24
+Total no. nucleotides (A/C/G/T): 8463 bp
+Total no. gaps (-): 456
+Total no. IUPAC N: 0
+Total no. missing values (?): 459
+
+--- Run time ---
+Wall-clock time: 0.03714418 seconds
+CPU time: 0.03495900 seconds

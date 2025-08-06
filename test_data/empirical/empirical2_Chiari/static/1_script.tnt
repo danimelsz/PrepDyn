@@ -1,0 +1,18 @@
+log 1_concatenated.log
+mxram 2048;
+taxname +90;
+nstates gaps;
+proc 1_concatenated_noPartitioning.tnt;
+outgroup protopterus;
+hold 10000;
+xmult= level 7 chklevel 3 consense 3;
+best;
+tsave *1_concatenated_results.out;
+taxname=;
+save;
+tsave /;
+export - 1_concatenated_results.nwk
+nelsen; nelsen*; tchoose{strict}; export = 1_concatenated_results.nwk 
+ttag-; ttag=; blength * ; export > 1_concatenated_results.nwk
+log /;
+quit;

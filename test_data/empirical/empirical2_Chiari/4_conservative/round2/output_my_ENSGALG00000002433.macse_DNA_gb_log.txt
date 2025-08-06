@@ -1,0 +1,61 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round2/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=2)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 14
+No. columns: 861
+Total no. nucleotides (A/C/G/T only): 9789 bp
+Total no. gaps (-): 2265
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 45
+Total '-' characters in fully missing partitions: 2202
+Combined total: 2247
+
+Ornithorhynchus: partition 0 (0–23, length 24) fully missing (all '-')
+Ornithorhynchus: partition 1 (25–30, length 6) fully missing (all '-')
+caretta: partition 7 (469–534, length 66) fully missing (all '-')
+caretta: partition 8 (536–586, length 51) fully missing (all '-')
+caretta: partition 9 (588–869, length 282) fully missing (all '-')
+emys_orbicularis: partition 6 (417–467, length 51) fully missing (all '-')
+emys_orbicularis: partition 7 (469–534, length 66) fully missing (all '-')
+emys_orbicularis: partition 8 (536–586, length 51) fully missing (all '-')
+emys_orbicularis: partition 9 (588–869, length 282) fully missing (all '-')
+phrynops: partition 7 (469–534, length 66) fully missing (all '-')
+phrynops: partition 8 (536–586, length 51) fully missing (all '-')
+phrynops: partition 9 (588–869, length 282) fully missing (all '-')
+podarcis: partition 0 (0–23, length 24) fully missing (all '-')
+podarcis: partition 1 (25–30, length 6) fully missing (all '-')
+podarcis: partition 2 (32–50, length 19) fully missing (all '-')
+podarcis: partition 3 (52–299, length 248) fully missing (all '-')
+podarcis: partition 4 (301–369, length 69) fully missing (all '-')
+podarcis: partition 5 (371–415, length 45) fully missing (all '-')
+podarcis: partition 6 (417–467, length 51) fully missing (all '-')
+python: partition 0 (0–23, length 24) fully missing (all '-')
+python: partition 1 (25–30, length 6) fully missing (all '-')
+python: partition 2 (32–50, length 19) fully missing (all '-')
+python: partition 3 (52–299, length 248) fully missing (all '-')
+python: partition 4 (301–369, length 69) fully missing (all '-')
+python: partition 5 (371–415, length 45) fully missing (all '-')
+python: partition 6 (417–467, length 51) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=2)
+Columns with '#' inserted: [24, 31, 51, 300, 370, 416, 468, 535, 587]
+
+--- Summary after preprocessing ---
+No. sequences: 14
+No. columns: 870
+No. pound sign columns (#): 9
+Total no. nucleotides (A/C/G/T): 9789 bp
+Total no. gaps (-): 2220
+Total no. IUPAC N: 0
+Total no. missing values (?): 2247
+
+--- Run time ---
+Wall-clock time: 0.03808999 seconds
+CPU time: 0.03775000 seconds

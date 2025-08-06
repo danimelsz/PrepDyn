@@ -1,0 +1,66 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 14
+No. columns: 594
+Total no. nucleotides (A/C/G/T only): 8100 bp
+Total no. gaps (-): 216
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 2, 3, 4]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 15
+Total '-' characters in fully missing partitions: 186
+Combined total: 201
+
+caiman: partition 0 (0–4, length 5) fully missing (all '-')
+caretta: partition 0 (0–4, length 5) fully missing (all '-')
+caretta: partition 1 (6–17, length 12) fully missing (all '-')
+caretta: partition 2 (19–21, length 3) fully missing (all '-')
+caretta: partition 3 (23–28, length 6) fully missing (all '-')
+caretta: partition 4 (30–32, length 3) fully missing (all '-')
+caretta: partition 5 (34–36, length 3) fully missing (all '-')
+caretta: partition 6 (38–43, length 6) fully missing (all '-')
+caretta: partition 7 (45–56, length 12) fully missing (all '-')
+caretta: partition 8 (58–65, length 8) fully missing (all '-')
+caretta: partition 9 (67–76, length 10) fully missing (all '-')
+caretta: partition 10 (78–80, length 3) fully missing (all '-')
+caretta: partition 11 (82–84, length 3) fully missing (all '-')
+caretta: partition 12 (86–88, length 3) fully missing (all '-')
+caretta: partition 13 (90–101, length 12) fully missing (all '-')
+caretta: partition 14 (103–108, length 6) fully missing (all '-')
+caretta: partition 15 (110–115, length 6) fully missing (all '-')
+caretta: partition 16 (117–119, length 3) fully missing (all '-')
+emys_orbicularis: partition 0 (0–4, length 5) fully missing (all '-')
+emys_orbicularis: partition 1 (6–17, length 12) fully missing (all '-')
+emys_orbicularis: partition 2 (19–21, length 3) fully missing (all '-')
+emys_orbicularis: partition 3 (23–28, length 6) fully missing (all '-')
+emys_orbicularis: partition 4 (30–32, length 3) fully missing (all '-')
+emys_orbicularis: partition 5 (34–36, length 3) fully missing (all '-')
+emys_orbicularis: partition 6 (38–43, length 6) fully missing (all '-')
+emys_orbicularis: partition 7 (45–56, length 12) fully missing (all '-')
+emys_orbicularis: partition 8 (58–65, length 8) fully missing (all '-')
+emys_orbicularis: partition 9 (67–76, length 10) fully missing (all '-')
+emys_orbicularis: partition 10 (78–80, length 3) fully missing (all '-')
+emys_orbicularis: partition 11 (82–84, length 3) fully missing (all '-')
+emys_orbicularis: partition 12 (86–88, length 3) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [5, 18, 22, 29, 33, 37, 44, 57, 66, 77, 81, 85, 89, 102, 109, 116, 120, 124, 131, 135, 139, 143, 147, 151, 158, 162, 166, 170, 174, 178, 182, 186, 190, 194, 201, 208, 212, 222, 226, 230, 237, 244, 248, 253, 259, 263, 267, 271, 278, 282, 286, 290, 294, 298, 305, 310, 328, 335, 339, 346, 359, 363, 376, 392, 405, 409, 413, 429, 433, 446, 450, 457, 464, 470, 475, 479, 483, 493, 497, 501, 508, 512, 519, 523, 527, 531, 535, 539, 543, 547, 551, 567, 571, 575, 579, 583, 587, 591, 595, 602, 608, 613, 617, 621, 625, 630, 636, 640, 647, 651, 657, 662, 666, 670, 680, 687, 694, 703]
+
+--- Summary after preprocessing ---
+No. sequences: 14
+No. columns: 707
+No. pound sign columns (#): 118
+Total no. nucleotides (A/C/G/T): 8045 bp
+Total no. gaps (-): 186
+Total no. IUPAC N: 0
+Total no. missing values (?): 201
+
+--- Run time ---
+Wall-clock time: 0.03079700 seconds
+CPU time: 0.03039300 seconds

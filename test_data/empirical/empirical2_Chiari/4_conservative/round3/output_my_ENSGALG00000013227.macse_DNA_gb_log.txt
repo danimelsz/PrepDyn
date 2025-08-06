@@ -1,0 +1,49 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=3)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 10
+No. columns: 1302
+Total no. nucleotides (A/C/G/T only): 10869 bp
+Total no. gaps (-): 2151
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 2, 3, 4]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 576
+Total '-' characters in fully missing partitions: 1538
+Combined total: 2114
+
+Ornithorhynchus: partition 6 (888–910, length 23) fully missing (all '-')
+Ornithorhynchus: partition 7 (912–1067, length 156) fully missing (all '-')
+Ornithorhynchus: partition 8 (1069–1284, length 216) fully missing (all '-')
+Ornithorhynchus: partition 9 (1286–1305, length 20) fully missing (all '-')
+caiman: partition 0 (0–72, length 73) fully missing (all '-')
+caiman: partition 1 (74–407, length 334) fully missing (all '-')
+caiman: partition 2 (409–423, length 15) fully missing (all '-')
+caiman: partition 3 (425–565, length 141) fully missing (all '-')
+caiman: partition 4 (567–638, length 72) fully missing (all '-')
+caretta: partition 0 (0–72, length 73) fully missing (all '-')
+python: partition 6 (888–910, length 23) fully missing (all '-')
+python: partition 7 (912–1067, length 156) fully missing (all '-')
+python: partition 8 (1069–1284, length 216) fully missing (all '-')
+python: partition 9 (1286–1305, length 20) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=3)
+Columns with '#' inserted: [73, 408, 424, 566, 639, 887, 911, 1068, 1285]
+
+--- Summary after preprocessing ---
+No. sequences: 10
+No. columns: 1306
+No. pound sign columns (#): 9
+Total no. nucleotides (A/C/G/T): 10829 bp
+Total no. gaps (-): 1565
+Total no. IUPAC N: 0
+Total no. missing values (?): 2114
+
+--- Run time ---
+Wall-clock time: 0.04450893 seconds
+CPU time: 0.04371300 seconds

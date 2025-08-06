@@ -1,0 +1,56 @@
+Log of deleted empty sequences:
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000016409.macse_DNA_gb.fasta:
+  - chelonoidis_nigra
+  - protopterus
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000005807.macse_DNA_gb.fasta:
+  - chelonoidis_nigra
+  - python
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000012529.macse_DNA_gb.fasta:
+  - chelonoidis_nigra
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000005516.macse_DNA_gb.fasta:
+  - Anolis
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000001782.macse_DNA_gb.fasta:
+  - Ornithorhynchus
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000014786.macse_DNA_gb.fasta:
+  - chelonoidis_nigra
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000006206.macse_DNA_gb.fasta:
+  - python
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000015405.macse_DNA_gb.fasta:
+  - protopterus
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000005309.macse_DNA_gb.fasta:
+  - emys_orbicularis
+  - protopterus
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000004696.macse_DNA_gb.fasta:
+  - Ornithorhynchus
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000011966.macse_DNA_gb.fasta:
+  - caretta
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000011950.macse_DNA_gb.fasta:
+  - protopterus
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000015451.macse_DNA_gb.fasta:
+  - chelonoidis_nigra
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000006113.macse_DNA_gb.fasta:
+  - podarcis
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000001250.macse_DNA_gb.fasta:
+  - emys_orbicularis
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000011434.macse_DNA_gb.fasta:
+  - caretta
+
+../test_data/empirical/empirical2_Chiari/1_noPreprocessing/my_ENSGALG00000008229.macse_DNA_gb.fasta:
+  - protopterus
+

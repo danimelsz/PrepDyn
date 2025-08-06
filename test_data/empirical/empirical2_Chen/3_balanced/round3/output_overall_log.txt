@@ -1,8 +1,0 @@
---- Overall prepDyn Execution Summary ---
-Command used:
-prepDyn(input_file='../test_data/empirical/empirical2_Chen/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chen/3_balanced/round3/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=3)
-
-Total Wall-clock time: 202.01821709 seconds
-Total CPU time: 196.53379400 seconds
-
-Note: Individual gene/alignment logs provide detailed information.
