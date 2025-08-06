@@ -1,0 +1,47 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 10
+No. columns: 774
+Total no. nucleotides (A/C/G/T only): 7509 bp
+Total no. gaps (-): 231
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 2, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 45
+Total '-' characters in fully missing partitions: 154
+Combined total: 199
+
+caiman: partition 26 (746–760, length 15) fully missing (all '-')
+caiman: partition 27 (762–767, length 6) fully missing (all '-')
+caiman: partition 28 (769–780, length 12) fully missing (all '-')
+caiman: partition 29 (782–786, length 5) fully missing (all '-')
+caretta: partition 0 (0–13, length 14) fully missing (all '-')
+caretta: partition 1 (15–30, length 16) fully missing (all '-')
+caretta: partition 27 (762–767, length 6) fully missing (all '-')
+caretta: partition 28 (769–780, length 12) fully missing (all '-')
+caretta: partition 29 (782–786, length 5) fully missing (all '-')
+phrynops: partition 0 (0–13, length 14) fully missing (all '-')
+phrynops: partition 1 (15–30, length 16) fully missing (all '-')
+phrynops: partition 2 (32–64, length 33) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=6)
+Columns with '#' inserted: [14, 31, 65, 107, 127, 139, 153, 322, 344, 387, 421, 434, 465, 484, 494, 507, 539, 548, 558, 565, 581, 612, 622, 683, 720, 745, 761, 768, 781]
+
+--- Summary after preprocessing ---
+No. sequences: 10
+No. columns: 787
+No. pound sign columns (#): 29
+Total no. nucleotides (A/C/G/T): 7381 bp
+Total no. gaps (-): 154
+Total no. IUPAC N: 0
+Total no. missing values (?): 199
+
+--- Run time ---
+Wall-clock time: 0.02557015 seconds
+CPU time: 0.02523900 seconds

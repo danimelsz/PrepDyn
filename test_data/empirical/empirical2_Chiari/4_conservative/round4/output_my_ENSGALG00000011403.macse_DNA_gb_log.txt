@@ -1,0 +1,76 @@
+--- Command used ---
+prepDyn(input_file='./test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='./test_data/empirical/empirical2_Chiari/4_conservative/round4/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25.0, del_inv=True, internal_column_ranges='all', internal_leaves='all', partitioning_method='conservative', partitioning_round=4)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 14
+No. columns: 1020
+Total no. nucleotides (A/C/G/T only): 11237 bp
+Total no. gaps (-): 3042
+Total no. IUPAC N: 1
+
+--- Step 2: Trimming (invariant columns) ---
+[0]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 261
+Total '-' characters in fully missing partitions: 2769
+Combined total: 3030
+
+chelonoidis_nigra: partition 8 (354–366, length 13) fully missing (all '-')
+chelonoidis_nigra: partition 9 (368–403, length 36) fully missing (all '-')
+chelonoidis_nigra: partition 10 (405–497, length 93) fully missing (all '-')
+chelonoidis_nigra: partition 11 (499–549, length 51) fully missing (all '-')
+chelonoidis_nigra: partition 12 (551–571, length 21) fully missing (all '-')
+chelonoidis_nigra: partition 13 (573–836, length 264) fully missing (all '-')
+chelonoidis_nigra: partition 14 (838–1032, length 195) fully missing (all '-')
+emys_orbicularis: partition 5 (217–225, length 9) fully missing (all '-')
+emys_orbicularis: partition 6 (227–235, length 9) fully missing (all '-')
+emys_orbicularis: partition 7 (237–352, length 116) fully missing (all '-')
+emys_orbicularis: partition 8 (354–366, length 13) fully missing (all '-')
+emys_orbicularis: partition 9 (368–403, length 36) fully missing (all '-')
+emys_orbicularis: partition 10 (405–497, length 93) fully missing (all '-')
+emys_orbicularis: partition 11 (499–549, length 51) fully missing (all '-')
+emys_orbicularis: partition 12 (551–571, length 21) fully missing (all '-')
+emys_orbicularis: partition 13 (573–836, length 264) fully missing (all '-')
+emys_orbicularis: partition 14 (838–1032, length 195) fully missing (all '-')
+phrynops: partition 0 (0–9, length 10) fully missing (all '-')
+phrynops: partition 1 (11–59, length 49) fully missing (all '-')
+phrynops: partition 2 (61–97, length 37) fully missing (all '-')
+podarcis: partition 0 (0–9, length 10) fully missing (all '-')
+podarcis: partition 1 (11–59, length 49) fully missing (all '-')
+podarcis: partition 2 (61–97, length 37) fully missing (all '-')
+podarcis: partition 3 (99–154, length 56) fully missing (all '-')
+podarcis: partition 4 (156–215, length 60) fully missing (all '-')
+podarcis: partition 5 (217–225, length 9) fully missing (all '-')
+podarcis: partition 6 (227–235, length 9) fully missing (all '-')
+protopterus: partition 4 (156–215, length 60) fully missing (all '-')
+protopterus: partition 5 (217–225, length 9) fully missing (all '-')
+protopterus: partition 6 (227–235, length 9) fully missing (all '-')
+protopterus: partition 7 (237–352, length 116) fully missing (all '-')
+protopterus: partition 8 (354–366, length 13) fully missing (all '-')
+protopterus: partition 9 (368–403, length 36) fully missing (all '-')
+protopterus: partition 10 (405–497, length 93) fully missing (all '-')
+protopterus: partition 11 (499–549, length 51) fully missing (all '-')
+protopterus: partition 12 (551–571, length 21) fully missing (all '-')
+protopterus: partition 13 (573–836, length 264) fully missing (all '-')
+protopterus: partition 14 (838–1032, length 195) fully missing (all '-')
+python: partition 0 (0–9, length 10) fully missing (all '-')
+python: partition 1 (11–59, length 49) fully missing (all '-')
+python: partition 2 (61–97, length 37) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=4)
+Columns with '#' inserted: [10, 60, 98, 155, 216, 226, 236, 353, 367, 404, 498, 550, 572, 837]
+
+--- Summary after preprocessing ---
+No. sequences: 14
+No. columns: 1033
+No. pound sign columns (#): 14
+Total no. nucleotides (A/C/G/T): 11226 bp
+Total no. gaps (-): 2778
+Total no. IUPAC N: 1
+Total no. missing values (?): 3030
+
+--- Run time ---
+Wall-clock time: 0.05224419 seconds
+CPU time: 0.05097900 seconds

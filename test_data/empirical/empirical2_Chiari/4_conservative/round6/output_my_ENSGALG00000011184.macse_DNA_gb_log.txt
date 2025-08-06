@@ -1,0 +1,65 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 10
+No. columns: 669
+Total no. nucleotides (A/C/G/T only): 6510 bp
+Total no. gaps (-): 180
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 666, 667, 668]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 1
+Total '-' characters in fully missing partitions: 176
+Combined total: 177
+
+caiman: partition 120 (608–610, length 3) fully missing (all '-')
+caiman: partition 121 (612–614, length 3) fully missing (all '-')
+caiman: partition 122 (616–618, length 3) fully missing (all '-')
+caiman: partition 123 (620–622, length 3) fully missing (all '-')
+caiman: partition 124 (624–626, length 3) fully missing (all '-')
+caiman: partition 125 (628–630, length 3) fully missing (all '-')
+caiman: partition 126 (632–634, length 3) fully missing (all '-')
+caiman: partition 127 (636–640, length 5) fully missing (all '-')
+caiman: partition 128 (642–651, length 10) fully missing (all '-')
+caiman: partition 129 (653–655, length 3) fully missing (all '-')
+caiman: partition 130 (657–686, length 30) fully missing (all '-')
+caiman: partition 131 (688–706, length 19) fully missing (all '-')
+caiman: partition 132 (708–711, length 4) fully missing (all '-')
+caiman: partition 133 (713–716, length 4) fully missing (all '-')
+caiman: partition 134 (718–720, length 3) fully missing (all '-')
+caiman: partition 135 (722–724, length 3) fully missing (all '-')
+caiman: partition 136 (726–728, length 3) fully missing (all '-')
+caiman: partition 137 (730–732, length 3) fully missing (all '-')
+caiman: partition 138 (734–739, length 6) fully missing (all '-')
+caiman: partition 139 (741–749, length 9) fully missing (all '-')
+caiman: partition 140 (751–761, length 11) fully missing (all '-')
+caiman: partition 141 (763–766, length 4) fully missing (all '-')
+caiman: partition 142 (768–771, length 4) fully missing (all '-')
+caiman: partition 143 (773–780, length 8) fully missing (all '-')
+caiman: partition 144 (782–784, length 3) fully missing (all '-')
+caiman: partition 145 (786–788, length 3) fully missing (all '-')
+caiman: partition 146 (790–792, length 3) fully missing (all '-')
+caiman: partition 147 (794–798, length 5) fully missing (all '-')
+caiman: partition 148 (800–808, length 9) fully missing (all '-')
+caiman: partition 149 (810–812, length 3) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=6)
+Columns with '#' inserted: [4, 9, 13, 19, 27, 34, 38, 44, 49, 53, 57, 61, 65, 69, 76, 82, 87, 91, 95, 99, 103, 107, 113, 121, 125, 129, 133, 137, 143, 151, 155, 159, 164, 173, 177, 181, 188, 195, 199, 205, 212, 217, 221, 225, 229, 233, 242, 247, 251, 255, 259, 263, 267, 274, 278, 282, 288, 293, 299, 304, 311, 315, 319, 325, 330, 334, 344, 351, 357, 362, 366, 371, 377, 381, 387, 395, 399, 403, 410, 419, 424, 428, 434, 439, 443, 447, 451, 455, 462, 466, 470, 474, 478, 482, 486, 490, 494, 498, 502, 506, 510, 514, 520, 525, 530, 536, 541, 550, 554, 558, 562, 566, 570, 577, 584, 588, 592, 598, 603, 607, 611, 615, 619, 623, 627, 631, 635, 641, 652, 656, 687, 707, 712, 717, 721, 725, 729, 733, 740, 750, 762, 767, 772, 781, 785, 789, 793, 799, 809]
+
+--- Summary after preprocessing ---
+No. sequences: 10
+No. columns: 813
+No. pound sign columns (#): 149
+Total no. nucleotides (A/C/G/T): 6463 bp
+Total no. gaps (-): 176
+Total no. IUPAC N: 0
+Total no. missing values (?): 177
+
+--- Run time ---
+Wall-clock time: 0.03043914 seconds
+CPU time: 0.02943100 seconds

@@ -1,0 +1,59 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round5/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=5)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 14
+No. columns: 885
+Total no. nucleotides (A/C/G/T only): 11409 bp
+Total no. gaps (-): 981
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 238
+Total '-' characters in fully missing partitions: 737
+Combined total: 975
+
+caiman: partition 0 (0–72, length 73) fully missing (all '-')
+caiman: partition 1 (74–92, length 19) fully missing (all '-')
+caiman: partition 2 (94–101, length 8) fully missing (all '-')
+caiman: partition 3 (103–134, length 32) fully missing (all '-')
+caiman: partition 4 (136–238, length 103) fully missing (all '-')
+caiman: partition 5 (240–257, length 18) fully missing (all '-')
+caiman: partition 6 (259–306, length 48) fully missing (all '-')
+caretta: partition 0 (0–72, length 73) fully missing (all '-')
+caretta: partition 1 (74–92, length 19) fully missing (all '-')
+caretta: partition 2 (94–101, length 8) fully missing (all '-')
+caretta: partition 3 (103–134, length 32) fully missing (all '-')
+chelonoidis_nigra: partition 20 (708–716, length 9) fully missing (all '-')
+chelonoidis_nigra: partition 21 (718–741, length 24) fully missing (all '-')
+chelonoidis_nigra: partition 22 (743–832, length 90) fully missing (all '-')
+chelonoidis_nigra: partition 23 (834–842, length 9) fully missing (all '-')
+chelonoidis_nigra: partition 24 (844–869, length 26) fully missing (all '-')
+chelonoidis_nigra: partition 25 (871–894, length 24) fully missing (all '-')
+chelonoidis_nigra: partition 26 (896–908, length 13) fully missing (all '-')
+emys_orbicularis: partition 23 (834–842, length 9) fully missing (all '-')
+emys_orbicularis: partition 24 (844–869, length 26) fully missing (all '-')
+emys_orbicularis: partition 25 (871–894, length 24) fully missing (all '-')
+emys_orbicularis: partition 26 (896–908, length 13) fully missing (all '-')
+protopterus: partition 25 (871–894, length 24) fully missing (all '-')
+protopterus: partition 26 (896–908, length 13) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=5)
+Columns with '#' inserted: [73, 93, 102, 135, 239, 258, 307, 359, 373, 391, 431, 510, 519, 526, 549, 600, 632, 677, 688, 707, 717, 742, 833, 843, 870, 895]
+
+--- Summary after preprocessing ---
+No. sequences: 14
+No. columns: 909
+No. pound sign columns (#): 26
+Total no. nucleotides (A/C/G/T): 11387 bp
+Total no. gaps (-): 737
+Total no. IUPAC N: 0
+Total no. missing values (?): 975
+
+--- Run time ---
+Wall-clock time: 0.04749584 seconds
+CPU time: 0.04560700 seconds

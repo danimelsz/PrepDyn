@@ -1,0 +1,65 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 9
+No. columns: 642
+Total no. nucleotides (A/C/G/T only): 5151 bp
+Total no. gaps (-): 627
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 63
+Total '-' characters in fully missing partitions: 549
+Combined total: 612
+
+Xenopus: partition 0 (0–29, length 30) fully missing (all '-')
+Xenopus: partition 1 (31–40, length 10) fully missing (all '-')
+Xenopus: partition 2 (42–73, length 32) fully missing (all '-')
+Xenopus: partition 3 (75–113, length 39) fully missing (all '-')
+Xenopus: partition 4 (115–141, length 27) fully missing (all '-')
+Xenopus: partition 5 (143–169, length 27) fully missing (all '-')
+Xenopus: partition 6 (171–179, length 9) fully missing (all '-')
+Xenopus: partition 7 (181–202, length 22) fully missing (all '-')
+Xenopus: partition 8 (204–277, length 74) fully missing (all '-')
+Xenopus: partition 9 (279–297, length 19) fully missing (all '-')
+Xenopus: partition 10 (299–313, length 15) fully missing (all '-')
+Xenopus: partition 11 (315–331, length 17) fully missing (all '-')
+Xenopus: partition 12 (333–361, length 29) fully missing (all '-')
+Xenopus: partition 13 (363–366, length 4) fully missing (all '-')
+Xenopus: partition 14 (368–378, length 11) fully missing (all '-')
+Xenopus: partition 15 (380–403, length 24) fully missing (all '-')
+Xenopus: partition 16 (405–408, length 4) fully missing (all '-')
+Xenopus: partition 17 (410–436, length 27) fully missing (all '-')
+Xenopus: partition 18 (438–443, length 6) fully missing (all '-')
+Xenopus: partition 19 (445–459, length 15) fully missing (all '-')
+Xenopus: partition 20 (461–483, length 23) fully missing (all '-')
+Xenopus: partition 21 (485–518, length 34) fully missing (all '-')
+caiman: partition 27 (618–623, length 6) fully missing (all '-')
+caiman: partition 28 (625–633, length 9) fully missing (all '-')
+caiman: partition 29 (635–643, length 9) fully missing (all '-')
+caiman: partition 30 (645–650, length 6) fully missing (all '-')
+caiman: partition 31 (652–657, length 6) fully missing (all '-')
+caiman: partition 32 (659–666, length 8) fully missing (all '-')
+caiman: partition 33 (668–671, length 4) fully missing (all '-')
+caiman: partition 34 (673–675, length 3) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=6)
+Columns with '#' inserted: [30, 41, 74, 114, 142, 170, 180, 203, 278, 298, 314, 332, 362, 367, 379, 404, 409, 437, 444, 460, 484, 519, 526, 552, 570, 577, 617, 624, 634, 644, 651, 658, 667, 672]
+
+--- Summary after preprocessing ---
+No. sequences: 9
+No. columns: 676
+No. pound sign columns (#): 34
+Total no. nucleotides (A/C/G/T): 5151 bp
+Total no. gaps (-): 564
+Total no. IUPAC N: 0
+Total no. missing values (?): 612
+
+--- Run time ---
+Wall-clock time: 0.02153087 seconds
+CPU time: 0.02112100 seconds

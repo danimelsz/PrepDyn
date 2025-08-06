@@ -1,0 +1,48 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/5_equal/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 15
+No. columns: 1047
+Total no. nucleotides (A/C/G/T only): 12936 bp
+Total no. gaps (-): 2769
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 466
+Total '-' characters in fully missing partitions: 1943
+Combined total: 2409
+
+caiman: partition 5 (750–898, length 149) fully missing (all '-')
+caiman: partition 6 (900–1050, length 151) fully missing (all '-')
+caretta: partition 6 (900–1050, length 151) fully missing (all '-')
+chelonoidis_nigra: partition 5 (750–898, length 149) fully missing (all '-')
+chelonoidis_nigra: partition 6 (900–1050, length 151) fully missing (all '-')
+podarcis: partition 0 (0–148, length 149) fully missing (all '-')
+podarcis: partition 1 (150–298, length 149) fully missing (all '-')
+podarcis: partition 2 (300–448, length 149) fully missing (all '-')
+protopterus: partition 1 (150–298, length 149) fully missing (all '-')
+protopterus: partition 2 (300–448, length 149) fully missing (all '-')
+protopterus: partition 3 (450–598, length 149) fully missing (all '-')
+python: partition 0 (0–148, length 149) fully missing (all '-')
+python: partition 1 (150–298, length 149) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [149, 299, 449, 599, 749, 899]
+
+--- Summary after preprocessing ---
+No. sequences: 15
+No. columns: 1051
+No. pound sign columns (#): 6
+Total no. nucleotides (A/C/G/T): 12912 bp
+Total no. gaps (-): 2297
+Total no. IUPAC N: 0
+Total no. missing values (?): 2409
+
+--- Run time ---
+Wall-clock time: 0.04699373 seconds
+CPU time: 0.04625300 seconds

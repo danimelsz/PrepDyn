@@ -1,0 +1,157 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 11
+No. columns: 702
+Total no. nucleotides (A/C/G/T only): 7254 bp
+Total no. gaps (-): 468
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 8
+Total '-' characters in fully missing partitions: 452
+Combined total: 460
+
+Ornithorhynchus: partition 0 (0–2, length 3) fully missing (all '-')
+Ornithorhynchus: partition 1 (4–7, length 4) fully missing (all '-')
+Ornithorhynchus: partition 2 (9–10, length 2) fully missing (all '-')
+Ornithorhynchus: partition 3 (12–14, length 3) fully missing (all '-')
+Ornithorhynchus: partition 4 (16–19, length 4) fully missing (all '-')
+Ornithorhynchus: partition 5 (21–25, length 5) fully missing (all '-')
+Ornithorhynchus: partition 6 (27–29, length 3) fully missing (all '-')
+Ornithorhynchus: partition 7 (31–34, length 4) fully missing (all '-')
+Ornithorhynchus: partition 8 (36–41, length 6) fully missing (all '-')
+Ornithorhynchus: partition 9 (43–44, length 2) fully missing (all '-')
+Ornithorhynchus: partition 10 (46–48, length 3) fully missing (all '-')
+Ornithorhynchus: partition 11 (50–52, length 3) fully missing (all '-')
+Ornithorhynchus: partition 12 (54–56, length 3) fully missing (all '-')
+Ornithorhynchus: partition 13 (58–61, length 4) fully missing (all '-')
+Ornithorhynchus: partition 14 (63–65, length 3) fully missing (all '-')
+Ornithorhynchus: partition 15 (67–68, length 2) fully missing (all '-')
+Ornithorhynchus: partition 16 (70–72, length 3) fully missing (all '-')
+Ornithorhynchus: partition 17 (74–76, length 3) fully missing (all '-')
+Ornithorhynchus: partition 18 (78–80, length 3) fully missing (all '-')
+Ornithorhynchus: partition 19 (82–85, length 4) fully missing (all '-')
+Ornithorhynchus: partition 20 (87–89, length 3) fully missing (all '-')
+Ornithorhynchus: partition 21 (91–94, length 4) fully missing (all '-')
+Ornithorhynchus: partition 22 (96–99, length 4) fully missing (all '-')
+Ornithorhynchus: partition 23 (101–103, length 3) fully missing (all '-')
+Ornithorhynchus: partition 24 (105–107, length 3) fully missing (all '-')
+Ornithorhynchus: partition 25 (109–111, length 3) fully missing (all '-')
+Ornithorhynchus: partition 26 (113–115, length 3) fully missing (all '-')
+Ornithorhynchus: partition 27 (117–119, length 3) fully missing (all '-')
+Ornithorhynchus: partition 28 (121–124, length 4) fully missing (all '-')
+Ornithorhynchus: partition 29 (126–129, length 4) fully missing (all '-')
+Ornithorhynchus: partition 30 (131–132, length 2) fully missing (all '-')
+Ornithorhynchus: partition 31 (134–136, length 3) fully missing (all '-')
+Ornithorhynchus: partition 32 (138–143, length 6) fully missing (all '-')
+Ornithorhynchus: partition 33 (145–146, length 2) fully missing (all '-')
+Ornithorhynchus: partition 34 (148–150, length 3) fully missing (all '-')
+Ornithorhynchus: partition 35 (152–155, length 4) fully missing (all '-')
+Ornithorhynchus: partition 36 (157–159, length 3) fully missing (all '-')
+Ornithorhynchus: partition 37 (161–166, length 6) fully missing (all '-')
+Ornithorhynchus: partition 38 (168–170, length 3) fully missing (all '-')
+Ornithorhynchus: partition 39 (172–173, length 2) fully missing (all '-')
+Ornithorhynchus: partition 40 (175–178, length 4) fully missing (all '-')
+Ornithorhynchus: partition 41 (180–181, length 2) fully missing (all '-')
+Ornithorhynchus: partition 42 (183–186, length 4) fully missing (all '-')
+Ornithorhynchus: partition 43 (188–193, length 6) fully missing (all '-')
+Ornithorhynchus: partition 44 (195–199, length 5) fully missing (all '-')
+Ornithorhynchus: partition 45 (201–206, length 6) fully missing (all '-')
+Ornithorhynchus: partition 46 (208–210, length 3) fully missing (all '-')
+Ornithorhynchus: partition 47 (212–214, length 3) fully missing (all '-')
+Ornithorhynchus: partition 48 (216–218, length 3) fully missing (all '-')
+emys_orbicularis: partition 0 (0–2, length 3) fully missing (all '-')
+emys_orbicularis: partition 1 (4–7, length 4) fully missing (all '-')
+emys_orbicularis: partition 2 (9–10, length 2) fully missing (all '-')
+emys_orbicularis: partition 3 (12–14, length 3) fully missing (all '-')
+emys_orbicularis: partition 4 (16–19, length 4) fully missing (all '-')
+emys_orbicularis: partition 5 (21–25, length 5) fully missing (all '-')
+emys_orbicularis: partition 6 (27–29, length 3) fully missing (all '-')
+emys_orbicularis: partition 7 (31–34, length 4) fully missing (all '-')
+emys_orbicularis: partition 8 (36–41, length 6) fully missing (all '-')
+emys_orbicularis: partition 9 (43–44, length 2) fully missing (all '-')
+emys_orbicularis: partition 10 (46–48, length 3) fully missing (all '-')
+emys_orbicularis: partition 11 (50–52, length 3) fully missing (all '-')
+emys_orbicularis: partition 12 (54–56, length 3) fully missing (all '-')
+emys_orbicularis: partition 13 (58–61, length 4) fully missing (all '-')
+emys_orbicularis: partition 14 (63–65, length 3) fully missing (all '-')
+emys_orbicularis: partition 15 (67–68, length 2) fully missing (all '-')
+emys_orbicularis: partition 16 (70–72, length 3) fully missing (all '-')
+emys_orbicularis: partition 17 (74–76, length 3) fully missing (all '-')
+emys_orbicularis: partition 18 (78–80, length 3) fully missing (all '-')
+emys_orbicularis: partition 19 (82–85, length 4) fully missing (all '-')
+emys_orbicularis: partition 20 (87–89, length 3) fully missing (all '-')
+emys_orbicularis: partition 21 (91–94, length 4) fully missing (all '-')
+emys_orbicularis: partition 22 (96–99, length 4) fully missing (all '-')
+emys_orbicularis: partition 23 (101–103, length 3) fully missing (all '-')
+emys_orbicularis: partition 24 (105–107, length 3) fully missing (all '-')
+emys_orbicularis: partition 25 (109–111, length 3) fully missing (all '-')
+emys_orbicularis: partition 26 (113–115, length 3) fully missing (all '-')
+emys_orbicularis: partition 27 (117–119, length 3) fully missing (all '-')
+emys_orbicularis: partition 28 (121–124, length 4) fully missing (all '-')
+emys_orbicularis: partition 29 (126–129, length 4) fully missing (all '-')
+emys_orbicularis: partition 30 (131–132, length 2) fully missing (all '-')
+emys_orbicularis: partition 31 (134–136, length 3) fully missing (all '-')
+emys_orbicularis: partition 32 (138–143, length 6) fully missing (all '-')
+emys_orbicularis: partition 33 (145–146, length 2) fully missing (all '-')
+emys_orbicularis: partition 34 (148–150, length 3) fully missing (all '-')
+emys_orbicularis: partition 35 (152–155, length 4) fully missing (all '-')
+emys_orbicularis: partition 36 (157–159, length 3) fully missing (all '-')
+emys_orbicularis: partition 37 (161–166, length 6) fully missing (all '-')
+emys_orbicularis: partition 38 (168–170, length 3) fully missing (all '-')
+emys_orbicularis: partition 39 (172–173, length 2) fully missing (all '-')
+emys_orbicularis: partition 40 (175–178, length 4) fully missing (all '-')
+emys_orbicularis: partition 41 (180–181, length 2) fully missing (all '-')
+emys_orbicularis: partition 42 (183–186, length 4) fully missing (all '-')
+emys_orbicularis: partition 43 (188–193, length 6) fully missing (all '-')
+emys_orbicularis: partition 192 (864–866, length 3) fully missing (all '-')
+emys_orbicularis: partition 193 (868–875, length 8) fully missing (all '-')
+emys_orbicularis: partition 194 (877–884, length 8) fully missing (all '-')
+emys_orbicularis: partition 195 (886–888, length 3) fully missing (all '-')
+emys_orbicularis: partition 196 (890–892, length 3) fully missing (all '-')
+emys_orbicularis: partition 197 (894–897, length 4) fully missing (all '-')
+phrynops: partition 175 (775–779, length 5) fully missing (all '-')
+phrynops: partition 176 (781–784, length 4) fully missing (all '-')
+phrynops: partition 177 (786–788, length 3) fully missing (all '-')
+phrynops: partition 178 (790–794, length 5) fully missing (all '-')
+phrynops: partition 179 (796–801, length 6) fully missing (all '-')
+phrynops: partition 180 (803–807, length 5) fully missing (all '-')
+phrynops: partition 181 (809–811, length 3) fully missing (all '-')
+phrynops: partition 182 (813–814, length 2) fully missing (all '-')
+phrynops: partition 183 (816–819, length 4) fully missing (all '-')
+phrynops: partition 184 (821–822, length 2) fully missing (all '-')
+phrynops: partition 185 (824–826, length 3) fully missing (all '-')
+phrynops: partition 186 (828–830, length 3) fully missing (all '-')
+phrynops: partition 187 (832–837, length 6) fully missing (all '-')
+phrynops: partition 188 (839–841, length 3) fully missing (all '-')
+phrynops: partition 189 (843–849, length 7) fully missing (all '-')
+phrynops: partition 190 (851–855, length 5) fully missing (all '-')
+phrynops: partition 191 (857–862, length 6) fully missing (all '-')
+phrynops: partition 192 (864–866, length 3) fully missing (all '-')
+phrynops: partition 193 (868–875, length 8) fully missing (all '-')
+phrynops: partition 194 (877–884, length 8) fully missing (all '-')
+phrynops: partition 195 (886–888, length 3) fully missing (all '-')
+phrynops: partition 196 (890–892, length 3) fully missing (all '-')
+phrynops: partition 197 (894–897, length 4) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=6)
+Columns with '#' inserted: [3, 8, 11, 15, 20, 26, 30, 35, 42, 45, 49, 53, 57, 62, 66, 69, 73, 77, 81, 86, 90, 95, 100, 104, 108, 112, 116, 120, 125, 130, 133, 137, 144, 147, 151, 156, 160, 167, 171, 174, 179, 182, 187, 194, 200, 207, 211, 215, 219, 224, 228, 231, 235, 240, 246, 251, 254, 258, 262, 267, 270, 275, 278, 282, 287, 290, 294, 298, 302, 307, 310, 314, 321, 325, 330, 333, 338, 342, 346, 349, 353, 357, 362, 367, 373, 378, 383, 387, 391, 396, 399, 403, 407, 411, 415, 419, 424, 428, 431, 435, 439, 443, 447, 451, 455, 459, 463, 470, 478, 482, 485, 490, 493, 497, 501, 507, 512, 516, 520, 524, 528, 532, 536, 540, 544, 548, 552, 562, 566, 571, 575, 579, 582, 587, 591, 594, 601, 605, 609, 613, 617, 621, 628, 632, 637, 640, 644, 648, 652, 656, 660, 664, 669, 672, 676, 680, 685, 688, 693, 696, 702, 708, 712, 716, 719, 723, 732, 737, 741, 745, 749, 755, 762, 770, 774, 780, 785, 789, 795, 802, 808, 812, 815, 820, 823, 827, 831, 838, 842, 850, 856, 863, 867, 876, 885, 889, 893]
+
+--- Summary after preprocessing ---
+No. sequences: 11
+No. columns: 898
+No. pound sign columns (#): 197
+Total no. nucleotides (A/C/G/T): 7245 bp
+Total no. gaps (-): 458
+Total no. IUPAC N: 0
+Total no. missing values (?): 460
+
+--- Run time ---
+Wall-clock time: 0.03773284 seconds
+CPU time: 0.03668100 seconds

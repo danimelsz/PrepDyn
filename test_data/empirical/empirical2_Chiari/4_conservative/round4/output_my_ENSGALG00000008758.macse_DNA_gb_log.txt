@@ -1,0 +1,43 @@
+--- Command used ---
+prepDyn(input_file='./test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='./test_data/empirical/empirical2_Chiari/4_conservative/round4/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25.0, del_inv=True, internal_column_ranges='all', internal_leaves='all', partitioning_method='conservative', partitioning_round=4)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 9
+No. columns: 636
+Total no. nucleotides (A/C/G/T only): 5409 bp
+Total no. gaps (-): 315
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 79
+Total '-' characters in fully missing partitions: 231
+Combined total: 310
+
+caiman: partition 14 (522–542, length 21) fully missing (all '-')
+caiman: partition 15 (544–558, length 15) fully missing (all '-')
+caiman: partition 16 (560–585, length 26) fully missing (all '-')
+caiman: partition 17 (587–650, length 64) fully missing (all '-')
+chelonoidis_nigra: partition 0 (0–45, length 46) fully missing (all '-')
+chelonoidis_nigra: partition 1 (47–52, length 6) fully missing (all '-')
+chelonoidis_nigra: partition 2 (54–71, length 18) fully missing (all '-')
+chelonoidis_nigra: partition 3 (73–107, length 35) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=4)
+Columns with '#' inserted: [46, 53, 72, 108, 144, 157, 262, 284, 309, 373, 438, 451, 460, 521, 543, 559, 586]
+
+--- Summary after preprocessing ---
+No. sequences: 9
+No. columns: 651
+No. pound sign columns (#): 17
+Total no. nucleotides (A/C/G/T): 5393 bp
+Total no. gaps (-): 234
+Total no. IUPAC N: 0
+Total no. missing values (?): 310
+
+--- Run time ---
+Wall-clock time: 0.03651977 seconds
+CPU time: 0.03506100 seconds

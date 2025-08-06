@@ -1,0 +1,41 @@
+--- Command used ---
+prepDyn(input_file='./test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='./test_data/empirical/empirical2_Chiari/4_conservative/round4/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25.0, del_inv=True, internal_column_ranges='all', internal_leaves='all', partitioning_method='conservative', partitioning_round=4)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 10
+No. columns: 612
+Total no. nucleotides (A/C/G/T only): 5814 bp
+Total no. gaps (-): 306
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[609, 610, 611]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 132
+Total '-' characters in fully missing partitions: 168
+Combined total: 300
+
+Ornithorhynchus: partition 4 (529–574, length 46) fully missing (all '-')
+Ornithorhynchus: partition 5 (576–596, length 21) fully missing (all '-')
+Ornithorhynchus: partition 6 (598–614, length 17) fully missing (all '-')
+alligator: partition 4 (529–574, length 46) fully missing (all '-')
+alligator: partition 5 (576–596, length 21) fully missing (all '-')
+alligator: partition 6 (598–614, length 17) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=4)
+Columns with '#' inserted: [109, 268, 453, 528, 575, 597]
+
+--- Summary after preprocessing ---
+No. sequences: 10
+No. columns: 615
+No. pound sign columns (#): 6
+Total no. nucleotides (A/C/G/T): 5790 bp
+Total no. gaps (-): 168
+Total no. IUPAC N: 0
+Total no. missing values (?): 300
+
+--- Run time ---
+Wall-clock time: 0.03667903 seconds
+CPU time: 0.03447800 seconds

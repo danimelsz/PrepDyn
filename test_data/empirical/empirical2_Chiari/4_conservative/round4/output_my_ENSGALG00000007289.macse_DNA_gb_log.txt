@@ -1,0 +1,57 @@
+--- Command used ---
+prepDyn(input_file='./test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='./test_data/empirical/empirical2_Chiari/4_conservative/round4/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25.0, del_inv=True, internal_column_ranges='all', internal_leaves='all', partitioning_method='conservative', partitioning_round=4)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 11
+No. columns: 657
+Total no. nucleotides (A/C/G/T only): 6384 bp
+Total no. gaps (-): 843
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 655, 656]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 115
+Total '-' characters in fully missing partitions: 714
+Combined total: 829
+
+caiman: partition 0 (0–24, length 25) fully missing (all '-')
+caiman: partition 1 (26–49, length 24) fully missing (all '-')
+caiman: partition 2 (51–62, length 12) fully missing (all '-')
+caiman: partition 3 (64–188, length 125) fully missing (all '-')
+caiman: partition 4 (190–196, length 7) fully missing (all '-')
+chelonoidis_nigra: partition 0 (0–24, length 25) fully missing (all '-')
+chelonoidis_nigra: partition 1 (26–49, length 24) fully missing (all '-')
+chelonoidis_nigra: partition 2 (51–62, length 12) fully missing (all '-')
+python: partition 5 (198–372, length 175) fully missing (all '-')
+python: partition 6 (374–390, length 17) fully missing (all '-')
+python: partition 7 (392–409, length 18) fully missing (all '-')
+python: partition 8 (411–419, length 9) fully missing (all '-')
+python: partition 9 (421–426, length 6) fully missing (all '-')
+python: partition 10 (428–502, length 75) fully missing (all '-')
+python: partition 11 (504–509, length 6) fully missing (all '-')
+python: partition 12 (511–517, length 7) fully missing (all '-')
+python: partition 13 (519–559, length 41) fully missing (all '-')
+python: partition 14 (561–611, length 51) fully missing (all '-')
+python: partition 15 (613–636, length 24) fully missing (all '-')
+python: partition 16 (638–643, length 6) fully missing (all '-')
+python: partition 17 (645–656, length 12) fully missing (all '-')
+python: partition 18 (658–670, length 13) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=4)
+Columns with '#' inserted: [25, 50, 63, 189, 197, 373, 391, 410, 420, 427, 503, 510, 518, 560, 612, 637, 644, 657]
+
+--- Summary after preprocessing ---
+No. sequences: 11
+No. columns: 671
+No. pound sign columns (#): 18
+Total no. nucleotides (A/C/G/T): 6348 bp
+Total no. gaps (-): 720
+Total no. IUPAC N: 0
+Total no. missing values (?): 829
+
+--- Run time ---
+Wall-clock time: 0.02480483 seconds
+CPU time: 0.02445500 seconds

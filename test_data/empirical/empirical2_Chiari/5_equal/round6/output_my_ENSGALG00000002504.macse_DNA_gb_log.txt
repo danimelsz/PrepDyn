@@ -1,0 +1,46 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/5_equal/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 10
+No. columns: 1374
+Total no. nucleotides (A/C/G/T only): 11250 bp
+Total no. gaps (-): 2490
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 321
+Total '-' characters in fully missing partitions: 2156
+Combined total: 2477
+
+caiman: partition 0 (0–195, length 196) fully missing (all '-')
+caiman: partition 1 (197–392, length 196) fully missing (all '-')
+caiman: partition 2 (394–589, length 196) fully missing (all '-')
+caiman: partition 3 (591–786, length 196) fully missing (all '-')
+chelonoidis_nigra: partition 0 (0–195, length 196) fully missing (all '-')
+chelonoidis_nigra: partition 1 (197–392, length 196) fully missing (all '-')
+chelonoidis_nigra: partition 2 (394–589, length 196) fully missing (all '-')
+protopterus: partition 3 (591–786, length 196) fully missing (all '-')
+protopterus: partition 4 (788–983, length 196) fully missing (all '-')
+protopterus: partition 5 (985–1180, length 196) fully missing (all '-')
+protopterus: partition 6 (1182–1377, length 196) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [196, 393, 590, 787, 984, 1181]
+
+--- Summary after preprocessing ---
+No. sequences: 10
+No. columns: 1378
+No. pound sign columns (#): 6
+Total no. nucleotides (A/C/G/T): 11234 bp
+Total no. gaps (-): 2165
+Total no. IUPAC N: 0
+Total no. missing values (?): 2477
+
+--- Run time ---
+Wall-clock time: 0.04517174 seconds
+CPU time: 0.04402400 seconds

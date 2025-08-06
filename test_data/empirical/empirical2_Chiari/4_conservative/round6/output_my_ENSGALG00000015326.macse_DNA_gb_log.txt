@@ -1,0 +1,87 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 10
+No. columns: 597
+Total no. nucleotides (A/C/G/T only): 5622 bp
+Total no. gaps (-): 348
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 6
+Total '-' characters in fully missing partitions: 311
+Combined total: 317
+
+Taeniopygia: partition 92 (515–519, length 5) fully missing (all '-')
+Taeniopygia: partition 93 (521–525, length 5) fully missing (all '-')
+Taeniopygia: partition 94 (527–537, length 11) fully missing (all '-')
+Taeniopygia: partition 95 (539–541, length 3) fully missing (all '-')
+Taeniopygia: partition 96 (543–554, length 12) fully missing (all '-')
+Taeniopygia: partition 97 (556–567, length 12) fully missing (all '-')
+Taeniopygia: partition 98 (569–577, length 9) fully missing (all '-')
+Taeniopygia: partition 99 (579–583, length 5) fully missing (all '-')
+Taeniopygia: partition 100 (585–589, length 5) fully missing (all '-')
+Taeniopygia: partition 101 (591–593, length 3) fully missing (all '-')
+Taeniopygia: partition 102 (595–602, length 8) fully missing (all '-')
+Taeniopygia: partition 103 (604–614, length 11) fully missing (all '-')
+Taeniopygia: partition 104 (616–617, length 2) fully missing (all '-')
+Taeniopygia: partition 105 (619–620, length 2) fully missing (all '-')
+Taeniopygia: partition 106 (622–628, length 7) fully missing (all '-')
+Taeniopygia: partition 107 (630–640, length 11) fully missing (all '-')
+Taeniopygia: partition 108 (642–657, length 16) fully missing (all '-')
+Taeniopygia: partition 109 (659–662, length 4) fully missing (all '-')
+Taeniopygia: partition 110 (664–671, length 8) fully missing (all '-')
+Taeniopygia: partition 111 (673–686, length 14) fully missing (all '-')
+Taeniopygia: partition 112 (688–691, length 4) fully missing (all '-')
+Taeniopygia: partition 113 (693–697, length 5) fully missing (all '-')
+Taeniopygia: partition 114 (699–707, length 9) fully missing (all '-')
+Taeniopygia: partition 115 (709–710, length 2) fully missing (all '-')
+podarcis: partition 0 (0–5, length 6) fully missing (all '-')
+podarcis: partition 1 (7–24, length 18) fully missing (all '-')
+podarcis: partition 2 (26–28, length 3) fully missing (all '-')
+podarcis: partition 3 (30–32, length 3) fully missing (all '-')
+podarcis: partition 4 (34–36, length 3) fully missing (all '-')
+podarcis: partition 5 (38–40, length 3) fully missing (all '-')
+podarcis: partition 6 (42–44, length 3) fully missing (all '-')
+podarcis: partition 7 (46–48, length 3) fully missing (all '-')
+podarcis: partition 8 (50–53, length 4) fully missing (all '-')
+podarcis: partition 9 (55–58, length 4) fully missing (all '-')
+podarcis: partition 10 (60–65, length 6) fully missing (all '-')
+podarcis: partition 11 (67–71, length 5) fully missing (all '-')
+podarcis: partition 12 (73–77, length 5) fully missing (all '-')
+podarcis: partition 13 (79–81, length 3) fully missing (all '-')
+podarcis: partition 14 (83–85, length 3) fully missing (all '-')
+podarcis: partition 15 (87–91, length 5) fully missing (all '-')
+podarcis: partition 16 (93–98, length 6) fully missing (all '-')
+podarcis: partition 17 (100–103, length 4) fully missing (all '-')
+podarcis: partition 18 (105–107, length 3) fully missing (all '-')
+podarcis: partition 19 (109–111, length 3) fully missing (all '-')
+podarcis: partition 20 (113–115, length 3) fully missing (all '-')
+podarcis: partition 21 (117–121, length 5) fully missing (all '-')
+podarcis: partition 22 (123–124, length 2) fully missing (all '-')
+podarcis: partition 23 (126–128, length 3) fully missing (all '-')
+podarcis: partition 24 (130–131, length 2) fully missing (all '-')
+podarcis: partition 25 (133–138, length 6) fully missing (all '-')
+podarcis: partition 26 (140–161, length 22) fully missing (all '-')
+podarcis: partition 27 (163–164, length 2) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=6)
+Columns with '#' inserted: [6, 25, 29, 33, 37, 41, 45, 49, 54, 59, 66, 72, 78, 82, 86, 92, 99, 104, 108, 112, 116, 122, 125, 129, 132, 139, 162, 165, 191, 197, 204, 211, 215, 219, 226, 232, 237, 241, 245, 249, 266, 269, 274, 277, 281, 289, 292, 297, 304, 307, 311, 315, 319, 323, 327, 331, 337, 342, 346, 350, 360, 365, 368, 376, 381, 386, 390, 397, 401, 405, 412, 418, 423, 427, 431, 438, 442, 447, 450, 454, 460, 468, 472, 477, 480, 487, 492, 495, 499, 504, 510, 514, 520, 526, 538, 542, 555, 568, 578, 584, 590, 594, 603, 615, 618, 621, 629, 641, 658, 663, 672, 687, 692, 698, 708]
+
+--- Summary after preprocessing ---
+No. sequences: 10
+No. columns: 711
+No. pound sign columns (#): 115
+Total no. nucleotides (A/C/G/T): 5613 bp
+Total no. gaps (-): 341
+Total no. IUPAC N: 0
+Total no. missing values (?): 317
+
+--- Run time ---
+Wall-clock time: 0.02466297 seconds
+CPU time: 0.02382100 seconds

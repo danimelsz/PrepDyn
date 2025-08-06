@@ -1,0 +1,47 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/3_balanced/round4/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=4)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 16
+No. columns: 603
+Total no. nucleotides (A/C/G/T only): 9054 bp
+Total no. gaps (-): 594
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 0
+Total '-' characters in fully missing partitions: 588
+Combined total: 588
+
+Xenopus: partition 5 (460–474, length 15) fully missing (all '-')
+Xenopus: partition 6 (476–607, length 132) fully missing (all '-')
+caiman: partition 0 (0–10, length 11) fully missing (all '-')
+caiman: partition 6 (476–607, length 132) fully missing (all '-')
+chelonoidis_nigra: partition 4 (357–458, length 102) fully missing (all '-')
+chelonoidis_nigra: partition 5 (460–474, length 15) fully missing (all '-')
+chelonoidis_nigra: partition 6 (476–607, length 132) fully missing (all '-')
+protopterus: partition 0 (0–10, length 11) fully missing (all '-')
+protopterus: partition 1 (12–23, length 12) fully missing (all '-')
+protopterus: partition 2 (25–27, length 3) fully missing (all '-')
+python: partition 0 (0–10, length 11) fully missing (all '-')
+python: partition 1 (12–23, length 12) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=4)
+Columns with '#' inserted: [11, 24, 28, 356, 459, 475]
+
+--- Summary after preprocessing ---
+No. sequences: 16
+No. columns: 608
+No. pound sign columns (#): 6
+Total no. nucleotides (A/C/G/T): 9041 bp
+Total no. gaps (-): 591
+Total no. IUPAC N: 0
+Total no. missing values (?): 588
+
+--- Run time ---
+Wall-clock time: 0.03403234 seconds
+CPU time: 0.03362600 seconds

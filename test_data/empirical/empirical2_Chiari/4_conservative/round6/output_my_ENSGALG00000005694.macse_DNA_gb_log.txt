@@ -1,0 +1,47 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 13
+No. columns: 585
+Total no. nucleotides (A/C/G/T only): 7547 bp
+Total no. gaps (-): 57
+Total no. IUPAC N: 1
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 6
+Total '-' characters in fully missing partitions: 35
+Combined total: 41
+
+caiman: partition 0 (0–2, length 3) fully missing (all '-')
+caiman: partition 1 (4–6, length 3) fully missing (all '-')
+caiman: partition 2 (8–9, length 2) fully missing (all '-')
+caiman: partition 3 (11–13, length 3) fully missing (all '-')
+caiman: partition 4 (15–18, length 4) fully missing (all '-')
+caiman: partition 5 (20–21, length 2) fully missing (all '-')
+caiman: partition 154 (730–734, length 5) fully missing (all '-')
+caiman: partition 155 (736–737, length 2) fully missing (all '-')
+caretta: partition 0 (0–2, length 3) fully missing (all '-')
+caretta: partition 1 (4–6, length 3) fully missing (all '-')
+caretta: partition 2 (8–9, length 2) fully missing (all '-')
+caretta: partition 3 (11–13, length 3) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=6)
+Columns with '#' inserted: [3, 7, 10, 14, 19, 22, 26, 30, 34, 42, 45, 49, 55, 61, 68, 77, 81, 86, 89, 94, 98, 101, 105, 109, 114, 118, 121, 125, 129, 133, 137, 141, 145, 149, 153, 158, 161, 166, 170, 175, 180, 185, 189, 192, 196, 200, 205, 212, 216, 220, 223, 227, 231, 235, 240, 243, 247, 252, 258, 262, 266, 273, 278, 281, 285, 289, 293, 297, 301, 305, 309, 314, 317, 321, 325, 329, 333, 337, 344, 348, 352, 356, 360, 365, 377, 381, 391, 403, 409, 412, 416, 421, 425, 428, 432, 436, 440, 447, 451, 455, 460, 463, 467, 471, 476, 479, 483, 487, 491, 495, 500, 503, 508, 513, 518, 522, 526, 530, 540, 546, 551, 556, 560, 564, 567, 571, 575, 579, 584, 590, 595, 599, 602, 608, 611, 614, 618, 622, 626, 634, 638, 648, 651, 655, 659, 667, 674, 678, 681, 685, 690, 702, 715, 729, 735]
+
+--- Summary after preprocessing ---
+No. sequences: 13
+No. columns: 738
+No. pound sign columns (#): 155
+Total no. nucleotides (A/C/G/T): 7525 bp
+Total no. gaps (-): 47
+Total no. IUPAC N: 1
+Total no. missing values (?): 41
+
+--- Run time ---
+Wall-clock time: 0.03504276 seconds
+CPU time: 0.03234700 seconds

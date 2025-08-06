@@ -1,0 +1,45 @@
+--- Command used ---
+prepDyn(input_file='./test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='./test_data/empirical/empirical2_Chiari/4_conservative/round4/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25.0, del_inv=True, internal_column_ranges='all', internal_leaves='all', partitioning_method='conservative', partitioning_round=4)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 15
+No. columns: 606
+Total no. nucleotides (A/C/G/T only): 8921 bp
+Total no. gaps (-): 168
+Total no. IUPAC N: 1
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 54
+Total '-' characters in fully missing partitions: 108
+Combined total: 162
+
+Ornithorhynchus: partition 0 (0–15, length 16) fully missing (all '-')
+Ornithorhynchus: partition 1 (17–24, length 8) fully missing (all '-')
+Taeniopygia: partition 0 (0–15, length 16) fully missing (all '-')
+Taeniopygia: partition 1 (17–24, length 8) fully missing (all '-')
+caretta: partition 16 (602–607, length 6) fully missing (all '-')
+caretta: partition 17 (609–620, length 12) fully missing (all '-')
+emys_orbicularis: partition 0 (0–15, length 16) fully missing (all '-')
+emys_orbicularis: partition 1 (17–24, length 8) fully missing (all '-')
+phrynops: partition 16 (602–607, length 6) fully missing (all '-')
+phrynops: partition 17 (609–620, length 12) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=4)
+Columns with '#' inserted: [16, 25, 60, 136, 164, 197, 232, 278, 300, 339, 452, 474, 508, 534, 554, 601, 608]
+
+--- Summary after preprocessing ---
+No. sequences: 15
+No. columns: 621
+No. pound sign columns (#): 17
+Total no. nucleotides (A/C/G/T): 8897 bp
+Total no. gaps (-): 108
+Total no. IUPAC N: 1
+Total no. missing values (?): 162
+
+--- Run time ---
+Wall-clock time: 0.05134702 seconds
+CPU time: 0.03974900 seconds

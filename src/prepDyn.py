@@ -161,7 +161,7 @@ Examples:
     parser.add_argument("-om", "--orphan_method", help="Method to trim orphan nucleotides. Options: 'none' (default), 'auto' (define a threshold using percentile), 'semi' (define a threshold using an integer)", choices=["auto", "semi"], default=None)
     parser.add_argument("-ot", "--orphan_threshold", type=int, help="Threshold integer if orphan_method='semi' (default: 10)", default=10)
     parser.add_argument("-op", "--percentile", type=float, help="Percentile of gap lengths to define the orphan threshold if orphan_method='auto' (default: 25).", default=25.0)
-    parser.add_argument("-di", "--del_inv", default=True, type=str2bool, help="Trim invariant terminal columns (default: False)")
+    parser.add_argument("-di", "--del_inv", default=True, type=str2bool, help="Trim invariant terminal columns (default: True)")
 
     # Missing data
     parser.add_argument("-g2q", "--internal_method", help="Method to handle internal missing data: 'manual', 'semi', or 'none' (default)", default=None)

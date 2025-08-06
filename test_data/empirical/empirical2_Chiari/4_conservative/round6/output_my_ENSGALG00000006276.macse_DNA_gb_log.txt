@@ -1,0 +1,102 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 9
+No. columns: 792
+Total no. nucleotides (A/C/G/T only): 6774 bp
+Total no. gaps (-): 354
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 789, 790, 791]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 4
+Total '-' characters in fully missing partitions: 324
+Combined total: 328
+
+alligator: partition 0 (0–1, length 2) fully missing (all '-')
+alligator: partition 1 (3–6, length 4) fully missing (all '-')
+alligator: partition 2 (8–9, length 2) fully missing (all '-')
+alligator: partition 3 (11–13, length 3) fully missing (all '-')
+alligator: partition 4 (15–17, length 3) fully missing (all '-')
+alligator: partition 5 (19–22, length 4) fully missing (all '-')
+alligator: partition 6 (24–28, length 5) fully missing (all '-')
+alligator: partition 131 (617–625, length 9) fully missing (all '-')
+alligator: partition 132 (627–629, length 3) fully missing (all '-')
+alligator: partition 133 (631–632, length 2) fully missing (all '-')
+alligator: partition 134 (634–636, length 3) fully missing (all '-')
+alligator: partition 135 (638–641, length 4) fully missing (all '-')
+alligator: partition 136 (643–644, length 2) fully missing (all '-')
+alligator: partition 137 (646–649, length 4) fully missing (all '-')
+alligator: partition 138 (651–653, length 3) fully missing (all '-')
+alligator: partition 139 (655–656, length 2) fully missing (all '-')
+alligator: partition 140 (658–661, length 4) fully missing (all '-')
+alligator: partition 141 (663–665, length 3) fully missing (all '-')
+alligator: partition 142 (667–669, length 3) fully missing (all '-')
+alligator: partition 143 (671–672, length 2) fully missing (all '-')
+alligator: partition 144 (674–676, length 3) fully missing (all '-')
+alligator: partition 145 (678–681, length 4) fully missing (all '-')
+alligator: partition 146 (683–684, length 2) fully missing (all '-')
+alligator: partition 147 (686–688, length 3) fully missing (all '-')
+alligator: partition 148 (690–693, length 4) fully missing (all '-')
+alligator: partition 149 (695–697, length 3) fully missing (all '-')
+alligator: partition 150 (699–702, length 4) fully missing (all '-')
+alligator: partition 151 (704–707, length 4) fully missing (all '-')
+alligator: partition 152 (709–717, length 9) fully missing (all '-')
+alligator: partition 153 (719–727, length 9) fully missing (all '-')
+alligator: partition 154 (729–770, length 42) fully missing (all '-')
+alligator: partition 155 (772–774, length 3) fully missing (all '-')
+alligator: partition 156 (776–781, length 6) fully missing (all '-')
+alligator: partition 157 (783–785, length 3) fully missing (all '-')
+alligator: partition 158 (787–789, length 3) fully missing (all '-')
+alligator: partition 159 (791–793, length 3) fully missing (all '-')
+alligator: partition 160 (795–797, length 3) fully missing (all '-')
+alligator: partition 161 (799–806, length 8) fully missing (all '-')
+alligator: partition 162 (808–811, length 4) fully missing (all '-')
+alligator: partition 163 (813–817, length 5) fully missing (all '-')
+alligator: partition 164 (819–822, length 4) fully missing (all '-')
+alligator: partition 165 (824–826, length 3) fully missing (all '-')
+alligator: partition 166 (828–831, length 4) fully missing (all '-')
+alligator: partition 167 (833–835, length 3) fully missing (all '-')
+alligator: partition 168 (837–838, length 2) fully missing (all '-')
+alligator: partition 169 (840–842, length 3) fully missing (all '-')
+alligator: partition 170 (844–846, length 3) fully missing (all '-')
+alligator: partition 171 (848–850, length 3) fully missing (all '-')
+alligator: partition 172 (852–855, length 4) fully missing (all '-')
+alligator: partition 173 (857–882, length 26) fully missing (all '-')
+alligator: partition 174 (884–885, length 2) fully missing (all '-')
+alligator: partition 175 (887–888, length 2) fully missing (all '-')
+alligator: partition 176 (890–892, length 3) fully missing (all '-')
+alligator: partition 177 (894–899, length 6) fully missing (all '-')
+alligator: partition 178 (901–911, length 11) fully missing (all '-')
+alligator: partition 179 (913–914, length 2) fully missing (all '-')
+alligator: partition 180 (916–919, length 4) fully missing (all '-')
+alligator: partition 181 (921–932, length 12) fully missing (all '-')
+alligator: partition 182 (934–939, length 6) fully missing (all '-')
+alligator: partition 183 (941–943, length 3) fully missing (all '-')
+alligator: partition 184 (945–947, length 3) fully missing (all '-')
+alligator: partition 185 (949–952, length 4) fully missing (all '-')
+alligator: partition 186 (954–959, length 6) fully missing (all '-')
+alligator: partition 187 (961–965, length 5) fully missing (all '-')
+alligator: partition 188 (967–969, length 3) fully missing (all '-')
+alligator: partition 189 (971–974, length 4) fully missing (all '-')
+alligator: partition 190 (976–976, length 1) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=6)
+Columns with '#' inserted: [2, 7, 10, 14, 18, 23, 29, 35, 44, 47, 51, 59, 62, 66, 70, 75, 81, 85, 90, 93, 97, 101, 106, 113, 120, 123, 127, 133, 138, 144, 149, 153, 158, 162, 165, 170, 173, 181, 185, 188, 193, 197, 200, 208, 214, 218, 223, 227, 230, 234, 239, 243, 246, 251, 254, 258, 262, 266, 270, 274, 278, 284, 289, 294, 298, 301, 305, 309, 313, 321, 330, 338, 343, 352, 355, 362, 366, 370, 374, 379, 382, 387, 391, 397, 401, 405, 409, 416, 421, 424, 429, 432, 436, 441, 444, 448, 452, 456, 463, 467, 474, 478, 482, 486, 491, 495, 499, 503, 507, 510, 514, 519, 522, 526, 530, 534, 540, 545, 550, 556, 560, 564, 568, 572, 585, 589, 596, 601, 607, 611, 616, 626, 630, 633, 637, 642, 645, 650, 654, 657, 662, 666, 670, 673, 677, 682, 685, 689, 694, 698, 703, 708, 718, 728, 771, 775, 782, 786, 790, 794, 798, 807, 812, 818, 823, 827, 832, 836, 839, 843, 847, 851, 856, 883, 886, 889, 893, 900, 912, 915, 920, 933, 940, 944, 948, 953, 960, 966, 970, 975]
+
+--- Summary after preprocessing ---
+No. sequences: 9
+No. columns: 977
+No. pound sign columns (#): 190
+Total no. nucleotides (A/C/G/T): 6734 bp
+Total no. gaps (-): 345
+Total no. IUPAC N: 0
+Total no. missing values (?): 328
+
+--- Run time ---
+Wall-clock time: 0.03277373 seconds
+CPU time: 0.03116500 seconds

@@ -1,0 +1,47 @@
+--- Command used ---
+prepDyn(input_file='./test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='./test_data/empirical/empirical2_Chiari/4_conservative/round4/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25.0, del_inv=True, internal_column_ranges='all', internal_leaves='all', partitioning_method='conservative', partitioning_round=4)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 10
+No. columns: 471
+Total no. nucleotides (A/C/G/T only): 4323 bp
+Total no. gaps (-): 387
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 27
+Total '-' characters in fully missing partitions: 337
+Combined total: 364
+
+Xenopus: partition 0 (0–24, length 25) fully missing (all '-')
+Xenopus: partition 1 (26–61, length 36) fully missing (all '-')
+Xenopus: partition 2 (63–92, length 30) fully missing (all '-')
+Xenopus: partition 3 (94–117, length 24) fully missing (all '-')
+Xenopus: partition 4 (119–140, length 22) fully missing (all '-')
+Xenopus: partition 5 (142–197, length 56) fully missing (all '-')
+Xenopus: partition 6 (199–220, length 22) fully missing (all '-')
+Xenopus: partition 7 (222–263, length 42) fully missing (all '-')
+Xenopus: partition 8 (265–281, length 17) fully missing (all '-')
+Xenopus: partition 9 (283–291, length 9) fully missing (all '-')
+caiman: partition 17 (423–431, length 9) fully missing (all '-')
+caiman: partition 18 (433–477, length 45) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=4)
+Columns with '#' inserted: [25, 62, 93, 118, 141, 198, 221, 264, 282, 292, 311, 336, 349, 377, 387, 395, 422, 432]
+
+--- Summary after preprocessing ---
+No. sequences: 10
+No. columns: 478
+No. pound sign columns (#): 18
+Total no. nucleotides (A/C/G/T): 4224 bp
+Total no. gaps (-): 349
+Total no. IUPAC N: 0
+Total no. missing values (?): 364
+
+--- Run time ---
+Wall-clock time: 0.03217006 seconds
+CPU time: 0.02624300 seconds

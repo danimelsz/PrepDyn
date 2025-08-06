@@ -1,0 +1,49 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 9
+No. columns: 738
+Total no. nucleotides (A/C/G/T only): 6174 bp
+Total no. gaps (-): 468
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 729, 730, 731, 732, 733, 734, 735, 736, 737]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 103
+Total '-' characters in fully missing partitions: 355
+Combined total: 458
+
+caiman: partition 0 (0–28, length 29) fully missing (all '-')
+caiman: partition 1 (30–62, length 33) fully missing (all '-')
+caiman: partition 2 (64–84, length 21) fully missing (all '-')
+caiman: partition 3 (86–109, length 24) fully missing (all '-')
+caiman: partition 4 (111–173, length 63) fully missing (all '-')
+caiman: partition 5 (175–186, length 12) fully missing (all '-')
+caiman: partition 6 (188–214, length 27) fully missing (all '-')
+caiman: partition 7 (216–230, length 15) fully missing (all '-')
+chelonoidis_nigra: partition 18 (615–625, length 11) fully missing (all '-')
+chelonoidis_nigra: partition 19 (627–647, length 21) fully missing (all '-')
+chelonoidis_nigra: partition 20 (649–654, length 6) fully missing (all '-')
+chelonoidis_nigra: partition 21 (656–682, length 27) fully missing (all '-')
+chelonoidis_nigra: partition 22 (684–727, length 44) fully missing (all '-')
+chelonoidis_nigra: partition 23 (729–750, length 22) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=6)
+Columns with '#' inserted: [29, 63, 85, 110, 174, 187, 215, 231, 253, 287, 298, 325, 347, 370, 400, 428, 474, 614, 626, 648, 655, 683, 728]
+
+--- Summary after preprocessing ---
+No. sequences: 9
+No. columns: 751
+No. pound sign columns (#): 23
+Total no. nucleotides (A/C/G/T): 6094 bp
+Total no. gaps (-): 355
+Total no. IUPAC N: 0
+Total no. missing values (?): 458
+
+--- Run time ---
+Wall-clock time: 0.02641225 seconds
+CPU time: 0.02576900 seconds

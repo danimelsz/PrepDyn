@@ -1,0 +1,47 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/3_balanced/round5/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=5)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 11
+No. columns: 711
+Total no. nucleotides (A/C/G/T only): 6228 bp
+Total no. gaps (-): 1593
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 2, 3, 4]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 0
+Total '-' characters in fully missing partitions: 1583
+Combined total: 1583
+
+Anolis: partition 1 (2–73, length 72) fully missing (all '-')
+Anolis: partition 2 (75–236, length 162) fully missing (all '-')
+Anolis: partition 3 (238–336, length 99) fully missing (all '-')
+Anolis: partition 4 (338–709, length 372) fully missing (all '-')
+caiman: partition 0 (0–0, length 1) fully missing (all '-')
+caiman: partition 1 (2–73, length 72) fully missing (all '-')
+caiman: partition 2 (75–236, length 162) fully missing (all '-')
+caiman: partition 3 (238–336, length 99) fully missing (all '-')
+caretta: partition 0 (0–0, length 1) fully missing (all '-')
+caretta: partition 1 (2–73, length 72) fully missing (all '-')
+chelonoidis_nigra: partition 3 (238–336, length 99) fully missing (all '-')
+chelonoidis_nigra: partition 4 (338–709, length 372) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=5)
+Columns with '#' inserted: [1, 74, 237, 337]
+
+--- Summary after preprocessing ---
+No. sequences: 11
+No. columns: 710
+No. pound sign columns (#): 4
+Total no. nucleotides (A/C/G/T): 6183 bp
+Total no. gaps (-): 1583
+Total no. IUPAC N: 0
+Total no. missing values (?): 1583
+
+--- Run time ---
+Wall-clock time: 0.03385592 seconds
+CPU time: 0.03367900 seconds

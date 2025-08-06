@@ -1,0 +1,123 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 10
+No. columns: 501
+Total no. nucleotides (A/C/G/T only): 4578 bp
+Total no. gaps (-): 432
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[498, 499, 500]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 8
+Total '-' characters in fully missing partitions: 355
+Combined total: 363
+
+Ornithorhynchus: partition 86 (486–488, length 3) fully missing (all '-')
+Ornithorhynchus: partition 87 (490–492, length 3) fully missing (all '-')
+Ornithorhynchus: partition 88 (494–496, length 3) fully missing (all '-')
+Ornithorhynchus: partition 89 (498–503, length 6) fully missing (all '-')
+Ornithorhynchus: partition 90 (505–510, length 6) fully missing (all '-')
+Ornithorhynchus: partition 91 (512–514, length 3) fully missing (all '-')
+Ornithorhynchus: partition 92 (516–518, length 3) fully missing (all '-')
+Ornithorhynchus: partition 93 (520–524, length 5) fully missing (all '-')
+Ornithorhynchus: partition 94 (526–529, length 4) fully missing (all '-')
+Ornithorhynchus: partition 95 (531–534, length 4) fully missing (all '-')
+Ornithorhynchus: partition 96 (536–537, length 2) fully missing (all '-')
+Ornithorhynchus: partition 97 (539–541, length 3) fully missing (all '-')
+Ornithorhynchus: partition 98 (543–545, length 3) fully missing (all '-')
+Ornithorhynchus: partition 99 (547–549, length 3) fully missing (all '-')
+Ornithorhynchus: partition 100 (551–553, length 3) fully missing (all '-')
+Ornithorhynchus: partition 101 (555–557, length 3) fully missing (all '-')
+Ornithorhynchus: partition 102 (559–561, length 3) fully missing (all '-')
+Ornithorhynchus: partition 103 (563–567, length 5) fully missing (all '-')
+Ornithorhynchus: partition 104 (569–572, length 4) fully missing (all '-')
+Ornithorhynchus: partition 105 (574–578, length 5) fully missing (all '-')
+Ornithorhynchus: partition 106 (580–584, length 5) fully missing (all '-')
+Ornithorhynchus: partition 107 (586–595, length 10) fully missing (all '-')
+Ornithorhynchus: partition 108 (597–603, length 7) fully missing (all '-')
+Ornithorhynchus: partition 109 (605–606, length 2) fully missing (all '-')
+Xenopus: partition 52 (339–340, length 2) fully missing (all '-')
+Xenopus: partition 53 (342–344, length 3) fully missing (all '-')
+Xenopus: partition 54 (346–348, length 3) fully missing (all '-')
+Xenopus: partition 55 (350–353, length 4) fully missing (all '-')
+Xenopus: partition 56 (355–356, length 2) fully missing (all '-')
+Xenopus: partition 57 (358–360, length 3) fully missing (all '-')
+Xenopus: partition 58 (362–366, length 5) fully missing (all '-')
+Xenopus: partition 59 (368–371, length 4) fully missing (all '-')
+Xenopus: partition 60 (373–375, length 3) fully missing (all '-')
+Xenopus: partition 61 (377–379, length 3) fully missing (all '-')
+Xenopus: partition 62 (381–383, length 3) fully missing (all '-')
+Xenopus: partition 63 (385–387, length 3) fully missing (all '-')
+Xenopus: partition 64 (389–391, length 3) fully missing (all '-')
+Xenopus: partition 65 (393–395, length 3) fully missing (all '-')
+Xenopus: partition 66 (397–400, length 4) fully missing (all '-')
+Xenopus: partition 67 (402–405, length 4) fully missing (all '-')
+Xenopus: partition 68 (407–410, length 4) fully missing (all '-')
+Xenopus: partition 69 (412–414, length 3) fully missing (all '-')
+Xenopus: partition 70 (416–418, length 3) fully missing (all '-')
+Xenopus: partition 71 (420–422, length 3) fully missing (all '-')
+Xenopus: partition 72 (424–426, length 3) fully missing (all '-')
+Xenopus: partition 73 (428–430, length 3) fully missing (all '-')
+Xenopus: partition 74 (432–434, length 3) fully missing (all '-')
+Xenopus: partition 75 (436–438, length 3) fully missing (all '-')
+Xenopus: partition 76 (440–444, length 5) fully missing (all '-')
+Xenopus: partition 77 (446–449, length 4) fully missing (all '-')
+Xenopus: partition 78 (451–455, length 5) fully missing (all '-')
+Xenopus: partition 79 (457–460, length 4) fully missing (all '-')
+Xenopus: partition 80 (462–464, length 3) fully missing (all '-')
+Xenopus: partition 81 (466–468, length 3) fully missing (all '-')
+Xenopus: partition 82 (470–472, length 3) fully missing (all '-')
+Xenopus: partition 83 (474–476, length 3) fully missing (all '-')
+Xenopus: partition 84 (478–480, length 3) fully missing (all '-')
+Xenopus: partition 85 (482–484, length 3) fully missing (all '-')
+Xenopus: partition 86 (486–488, length 3) fully missing (all '-')
+Xenopus: partition 87 (490–492, length 3) fully missing (all '-')
+Xenopus: partition 88 (494–496, length 3) fully missing (all '-')
+Xenopus: partition 89 (498–503, length 6) fully missing (all '-')
+Xenopus: partition 90 (505–510, length 6) fully missing (all '-')
+Xenopus: partition 91 (512–514, length 3) fully missing (all '-')
+Xenopus: partition 92 (516–518, length 3) fully missing (all '-')
+Xenopus: partition 93 (520–524, length 5) fully missing (all '-')
+Xenopus: partition 94 (526–529, length 4) fully missing (all '-')
+Xenopus: partition 95 (531–534, length 4) fully missing (all '-')
+Xenopus: partition 96 (536–537, length 2) fully missing (all '-')
+Xenopus: partition 97 (539–541, length 3) fully missing (all '-')
+Xenopus: partition 98 (543–545, length 3) fully missing (all '-')
+Xenopus: partition 99 (547–549, length 3) fully missing (all '-')
+Xenopus: partition 100 (551–553, length 3) fully missing (all '-')
+Xenopus: partition 101 (555–557, length 3) fully missing (all '-')
+Xenopus: partition 102 (559–561, length 3) fully missing (all '-')
+Xenopus: partition 103 (563–567, length 5) fully missing (all '-')
+Xenopus: partition 104 (569–572, length 4) fully missing (all '-')
+Xenopus: partition 105 (574–578, length 5) fully missing (all '-')
+Xenopus: partition 106 (580–584, length 5) fully missing (all '-')
+Xenopus: partition 107 (586–595, length 10) fully missing (all '-')
+Xenopus: partition 108 (597–603, length 7) fully missing (all '-')
+Xenopus: partition 109 (605–606, length 2) fully missing (all '-')
+caiman: partition 0 (0–14, length 15) fully missing (all '-')
+caiman: partition 1 (16–19, length 4) fully missing (all '-')
+caiman: partition 2 (21–26, length 6) fully missing (all '-')
+caiman: partition 3 (28–34, length 7) fully missing (all '-')
+caiman: partition 4 (36–45, length 10) fully missing (all '-')
+caiman: partition 5 (47–50, length 4) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=6)
+Columns with '#' inserted: [15, 20, 27, 35, 46, 51, 64, 68, 73, 76, 81, 84, 88, 93, 96, 100, 114, 123, 128, 134, 139, 142, 145, 148, 176, 180, 195, 200, 206, 215, 221, 228, 231, 235, 240, 243, 271, 276, 280, 283, 288, 291, 295, 299, 304, 308, 311, 315, 319, 325, 331, 338, 341, 345, 349, 354, 357, 361, 367, 372, 376, 380, 384, 388, 392, 396, 401, 406, 411, 415, 419, 423, 427, 431, 435, 439, 445, 450, 456, 461, 465, 469, 473, 477, 481, 485, 489, 493, 497, 504, 511, 515, 519, 525, 530, 535, 538, 542, 546, 550, 554, 558, 562, 568, 573, 579, 585, 596, 604]
+
+--- Summary after preprocessing ---
+No. sequences: 10
+No. columns: 607
+No. pound sign columns (#): 109
+Total no. nucleotides (A/C/G/T): 4554 bp
+Total no. gaps (-): 418
+Total no. IUPAC N: 0
+Total no. missing values (?): 363
+
+--- Run time ---
+Wall-clock time: 0.02563596 seconds
+CPU time: 0.02437200 seconds

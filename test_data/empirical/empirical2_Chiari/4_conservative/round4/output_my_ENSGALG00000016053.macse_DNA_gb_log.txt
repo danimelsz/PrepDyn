@@ -1,0 +1,51 @@
+--- Command used ---
+prepDyn(input_file='./test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='./test_data/empirical/empirical2_Chiari/4_conservative/round4/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25.0, del_inv=True, internal_column_ranges='all', internal_leaves='all', partitioning_method='conservative', partitioning_round=4)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 11
+No. columns: 852
+Total no. nucleotides (A/C/G/T only): 7874 bp
+Total no. gaps (-): 1497
+Total no. IUPAC N: 1
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 176
+Total '-' characters in fully missing partitions: 1272
+Combined total: 1448
+
+caiman: partition 0 (0–115, length 116) fully missing (all '-')
+caiman: partition 1 (117–335, length 219) fully missing (all '-')
+caiman: partition 2 (337–492, length 156) fully missing (all '-')
+caiman: partition 3 (494–645, length 152) fully missing (all '-')
+caiman: partition 4 (647–667, length 21) fully missing (all '-')
+caiman: partition 5 (669–694, length 26) fully missing (all '-')
+caiman: partition 6 (696–711, length 16) fully missing (all '-')
+chelonoidis_nigra: partition 4 (647–667, length 21) fully missing (all '-')
+chelonoidis_nigra: partition 5 (669–694, length 26) fully missing (all '-')
+chelonoidis_nigra: partition 6 (696–711, length 16) fully missing (all '-')
+chelonoidis_nigra: partition 7 (713–856, length 144) fully missing (all '-')
+emys_orbicularis: partition 3 (494–645, length 152) fully missing (all '-')
+emys_orbicularis: partition 4 (647–667, length 21) fully missing (all '-')
+emys_orbicularis: partition 5 (669–694, length 26) fully missing (all '-')
+emys_orbicularis: partition 6 (696–711, length 16) fully missing (all '-')
+emys_orbicularis: partition 7 (713–856, length 144) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=4)
+Columns with '#' inserted: [116, 336, 493, 646, 668, 695, 712]
+
+--- Summary after preprocessing ---
+No. sequences: 11
+No. columns: 857
+No. pound sign columns (#): 7
+Total no. nucleotides (A/C/G/T): 7856 bp
+Total no. gaps (-): 1317
+Total no. IUPAC N: 1
+Total no. missing values (?): 1448
+
+--- Run time ---
+Wall-clock time: 0.02998185 seconds
+CPU time: 0.02984000 seconds

@@ -1,0 +1,130 @@
+--- Command used ---
+prepDyn(input_file='./test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='./test_data/empirical/empirical2_Chiari/4_conservative/round4/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25.0, del_inv=True, internal_column_ranges='all', internal_leaves='all', partitioning_method='conservative', partitioning_round=4)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 14
+No. columns: 561
+Total no. nucleotides (A/C/G/T only): 7212 bp
+Total no. gaps (-): 642
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 14
+Total '-' characters in fully missing partitions: 610
+Combined total: 624
+
+Monodelphis: partition 30 (290–292, length 3) fully missing (all '-')
+Monodelphis: partition 31 (294–296, length 3) fully missing (all '-')
+Monodelphis: partition 32 (298–301, length 4) fully missing (all '-')
+Monodelphis: partition 33 (303–318, length 16) fully missing (all '-')
+Monodelphis: partition 34 (320–323, length 4) fully missing (all '-')
+Monodelphis: partition 35 (325–327, length 3) fully missing (all '-')
+Monodelphis: partition 36 (329–331, length 3) fully missing (all '-')
+Monodelphis: partition 37 (333–335, length 3) fully missing (all '-')
+Monodelphis: partition 38 (337–339, length 3) fully missing (all '-')
+Monodelphis: partition 39 (341–344, length 4) fully missing (all '-')
+Monodelphis: partition 40 (346–350, length 5) fully missing (all '-')
+Monodelphis: partition 41 (352–355, length 4) fully missing (all '-')
+Monodelphis: partition 42 (357–360, length 4) fully missing (all '-')
+Monodelphis: partition 43 (362–374, length 13) fully missing (all '-')
+Monodelphis: partition 44 (376–384, length 9) fully missing (all '-')
+Monodelphis: partition 45 (386–388, length 3) fully missing (all '-')
+Monodelphis: partition 46 (390–395, length 6) fully missing (all '-')
+Monodelphis: partition 47 (397–402, length 6) fully missing (all '-')
+Monodelphis: partition 48 (404–412, length 9) fully missing (all '-')
+Monodelphis: partition 49 (414–419, length 6) fully missing (all '-')
+Monodelphis: partition 50 (421–423, length 3) fully missing (all '-')
+Monodelphis: partition 51 (425–427, length 3) fully missing (all '-')
+Monodelphis: partition 52 (429–431, length 3) fully missing (all '-')
+Monodelphis: partition 53 (433–437, length 5) fully missing (all '-')
+Monodelphis: partition 54 (439–448, length 10) fully missing (all '-')
+Monodelphis: partition 55 (450–452, length 3) fully missing (all '-')
+Monodelphis: partition 56 (454–456, length 3) fully missing (all '-')
+Monodelphis: partition 57 (458–460, length 3) fully missing (all '-')
+Monodelphis: partition 58 (462–464, length 3) fully missing (all '-')
+Monodelphis: partition 59 (466–468, length 3) fully missing (all '-')
+Monodelphis: partition 60 (470–473, length 4) fully missing (all '-')
+Monodelphis: partition 61 (475–482, length 8) fully missing (all '-')
+Monodelphis: partition 62 (484–492, length 9) fully missing (all '-')
+Monodelphis: partition 63 (494–496, length 3) fully missing (all '-')
+Monodelphis: partition 64 (498–502, length 5) fully missing (all '-')
+Monodelphis: partition 65 (504–513, length 10) fully missing (all '-')
+Monodelphis: partition 66 (515–520, length 6) fully missing (all '-')
+Monodelphis: partition 67 (522–545, length 24) fully missing (all '-')
+Monodelphis: partition 68 (547–557, length 11) fully missing (all '-')
+Monodelphis: partition 69 (559–562, length 4) fully missing (all '-')
+Monodelphis: partition 70 (564–572, length 9) fully missing (all '-')
+Monodelphis: partition 71 (574–578, length 5) fully missing (all '-')
+Monodelphis: partition 72 (580–598, length 19) fully missing (all '-')
+Monodelphis: partition 73 (600–602, length 3) fully missing (all '-')
+Monodelphis: partition 74 (604–627, length 24) fully missing (all '-')
+Monodelphis: partition 75 (629–633, length 5) fully missing (all '-')
+Ornithorhynchus: partition 0 (0–6, length 7) fully missing (all '-')
+Ornithorhynchus: partition 1 (8–11, length 4) fully missing (all '-')
+Ornithorhynchus: partition 2 (13–18, length 6) fully missing (all '-')
+Ornithorhynchus: partition 3 (20–22, length 3) fully missing (all '-')
+Ornithorhynchus: partition 4 (24–29, length 6) fully missing (all '-')
+Ornithorhynchus: partition 5 (31–35, length 5) fully missing (all '-')
+Ornithorhynchus: partition 6 (37–40, length 4) fully missing (all '-')
+Ornithorhynchus: partition 7 (42–47, length 6) fully missing (all '-')
+Ornithorhynchus: partition 8 (49–51, length 3) fully missing (all '-')
+Ornithorhynchus: partition 9 (53–55, length 3) fully missing (all '-')
+Ornithorhynchus: partition 10 (57–59, length 3) fully missing (all '-')
+Ornithorhynchus: partition 11 (61–63, length 3) fully missing (all '-')
+Ornithorhynchus: partition 12 (65–69, length 5) fully missing (all '-')
+caiman: partition 0 (0–6, length 7) fully missing (all '-')
+caiman: partition 1 (8–11, length 4) fully missing (all '-')
+caiman: partition 2 (13–18, length 6) fully missing (all '-')
+caiman: partition 3 (20–22, length 3) fully missing (all '-')
+caiman: partition 4 (24–29, length 6) fully missing (all '-')
+caiman: partition 5 (31–35, length 5) fully missing (all '-')
+caiman: partition 6 (37–40, length 4) fully missing (all '-')
+caiman: partition 7 (42–47, length 6) fully missing (all '-')
+caiman: partition 8 (49–51, length 3) fully missing (all '-')
+caiman: partition 9 (53–55, length 3) fully missing (all '-')
+caiman: partition 10 (57–59, length 3) fully missing (all '-')
+caiman: partition 11 (61–63, length 3) fully missing (all '-')
+caiman: partition 12 (65–69, length 5) fully missing (all '-')
+caretta: partition 73 (600–602, length 3) fully missing (all '-')
+caretta: partition 74 (604–627, length 24) fully missing (all '-')
+caretta: partition 75 (629–633, length 5) fully missing (all '-')
+podarcis: partition 71 (574–578, length 5) fully missing (all '-')
+podarcis: partition 72 (580–598, length 19) fully missing (all '-')
+podarcis: partition 73 (600–602, length 3) fully missing (all '-')
+podarcis: partition 74 (604–627, length 24) fully missing (all '-')
+podarcis: partition 75 (629–633, length 5) fully missing (all '-')
+python: partition 0 (0–6, length 7) fully missing (all '-')
+python: partition 1 (8–11, length 4) fully missing (all '-')
+python: partition 2 (13–18, length 6) fully missing (all '-')
+python: partition 3 (20–22, length 3) fully missing (all '-')
+python: partition 4 (24–29, length 6) fully missing (all '-')
+python: partition 5 (31–35, length 5) fully missing (all '-')
+python: partition 6 (37–40, length 4) fully missing (all '-')
+python: partition 7 (42–47, length 6) fully missing (all '-')
+python: partition 8 (49–51, length 3) fully missing (all '-')
+python: partition 9 (53–55, length 3) fully missing (all '-')
+python: partition 10 (57–59, length 3) fully missing (all '-')
+python: partition 11 (61–63, length 3) fully missing (all '-')
+python: partition 12 (65–69, length 5) fully missing (all '-')
+python: partition 13 (71–74, length 4) fully missing (all '-')
+python: partition 14 (76–120, length 45) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=4)
+Columns with '#' inserted: [7, 12, 19, 23, 30, 36, 41, 48, 52, 56, 60, 64, 70, 75, 121, 155, 189, 208, 212, 222, 232, 236, 249, 255, 263, 267, 275, 280, 285, 289, 293, 297, 302, 319, 324, 328, 332, 336, 340, 345, 351, 356, 361, 375, 385, 389, 396, 403, 413, 420, 424, 428, 432, 438, 449, 453, 457, 461, 465, 469, 474, 483, 493, 497, 503, 514, 521, 546, 558, 563, 573, 579, 599, 603, 628]
+
+--- Summary after preprocessing ---
+No. sequences: 14
+No. columns: 634
+No. pound sign columns (#): 75
+Total no. nucleotides (A/C/G/T): 7190 bp
+Total no. gaps (-): 622
+Total no. IUPAC N: 0
+Total no. missing values (?): 624
+
+--- Run time ---
+Wall-clock time: 0.03828597 seconds
+CPU time: 0.03716600 seconds

@@ -1,0 +1,131 @@
+--- Command used ---
+prepDyn(input_file='./test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='./test_data/empirical/empirical2_Chiari/4_conservative/round4/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25.0, del_inv=True, internal_column_ranges='all', internal_leaves='all', partitioning_method='conservative', partitioning_round=4)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 13
+No. columns: 879
+Total no. nucleotides (A/C/G/T only): 10730 bp
+Total no. gaps (-): 696
+Total no. IUPAC N: 1
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 10
+Total '-' characters in fully missing partitions: 682
+Combined total: 692
+
+caiman: partition 0 (0–2, length 3) fully missing (all '-')
+caiman: partition 1 (4–14, length 11) fully missing (all '-')
+caiman: partition 2 (16–18, length 3) fully missing (all '-')
+caiman: partition 3 (20–24, length 5) fully missing (all '-')
+caiman: partition 4 (26–29, length 4) fully missing (all '-')
+caiman: partition 5 (31–64, length 34) fully missing (all '-')
+caiman: partition 6 (66–70, length 5) fully missing (all '-')
+caiman: partition 7 (72–74, length 3) fully missing (all '-')
+caiman: partition 8 (76–78, length 3) fully missing (all '-')
+caiman: partition 9 (80–85, length 6) fully missing (all '-')
+caiman: partition 10 (87–98, length 12) fully missing (all '-')
+caiman: partition 11 (100–102, length 3) fully missing (all '-')
+caiman: partition 12 (104–117, length 14) fully missing (all '-')
+caiman: partition 13 (119–122, length 4) fully missing (all '-')
+caiman: partition 14 (124–132, length 9) fully missing (all '-')
+caiman: partition 15 (134–136, length 3) fully missing (all '-')
+caiman: partition 16 (138–143, length 6) fully missing (all '-')
+caiman: partition 17 (145–147, length 3) fully missing (all '-')
+caiman: partition 18 (149–151, length 3) fully missing (all '-')
+caiman: partition 19 (153–155, length 3) fully missing (all '-')
+caiman: partition 20 (157–162, length 6) fully missing (all '-')
+caiman: partition 21 (164–166, length 3) fully missing (all '-')
+caiman: partition 22 (168–173, length 6) fully missing (all '-')
+caiman: partition 23 (175–186, length 12) fully missing (all '-')
+caiman: partition 24 (188–197, length 10) fully missing (all '-')
+caiman: partition 25 (199–218, length 20) fully missing (all '-')
+caiman: partition 26 (220–222, length 3) fully missing (all '-')
+chelonoidis_nigra: partition 0 (0–2, length 3) fully missing (all '-')
+chelonoidis_nigra: partition 110 (861–867, length 7) fully missing (all '-')
+chelonoidis_nigra: partition 111 (869–880, length 12) fully missing (all '-')
+chelonoidis_nigra: partition 112 (882–907, length 26) fully missing (all '-')
+chelonoidis_nigra: partition 113 (909–915, length 7) fully missing (all '-')
+chelonoidis_nigra: partition 114 (917–932, length 16) fully missing (all '-')
+chelonoidis_nigra: partition 115 (934–936, length 3) fully missing (all '-')
+chelonoidis_nigra: partition 116 (938–942, length 5) fully missing (all '-')
+chelonoidis_nigra: partition 117 (944–946, length 3) fully missing (all '-')
+chelonoidis_nigra: partition 118 (948–952, length 5) fully missing (all '-')
+chelonoidis_nigra: partition 119 (954–957, length 4) fully missing (all '-')
+chelonoidis_nigra: partition 120 (959–973, length 15) fully missing (all '-')
+chelonoidis_nigra: partition 121 (975–980, length 6) fully missing (all '-')
+chelonoidis_nigra: partition 122 (982–989, length 8) fully missing (all '-')
+chelonoidis_nigra: partition 123 (991–999, length 9) fully missing (all '-')
+emys_orbicularis: partition 70 (591–593, length 3) fully missing (all '-')
+emys_orbicularis: partition 71 (595–603, length 9) fully missing (all '-')
+emys_orbicularis: partition 72 (605–616, length 12) fully missing (all '-')
+emys_orbicularis: partition 73 (618–622, length 5) fully missing (all '-')
+emys_orbicularis: partition 74 (624–630, length 7) fully missing (all '-')
+emys_orbicularis: partition 75 (632–635, length 4) fully missing (all '-')
+emys_orbicularis: partition 76 (637–641, length 5) fully missing (all '-')
+emys_orbicularis: partition 77 (643–648, length 6) fully missing (all '-')
+emys_orbicularis: partition 78 (650–652, length 3) fully missing (all '-')
+emys_orbicularis: partition 79 (654–656, length 3) fully missing (all '-')
+emys_orbicularis: partition 80 (658–660, length 3) fully missing (all '-')
+emys_orbicularis: partition 81 (662–664, length 3) fully missing (all '-')
+emys_orbicularis: partition 82 (666–668, length 3) fully missing (all '-')
+emys_orbicularis: partition 83 (670–675, length 6) fully missing (all '-')
+emys_orbicularis: partition 84 (677–679, length 3) fully missing (all '-')
+emys_orbicularis: partition 85 (681–683, length 3) fully missing (all '-')
+emys_orbicularis: partition 86 (685–687, length 3) fully missing (all '-')
+emys_orbicularis: partition 87 (689–691, length 3) fully missing (all '-')
+emys_orbicularis: partition 88 (693–698, length 6) fully missing (all '-')
+emys_orbicularis: partition 89 (700–708, length 9) fully missing (all '-')
+emys_orbicularis: partition 90 (710–718, length 9) fully missing (all '-')
+emys_orbicularis: partition 91 (720–725, length 6) fully missing (all '-')
+emys_orbicularis: partition 92 (727–732, length 6) fully missing (all '-')
+emys_orbicularis: partition 93 (734–736, length 3) fully missing (all '-')
+emys_orbicularis: partition 94 (738–748, length 11) fully missing (all '-')
+emys_orbicularis: partition 95 (750–757, length 8) fully missing (all '-')
+emys_orbicularis: partition 96 (759–763, length 5) fully missing (all '-')
+emys_orbicularis: partition 97 (765–770, length 6) fully missing (all '-')
+emys_orbicularis: partition 98 (772–774, length 3) fully missing (all '-')
+emys_orbicularis: partition 99 (776–795, length 20) fully missing (all '-')
+emys_orbicularis: partition 100 (797–800, length 4) fully missing (all '-')
+emys_orbicularis: partition 101 (802–807, length 6) fully missing (all '-')
+emys_orbicularis: partition 102 (809–811, length 3) fully missing (all '-')
+emys_orbicularis: partition 103 (813–817, length 5) fully missing (all '-')
+emys_orbicularis: partition 104 (819–825, length 7) fully missing (all '-')
+emys_orbicularis: partition 105 (827–835, length 9) fully missing (all '-')
+emys_orbicularis: partition 106 (837–845, length 9) fully missing (all '-')
+emys_orbicularis: partition 107 (847–849, length 3) fully missing (all '-')
+emys_orbicularis: partition 108 (851–853, length 3) fully missing (all '-')
+emys_orbicularis: partition 109 (855–859, length 5) fully missing (all '-')
+emys_orbicularis: partition 110 (861–867, length 7) fully missing (all '-')
+emys_orbicularis: partition 111 (869–880, length 12) fully missing (all '-')
+emys_orbicularis: partition 112 (882–907, length 26) fully missing (all '-')
+emys_orbicularis: partition 113 (909–915, length 7) fully missing (all '-')
+emys_orbicularis: partition 114 (917–932, length 16) fully missing (all '-')
+emys_orbicularis: partition 115 (934–936, length 3) fully missing (all '-')
+emys_orbicularis: partition 116 (938–942, length 5) fully missing (all '-')
+emys_orbicularis: partition 117 (944–946, length 3) fully missing (all '-')
+emys_orbicularis: partition 118 (948–952, length 5) fully missing (all '-')
+emys_orbicularis: partition 119 (954–957, length 4) fully missing (all '-')
+emys_orbicularis: partition 120 (959–973, length 15) fully missing (all '-')
+emys_orbicularis: partition 121 (975–980, length 6) fully missing (all '-')
+emys_orbicularis: partition 122 (982–989, length 8) fully missing (all '-')
+emys_orbicularis: partition 123 (991–999, length 9) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=4)
+Columns with '#' inserted: [3, 15, 19, 25, 30, 65, 71, 75, 79, 86, 99, 103, 118, 123, 133, 137, 144, 148, 152, 156, 163, 167, 174, 187, 198, 219, 223, 241, 251, 256, 260, 264, 271, 275, 288, 292, 302, 309, 319, 332, 336, 346, 355, 375, 394, 398, 405, 415, 423, 429, 433, 437, 444, 448, 458, 489, 493, 500, 504, 517, 526, 531, 538, 544, 549, 555, 560, 567, 583, 590, 594, 604, 617, 623, 631, 636, 642, 649, 653, 657, 661, 665, 669, 676, 680, 684, 688, 692, 699, 709, 719, 726, 733, 737, 749, 758, 764, 771, 775, 796, 801, 808, 812, 818, 826, 836, 846, 850, 854, 860, 868, 881, 908, 916, 933, 937, 943, 947, 953, 958, 974, 981, 990]
+
+--- Summary after preprocessing ---
+No. sequences: 13
+No. columns: 1000
+No. pound sign columns (#): 123
+Total no. nucleotides (A/C/G/T): 10708 bp
+Total no. gaps (-): 682
+Total no. IUPAC N: 1
+Total no. missing values (?): 692
+
+--- Run time ---
+Wall-clock time: 0.08433580 seconds
+CPU time: 0.07082300 seconds

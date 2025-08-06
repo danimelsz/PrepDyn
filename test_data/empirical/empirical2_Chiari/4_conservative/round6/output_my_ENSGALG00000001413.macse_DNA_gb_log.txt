@@ -1,0 +1,55 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 10
+No. columns: 762
+Total no. nucleotides (A/C/G/T only): 7014 bp
+Total no. gaps (-): 606
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 108
+Total '-' characters in fully missing partitions: 488
+Combined total: 596
+
+caiman: partition 0 (0–14, length 15) fully missing (all '-')
+caiman: partition 1 (16–21, length 6) fully missing (all '-')
+caiman: partition 2 (23–76, length 54) fully missing (all '-')
+caiman: partition 3 (78–156, length 79) fully missing (all '-')
+caiman: partition 4 (158–175, length 18) fully missing (all '-')
+caiman: partition 5 (177–193, length 17) fully missing (all '-')
+caiman: partition 6 (195–204, length 10) fully missing (all '-')
+caiman: partition 7 (206–212, length 7) fully missing (all '-')
+caiman: partition 8 (214–218, length 5) fully missing (all '-')
+phrynops: partition 0 (0–14, length 15) fully missing (all '-')
+phrynops: partition 1 (16–21, length 6) fully missing (all '-')
+phrynops: partition 2 (23–76, length 54) fully missing (all '-')
+phrynops: partition 3 (78–156, length 79) fully missing (all '-')
+phrynops: partition 16 (653–674, length 22) fully missing (all '-')
+phrynops: partition 17 (676–680, length 5) fully missing (all '-')
+phrynops: partition 18 (682–696, length 15) fully missing (all '-')
+phrynops: partition 19 (698–718, length 21) fully missing (all '-')
+phrynops: partition 20 (720–729, length 10) fully missing (all '-')
+phrynops: partition 21 (731–768, length 38) fully missing (all '-')
+phrynops: partition 22 (770–781, length 12) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=6)
+Columns with '#' inserted: [15, 22, 77, 157, 176, 194, 205, 213, 219, 396, 417, 446, 470, 549, 593, 652, 675, 681, 697, 719, 730, 769]
+
+--- Summary after preprocessing ---
+No. sequences: 10
+No. columns: 782
+No. pound sign columns (#): 22
+Total no. nucleotides (A/C/G/T): 6998 bp
+Total no. gaps (-): 494
+Total no. IUPAC N: 0
+Total no. missing values (?): 596
+
+--- Run time ---
+Wall-clock time: 0.03247809 seconds
+CPU time: 0.03147600 seconds

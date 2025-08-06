@@ -1,0 +1,46 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 11
+No. columns: 510
+Total no. nucleotides (A/C/G/T only): 5567 bp
+Total no. gaps (-): 42
+Total no. IUPAC N: 1
+
+--- Step 2: Trimming (invariant columns) ---
+[]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 5
+Total '-' characters in fully missing partitions: 37
+Combined total: 42
+
+python: partition 124 (597–599, length 3) fully missing (all '-')
+python: partition 125 (601–603, length 3) fully missing (all '-')
+python: partition 126 (605–609, length 5) fully missing (all '-')
+python: partition 127 (611–613, length 3) fully missing (all '-')
+python: partition 128 (615–617, length 3) fully missing (all '-')
+python: partition 129 (619–622, length 4) fully missing (all '-')
+python: partition 130 (624–625, length 2) fully missing (all '-')
+python: partition 131 (627–630, length 4) fully missing (all '-')
+python: partition 132 (632–634, length 3) fully missing (all '-')
+python: partition 133 (636–638, length 3) fully missing (all '-')
+python: partition 134 (640–643, length 4) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=6)
+Columns with '#' inserted: [4, 9, 12, 17, 21, 24, 28, 33, 36, 40, 45, 48, 52, 59, 64, 67, 72, 76, 80, 83, 87, 91, 96, 103, 110, 114, 118, 125, 144, 148, 153, 158, 162, 167, 170, 175, 179, 182, 186, 190, 195, 199, 203, 206, 216, 220, 225, 229, 234, 243, 247, 250, 254, 259, 263, 269, 274, 280, 284, 288, 293, 297, 301, 305, 308, 312, 322, 327, 330, 334, 338, 345, 350, 356, 360, 365, 374, 383, 391, 396, 400, 404, 407, 414, 418, 422, 428, 433, 437, 441, 445, 450, 456, 461, 465, 469, 475, 479, 489, 493, 497, 501, 506, 510, 513, 517, 521, 528, 532, 537, 541, 545, 549, 552, 557, 560, 564, 568, 572, 576, 580, 585, 590, 596, 600, 604, 610, 614, 618, 623, 626, 631, 635, 639]
+
+--- Summary after preprocessing ---
+No. sequences: 11
+No. columns: 644
+No. pound sign columns (#): 134
+Total no. nucleotides (A/C/G/T): 5567 bp
+Total no. gaps (-): 37
+Total no. IUPAC N: 1
+Total no. missing values (?): 42
+
+--- Run time ---
+Wall-clock time: 0.02819896 seconds
+CPU time: 0.02643400 seconds

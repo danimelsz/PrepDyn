@@ -1,0 +1,88 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round5/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=5)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 14
+No. columns: 1020
+Total no. nucleotides (A/C/G/T only): 11237 bp
+Total no. gaps (-): 3042
+Total no. IUPAC N: 1
+
+--- Step 2: Trimming (invariant columns) ---
+[0]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 261
+Total '-' characters in fully missing partitions: 2769
+Combined total: 3030
+
+chelonoidis_nigra: partition 9 (355–367, length 13) fully missing (all '-')
+chelonoidis_nigra: partition 10 (369–404, length 36) fully missing (all '-')
+chelonoidis_nigra: partition 11 (406–498, length 93) fully missing (all '-')
+chelonoidis_nigra: partition 12 (500–550, length 51) fully missing (all '-')
+chelonoidis_nigra: partition 13 (552–556, length 5) fully missing (all '-')
+chelonoidis_nigra: partition 14 (558–563, length 6) fully missing (all '-')
+chelonoidis_nigra: partition 15 (565–574, length 10) fully missing (all '-')
+chelonoidis_nigra: partition 16 (576–839, length 264) fully missing (all '-')
+chelonoidis_nigra: partition 17 (841–925, length 85) fully missing (all '-')
+chelonoidis_nigra: partition 18 (927–1036, length 110) fully missing (all '-')
+emys_orbicularis: partition 6 (218–226, length 9) fully missing (all '-')
+emys_orbicularis: partition 7 (228–236, length 9) fully missing (all '-')
+emys_orbicularis: partition 8 (238–353, length 116) fully missing (all '-')
+emys_orbicularis: partition 9 (355–367, length 13) fully missing (all '-')
+emys_orbicularis: partition 10 (369–404, length 36) fully missing (all '-')
+emys_orbicularis: partition 11 (406–498, length 93) fully missing (all '-')
+emys_orbicularis: partition 12 (500–550, length 51) fully missing (all '-')
+emys_orbicularis: partition 13 (552–556, length 5) fully missing (all '-')
+emys_orbicularis: partition 14 (558–563, length 6) fully missing (all '-')
+emys_orbicularis: partition 15 (565–574, length 10) fully missing (all '-')
+emys_orbicularis: partition 16 (576–839, length 264) fully missing (all '-')
+emys_orbicularis: partition 17 (841–925, length 85) fully missing (all '-')
+emys_orbicularis: partition 18 (927–1036, length 110) fully missing (all '-')
+phrynops: partition 0 (0–5, length 6) fully missing (all '-')
+phrynops: partition 1 (7–10, length 4) fully missing (all '-')
+phrynops: partition 2 (12–60, length 49) fully missing (all '-')
+phrynops: partition 3 (62–98, length 37) fully missing (all '-')
+podarcis: partition 0 (0–5, length 6) fully missing (all '-')
+podarcis: partition 1 (7–10, length 4) fully missing (all '-')
+podarcis: partition 2 (12–60, length 49) fully missing (all '-')
+podarcis: partition 3 (62–98, length 37) fully missing (all '-')
+podarcis: partition 4 (100–155, length 56) fully missing (all '-')
+podarcis: partition 5 (157–216, length 60) fully missing (all '-')
+podarcis: partition 6 (218–226, length 9) fully missing (all '-')
+podarcis: partition 7 (228–236, length 9) fully missing (all '-')
+protopterus: partition 5 (157–216, length 60) fully missing (all '-')
+protopterus: partition 6 (218–226, length 9) fully missing (all '-')
+protopterus: partition 7 (228–236, length 9) fully missing (all '-')
+protopterus: partition 8 (238–353, length 116) fully missing (all '-')
+protopterus: partition 9 (355–367, length 13) fully missing (all '-')
+protopterus: partition 10 (369–404, length 36) fully missing (all '-')
+protopterus: partition 11 (406–498, length 93) fully missing (all '-')
+protopterus: partition 12 (500–550, length 51) fully missing (all '-')
+protopterus: partition 13 (552–556, length 5) fully missing (all '-')
+protopterus: partition 14 (558–563, length 6) fully missing (all '-')
+protopterus: partition 15 (565–574, length 10) fully missing (all '-')
+protopterus: partition 16 (576–839, length 264) fully missing (all '-')
+protopterus: partition 17 (841–925, length 85) fully missing (all '-')
+protopterus: partition 18 (927–1036, length 110) fully missing (all '-')
+python: partition 0 (0–5, length 6) fully missing (all '-')
+python: partition 1 (7–10, length 4) fully missing (all '-')
+python: partition 2 (12–60, length 49) fully missing (all '-')
+python: partition 3 (62–98, length 37) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=5)
+Columns with '#' inserted: [6, 11, 61, 99, 156, 217, 227, 237, 354, 368, 405, 499, 551, 557, 564, 575, 840, 926]
+
+--- Summary after preprocessing ---
+No. sequences: 14
+No. columns: 1037
+No. pound sign columns (#): 18
+Total no. nucleotides (A/C/G/T): 11226 bp
+Total no. gaps (-): 2778
+Total no. IUPAC N: 1
+Total no. missing values (?): 3030
+
+--- Run time ---
+Wall-clock time: 0.05226207 seconds
+CPU time: 0.04900000 seconds

@@ -1,0 +1,48 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/5_equal/round5/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=5)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 11
+No. columns: 969
+Total no. nucleotides (A/C/G/T only): 8121 bp
+Total no. gaps (-): 2538
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 439
+Total '-' characters in fully missing partitions: 2095
+Combined total: 2534
+
+alligator: partition 0 (0–160, length 161) fully missing (all '-')
+alligator: partition 1 (162–322, length 161) fully missing (all '-')
+alligator: partition 2 (324–484, length 161) fully missing (all '-')
+caretta: partition 0 (0–160, length 161) fully missing (all '-')
+caretta: partition 1 (162–322, length 161) fully missing (all '-')
+chelonoidis_nigra: partition 1 (162–322, length 161) fully missing (all '-')
+chelonoidis_nigra: partition 2 (324–484, length 161) fully missing (all '-')
+chelonoidis_nigra: partition 3 (486–646, length 161) fully missing (all '-')
+chelonoidis_nigra: partition 4 (648–808, length 161) fully missing (all '-')
+chelonoidis_nigra: partition 5 (810–971, length 162) fully missing (all '-')
+phrynops: partition 3 (486–646, length 161) fully missing (all '-')
+phrynops: partition 4 (648–808, length 161) fully missing (all '-')
+phrynops: partition 5 (810–971, length 162) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [161, 323, 485, 647, 809]
+
+--- Summary after preprocessing ---
+No. sequences: 11
+No. columns: 972
+No. pound sign columns (#): 5
+Total no. nucleotides (A/C/G/T): 8103 bp
+Total no. gaps (-): 2095
+Total no. IUPAC N: 0
+Total no. missing values (?): 2534
+
+--- Run time ---
+Wall-clock time: 0.03343987 seconds
+CPU time: 0.03287200 seconds

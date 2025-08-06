@@ -538,34 +538,44 @@ def GB2MSA_4(alignment_dict):
 # MAIN FUNCTIONS: STEP 2. TRIMMING #
 ####################################
 
-def remove_all_gap_columns(alignment):
+def remove_all_gap_columns(alignment, empty=True):
     """
-    Remove columns from the alignment where all terminal sequences have a gap ('-').
-    
+    Remove columns from the alignment where all sequences have only gaps ('-' or '?').
+    Optionally remove sequences composed entirely of gaps.
+
     Parameters:
         alignment (dict): A dictionary where keys are sequence names and values are sequence strings.
-        
-    Returns:
-        dict: Updated alignment with columns removed where all terminal sequences have a gap.
-    """
-    # Convert the alignment to a list of sequences
-    sequences = list(alignment.values())
-    num_sequences = len(sequences)
-    seq_length = len(sequences[0])  # Assuming all sequences are the same length
+        empty (bool): If True, remove sequences composed only of gap characters.
 
-    # Identify columns that need to be removed (where all terminal sequences have a gap)
-    columns_to_remove = []
-    for col in range(seq_length):
-        # Check if all terminal sequences (sp1, sp2, ...) have a gap ('-') in this column
-        if all(seq[col] == '-' for seq in sequences):
-            columns_to_remove.append(col)
-    
+    Returns:
+        dict: Updated alignment with gap-only columns and optionally gap-only sequences removed.
+    """
+    if not alignment:
+        return {}
+
+    gap_chars = {'-', '?'}
+    sequences = list(alignment.values())
+    seq_length = len(sequences[0])  # Assumes all sequences are same length
+
+    # Identify columns where all sequences have a gap character
+    columns_to_remove = [
+        col for col in range(seq_length)
+        if all(seq[col] in gap_chars for seq in sequences)
+    ]
+
     # Remove the identified columns from each sequence
-    for seq_name, seq in alignment.items():
-        # Create a new sequence with the columns removed
-        new_seq = ''.join(seq[col] for col in range(seq_length) if col not in columns_to_remove)
-        alignment[seq_name] = new_seq
-    
+    alignment = {
+        name: ''.join(seq[col] for col in range(seq_length) if col not in columns_to_remove)
+        for name, seq in alignment.items()
+    }
+
+    # Optionally remove sequences that are entirely gap characters
+    if empty:
+        alignment = {
+            name: seq for name, seq in alignment.items()
+            if any(base not in gap_chars for base in seq)
+        }
+
     return alignment
 
 def calculate_orphan_threshold_from_percentile(alignment, percentile=25, log=False, terminal_only=True):
@@ -2286,7 +2296,7 @@ def prepDyn(input_file=None,
 
 
         # 3.1 Remove columns with gaps in all leaves
-        remove_all_gap_columns(alignment)
+        alignment = remove_all_gap_columns(alignment)
 
         # 3.2 Trim orphan nucleotides
         orphan_log = None

@@ -1,0 +1,125 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 10
+No. columns: 540
+Total no. nucleotides (A/C/G/T only): 5007 bp
+Total no. gaps (-): 393
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[538, 539]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 11
+Total '-' characters in fully missing partitions: 372
+Combined total: 383
+
+Anolis: partition 0 (0–4, length 5) fully missing (all '-')
+Ornithorhynchus: partition 100 (524–526, length 3) fully missing (all '-')
+Ornithorhynchus: partition 101 (528–531, length 4) fully missing (all '-')
+Ornithorhynchus: partition 102 (533–534, length 2) fully missing (all '-')
+Ornithorhynchus: partition 103 (536–538, length 3) fully missing (all '-')
+Ornithorhynchus: partition 104 (540–543, length 4) fully missing (all '-')
+Ornithorhynchus: partition 105 (545–546, length 2) fully missing (all '-')
+Ornithorhynchus: partition 106 (548–551, length 4) fully missing (all '-')
+Ornithorhynchus: partition 107 (553–555, length 3) fully missing (all '-')
+Ornithorhynchus: partition 108 (557–558, length 2) fully missing (all '-')
+Ornithorhynchus: partition 109 (560–563, length 4) fully missing (all '-')
+Ornithorhynchus: partition 110 (565–566, length 2) fully missing (all '-')
+Ornithorhynchus: partition 111 (568–573, length 6) fully missing (all '-')
+Ornithorhynchus: partition 112 (575–577, length 3) fully missing (all '-')
+Ornithorhynchus: partition 113 (579–585, length 7) fully missing (all '-')
+Ornithorhynchus: partition 114 (587–590, length 4) fully missing (all '-')
+Ornithorhynchus: partition 115 (592–598, length 7) fully missing (all '-')
+Ornithorhynchus: partition 116 (600–603, length 4) fully missing (all '-')
+Ornithorhynchus: partition 117 (605–607, length 3) fully missing (all '-')
+Ornithorhynchus: partition 118 (609–611, length 3) fully missing (all '-')
+Ornithorhynchus: partition 119 (613–615, length 3) fully missing (all '-')
+Ornithorhynchus: partition 120 (617–619, length 3) fully missing (all '-')
+Ornithorhynchus: partition 121 (621–625, length 5) fully missing (all '-')
+Ornithorhynchus: partition 122 (627–631, length 5) fully missing (all '-')
+Ornithorhynchus: partition 123 (633–636, length 4) fully missing (all '-')
+Ornithorhynchus: partition 124 (638–644, length 7) fully missing (all '-')
+Ornithorhynchus: partition 125 (646–647, length 2) fully missing (all '-')
+Ornithorhynchus: partition 126 (649–651, length 3) fully missing (all '-')
+Ornithorhynchus: partition 127 (653–655, length 3) fully missing (all '-')
+Ornithorhynchus: partition 128 (657–659, length 3) fully missing (all '-')
+Ornithorhynchus: partition 129 (661–663, length 3) fully missing (all '-')
+Ornithorhynchus: partition 130 (665–667, length 3) fully missing (all '-')
+caiman: partition 83 (448–449, length 2) fully missing (all '-')
+caiman: partition 84 (451–453, length 3) fully missing (all '-')
+caiman: partition 85 (455–457, length 3) fully missing (all '-')
+caiman: partition 86 (459–462, length 4) fully missing (all '-')
+caiman: partition 87 (464–465, length 2) fully missing (all '-')
+caiman: partition 88 (467–469, length 3) fully missing (all '-')
+caiman: partition 89 (471–476, length 6) fully missing (all '-')
+caiman: partition 90 (478–481, length 4) fully missing (all '-')
+caiman: partition 91 (483–488, length 6) fully missing (all '-')
+caiman: partition 92 (490–492, length 3) fully missing (all '-')
+caiman: partition 93 (494–496, length 3) fully missing (all '-')
+caiman: partition 94 (498–499, length 2) fully missing (all '-')
+caiman: partition 95 (501–504, length 4) fully missing (all '-')
+caiman: partition 96 (506–507, length 2) fully missing (all '-')
+caiman: partition 97 (509–512, length 4) fully missing (all '-')
+caiman: partition 98 (514–519, length 6) fully missing (all '-')
+caiman: partition 99 (521–522, length 2) fully missing (all '-')
+caiman: partition 100 (524–526, length 3) fully missing (all '-')
+caiman: partition 101 (528–531, length 4) fully missing (all '-')
+caiman: partition 102 (533–534, length 2) fully missing (all '-')
+caiman: partition 103 (536–538, length 3) fully missing (all '-')
+caiman: partition 104 (540–543, length 4) fully missing (all '-')
+caiman: partition 105 (545–546, length 2) fully missing (all '-')
+caiman: partition 106 (548–551, length 4) fully missing (all '-')
+caiman: partition 107 (553–555, length 3) fully missing (all '-')
+caiman: partition 108 (557–558, length 2) fully missing (all '-')
+caiman: partition 109 (560–563, length 4) fully missing (all '-')
+caiman: partition 110 (565–566, length 2) fully missing (all '-')
+caiman: partition 111 (568–573, length 6) fully missing (all '-')
+caiman: partition 112 (575–577, length 3) fully missing (all '-')
+caiman: partition 113 (579–585, length 7) fully missing (all '-')
+caiman: partition 114 (587–590, length 4) fully missing (all '-')
+caiman: partition 115 (592–598, length 7) fully missing (all '-')
+caiman: partition 116 (600–603, length 4) fully missing (all '-')
+caiman: partition 117 (605–607, length 3) fully missing (all '-')
+caiman: partition 118 (609–611, length 3) fully missing (all '-')
+caiman: partition 119 (613–615, length 3) fully missing (all '-')
+caiman: partition 120 (617–619, length 3) fully missing (all '-')
+caiman: partition 121 (621–625, length 5) fully missing (all '-')
+caiman: partition 122 (627–631, length 5) fully missing (all '-')
+caiman: partition 123 (633–636, length 4) fully missing (all '-')
+caiman: partition 124 (638–644, length 7) fully missing (all '-')
+caiman: partition 125 (646–647, length 2) fully missing (all '-')
+caiman: partition 126 (649–651, length 3) fully missing (all '-')
+caiman: partition 127 (653–655, length 3) fully missing (all '-')
+caiman: partition 128 (657–659, length 3) fully missing (all '-')
+caiman: partition 129 (661–663, length 3) fully missing (all '-')
+caiman: partition 130 (665–667, length 3) fully missing (all '-')
+podarcis: partition 0 (0–4, length 5) fully missing (all '-')
+podarcis: partition 1 (6–31, length 26) fully missing (all '-')
+podarcis: partition 2 (33–35, length 3) fully missing (all '-')
+podarcis: partition 3 (37–39, length 3) fully missing (all '-')
+podarcis: partition 4 (41–43, length 3) fully missing (all '-')
+podarcis: partition 5 (45–57, length 13) fully missing (all '-')
+podarcis: partition 6 (59–63, length 5) fully missing (all '-')
+podarcis: partition 7 (65–78, length 14) fully missing (all '-')
+podarcis: partition 8 (80–81, length 2) fully missing (all '-')
+podarcis: partition 9 (83–88, length 6) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=6)
+Columns with '#' inserted: [5, 32, 36, 40, 44, 58, 64, 79, 82, 89, 93, 96, 100, 105, 109, 112, 116, 120, 125, 129, 133, 137, 143, 147, 151, 155, 162, 172, 182, 186, 190, 195, 199, 203, 207, 211, 214, 221, 235, 238, 248, 252, 265, 269, 274, 278, 282, 286, 293, 299, 303, 309, 314, 318, 322, 326, 330, 336, 341, 345, 349, 354, 358, 364, 368, 373, 376, 380, 384, 389, 394, 399, 403, 407, 411, 415, 419, 423, 428, 432, 435, 439, 447, 450, 454, 458, 463, 466, 470, 477, 482, 489, 493, 497, 500, 505, 508, 513, 520, 523, 527, 532, 535, 539, 544, 547, 552, 556, 559, 564, 567, 574, 578, 586, 591, 599, 604, 608, 612, 616, 620, 626, 632, 637, 645, 648, 652, 656, 660, 664]
+
+--- Summary after preprocessing ---
+No. sequences: 10
+No. columns: 668
+No. pound sign columns (#): 130
+Total no. nucleotides (A/C/G/T): 4991 bp
+Total no. gaps (-): 378
+Total no. IUPAC N: 0
+Total no. missing values (?): 383
+
+--- Run time ---
+Wall-clock time: 0.02547097 seconds
+CPU time: 0.02467800 seconds

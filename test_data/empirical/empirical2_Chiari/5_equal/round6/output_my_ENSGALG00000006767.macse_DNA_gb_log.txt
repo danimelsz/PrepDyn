@@ -1,0 +1,49 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/5_equal/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 11
+No. columns: 1260
+Total no. nucleotides (A/C/G/T only): 10953 bp
+Total no. gaps (-): 2907
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 375
+Total '-' characters in fully missing partitions: 2516
+Combined total: 2891
+
+caiman: partition 0 (0–178, length 179) fully missing (all '-')
+caiman: partition 1 (180–358, length 179) fully missing (all '-')
+caiman: partition 2 (360–538, length 179) fully missing (all '-')
+caiman: partition 3 (540–718, length 179) fully missing (all '-')
+caretta: partition 3 (540–718, length 179) fully missing (all '-')
+caretta: partition 4 (720–898, length 179) fully missing (all '-')
+caretta: partition 5 (900–1078, length 179) fully missing (all '-')
+caretta: partition 6 (1080–1263, length 184) fully missing (all '-')
+chelonoidis_nigra: partition 4 (720–898, length 179) fully missing (all '-')
+chelonoidis_nigra: partition 5 (900–1078, length 179) fully missing (all '-')
+chelonoidis_nigra: partition 6 (1080–1263, length 184) fully missing (all '-')
+phrynops: partition 0 (0–178, length 179) fully missing (all '-')
+phrynops: partition 1 (180–358, length 179) fully missing (all '-')
+phrynops: partition 2 (360–538, length 179) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [179, 359, 539, 719, 899, 1079]
+
+--- Summary after preprocessing ---
+No. sequences: 11
+No. columns: 1264
+No. pound sign columns (#): 6
+Total no. nucleotides (A/C/G/T): 10935 bp
+Total no. gaps (-): 2528
+Total no. IUPAC N: 0
+Total no. missing values (?): 2891
+
+--- Run time ---
+Wall-clock time: 0.04617596 seconds
+CPU time: 0.04470600 seconds

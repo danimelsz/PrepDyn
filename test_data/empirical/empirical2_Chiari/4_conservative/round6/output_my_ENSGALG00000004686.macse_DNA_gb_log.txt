@@ -1,0 +1,128 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 11
+No. columns: 678
+Total no. nucleotides (A/C/G/T only): 7095 bp
+Total no. gaps (-): 363
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 6
+Total '-' characters in fully missing partitions: 301
+Combined total: 307
+
+caiman: partition 0 (0–3, length 4) fully missing (all '-')
+caiman: partition 1 (5–8, length 4) fully missing (all '-')
+caiman: partition 2 (10–13, length 4) fully missing (all '-')
+caiman: partition 3 (15–17, length 3) fully missing (all '-')
+caiman: partition 4 (19–21, length 3) fully missing (all '-')
+caiman: partition 5 (23–25, length 3) fully missing (all '-')
+caiman: partition 6 (27–31, length 5) fully missing (all '-')
+caiman: partition 7 (33–36, length 4) fully missing (all '-')
+caiman: partition 8 (38–40, length 3) fully missing (all '-')
+caiman: partition 9 (42–44, length 3) fully missing (all '-')
+caiman: partition 10 (46–48, length 3) fully missing (all '-')
+caiman: partition 11 (50–52, length 3) fully missing (all '-')
+caiman: partition 12 (54–56, length 3) fully missing (all '-')
+caiman: partition 13 (58–60, length 3) fully missing (all '-')
+caiman: partition 14 (62–64, length 3) fully missing (all '-')
+caiman: partition 15 (66–69, length 4) fully missing (all '-')
+caiman: partition 16 (71–73, length 3) fully missing (all '-')
+caiman: partition 17 (75–76, length 2) fully missing (all '-')
+caiman: partition 18 (78–80, length 3) fully missing (all '-')
+caiman: partition 19 (82–84, length 3) fully missing (all '-')
+caiman: partition 20 (86–88, length 3) fully missing (all '-')
+caiman: partition 21 (90–92, length 3) fully missing (all '-')
+caiman: partition 22 (94–96, length 3) fully missing (all '-')
+caiman: partition 23 (98–106, length 9) fully missing (all '-')
+caiman: partition 24 (108–113, length 6) fully missing (all '-')
+caiman: partition 25 (115–117, length 3) fully missing (all '-')
+caiman: partition 26 (119–121, length 3) fully missing (all '-')
+caiman: partition 27 (123–125, length 3) fully missing (all '-')
+caiman: partition 28 (127–129, length 3) fully missing (all '-')
+caiman: partition 29 (131–133, length 3) fully missing (all '-')
+caiman: partition 30 (135–137, length 3) fully missing (all '-')
+caiman: partition 31 (139–141, length 3) fully missing (all '-')
+caiman: partition 32 (143–146, length 4) fully missing (all '-')
+caiman: partition 33 (148–150, length 3) fully missing (all '-')
+caiman: partition 34 (152–154, length 3) fully missing (all '-')
+caretta: partition 132 (747–749, length 3) fully missing (all '-')
+caretta: partition 133 (751–754, length 4) fully missing (all '-')
+caretta: partition 134 (756–757, length 2) fully missing (all '-')
+caretta: partition 135 (759–761, length 3) fully missing (all '-')
+caretta: partition 136 (763–765, length 3) fully missing (all '-')
+caretta: partition 137 (767–769, length 3) fully missing (all '-')
+caretta: partition 138 (771–773, length 3) fully missing (all '-')
+caretta: partition 139 (775–777, length 3) fully missing (all '-')
+caretta: partition 140 (779–781, length 3) fully missing (all '-')
+caretta: partition 141 (783–785, length 3) fully missing (all '-')
+caretta: partition 142 (787–789, length 3) fully missing (all '-')
+caretta: partition 143 (791–793, length 3) fully missing (all '-')
+caretta: partition 144 (795–797, length 3) fully missing (all '-')
+caretta: partition 145 (799–801, length 3) fully missing (all '-')
+caretta: partition 146 (803–805, length 3) fully missing (all '-')
+caretta: partition 147 (807–809, length 3) fully missing (all '-')
+caretta: partition 148 (811–814, length 4) fully missing (all '-')
+caretta: partition 149 (816–818, length 3) fully missing (all '-')
+caretta: partition 150 (820–822, length 3) fully missing (all '-')
+caretta: partition 151 (824–826, length 3) fully missing (all '-')
+caretta: partition 152 (828–828, length 1) fully missing (all '-')
+podarcis: partition 0 (0–3, length 4) fully missing (all '-')
+podarcis: partition 1 (5–8, length 4) fully missing (all '-')
+podarcis: partition 2 (10–13, length 4) fully missing (all '-')
+podarcis: partition 3 (15–17, length 3) fully missing (all '-')
+podarcis: partition 4 (19–21, length 3) fully missing (all '-')
+podarcis: partition 5 (23–25, length 3) fully missing (all '-')
+podarcis: partition 6 (27–31, length 5) fully missing (all '-')
+python: partition 123 (708–710, length 3) fully missing (all '-')
+python: partition 124 (712–714, length 3) fully missing (all '-')
+python: partition 125 (716–718, length 3) fully missing (all '-')
+python: partition 126 (720–722, length 3) fully missing (all '-')
+python: partition 127 (724–726, length 3) fully missing (all '-')
+python: partition 128 (728–730, length 3) fully missing (all '-')
+python: partition 129 (732–734, length 3) fully missing (all '-')
+python: partition 130 (736–740, length 5) fully missing (all '-')
+python: partition 131 (742–745, length 4) fully missing (all '-')
+python: partition 132 (747–749, length 3) fully missing (all '-')
+python: partition 133 (751–754, length 4) fully missing (all '-')
+python: partition 134 (756–757, length 2) fully missing (all '-')
+python: partition 135 (759–761, length 3) fully missing (all '-')
+python: partition 136 (763–765, length 3) fully missing (all '-')
+python: partition 137 (767–769, length 3) fully missing (all '-')
+python: partition 138 (771–773, length 3) fully missing (all '-')
+python: partition 139 (775–777, length 3) fully missing (all '-')
+python: partition 140 (779–781, length 3) fully missing (all '-')
+python: partition 141 (783–785, length 3) fully missing (all '-')
+python: partition 142 (787–789, length 3) fully missing (all '-')
+python: partition 143 (791–793, length 3) fully missing (all '-')
+python: partition 144 (795–797, length 3) fully missing (all '-')
+python: partition 145 (799–801, length 3) fully missing (all '-')
+python: partition 146 (803–805, length 3) fully missing (all '-')
+python: partition 147 (807–809, length 3) fully missing (all '-')
+python: partition 148 (811–814, length 4) fully missing (all '-')
+python: partition 149 (816–818, length 3) fully missing (all '-')
+python: partition 150 (820–822, length 3) fully missing (all '-')
+python: partition 151 (824–826, length 3) fully missing (all '-')
+python: partition 152 (828–828, length 1) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=6)
+Columns with '#' inserted: [4, 9, 14, 18, 22, 26, 32, 37, 41, 45, 49, 53, 57, 61, 65, 70, 74, 77, 81, 85, 89, 93, 97, 107, 114, 118, 122, 126, 130, 134, 138, 142, 147, 151, 155, 159, 162, 165, 170, 174, 178, 182, 186, 190, 198, 201, 205, 209, 213, 219, 226, 231, 235, 239, 243, 247, 251, 256, 260, 263, 267, 273, 278, 281, 284, 287, 291, 307, 321, 324, 328, 336, 340, 347, 350, 361, 368, 378, 384, 391, 396, 399, 421, 429, 433, 436, 440, 445, 454, 462, 466, 470, 473, 481, 484, 492, 507, 512, 518, 528, 533, 536, 541, 559, 564, 567, 575, 579, 614, 623, 626, 636, 644, 648, 651, 662, 665, 670, 673, 678, 700, 703, 707, 711, 715, 719, 723, 727, 731, 735, 741, 746, 750, 755, 758, 762, 766, 770, 774, 778, 782, 786, 790, 794, 798, 802, 806, 810, 815, 819, 823, 827]
+
+--- Summary after preprocessing ---
+No. sequences: 11
+No. columns: 829
+No. pound sign columns (#): 152
+Total no. nucleotides (A/C/G/T): 7086 bp
+Total no. gaps (-): 355
+Total no. IUPAC N: 0
+Total no. missing values (?): 307
+
+--- Run time ---
+Wall-clock time: 0.03517580 seconds
+CPU time: 0.03433900 seconds

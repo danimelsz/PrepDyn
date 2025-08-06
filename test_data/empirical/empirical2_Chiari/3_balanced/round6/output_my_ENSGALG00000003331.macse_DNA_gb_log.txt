@@ -1,0 +1,47 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/3_balanced/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 12
+No. columns: 699
+Total no. nucleotides (A/C/G/T only): 7722 bp
+Total no. gaps (-): 666
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+Ornithorhynchus: Right block 696-699 deleted ('GGA')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 0
+Total '-' characters in fully missing partitions: 659
+Combined total: 659
+
+Ornithorhynchus: partition 5 (675–701, length 27) fully missing (all '-')
+caiman: partition 0 (0–141, length 142) fully missing (all '-')
+caretta: partition 0 (0–141, length 142) fully missing (all '-')
+caretta: partition 1 (143–187, length 45) fully missing (all '-')
+caretta: partition 4 (653–673, length 21) fully missing (all '-')
+caretta: partition 5 (675–701, length 27) fully missing (all '-')
+phrynops: partition 3 (445–651, length 207) fully missing (all '-')
+phrynops: partition 4 (653–673, length 21) fully missing (all '-')
+phrynops: partition 5 (675–701, length 27) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: balanced (partitioning_round=6)
+Columns with '#' inserted: [142, 188, 444, 652, 674]
+
+--- Summary after preprocessing ---
+No. sequences: 12
+No. columns: 702
+No. pound sign columns (#): 5
+Total no. nucleotides (A/C/G/T): 7699 bp
+Total no. gaps (-): 665
+Total no. IUPAC N: 0
+Total no. missing values (?): 659
+
+--- Run time ---
+Wall-clock time: 0.03613114 seconds
+CPU time: 0.03629500 seconds

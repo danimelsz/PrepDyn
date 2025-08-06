@@ -1,0 +1,100 @@
+--- Command used ---
+prepDyn(input_file='./test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='./test_data/empirical/empirical2_Chiari/4_conservative/round4/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25.0, del_inv=True, internal_column_ranges='all', internal_leaves='all', partitioning_method='conservative', partitioning_round=4)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 14
+No. columns: 1899
+Total no. nucleotides (A/C/G/T only): 23376 bp
+Total no. gaps (-): 3210
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 1897, 1898]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 252
+Total '-' characters in fully missing partitions: 2451
+Combined total: 2703
+
+chelonoidis_nigra: partition 27 (1651–1717, length 67) fully missing (all '-')
+chelonoidis_nigra: partition 28 (1719–1726, length 8) fully missing (all '-')
+chelonoidis_nigra: partition 29 (1728–1763, length 36) fully missing (all '-')
+chelonoidis_nigra: partition 30 (1765–1770, length 6) fully missing (all '-')
+chelonoidis_nigra: partition 31 (1772–1777, length 6) fully missing (all '-')
+chelonoidis_nigra: partition 32 (1779–1788, length 10) fully missing (all '-')
+chelonoidis_nigra: partition 33 (1790–1821, length 32) fully missing (all '-')
+chelonoidis_nigra: partition 34 (1823–1834, length 12) fully missing (all '-')
+chelonoidis_nigra: partition 35 (1836–1865, length 30) fully missing (all '-')
+chelonoidis_nigra: partition 36 (1867–1879, length 13) fully missing (all '-')
+chelonoidis_nigra: partition 37 (1881–1918, length 38) fully missing (all '-')
+chelonoidis_nigra: partition 38 (1920–1928, length 9) fully missing (all '-')
+chelonoidis_nigra: partition 39 (1930–1933, length 4) fully missing (all '-')
+emys_orbicularis: partition 0 (0–42, length 43) fully missing (all '-')
+emys_orbicularis: partition 1 (44–49, length 6) fully missing (all '-')
+emys_orbicularis: partition 2 (51–77, length 27) fully missing (all '-')
+emys_orbicularis: partition 3 (79–138, length 60) fully missing (all '-')
+emys_orbicularis: partition 4 (140–163, length 24) fully missing (all '-')
+emys_orbicularis: partition 5 (165–173, length 9) fully missing (all '-')
+emys_orbicularis: partition 10 (851–872, length 22) fully missing (all '-')
+emys_orbicularis: partition 11 (874–944, length 71) fully missing (all '-')
+emys_orbicularis: partition 12 (946–963, length 18) fully missing (all '-')
+emys_orbicularis: partition 13 (965–1006, length 42) fully missing (all '-')
+emys_orbicularis: partition 14 (1008–1016, length 9) fully missing (all '-')
+emys_orbicularis: partition 15 (1018–1080, length 63) fully missing (all '-')
+emys_orbicularis: partition 16 (1082–1093, length 12) fully missing (all '-')
+emys_orbicularis: partition 17 (1095–1103, length 9) fully missing (all '-')
+emys_orbicularis: partition 18 (1105–1230, length 126) fully missing (all '-')
+emys_orbicularis: partition 19 (1232–1255, length 24) fully missing (all '-')
+emys_orbicularis: partition 20 (1257–1271, length 15) fully missing (all '-')
+emys_orbicularis: partition 21 (1273–1323, length 51) fully missing (all '-')
+emys_orbicularis: partition 22 (1325–1411, length 87) fully missing (all '-')
+emys_orbicularis: partition 23 (1413–1433, length 21) fully missing (all '-')
+emys_orbicularis: partition 24 (1435–1470, length 36) fully missing (all '-')
+emys_orbicularis: partition 25 (1472–1564, length 93) fully missing (all '-')
+emys_orbicularis: partition 26 (1566–1649, length 84) fully missing (all '-')
+emys_orbicularis: partition 27 (1651–1717, length 67) fully missing (all '-')
+emys_orbicularis: partition 28 (1719–1726, length 8) fully missing (all '-')
+emys_orbicularis: partition 29 (1728–1763, length 36) fully missing (all '-')
+emys_orbicularis: partition 30 (1765–1770, length 6) fully missing (all '-')
+emys_orbicularis: partition 31 (1772–1777, length 6) fully missing (all '-')
+emys_orbicularis: partition 32 (1779–1788, length 10) fully missing (all '-')
+emys_orbicularis: partition 33 (1790–1821, length 32) fully missing (all '-')
+emys_orbicularis: partition 34 (1823–1834, length 12) fully missing (all '-')
+emys_orbicularis: partition 35 (1836–1865, length 30) fully missing (all '-')
+emys_orbicularis: partition 36 (1867–1879, length 13) fully missing (all '-')
+emys_orbicularis: partition 37 (1881–1918, length 38) fully missing (all '-')
+emys_orbicularis: partition 38 (1920–1928, length 9) fully missing (all '-')
+emys_orbicularis: partition 39 (1930–1933, length 4) fully missing (all '-')
+podarcis: partition 0 (0–42, length 43) fully missing (all '-')
+podarcis: partition 1 (44–49, length 6) fully missing (all '-')
+podarcis: partition 2 (51–77, length 27) fully missing (all '-')
+podarcis: partition 3 (79–138, length 60) fully missing (all '-')
+podarcis: partition 4 (140–163, length 24) fully missing (all '-')
+podarcis: partition 5 (165–173, length 9) fully missing (all '-')
+podarcis: partition 6 (175–246, length 72) fully missing (all '-')
+podarcis: partition 7 (248–274, length 27) fully missing (all '-')
+podarcis: partition 8 (276–290, length 15) fully missing (all '-')
+podarcis: partition 9 (292–849, length 558) fully missing (all '-')
+podarcis: partition 10 (851–872, length 22) fully missing (all '-')
+podarcis: partition 35 (1836–1865, length 30) fully missing (all '-')
+podarcis: partition 36 (1867–1879, length 13) fully missing (all '-')
+podarcis: partition 37 (1881–1918, length 38) fully missing (all '-')
+podarcis: partition 38 (1920–1928, length 9) fully missing (all '-')
+podarcis: partition 39 (1930–1933, length 4) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=4)
+Columns with '#' inserted: [43, 50, 78, 139, 164, 174, 247, 275, 291, 850, 873, 945, 964, 1007, 1017, 1081, 1094, 1104, 1231, 1256, 1272, 1324, 1412, 1434, 1471, 1565, 1650, 1718, 1727, 1764, 1771, 1778, 1789, 1822, 1835, 1866, 1880, 1919, 1929]
+
+--- Summary after preprocessing ---
+No. sequences: 14
+No. columns: 1934
+No. pound sign columns (#): 39
+Total no. nucleotides (A/C/G/T): 23332 bp
+Total no. gaps (-): 2946
+Total no. IUPAC N: 0
+Total no. missing values (?): 2703
+
+--- Run time ---
+Wall-clock time: 0.08808780 seconds
+CPU time: 0.08762300 seconds

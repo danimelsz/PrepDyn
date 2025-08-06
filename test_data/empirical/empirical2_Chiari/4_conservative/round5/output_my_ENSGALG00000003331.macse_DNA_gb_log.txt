@@ -1,0 +1,162 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round5/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=5)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 12
+No. columns: 699
+Total no. nucleotides (A/C/G/T only): 7722 bp
+Total no. gaps (-): 666
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 2: Trimming (orphan nucleotides) ---
+Ornithorhynchus: Right block 696-699 deleted ('GGA')
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 16
+Total '-' characters in fully missing partitions: 643
+Combined total: 659
+
+Ornithorhynchus: partition 130 (801–803, length 3) fully missing (all '-')
+Ornithorhynchus: partition 131 (805–807, length 3) fully missing (all '-')
+Ornithorhynchus: partition 132 (809–811, length 3) fully missing (all '-')
+Ornithorhynchus: partition 133 (813–815, length 3) fully missing (all '-')
+Ornithorhynchus: partition 134 (817–819, length 3) fully missing (all '-')
+Ornithorhynchus: partition 135 (821–826, length 6) fully missing (all '-')
+Ornithorhynchus: partition 136 (828–830, length 3) fully missing (all '-')
+Ornithorhynchus: partition 137 (832–833, length 2) fully missing (all '-')
+caiman: partition 0 (0–10, length 11) fully missing (all '-')
+caiman: partition 1 (12–14, length 3) fully missing (all '-')
+caiman: partition 2 (16–18, length 3) fully missing (all '-')
+caiman: partition 3 (20–22, length 3) fully missing (all '-')
+caiman: partition 4 (24–35, length 12) fully missing (all '-')
+caiman: partition 5 (37–42, length 6) fully missing (all '-')
+caiman: partition 6 (44–49, length 6) fully missing (all '-')
+caiman: partition 7 (51–59, length 9) fully missing (all '-')
+caiman: partition 8 (61–63, length 3) fully missing (all '-')
+caiman: partition 9 (65–67, length 3) fully missing (all '-')
+caiman: partition 10 (69–72, length 4) fully missing (all '-')
+caiman: partition 11 (74–89, length 16) fully missing (all '-')
+caiman: partition 12 (91–94, length 4) fully missing (all '-')
+caiman: partition 13 (96–98, length 3) fully missing (all '-')
+caiman: partition 14 (100–105, length 6) fully missing (all '-')
+caiman: partition 15 (107–113, length 7) fully missing (all '-')
+caiman: partition 16 (115–121, length 7) fully missing (all '-')
+caiman: partition 17 (123–129, length 7) fully missing (all '-')
+caiman: partition 18 (131–133, length 3) fully missing (all '-')
+caiman: partition 19 (135–137, length 3) fully missing (all '-')
+caiman: partition 20 (139–141, length 3) fully missing (all '-')
+caiman: partition 21 (143–147, length 5) fully missing (all '-')
+caiman: partition 22 (149–154, length 6) fully missing (all '-')
+caiman: partition 23 (156–159, length 4) fully missing (all '-')
+caiman: partition 24 (161–163, length 3) fully missing (all '-')
+caretta: partition 0 (0–10, length 11) fully missing (all '-')
+caretta: partition 1 (12–14, length 3) fully missing (all '-')
+caretta: partition 2 (16–18, length 3) fully missing (all '-')
+caretta: partition 3 (20–22, length 3) fully missing (all '-')
+caretta: partition 4 (24–35, length 12) fully missing (all '-')
+caretta: partition 5 (37–42, length 6) fully missing (all '-')
+caretta: partition 6 (44–49, length 6) fully missing (all '-')
+caretta: partition 7 (51–59, length 9) fully missing (all '-')
+caretta: partition 8 (61–63, length 3) fully missing (all '-')
+caretta: partition 9 (65–67, length 3) fully missing (all '-')
+caretta: partition 10 (69–72, length 4) fully missing (all '-')
+caretta: partition 11 (74–89, length 16) fully missing (all '-')
+caretta: partition 12 (91–94, length 4) fully missing (all '-')
+caretta: partition 13 (96–98, length 3) fully missing (all '-')
+caretta: partition 14 (100–105, length 6) fully missing (all '-')
+caretta: partition 15 (107–113, length 7) fully missing (all '-')
+caretta: partition 16 (115–121, length 7) fully missing (all '-')
+caretta: partition 17 (123–129, length 7) fully missing (all '-')
+caretta: partition 18 (131–133, length 3) fully missing (all '-')
+caretta: partition 19 (135–137, length 3) fully missing (all '-')
+caretta: partition 20 (139–141, length 3) fully missing (all '-')
+caretta: partition 21 (143–147, length 5) fully missing (all '-')
+caretta: partition 22 (149–154, length 6) fully missing (all '-')
+caretta: partition 23 (156–159, length 4) fully missing (all '-')
+caretta: partition 24 (161–163, length 3) fully missing (all '-')
+caretta: partition 25 (165–170, length 6) fully missing (all '-')
+caretta: partition 26 (172–177, length 6) fully missing (all '-')
+caretta: partition 27 (179–181, length 3) fully missing (all '-')
+caretta: partition 28 (183–191, length 9) fully missing (all '-')
+caretta: partition 29 (193–195, length 3) fully missing (all '-')
+caretta: partition 30 (197–199, length 3) fully missing (all '-')
+caretta: partition 31 (201–203, length 3) fully missing (all '-')
+caretta: partition 32 (205–207, length 3) fully missing (all '-')
+caretta: partition 33 (209–214, length 6) fully missing (all '-')
+caretta: partition 34 (216–218, length 3) fully missing (all '-')
+caretta: partition 129 (788–799, length 12) fully missing (all '-')
+caretta: partition 130 (801–803, length 3) fully missing (all '-')
+caretta: partition 131 (805–807, length 3) fully missing (all '-')
+caretta: partition 132 (809–811, length 3) fully missing (all '-')
+caretta: partition 133 (813–815, length 3) fully missing (all '-')
+caretta: partition 134 (817–819, length 3) fully missing (all '-')
+caretta: partition 135 (821–826, length 6) fully missing (all '-')
+caretta: partition 136 (828–830, length 3) fully missing (all '-')
+caretta: partition 137 (832–833, length 2) fully missing (all '-')
+phrynops: partition 91 (534–536, length 3) fully missing (all '-')
+phrynops: partition 92 (538–540, length 3) fully missing (all '-')
+phrynops: partition 93 (542–550, length 9) fully missing (all '-')
+phrynops: partition 94 (552–554, length 3) fully missing (all '-')
+phrynops: partition 95 (556–561, length 6) fully missing (all '-')
+phrynops: partition 96 (563–568, length 6) fully missing (all '-')
+phrynops: partition 97 (570–575, length 6) fully missing (all '-')
+phrynops: partition 98 (577–579, length 3) fully missing (all '-')
+phrynops: partition 99 (581–583, length 3) fully missing (all '-')
+phrynops: partition 100 (585–587, length 3) fully missing (all '-')
+phrynops: partition 101 (589–591, length 3) fully missing (all '-')
+phrynops: partition 102 (593–598, length 6) fully missing (all '-')
+phrynops: partition 103 (600–604, length 5) fully missing (all '-')
+phrynops: partition 104 (606–610, length 5) fully missing (all '-')
+phrynops: partition 105 (612–616, length 5) fully missing (all '-')
+phrynops: partition 106 (618–620, length 3) fully missing (all '-')
+phrynops: partition 107 (622–624, length 3) fully missing (all '-')
+phrynops: partition 108 (626–633, length 8) fully missing (all '-')
+phrynops: partition 109 (635–638, length 4) fully missing (all '-')
+phrynops: partition 110 (640–642, length 3) fully missing (all '-')
+phrynops: partition 111 (644–646, length 3) fully missing (all '-')
+phrynops: partition 112 (648–656, length 9) fully missing (all '-')
+phrynops: partition 113 (658–660, length 3) fully missing (all '-')
+phrynops: partition 114 (662–667, length 6) fully missing (all '-')
+phrynops: partition 115 (669–671, length 3) fully missing (all '-')
+phrynops: partition 116 (673–681, length 9) fully missing (all '-')
+phrynops: partition 117 (683–691, length 9) fully missing (all '-')
+phrynops: partition 118 (693–695, length 3) fully missing (all '-')
+phrynops: partition 119 (697–708, length 12) fully missing (all '-')
+phrynops: partition 120 (710–712, length 3) fully missing (all '-')
+phrynops: partition 121 (714–716, length 3) fully missing (all '-')
+phrynops: partition 122 (718–720, length 3) fully missing (all '-')
+phrynops: partition 123 (722–724, length 3) fully missing (all '-')
+phrynops: partition 124 (726–728, length 3) fully missing (all '-')
+phrynops: partition 125 (730–747, length 18) fully missing (all '-')
+phrynops: partition 126 (749–757, length 9) fully missing (all '-')
+phrynops: partition 127 (759–761, length 3) fully missing (all '-')
+phrynops: partition 128 (763–786, length 24) fully missing (all '-')
+phrynops: partition 129 (788–799, length 12) fully missing (all '-')
+phrynops: partition 130 (801–803, length 3) fully missing (all '-')
+phrynops: partition 131 (805–807, length 3) fully missing (all '-')
+phrynops: partition 132 (809–811, length 3) fully missing (all '-')
+phrynops: partition 133 (813–815, length 3) fully missing (all '-')
+phrynops: partition 134 (817–819, length 3) fully missing (all '-')
+phrynops: partition 135 (821–826, length 6) fully missing (all '-')
+phrynops: partition 136 (828–830, length 3) fully missing (all '-')
+phrynops: partition 137 (832–833, length 2) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=5)
+Columns with '#' inserted: [11, 15, 19, 23, 36, 43, 50, 60, 64, 68, 73, 90, 95, 99, 106, 114, 122, 130, 134, 138, 142, 148, 155, 160, 164, 171, 178, 182, 192, 196, 200, 204, 208, 215, 219, 223, 227, 231, 235, 239, 249, 253, 260, 267, 271, 275, 279, 286, 296, 300, 307, 311, 317, 322, 328, 335, 343, 347, 351, 355, 362, 366, 373, 383, 387, 391, 395, 399, 403, 407, 411, 415, 419, 426, 433, 437, 444, 448, 452, 465, 469, 485, 492, 497, 503, 508, 514, 518, 522, 529, 533, 537, 541, 551, 555, 562, 569, 576, 580, 584, 588, 592, 599, 605, 611, 617, 621, 625, 634, 639, 643, 647, 657, 661, 668, 672, 682, 692, 696, 709, 713, 717, 721, 725, 729, 748, 758, 762, 787, 800, 804, 808, 812, 816, 820, 827, 831]
+
+--- Summary after preprocessing ---
+No. sequences: 12
+No. columns: 834
+No. pound sign columns (#): 137
+Total no. nucleotides (A/C/G/T): 7699 bp
+Total no. gaps (-): 649
+Total no. IUPAC N: 0
+Total no. missing values (?): 659
+
+--- Run time ---
+Wall-clock time: 0.03631902 seconds
+CPU time: 0.03594900 seconds

@@ -1,0 +1,46 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round5/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=5)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 9
+No. columns: 705
+Total no. nucleotides (A/C/G/T only): 5988 bp
+Total no. gaps (-): 357
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 46
+Total '-' characters in fully missing partitions: 307
+Combined total: 353
+
+Anolis: partition 22 (548–574, length 27) fully missing (all '-')
+Anolis: partition 23 (576–593, length 18) fully missing (all '-')
+Anolis: partition 24 (595–636, length 42) fully missing (all '-')
+Anolis: partition 25 (638–668, length 31) fully missing (all '-')
+Anolis: partition 26 (670–728, length 59) fully missing (all '-')
+Ornithorhynchus: partition 0 (0–2, length 3) fully missing (all '-')
+caiman: partition 0 (0–2, length 3) fully missing (all '-')
+caiman: partition 1 (4–85, length 82) fully missing (all '-')
+caiman: partition 2 (87–91, length 5) fully missing (all '-')
+caiman: partition 3 (93–97, length 5) fully missing (all '-')
+caiman: partition 4 (99–130, length 32) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=5)
+Columns with '#' inserted: [3, 86, 92, 98, 131, 154, 166, 202, 230, 246, 256, 297, 332, 365, 372, 433, 446, 453, 475, 491, 539, 547, 575, 594, 637, 669]
+
+--- Summary after preprocessing ---
+No. sequences: 9
+No. columns: 729
+No. pound sign columns (#): 26
+Total no. nucleotides (A/C/G/T): 5974 bp
+Total no. gaps (-): 307
+Total no. IUPAC N: 0
+Total no. missing values (?): 353
+
+--- Run time ---
+Wall-clock time: 0.02289605 seconds
+CPU time: 0.02260700 seconds

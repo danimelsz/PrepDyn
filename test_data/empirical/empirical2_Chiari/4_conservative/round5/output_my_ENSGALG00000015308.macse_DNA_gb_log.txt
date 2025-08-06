@@ -1,0 +1,53 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round5/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=5)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 12
+No. columns: 678
+Total no. nucleotides (A/C/G/T only): 7500 bp
+Total no. gaps (-): 636
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 65
+Total '-' characters in fully missing partitions: 567
+Combined total: 632
+
+caiman: partition 0 (0–7, length 8) fully missing (all '-')
+caiman: partition 1 (9–31, length 23) fully missing (all '-')
+caiman: partition 2 (33–91, length 59) fully missing (all '-')
+caiman: partition 3 (93–119, length 27) fully missing (all '-')
+podarcis: partition 0 (0–7, length 8) fully missing (all '-')
+podarcis: partition 1 (9–31, length 23) fully missing (all '-')
+podarcis: partition 2 (33–91, length 59) fully missing (all '-')
+protopterus: partition 11 (327–334, length 8) fully missing (all '-')
+protopterus: partition 12 (336–375, length 40) fully missing (all '-')
+protopterus: partition 13 (377–388, length 12) fully missing (all '-')
+protopterus: partition 14 (390–422, length 33) fully missing (all '-')
+protopterus: partition 15 (424–450, length 27) fully missing (all '-')
+protopterus: partition 16 (452–486, length 35) fully missing (all '-')
+protopterus: partition 17 (488–587, length 100) fully missing (all '-')
+protopterus: partition 18 (589–608, length 20) fully missing (all '-')
+protopterus: partition 19 (610–628, length 19) fully missing (all '-')
+protopterus: partition 20 (630–647, length 18) fully missing (all '-')
+protopterus: partition 21 (649–696, length 48) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=5)
+Columns with '#' inserted: [8, 32, 92, 120, 173, 194, 232, 259, 275, 310, 326, 335, 376, 389, 423, 451, 487, 588, 609, 629, 648]
+
+--- Summary after preprocessing ---
+No. sequences: 12
+No. columns: 697
+No. pound sign columns (#): 21
+Total no. nucleotides (A/C/G/T): 7480 bp
+Total no. gaps (-): 567
+Total no. IUPAC N: 0
+Total no. missing values (?): 632
+
+--- Run time ---
+Wall-clock time: 0.02746892 seconds
+CPU time: 0.02712600 seconds

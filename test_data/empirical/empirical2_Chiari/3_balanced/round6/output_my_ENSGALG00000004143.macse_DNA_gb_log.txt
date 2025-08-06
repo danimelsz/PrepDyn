@@ -1,0 +1,35 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/3_balanced/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='balanced', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 13
+No. columns: 657
+Total no. nucleotides (A/C/G/T only): 8278 bp
+Total no. gaps (-): 261
+Total no. IUPAC N: 2
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 2, 3, 4, 651, 652, 653, 654, 655, 656]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 233
+Total '-' characters in fully missing partitions: 0
+Combined total: 233
+
+
+
+--- Step 4: Partitioning ---
+WARNING: 'balanced' partitioning with partitioning_round=6 was skipped for this alignment. This typically happens when the alignment has fewer blocks of missing data ('?') than required. The process will continue without partitioning this file.
+
+--- Summary after preprocessing ---
+No. sequences: 13
+No. columns: 646
+No. pound sign columns (#): 0
+Total no. nucleotides (A/C/G/T): 8157 bp
+Total no. gaps (-): 6
+Total no. IUPAC N: 2
+Total no. missing values (?): 233
+
+--- Run time ---
+Wall-clock time: 0.03158927 seconds
+CPU time: 0.03032500 seconds

@@ -1,0 +1,65 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round5/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=5)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 9
+No. columns: 528
+Total no. nucleotides (A/C/G/T only): 4599 bp
+Total no. gaps (-): 153
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 16
+Total '-' characters in fully missing partitions: 126
+Combined total: 142
+
+Ornithorhynchus: partition 0 (0–8, length 9) fully missing (all '-')
+Ornithorhynchus: partition 1 (10–13, length 4) fully missing (all '-')
+Ornithorhynchus: partition 2 (15–17, length 3) fully missing (all '-')
+Ornithorhynchus: partition 3 (19–24, length 6) fully missing (all '-')
+Ornithorhynchus: partition 4 (26–27, length 2) fully missing (all '-')
+Ornithorhynchus: partition 5 (29–32, length 4) fully missing (all '-')
+Ornithorhynchus: partition 6 (34–35, length 2) fully missing (all '-')
+Ornithorhynchus: partition 7 (37–40, length 4) fully missing (all '-')
+Ornithorhynchus: partition 8 (42–44, length 3) fully missing (all '-')
+Ornithorhynchus: partition 9 (46–48, length 3) fully missing (all '-')
+Ornithorhynchus: partition 10 (50–54, length 5) fully missing (all '-')
+Ornithorhynchus: partition 11 (56–59, length 4) fully missing (all '-')
+Ornithorhynchus: partition 12 (61–73, length 13) fully missing (all '-')
+Ornithorhynchus: partition 13 (75–79, length 5) fully missing (all '-')
+Ornithorhynchus: partition 14 (81–82, length 2) fully missing (all '-')
+Taeniopygia: partition 0 (0–8, length 9) fully missing (all '-')
+Taeniopygia: partition 1 (10–13, length 4) fully missing (all '-')
+Taeniopygia: partition 2 (15–17, length 3) fully missing (all '-')
+Taeniopygia: partition 3 (19–24, length 6) fully missing (all '-')
+Taeniopygia: partition 4 (26–27, length 2) fully missing (all '-')
+Taeniopygia: partition 5 (29–32, length 4) fully missing (all '-')
+Taeniopygia: partition 6 (34–35, length 2) fully missing (all '-')
+Taeniopygia: partition 7 (37–40, length 4) fully missing (all '-')
+Taeniopygia: partition 8 (42–44, length 3) fully missing (all '-')
+Taeniopygia: partition 9 (46–48, length 3) fully missing (all '-')
+Taeniopygia: partition 10 (50–54, length 5) fully missing (all '-')
+Taeniopygia: partition 11 (56–59, length 4) fully missing (all '-')
+caiman: partition 139 (658–661, length 4) fully missing (all '-')
+caiman: partition 140 (663–664, length 2) fully missing (all '-')
+caiman: partition 141 (666–667, length 2) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=5)
+Columns with '#' inserted: [9, 14, 18, 25, 28, 33, 36, 41, 45, 49, 55, 60, 74, 80, 83, 99, 104, 123, 126, 130, 134, 138, 142, 146, 151, 157, 161, 165, 169, 173, 178, 182, 185, 189, 195, 200, 204, 209, 212, 216, 220, 224, 228, 233, 239, 244, 247, 252, 258, 262, 267, 270, 281, 284, 288, 293, 296, 301, 304, 309, 313, 316, 320, 324, 329, 336, 340, 346, 351, 357, 365, 369, 375, 379, 383, 388, 391, 396, 400, 404, 409, 416, 421, 425, 429, 434, 438, 441, 445, 449, 453, 457, 461, 469, 472, 477, 480, 484, 488, 492, 503, 506, 511, 514, 518, 524, 527, 531, 535, 538, 542, 546, 550, 555, 558, 563, 567, 570, 575, 579, 582, 587, 591, 594, 598, 602, 607, 610, 614, 620, 625, 629, 633, 637, 642, 646, 650, 653, 657, 662, 665]
+
+--- Summary after preprocessing ---
+No. sequences: 9
+No. columns: 668
+No. pound sign columns (#): 141
+Total no. nucleotides (A/C/G/T): 4592 bp
+Total no. gaps (-): 135
+Total no. IUPAC N: 0
+Total no. missing values (?): 142
+
+--- Run time ---
+Wall-clock time: 0.02292705 seconds
+CPU time: 0.02196700 seconds

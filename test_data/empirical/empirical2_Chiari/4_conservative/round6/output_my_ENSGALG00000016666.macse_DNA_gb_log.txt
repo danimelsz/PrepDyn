@@ -1,0 +1,83 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 13
+No. columns: 654
+Total no. nucleotides (A/C/G/T only): 8106 bp
+Total no. gaps (-): 396
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1, 2, 3]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 31
+Total '-' characters in fully missing partitions: 243
+Combined total: 274
+
+Ornithorhynchus: partition 92 (621–623, length 3) fully missing (all '-')
+Ornithorhynchus: partition 93 (625–626, length 2) fully missing (all '-')
+Ornithorhynchus: partition 94 (628–630, length 3) fully missing (all '-')
+Ornithorhynchus: partition 95 (632–635, length 4) fully missing (all '-')
+Ornithorhynchus: partition 96 (637–638, length 2) fully missing (all '-')
+Ornithorhynchus: partition 97 (640–642, length 3) fully missing (all '-')
+Ornithorhynchus: partition 98 (644–646, length 3) fully missing (all '-')
+Ornithorhynchus: partition 99 (648–650, length 3) fully missing (all '-')
+Ornithorhynchus: partition 100 (652–654, length 3) fully missing (all '-')
+Ornithorhynchus: partition 101 (656–658, length 3) fully missing (all '-')
+Ornithorhynchus: partition 102 (660–662, length 3) fully missing (all '-')
+Ornithorhynchus: partition 103 (664–669, length 6) fully missing (all '-')
+Ornithorhynchus: partition 104 (671–673, length 3) fully missing (all '-')
+Ornithorhynchus: partition 105 (675–678, length 4) fully missing (all '-')
+Ornithorhynchus: partition 106 (680–682, length 3) fully missing (all '-')
+Ornithorhynchus: partition 107 (684–685, length 2) fully missing (all '-')
+Ornithorhynchus: partition 108 (687–690, length 4) fully missing (all '-')
+Ornithorhynchus: partition 109 (692–693, length 2) fully missing (all '-')
+Ornithorhynchus: partition 110 (695–700, length 6) fully missing (all '-')
+Ornithorhynchus: partition 111 (702–704, length 3) fully missing (all '-')
+Ornithorhynchus: partition 112 (706–711, length 6) fully missing (all '-')
+Ornithorhynchus: partition 113 (713–718, length 6) fully missing (all '-')
+Ornithorhynchus: partition 114 (720–722, length 3) fully missing (all '-')
+Ornithorhynchus: partition 115 (724–729, length 6) fully missing (all '-')
+Ornithorhynchus: partition 116 (731–742, length 12) fully missing (all '-')
+Ornithorhynchus: partition 117 (744–746, length 3) fully missing (all '-')
+Ornithorhynchus: partition 118 (748–753, length 6) fully missing (all '-')
+Ornithorhynchus: partition 119 (755–757, length 3) fully missing (all '-')
+Ornithorhynchus: partition 120 (759–765, length 7) fully missing (all '-')
+Ornithorhynchus: partition 121 (767–770, length 4) fully missing (all '-')
+caiman: partition 0 (0–15, length 16) fully missing (all '-')
+caiman: partition 1 (17–18, length 2) fully missing (all '-')
+caiman: partition 2 (20–25, length 6) fully missing (all '-')
+caiman: partition 3 (27–36, length 10) fully missing (all '-')
+caiman: partition 4 (38–42, length 5) fully missing (all '-')
+caretta: partition 114 (720–722, length 3) fully missing (all '-')
+caretta: partition 115 (724–729, length 6) fully missing (all '-')
+caretta: partition 116 (731–742, length 12) fully missing (all '-')
+caretta: partition 117 (744–746, length 3) fully missing (all '-')
+caretta: partition 118 (748–753, length 6) fully missing (all '-')
+caretta: partition 119 (755–757, length 3) fully missing (all '-')
+caretta: partition 120 (759–765, length 7) fully missing (all '-')
+caretta: partition 121 (767–770, length 4) fully missing (all '-')
+podarcis: partition 0 (0–15, length 16) fully missing (all '-')
+podarcis: partition 1 (17–18, length 2) fully missing (all '-')
+podarcis: partition 2 (20–25, length 6) fully missing (all '-')
+podarcis: partition 3 (27–36, length 10) fully missing (all '-')
+podarcis: partition 4 (38–42, length 5) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=6)
+Columns with '#' inserted: [16, 19, 26, 37, 43, 72, 78, 85, 90, 96, 101, 105, 108, 112, 119, 123, 127, 132, 137, 146, 149, 154, 188, 197, 309, 314, 318, 321, 325, 329, 333, 337, 341, 345, 349, 355, 360, 364, 368, 372, 376, 381, 384, 388, 392, 397, 401, 404, 409, 412, 426, 432, 436, 440, 445, 448, 452, 456, 460, 465, 468, 475, 479, 483, 493, 497, 504, 508, 512, 516, 520, 524, 528, 533, 536, 540, 545, 551, 557, 568, 573, 576, 580, 584, 588, 593, 596, 600, 604, 612, 615, 620, 624, 627, 631, 636, 639, 643, 647, 651, 655, 659, 663, 670, 674, 679, 683, 686, 691, 694, 701, 705, 712, 719, 723, 730, 743, 747, 754, 758, 766]
+
+--- Summary after preprocessing ---
+No. sequences: 13
+No. columns: 771
+No. pound sign columns (#): 121
+Total no. nucleotides (A/C/G/T): 8062 bp
+Total no. gaps (-): 357
+Total no. IUPAC N: 0
+Total no. missing values (?): 274
+
+--- Run time ---
+Wall-clock time: 0.03517699 seconds
+CPU time: 0.03431900 seconds

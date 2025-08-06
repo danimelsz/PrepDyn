@@ -1,0 +1,42 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/5_equal/round6/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='equal', partitioning_round=6)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 10
+No. columns: 867
+Total no. nucleotides (A/C/G/T only): 7593 bp
+Total no. gaps (-): 1077
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 204
+Total '-' characters in fully missing partitions: 869
+Combined total: 1073
+
+alligator: partition 4 (496–618, length 123) fully missing (all '-')
+alligator: partition 5 (620–742, length 123) fully missing (all '-')
+alligator: partition 6 (744–870, length 127) fully missing (all '-')
+caretta: partition 0 (0–122, length 123) fully missing (all '-')
+caretta: partition 1 (124–246, length 123) fully missing (all '-')
+caretta: partition 2 (248–370, length 123) fully missing (all '-')
+python: partition 6 (744–870, length 127) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: equal
+Columns with '#' inserted: [123, 247, 371, 495, 619, 743]
+
+--- Summary after preprocessing ---
+No. sequences: 10
+No. columns: 871
+No. pound sign columns (#): 6
+Total no. nucleotides (A/C/G/T): 7577 bp
+Total no. gaps (-): 869
+Total no. IUPAC N: 0
+Total no. missing values (?): 1073
+
+--- Run time ---
+Wall-clock time: 0.02578211 seconds
+CPU time: 0.02575100 seconds

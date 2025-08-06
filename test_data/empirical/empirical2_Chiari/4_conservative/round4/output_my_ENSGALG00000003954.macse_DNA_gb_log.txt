@@ -1,0 +1,37 @@
+--- Command used ---
+prepDyn(input_file='./test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='./test_data/empirical/empirical2_Chiari/4_conservative/round4/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25.0, del_inv=True, internal_column_ranges='all', internal_leaves='all', partitioning_method='conservative', partitioning_round=4)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 14
+No. columns: 528
+Total no. nucleotides (A/C/G/T only): 7380 bp
+Total no. gaps (-): 12
+Total no. IUPAC N: 0
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 4
+Total '-' characters in fully missing partitions: 6
+Combined total: 10
+
+protopterus: partition 0 (0–1, length 2) fully missing (all '-')
+protopterus: partition 1 (3–6, length 4) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=4)
+Columns with '#' inserted: [2, 7, 13, 17, 21, 25, 29, 34, 38, 41, 45, 49, 53, 57, 61, 66, 69, 74, 77, 81, 85, 89, 93, 97, 101, 105, 109, 114, 117, 121, 126, 129, 133, 137, 141, 146, 149, 155, 160, 164, 168, 172, 176, 180, 184, 188, 192, 196, 201, 204, 208, 212, 217, 220, 224, 228, 232, 237, 240, 244, 248, 252, 256, 260, 264, 268, 272, 276, 280, 284, 288, 292, 296, 300, 304, 308, 312, 317, 320, 324, 328, 333, 336, 340, 345, 348, 352, 356, 361, 364, 368, 372, 376, 380, 384, 388, 392, 396, 400, 404, 408, 412, 416, 420, 424, 428, 432, 436, 440, 445, 448, 452, 456, 460, 464, 468, 472, 476, 480, 486, 491, 496, 499, 505, 512, 518, 521, 526, 529, 533, 537, 541, 545, 549, 555, 560, 564, 571, 575, 582, 586, 591, 594, 598, 603, 606, 611, 614, 618, 622, 626, 632, 639, 644, 648, 654, 659, 663, 667, 671, 675, 679, 683, 687]
+
+--- Summary after preprocessing ---
+No. sequences: 14
+No. columns: 690
+No. pound sign columns (#): 164
+Total no. nucleotides (A/C/G/T): 7354 bp
+Total no. gaps (-): 6
+Total no. IUPAC N: 0
+Total no. missing values (?): 10
+
+--- Run time ---
+Wall-clock time: 0.03040481 seconds
+CPU time: 0.03034200 seconds

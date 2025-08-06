@@ -1,0 +1,69 @@
+--- Command used ---
+prepDyn(input_file='../test_data/empirical/empirical2_Chiari/1_noPreprocessing', input_format='fasta', MSA=False, output_file='../test_data/empirical/empirical2_Chiari/4_conservative/round5/output', output_format='fasta', log=True, sequence_names=True, orphan_method='semi', orphan_threshold=6, percentile=25, del_inv=True, internal_leaves='all', partitioning_method='conservative', partitioning_round=5)
+
+--- Step 1: Summary before preprocessing ---
+No. sequences: 15
+No. columns: 606
+Total no. nucleotides (A/C/G/T only): 8921 bp
+Total no. gaps (-): 168
+Total no. IUPAC N: 1
+
+--- Step 2: Trimming (invariant columns) ---
+[0, 1]
+
+--- Step 3: Missing data identification (gaps replaced with '?') ---
+Total '?' characters: 11
+Total '-' characters in fully missing partitions: 151
+Combined total: 162
+
+Ornithorhynchus: partition 0 (0–4, length 5) fully missing (all '-')
+Ornithorhynchus: partition 1 (6–8, length 3) fully missing (all '-')
+Ornithorhynchus: partition 2 (10–12, length 3) fully missing (all '-')
+Ornithorhynchus: partition 3 (14–18, length 5) fully missing (all '-')
+Ornithorhynchus: partition 4 (20–23, length 4) fully missing (all '-')
+Ornithorhynchus: partition 5 (25–28, length 4) fully missing (all '-')
+Ornithorhynchus: partition 6 (30–34, length 5) fully missing (all '-')
+Taeniopygia: partition 0 (0–4, length 5) fully missing (all '-')
+Taeniopygia: partition 1 (6–8, length 3) fully missing (all '-')
+Taeniopygia: partition 2 (10–12, length 3) fully missing (all '-')
+Taeniopygia: partition 3 (14–18, length 5) fully missing (all '-')
+Taeniopygia: partition 4 (20–23, length 4) fully missing (all '-')
+Taeniopygia: partition 5 (25–28, length 4) fully missing (all '-')
+Taeniopygia: partition 6 (30–34, length 5) fully missing (all '-')
+caretta: partition 127 (705–707, length 3) fully missing (all '-')
+caretta: partition 128 (709–713, length 5) fully missing (all '-')
+caretta: partition 129 (715–720, length 6) fully missing (all '-')
+caretta: partition 130 (722–728, length 7) fully missing (all '-')
+caretta: partition 131 (730–734, length 5) fully missing (all '-')
+emys_orbicularis: partition 0 (0–4, length 5) fully missing (all '-')
+emys_orbicularis: partition 1 (6–8, length 3) fully missing (all '-')
+emys_orbicularis: partition 2 (10–12, length 3) fully missing (all '-')
+emys_orbicularis: partition 3 (14–18, length 5) fully missing (all '-')
+emys_orbicularis: partition 4 (20–23, length 4) fully missing (all '-')
+emys_orbicularis: partition 5 (25–28, length 4) fully missing (all '-')
+emys_orbicularis: partition 6 (30–34, length 5) fully missing (all '-')
+phrynops: partition 124 (690–692, length 3) fully missing (all '-')
+phrynops: partition 125 (694–699, length 6) fully missing (all '-')
+phrynops: partition 126 (701–703, length 3) fully missing (all '-')
+phrynops: partition 127 (705–707, length 3) fully missing (all '-')
+phrynops: partition 128 (709–713, length 5) fully missing (all '-')
+phrynops: partition 129 (715–720, length 6) fully missing (all '-')
+phrynops: partition 130 (722–728, length 7) fully missing (all '-')
+phrynops: partition 131 (730–734, length 5) fully missing (all '-')
+
+--- Step 4: Partitioning ---
+Method used: conservative (partitioning_round=5)
+Columns with '#' inserted: [5, 9, 13, 19, 24, 29, 35, 45, 55, 59, 68, 73, 77, 81, 85, 89, 99, 103, 107, 111, 118, 128, 138, 142, 146, 153, 159, 164, 168, 172, 176, 180, 184, 188, 194, 199, 203, 207, 211, 215, 219, 223, 227, 235, 239, 248, 252, 273, 278, 282, 286, 290, 297, 301, 308, 312, 316, 328, 333, 337, 352, 357, 364, 377, 381, 385, 389, 393, 398, 404, 411, 415, 422, 426, 430, 434, 438, 442, 449, 453, 460, 464, 477, 484, 488, 492, 496, 503, 513, 520, 524, 528, 534, 539, 543, 547, 551, 555, 561, 566, 570, 574, 578, 585, 592, 596, 602, 607, 611, 615, 619, 626, 633, 640, 644, 648, 652, 657, 663, 667, 671, 675, 679, 689, 693, 700, 704, 708, 714, 721, 729]
+
+--- Summary after preprocessing ---
+No. sequences: 15
+No. columns: 735
+No. pound sign columns (#): 131
+Total no. nucleotides (A/C/G/T): 8897 bp
+Total no. gaps (-): 151
+Total no. IUPAC N: 1
+Total no. missing values (?): 162
+
+--- Run time ---
+Wall-clock time: 0.04422975 seconds
+CPU time: 0.04136800 seconds
