@@ -61,8 +61,8 @@ A summary of parameters used in prepDyn.py:
 | `output_format`          | `str`                 | `"fasta"`    | Format for the output alignment.                                                  |
 | `log`                    | `bool`                | `False`      | Write a detailed log file.                                                        |
 | `sequence_names`         | `bool`                | `True`       | Write a file with all unique sequence names.                                      |
-| `orphan_method`          | `str`                 | `None`       | Method to trim orphan nucleotides: `'auto'`, `'semi'`, or `None`.                 |
-| `orphan_threshold`       | `int`                 | `10`         | Manual length threshold for `orphan_method='semi'`.                               |
+| `orphan_method`          | `str`                 | `None`       | Method to trim orphan nucleotides: `'percentile'`, `'integer'`, or `None`.                 |
+| `orphan_threshold`       | `int`                 | `10`         | Manual length threshold for `orphan_method='integer'`.                               |
 | `percentile`             | `float`               | `25`         | Percentile for `orphan_method='auto'`.                                            |
 | `del_inv`                | `bool`                | `True`       | Trim invariant columns from alignment ends.                                       |
 | `internal_method`        | `str`                 | `None`       | Method to replace internal gaps with `?`: `'manual'`, `'semi'`, or `None`.        |

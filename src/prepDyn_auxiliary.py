@@ -2032,10 +2032,10 @@ def prepDyn(input_file=None,
         MSA (bool): Whether to perform MSA if input sequences specified in input_file are unaligned
         orphan_method (str): The trimming method. By default, trimming orphan nucleotides
                              is not performed. Options:
-                            - 'auto': trim using the 25th percentile;
-                            - 'semi': trim with a manual threshold.
-        orphan_threshold (int): Threshold used to trim orphan nucleotides if orphan_method = 'semi'.
-        percentile (float): Used with orphan_method = 'auto' to define trimming threshold.
+                            - 'percentile': trim using the 25th percentile;
+                            - 'integer': trim with a manual threshold.
+        orphan_threshold (int): Threshold used to trim orphan nucleotides if orphan_method = 'integer'.
+        percentile (float): Used with orphan_method = 'percentile' to define trimming threshold.
         del_inv (bool): Whether to trim invariant terminal columns. Default is True.
         internal_method (str): Defines how to identify internal missing data. Automatic identificaton
                                of missing data is made if GB_input is provided. Otherwise, naive
@@ -2306,7 +2306,7 @@ def prepDyn(input_file=None,
                 alignment, orphan_log = delete_orphan_nucleotides2(alignment, orphan_threshold, log_changes=True)
             else:
                 alignment = delete_orphan_nucleotides2(alignment, orphan_threshold)
-        elif orphan_method == "semi":
+        elif orphan_method == "integer":
             if log:
                 alignment, orphan_log = delete_orphan_nucleotides2(alignment, orphan_threshold, log_changes=True)
             else:

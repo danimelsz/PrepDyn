@@ -139,7 +139,7 @@ Examples:
   python prepDyn.py -gb accessions.csv -o output
 
   # Given a FASTA alignment, identify terminal missing data and delete orphan nucleotides of length < 10.
-  python prepDyn.py -i aln.fasta -o output -om semi -ot 10
+  python prepDyn.py -i aln.fasta -o output -om integer -ot 10
 
   # Given a FASTA alignment with hDNA sequences in sp1 and sp4, replace IUPAC N with ?
   python prepDyn.py -i aln.fasta -o output -n2q sp1,sp4
@@ -158,9 +158,9 @@ Examples:
     parser.add_argument("-s", "--sequence_names", default=True, type=str2bool, help="Write sequence names. Useful to manage taxon sampling in POY/PhyG.")
 
     # Trimming
-    parser.add_argument("-om", "--orphan_method", help="Method to trim orphan nucleotides. Options: 'none' (default), 'auto' (define a threshold using percentile), 'semi' (define a threshold using an integer)", choices=["auto", "semi"], default=None)
-    parser.add_argument("-ot", "--orphan_threshold", type=int, help="Threshold integer if orphan_method='semi' (default: 10)", default=10)
-    parser.add_argument("-op", "--percentile", type=float, help="Percentile of gap lengths to define the orphan threshold if orphan_method='auto' (default: 25).", default=25.0)
+    parser.add_argument("-om", "--orphan_method", help="Method to trim orphan nucleotides. Options: 'none' (default), 'percentile' (define a threshold using percentile), 'integer' (define a threshold using an integer)", choices=["integer", "percentile"], default=None)
+    parser.add_argument("-ot", "--orphan_threshold", type=int, help="Threshold integer if orphan_method='integer' (default: 10)", default=10)
+    parser.add_argument("-op", "--percentile", type=float, help="Percentile of gap lengths to define the orphan threshold if orphan_method='percentile' (default: 25).", default=25.0)
     parser.add_argument("-di", "--del_inv", default=True, type=str2bool, help="Trim invariant terminal columns (default: True)")
 
     # Missing data
